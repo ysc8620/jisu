@@ -82,7 +82,7 @@ class createAction extends baseAction{
 			$this->assign($channel);
 			//目录路径并生成
 			$listdir = str_replace('{!page!}',$Url[$key]['page'],js_list_url_dir(getsidname($sid),$Url[$key]['id'],$Url[$key]['page']));
-			$this->buildHtml($listdir,'./','Home:'.$channel['list_skin']);	
+			$this->buildHtml($listdir,'./','home:'.$channel['list_skin']);
 			//预览路径
 			$showurl = C('sitepath').$listdir.C('html_file_suffix');
 			echo'<li>第<font color=red>'.($key+1).'</font>个生成完毕　<a href="'.$showurl.'" target="_blank">'.$showurl.'</a></li>';
@@ -456,7 +456,7 @@ class createAction extends baseAction{
 		foreach($list_dir as $key=>$value){
 			if(ereg("my_(.*)\.html",$value['filename'])){
 				C('html_file_suffix',$suffix);
-				$this->buildHtml(str_replace(array('my_','.html'),'',$value['filename']),'./'.C('url_mytpl'),'Home:'.str_replace('.html','',$value['filename']));
+				$this->buildHtml(str_replace(array('my_','.html'),'',$value['filename']),'./'.C('url_mytpl'),'home:'.str_replace('.html','',$value['filename']));
 			}
 		}
 		if ($jump) {
@@ -488,7 +488,7 @@ class createAction extends baseAction{
 			//生成文件		
 			$htmldir = str_replace('{!page!}',$i,js_special_url_dir($i));
 			$htmlurl = C('sitepath').$htmldir.C('html_file_suffix');
-			$this->buildHtml($htmldir,'./','Home:'.$channel['special_skin']);	
+			$this->buildHtml($htmldir,'./','home:'.$channel['special_skin']);
 			echo'<li>第<font color=blue>'.$i.'</font>页生成完毕　<a href="'.$htmlurl.'" target="_blank">'.$htmlurl.'</a></li>';
 			ob_flush();flush();			
 		}

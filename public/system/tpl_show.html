@@ -12,7 +12,7 @@
 <notempty name="dirlast"> 
   <tbody>  
   <tr class="firstalt">
-  <td colspan="5" class="r pd"><img src="__PUBLIC__/images/file/last.gif"> <a href="?s=admin-tpl/show-id-{$dirlast}">上级目录</a> 当前目录: {$dirpath}</td>
+  <td colspan="5" class="r pd"><img src="__PUBLIC__/images/file/last.gif"> <a href="?s=admin-tpl-show-id-{$dirlast}">上级目录</a> 当前目录: {$dirpath}</td>
   </tr>
   </tbody>
 </notempty>
@@ -20,11 +20,11 @@
   <eq name="ppvod.isDir" value="1">
   <tbody> 
   <tr>
-  	<td class="l pd"><img src="__PUBLIC__/images/file/folder.gif" width="16" height="16"><a href="?s=admin-tpl/show-id-{$ppvod.pathfile}"> {$ppvod.filename}</a></td>
+  	<td class="l pd"><img src="__PUBLIC__/images/file/folder.gif" width="16" height="16"><a href="?s=admin-tpl-show-id-{$ppvod.pathfile}"> {$ppvod.filename}</a></td>
     <td class="l ct">文件夹</td>
     <td class="l ct">{:byte_format(getdirsize($ppvod['path'].'/'.$ppvod['filename']))}</td>
     <td class="l ct">{$ppvod.mtime|getcolordate='Y-m-d H:i:s',###}</td>
-    <td class="r ct"><a href="?s=admin-tpl/show-id-{$ppvod.pathfile}">下级目录</a></td>
+    <td class="r ct"><a href="?s=admin-tpl-show-id-{$ppvod.pathfile}">下级目录</a></td>
   </tr>
   </tbody>
   <else />

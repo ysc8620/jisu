@@ -13,7 +13,7 @@ class tplAction extends baseAction{
 		foreach($list_dir as $key=>$value){
 			$list_dir[$key]['pathfile'] = admin_js_url_repalce($value['path'],'desc').'|'.$value['filename'];
 		}
-		$_SESSION['tpl_jumpurl'] = '?s=admin-tpl/show-id-'.admin_js_url_repalce($dirpath,'desc');
+		$_SESSION['tpl_jumpurl'] = '?s=admin-tpl-show-id-'.admin_js_url_repalce($dirpath,'desc');
 		if($dirlast && $dirlast != '.'){
 			$this->assign('dirlast',admin_js_url_repalce($dirlast,'desc'));
 		}		

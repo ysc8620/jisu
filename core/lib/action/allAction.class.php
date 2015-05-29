@@ -58,11 +58,11 @@ class allAction extends Action{
 		$array['vod_hits_week'] = js_get_hits('vod','vod_hits_week',$array);
 		$array['vod_hits_day'] = js_get_hits('vod','vod_hits_day',$array);
 		if($array['vod_skin']){
-			$array['vod_skin_detail'] = 'Home:'.trim($array['vod_skin']);
-			$array['vod_skin_play'] = 'Home:'.trim($array['vod_skin']).'_play';
+			$array['vod_skin_detail'] = 'home:'.trim($array['vod_skin']);
+			$array['vod_skin_play'] = 'home:'.trim($array['vod_skin']).'_play';
 		}else{
-			$array['vod_skin_detail'] = !empty($array_list['list_skin_detail']) ? 'Home:'.$array_list['list_skin_detail'] : 'home:pp_vod';
-			$array['vod_skin_play'] = !empty($array_list['list_skin_play']) ? 'Home:'.$array_list['list_skin_play'] : 'home:pp_play';
+			$array['vod_skin_detail'] = !empty($array_list['list_skin_detail']) ? 'home:'.$array_list['list_skin_detail'] : 'home:pp_vod';
+			$array['vod_skin_play'] = !empty($array_list['list_skin_play']) ? 'home:'.$array_list['list_skin_play'] : 'home:pp_play';
 		}
 		//播放列表解析
 		$array['vod_playlist'] = $this->js_playlist_all($array);
@@ -183,9 +183,9 @@ class allAction extends Action{
 		$array['news_hits_week'] = js_get_hits('news','news_hits_week',$array);
 		$array['news_hits_day'] = js_get_hits('news','news_hits_day',$array);
 		if($array['news_skin']){
-			$array['news_skin_detail'] = 'Home:'.trim($array['news_skin']);
+			$array['news_skin_detail'] = 'home:'.trim($array['news_skin']);
 		}else{
-			$array['news_skin_detail'] = !empty($array_list['list_skin_detail']) ? 'Home:'.$array_list['list_skin_detail'] : 'home:pp_news';
+			$array['news_skin_detail'] = !empty($array_list['list_skin_detail']) ? 'home:'.$array_list['list_skin_detail'] : 'home:pp_news';
 		}		
 		$arrays['show'] = $array_list[0];
 		$arrays['read'] = $array;		
@@ -215,7 +215,7 @@ class allAction extends Action{
 		$array['special_hits_month'] = js_get_hits('special','special_hits_month',$array);
 		$array['special_hits_week'] = js_get_hits('special','special_hits_week',$array);
 		$array['special_hits_day'] = js_get_hits('special','special_hits_day',$array);
-		$array['special_skin'] = !empty($array['special_skin']) ? 'Home:'.$array['special_skin'] : 'home:pp_special';
+		$array['special_skin'] = !empty($array['special_skin']) ? 'home:'.$array['special_skin'] : 'home:pp_special';
 		$array['title'] = $array['special_name'].'-专题-'.C('site_name');
 		$array['sid'] = 3;
 		//收录影视
