@@ -1,7 +1,7 @@
 <?php
 class installAction extends Action{	
     public function _initialize() {
-		if(is_file('./runtime/Install/install.lock')){
+		if(is_file('./runtime/install/install.lock')){
 			$this->assign("waitSecond",60);
 			$this->error('Sorry，您已经安装了极速PHP影视系统 V'.C('jsvod_version').' 版<br />重新安装请先删除 runtime/install/install.lock 文件。');
 		}

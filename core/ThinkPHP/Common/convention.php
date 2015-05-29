@@ -46,8 +46,8 @@ return  array(
 
     /* 默认设定 */
     'DEFAULT_APP'           => '@',     // 默认项目名称，@表示当前项目
-    'DEFAULT_GROUP'         => 'Home',  // 默认分组
-    'DEFAULT_MODULE'        => 'Index', // 默认模块名称
+    'DEFAULT_GROUP'         => 'home',  // 默认分组
+    'DEFAULT_MODULE'        => 'index', // 默认模块名称
     'DEFAULT_ACTION'        => 'index', // 默认操作名称
     'DEFAULT_CHARSET'       => 'utf-8', // 默认输出编码
     'DEFAULT_TIMEZONE'      => 'PRC',	// 默认时区

@@ -3,7 +3,7 @@
         <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('admin','index','nav'))">style="display:block"</if>>
             <dt>系统工具</dt>
             <dd <if condition="$sys_action_name eq 'config'"> class="active"</if>> <a href="?s=admin-admin-config">网站信息配置</a></dd>
-            <dd <if condition="$sys_action_name eq 'index'"> class="active"</if>><a href="?s=admin-index-Index">系统运行环境</a></dd>
+            <dd <if condition="$sys_action_name eq 'index'"> class="active"</if>><a href="?s=admin-index-index">系统运行环境</a></dd>
             <dd <if condition="$sys_action_name eq 'show'"> class="active"</if>><a href="?s=admin-nav-show">快捷菜单设置</a></dd>
             <volist name="array_nav" id="ppvod">
                 <dd><a href="{$ppvod}">{$key}</a></dd>

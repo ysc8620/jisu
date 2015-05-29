@@ -1,6 +1,6 @@
 <script language="javascript">
 var reloadcode = function(){
-	$('#safecode').attr('src','{$root}index.php?s=Vcode-Index-time='+new Date());
+	$('#safecode').attr('src','{$root}index.php?s=vcode-index-time='+new Date());
 }
 $(document).ready(function(){
 	$('#gb_content').focus(function(){
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		}
 	});	
 	$('#gb_vcode').focus(function(){
-		$('#gb_vcode_html').html('<a href="javascript:reloadcode()"><img src="{$root}index.php?s=Vcode-Index" alt="看不清楚换一张" name="safecode" border="0" align="absbottom" id="safecode"></a>');
+		$('#gb_vcode_html').html('<a href="javascript:reloadcode()"><img src="{$root}index.php?s=vcode-index" alt="看不清楚换一张" name="safecode" border="0" align="absbottom" id="safecode"></a>');
 	});
 	$("#guestbook").submit( function () {
 		if($('#gb_content').val().length>200){

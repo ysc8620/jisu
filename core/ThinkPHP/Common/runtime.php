@@ -86,7 +86,7 @@ if (!function_exists('build_action'))
     function build_action()
     {
         $content = file_get_contents(THINK_PATH.'/Tpl/'.(defined('BUILD_MODE')?BUILD_MODE:'AutoIndex').'.tpl.php');
-        file_put_contents(LIB_PATH.'Action/IndexAction.class.php',$content);
+        file_put_contents(LIB_PATH.'action/indexAction.class.php',$content);
     }
 }
 

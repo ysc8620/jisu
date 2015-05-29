@@ -619,35 +619,35 @@ function UU($model,$params,$redirect=false,$suffix=false){
 		if($params['p'] != '{!page!}'){
 			$params['p'] = 1;
 		}
-		if($model == 'Home-vod/show'){
+		if($model == 'home-vod/show'){
 			$reurl = str_replace(array('$id','$page'),array($params['id'],$params['p']),C('rewrite_vodlist'));
-		}elseif($model == 'Home-vod/read'){
+		}elseif($model == 'home-vod/read'){
 			$reurl = str_replace('$id',$params['id'],C('rewrite_voddetail'));
-		}elseif($model == 'Home-vod/play'){
+		}elseif($model == 'home-vod/play'){
 			$reurl = str_replace(array('$id','$sid','$pid'),array($params['id'],$params['sid'],$params['pid']),C('rewrite_vodplay'));
-		}elseif($model == 'Home-vod/search'){
+		}elseif($model == 'home-vod/search'){
 			$reurl = str_replace(array('$wd','$page','$actor','$director','$order'),array($params['wd'],$params['p'],$params['actor'],$params['director'],$params['order']),C('rewrite_vodsearch'));
-		}elseif($model == 'Home-vod/type'){
+		}elseif($model == 'home-vod/type'){
 			$reurl = str_replace(array('$id','$page','$wd','$area','$language','$actor','$director','$year','$letter','$order'),array($params['id'],$params['p'],$params['wd'],$params['area'],$params['language'],$params['actor'],$params['director'],$params['year'],$params['letter'],$params['order']),C('rewrite_vodtype'));
-		}elseif($model == 'Home-tag/vod'){
+		}elseif($model == 'home-tag/vod'){
 			$reurl = str_replace(array('$wd','$page'),array($params['wd'],$params['p']),C('rewrite_vodtag'));
-		}elseif($model == 'Home-news/show'){
+		}elseif($model == 'home-news/show'){
 			$reurl = str_replace(array('$id','$page'),array($params['id'],$params['p']),C('rewrite_newslist'));
-		}elseif($model == 'Home-news/read'){
+		}elseif($model == 'home-news/read'){
 			$reurl = str_replace('$id',$params['id'],C('rewrite_newsdetail'));
-		}elseif($model == 'Home-news/search'){
+		}elseif($model == 'home-news/search'){
 			$reurl = str_replace(array('$wd','$page'),array($params['wd'],$params['p']),C('rewrite_newssearch'));
-		}elseif($model == 'Home-tag/news'){
+		}elseif($model == 'home-tag/news'){
 			$reurl = str_replace(array('$wd','$page'),array($params['wd'],$params['p']),C('rewrite_newstag'));
-		}elseif($model == 'Home-special/show'){
+		}elseif($model == 'home-special/show'){
 			$reurl = str_replace('$page',$params['p'],C('rewrite_specialshow'));
-		}elseif($model == 'Home-special/read'){
+		}elseif($model == 'home-special/read'){
 			$reurl = str_replace('$id',$params['id'],C('rewrite_specialdetail'));
-		}elseif($model == 'Home-gb/show'){
+		}elseif($model == 'home-gb/show'){
 			$reurl = str_replace(array('$id','$page'),array($params['id'],$params['p']),C('rewrite_guestbook'));
-		}elseif($model == 'Home-my/show'){
+		}elseif($model == 'home-my/show'){
 			$reurl = str_replace('$id',$params['id'],C('rewrite_mytpl'));
-		}elseif($model == 'Home-map/show'){
+		}elseif($model == 'home-map/show'){
 			$reurl = str_replace(array('$id','$limit'),array($params['id'],$params['limit']),C('rewrite_map'));
 		}
 		//伪静态规则设置正确
@@ -658,7 +658,7 @@ function UU($model,$params,$redirect=false,$suffix=false){
 		}
 	}
 	//TP框架默认生成的路径
-	$reurl = str_replace('Home-','',str_replace('index.php?s=/','index.php?s=',U($model,$params,$redirect,$suffix)));
+	$reurl = str_replace('home-','',str_replace('index.php?s=/','index.php?s=',U($model,$params,$redirect,$suffix)));
 	//不是静态模式则去掉index.php
 	if(!C('url_html')){
 		return str_replace('index.php','',$reurl);

@@ -310,9 +310,9 @@ function __autoload($name) {
         return;
     // 自动加载当前项目的Actioon类和Model类
     if (substr($name, -5) == "Model") {
-        require_cache(LIB_PATH . 'Model/' . $name . '.class.php');
+        require_cache(LIB_PATH . 'model/' . $name . '.class.php');
     } elseif (substr($name, -6) == "Action") {
-        require_cache(LIB_PATH . 'Action/' . $name . '.class.php');
+        require_cache(LIB_PATH . 'action/' . $name . '.class.php');
     } else {
         // 根据自动加载路径设置进行尝试搜索
         if (C('APP_AUTOLOAD_PATH')) {
