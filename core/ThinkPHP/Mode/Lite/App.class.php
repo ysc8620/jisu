@@ -147,7 +147,7 @@ class App
             // URL地址不区分大小写
             define('P_MODULE_NAME',strtolower($module));
             // 智能识别方式 index.php/user_type/index/ 识别到 UserTypeAction 模块
-            $module = ucfirst(parse_name(strtolower($module),1));
+            $module = (parse_name(strtolower($module),1));
         }
         unset($_POST[$var],$_GET[$var]);
         return $module;
