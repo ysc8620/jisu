@@ -385,6 +385,7 @@ function import($class, $baseUrl = '', $ext='.class.php') {
             //加载当前项目应用类库
             $baseUrl = dirname(LIB_PATH);
             $class = substr_replace($class, 'core/', 0, strlen($class_strut[0]) + 1);
+            print $baseUrl . $class;
         } elseif (in_array(strtolower($class_strut[0]), array('think', 'org', 'com'))) {
             //加载ThinkPHP基类库或者公共类库
             // think 官方基类库 org 第三方公共类库 com 企业公共类库
