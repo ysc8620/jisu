@@ -397,7 +397,7 @@ function import($class, $baseUrl = '', $ext='.class.php') {
     }
     if (substr($baseUrl, -1) != "/")
         $baseUrl .= "/";
-    $classfile = $baseUrl . $class . $ext;echo $baseUrl .'=='. $class  .'=='. $ext."<br/>";
+    $classfile = $baseUrl . $class . $ext;
     if ($ext == '.class.php' && is_file($classfile)) {
         // 冲突检测
         $class = basename($classfile, $ext);
@@ -538,7 +538,7 @@ function A($name, $app='@') {
         $array = explode('.', $name);
         $name = array_pop($array);
         $className = $name . 'Action';
-        import($app . '.Action.' . implode('.', $array) . '.' . $className);
+        import($app . '.action.' . implode('.', $array) . '.' . $className);
     } else {
         $className = $name . 'Action';
         import($app . '.Action.' . $className);
