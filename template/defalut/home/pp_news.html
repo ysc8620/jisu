@@ -5,7 +5,7 @@
 <title>{$title}</title>
 <meta name="keywords" content="{$news_name}">
 <meta name="description" content="{$news_remark}">
-<include file="Home:home_header" />
+<include file="home:home_header" />
 </head>
 <body>
 <php>$gold_desc = js_mysql_news('limit:15;order:news_up desc');</php>
@@ -22,7 +22,7 @@
     	<span class="gray">本文仅代表作者观点，与{$sitename}立场无关。</span>
     </div>
     <div class="digg">
-        <include file="Home:home_news_updown" />
+        <include file="home:home_news_updown" />
     </div>
     <div class="comment"><a href="comment"></a>
     	<div class="h1">网友评论:</div>

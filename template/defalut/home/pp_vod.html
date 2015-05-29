@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<include file="Home:home_vod_title_detail" />
-<include file="Home:home_header" />
+<include file="home:home_vod_title_detail" />
+<include file="home:home_header" />
 </head>
 <body>
 <div class="wrap">
@@ -20,7 +20,7 @@
           <p class="w">影片导演：<notempty name="vod_director">{$vod_director|js_search_url}<else />未录入</notempty></p>
           <p class="w">出产地区：<span>{$vod_area|default='未知'}</span>上映时间：{$vod_year|default='未录入'}</p>
           <p class="w">对白语言：<span>{$vod_language|default='未知'}</span>更新时间：{$vod_addtime|date='Y-m-d',###}</p>
-          <p class="up">请您打分：<include file="Home:home_vod_updown" /></p>
+          <p class="up">请您打分：<include file="home:home_vod_updown" /></p>
           <p class="k">关键字：<fflist name="Tag" id="ffvod"><a href="{$ffvod.tag_name|js_tag_url}">{$ffvod.tag_name}</a>&nbsp;</fflist></p>
         </div>
         <div class="vod_r">{:getadsurl('vod300')}</div>
