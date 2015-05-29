@@ -64,7 +64,7 @@ class newsAction extends baseAction{
 		$this->assign('list',$list);
 		$this->assign('list_news',F('_ppvod/listnews'));
 		if($admin['tid']){
-			$this->display('./public/system/special_news.html');
+			$this->display('./public/system/special_news.html','','text/html',true);
 		}else{
 	    	$this->display('./public/system/news_show.html');
 		}

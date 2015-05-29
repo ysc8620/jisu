@@ -209,7 +209,7 @@ class specialAction extends baseAction{
 			$this->assign('min_oid',$minoid);
 			$this->assign('list_vod',$list);
 			$this->assign('count',count($list));
-			$this->display('./public/system/special_vod_ids.html');
+			$this->display('./public/system/special_vod_ids.html','','text/html',true);
 		}		
 	}
 	// 展示该专题已收录的资讯列表
@@ -230,7 +230,7 @@ class specialAction extends baseAction{
 			$this->assign('min_oid',$minoid);
 			$this->assign('list_news',$list);
 			$this->assign('count',count($list));
-			$this->display('./public/system/special_news_ids.html');
+			$this->display('./public/system/special_news_ids.html','','text/html',true);
 		}
 	}
 	// Ajax设置星级

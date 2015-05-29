@@ -87,7 +87,7 @@ class vodAction extends baseAction{
 		$this->assign('list',$list);
 		$this->assign('list_vod',F('_ppvod/listvod'));
 		if($admin['tid']){
-			$this->display('./public/system/special_vod.html');
+			$this->display('./public/system/special_vod.html','','text/html',true);
 		}else{
 	    	$this->display('./public/system/vod_show.html');
 		}
