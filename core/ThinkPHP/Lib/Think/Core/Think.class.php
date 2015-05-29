@@ -73,9 +73,9 @@ class Think
         if(alias_import($classname)) return ;
         // 自动加载当前项目的Actioon类和Model类
         if(substr($classname,-5)=="Model") {
-            require_cache(LIB_PATH.'Model/'.$classname.'.class.php');
+            require_cache(LIB_PATH.'model/'.$classname.'.class.php');
         }elseif(substr($classname,-6)=="Action"){
-            require_cache(LIB_PATH.'Action/'.$classname.'.class.php');
+            require_cache(LIB_PATH.'action/'.$classname.'.class.php');
         }else {
             // 根据自动加载路径设置进行尝试搜索
             if(C('APP_AUTOLOAD_PATH')) {
