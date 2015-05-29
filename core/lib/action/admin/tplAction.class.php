@@ -75,7 +75,7 @@ class tplAction extends baseAction{
 		if (!empty($_SESSION['tpl_jumpurl'])) {
 			$this->assign("jumpUrl",$_SESSION['tpl_jumpurl']);
 		}else{
-			$this->assign("jumpUrl",'?s=admin/tpl/show');
+			$this->assign("jumpUrl",'?s=admin-tpl-show');
 		}
 		$this->success('恭喜您，模板更新成功！');
 	}
@@ -89,7 +89,7 @@ class tplAction extends baseAction{
 		if (!empty($_SESSION['tpl_jumpurl'])) {
 			$this->assign("jumpUrl",$_SESSION['tpl_jumpurl']);
 		}else{
-			$this->assign("jumpUrl",'?s=admin/tpl/show');
+			$this->assign("jumpUrl",'?s=admin-tpl-show');
 		}
 		$this->success('删除文件成功！');
     }				

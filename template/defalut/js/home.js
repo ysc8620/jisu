@@ -179,7 +179,7 @@ var FF = {
 				dataType:'json',
 				success:function($string){
 					if($string.status == 1){
-						FF.Comment.Show(Root+"index.php?s=Cm-Show-sid-"+Sid+"-id-"+Id+"-p-1");
+						FF.Comment.Show(Root+"index.php?s=cm-show-sid-"+Sid+"-id-"+Id+"-p-1");
 					}
 					$('#comment_tips').html($string.info);
 				}
@@ -506,11 +506,11 @@ $(document).ready(function(){
 	//历史记录
 	FF.History.List('history');
 	//影视顶踩初始化
-	FF.UpDown.Vod(Root+'index.php?s=Updown-'+FF.Home.Channel+'-id-'+Id);
+	FF.UpDown.Vod(Root+'index.php?s=updown-'+FF.Home.Channel+'-id-'+Id);
 	//新闻顶踩初始化
-	FF.UpDown.News(Root+'index.php?s=Updown-'+FF.Home.Channel+'-id-'+Id);	
+	FF.UpDown.News(Root+'index.php?s=updown-'+FF.Home.Channel+'-id-'+Id);
 	//评论初始化
-	FF.Comment.Show(Root+"index.php?s=Cm-Show-sid-"+Sid+"-id-"+Id+"-p-1");
+	FF.Comment.Show(Root+"index.php?s=cm-show-sid-"+Sid+"-id-"+Id+"-p-1");
 	//积分初始化
-	FF.Gold.Default(Root+'index.php?s=Gold-'+FF.Home.Channel+'-id-'+Id);	
+	FF.Gold.Default(Root+'index.php?s=gold-'+FF.Home.Channel+'-id-'+Id);
 });
