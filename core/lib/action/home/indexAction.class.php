@@ -1,7 +1,6 @@
 <?php
 class indexAction extends homeAction{
     public function index(){
-        die('ok');
 		if (!is_file('./runtime/install/install.lock')) {
 			$this->assign("jumpUrl",'index.php?s=admin-install');
 			$this->error('您还没安装本程序，请运行 install.php 进入安装!');
