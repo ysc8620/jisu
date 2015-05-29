@@ -274,7 +274,6 @@ class App
         if(!$module) {
             // 是否存在扩展模块
             $_module = C('_modules_.'.MODULE_NAME);
-            print_r($_module);
             if($_module) {
                 // 'module'=>array('classImportPath'[,'className'])
                 import($_module[0]);
