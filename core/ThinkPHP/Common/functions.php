@@ -397,7 +397,7 @@ function import($class, $baseUrl = '', $ext='.class.php') {
     }
     if (substr($baseUrl, -1) != "/")
         $baseUrl .= "/";
-    $classfile = $baseUrl . $class . $ext;echo $classfile."<br/>";
+    $classfile = $baseUrl . $class . $ext;echo $baseUrl .'=='. $class  .'=='. $ext."<br/>";
     if ($ext == '.class.php' && is_file($classfile)) {
         // 冲突检测
         $class = basename($classfile, $ext);
