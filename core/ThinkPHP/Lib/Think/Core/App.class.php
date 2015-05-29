@@ -270,10 +270,10 @@ class App
         }
         //创建Action控制器实例
         $group =  defined('GROUP_NAME') ? GROUP_NAME.C('APP_GROUP_DEPR') : '';
-        $module  =  A($group.MODULE_NAME);
+        $module  =  A($group.MODULE_NAME);echo $module.'--';
         if(!$module) {
             // 是否存在扩展模块
-            $_module = C('_modules_.'.MODULE_NAME);
+            $_module = C('_modules_.'.MODULE_NAME);echo $_module.'++';
             if($_module) {
                 // 'module'=>array('classImportPath'[,'className'])
                 import($_module[0]);
