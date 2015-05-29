@@ -174,7 +174,7 @@ class vodAction extends baseAction{
 			}else{
 				$id = $rs->add();
 			}
-			$rs->$vod_id = $id;
+			$rs->vod_id = $id;
 		}else{
 		    $this->error($rs->getError());
 		}
@@ -182,7 +182,7 @@ class vodAction extends baseAction{
 	// 数据库写入-后置操作
 	public function _after_insert(){
 		$rs = D("Vod");
-		$vod_id = $rs->$vod_id;
+		$vod_id = $rs->vod_id;
 		if($vod_id){
 			cookie('vod_cid',$vod_id);
 			$this->_after_add_update($vod_id);
@@ -203,7 +203,7 @@ class vodAction extends baseAction{
 					$tag->tag_update($_POST["vod_id"],$_POST["vod_keywords"],1);
 				}
 				//后置操作条件
-				$rs->$vod_id = $_POST["vod_id"];
+				$rs->vod_id = $_POST["vod_id"];
 			}else{
 				$this->error("修改影片信息失败！");
 			}
@@ -214,7 +214,7 @@ class vodAction extends baseAction{
 	// 后置操作
 	public function _after_update(){
 		$rs = D("Vod");
-		$vod_id = $rs->$vod_id;
+		$vod_id = $rs->vod_id;
 		if($vod_id){
 			$this->_after_add_update($vod_id);
 			$this->assign("jumpUrl",$_SESSION['vod_jumpurl']);
@@ -285,7 +285,7 @@ class vodAction extends baseAction{
 		$rs = D("Vod");
 		$where['vod_id'] = $id;
 		$array = $rs->field('vod_id,vod_cid,vod_pic,vod_name')->where($where)->find();
-		@unlink(js_img_url($arr['vod_pic']));
+		@unlink(js_img_url($array['vod_pic']));
 		if(C('url_html') > 0){	
 			@unlink(js_data_url_dir('vod',$array['vod_id'],$array['vod_cid'],$array['vod_name'],1).C('html_file_suffix'));
 			@unlink(js_play_url_dir($array['vod_id'],0,1,$array['vod_cid'],$array['vod_name']).C('html_file_suffix'));
