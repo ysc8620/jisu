@@ -1,0 +1,92 @@
+<h4>{$tpltitle}栏目分类   <em> >></em> <a href="?s=admin-list-show" >返回栏目管理</a></h4>
+<script language="javascript">
+function changeid(){
+	var $pidval = $('#list_pid').val();
+	if($pidval == 0){
+		var $tplname = '_channel';
+	}else{
+		var $tplname = '_list';
+	}
+	var $midval = $('#list_sid').val();
+	if($midval == 1){
+		$('#list_skin').val('pp_vod'+$tplname);
+		showseo(1);
+	}else if($midval == 2){
+		$('#list_skin').val('pp_news'+$tplname);
+		showseo(1);
+	}else{
+		showseo(9);
+	}
+};
+function showseo($val){
+	if($val<3){
+		$('#listseo').css({display:''});
+		$('#listjumpurl').css({display:"none"});	
+	}else{
+		$('#listseo').css({display:"none"});
+		$('#listjumpurl').css({display:''});	
+	}
+}
+$(document).ready(function(){
+	$('#list_pid').change(function(){
+		changeid();
+	});
+	$('#list_sid').change(function(){
+		changeid();
+	});
+	$("#myform").submit(function(){
+		if($jisucms.form.empty('myform','list_name') == false){
+			return false;
+		}
+		if($jisucms.form.empty('myform','list_skin') == false){
+			return false;
+		}				
+	});
+	<notempty name="list_id">showseo({$list_sid});</notempty>
+});
+</script>
+<div class="fieldset">
+<dl class="fieldset">
+<gt name="list_id" value="0">
+<form action="?s=admin-list-update" method="post" name="myform" id="myform">
+<input type="hidden" name="list_id" id="list_id" value="{$list_id}">
+<else/>
+<form action="?s=admin-list-insert" method="post" name="myform" id="myform">
+</gt> 
+<dt>所属分类：</dt>
+<dd><select name="list_pid" id="list_pid" class="select w120"><option value="0">现有分类</option><volist name="list_tree" id="ppvod"><option value="{$ppvod.list_id}" <eq name="ppvod.list_id" value="$list_pid">selected</eq>>{$ppvod.list_name}</option></volist></select> * 不选择将成为一级分类</dd>
+<dt>所属模型与排序：</dt>
+<dd><select name="list_sid" id="list_sid" class="select w120"><option value="1" <eq name="list_sid" value="1">selected</eq>>视频模型 | vod</option><option value="2" <eq name="list_sid" value="2">selected</eq>>新闻模块 | news</option><option value="9" <eq name="list_sid" value="9">selected</eq>>外部链接 | url</option></select>&nbsp;</dd>
+<dt>栏目排序：</dt>
+<dd><input type="text" name="list_oid" id="list_oid" value="{$list_oid}" maxlength="3" class="text w120"><label>越小越前面</label></dd>
+<dt>栏目中文名称：</dt>
+<dd><input type="text" name="list_name" id="list_name" value="{$list_name}" maxlength="20" error="* 栏目名称不能为空!" class="text w120"><span id="list_name_error">*</span></dd>
+</ul>
+<dt>栏目英文别名：</dt>
+ <dd><input type="text" name="list_dir" id="list_dir" value="{$list_dir}" maxlength="40" class="text w120"><label>留空则自动转为拼音</label></dd>
+</ul>
+<dt>本栏目使用的模板名：</dt>
+ <dd><input type="text" name="list_skin" id="list_skin" value="{$list_skin|default='pp_vodlist'}" maxlength="40" error="* 使用模板名不能为空!" class="text w120"><label><a href="javascript:" class="min-button" onClick="list_skin.value='pp_vodchannel';">影视大类</a> <a href="javascript:" class="min-button" onClick="list_skin.value='pp_vodlist';">影视小类</a> <a href="javascript:" class="min-button" onClick="list_skin.value='pp_newschannel';">新闻大类</a> <a href="javascript:" class="min-button" onClick="list_skin.value='pp_newslist';">新闻小类</a></label><span id="list_skin_error"></span></dd>
+</ul>
+<dt>本栏目详情页模板名：</dt>
+ <dd><input type="text" name="list_skin_detail" id="list_skin_detail" value="{$list_skin_detail|default='pp_vod'}" maxlength="40" class="text w120"></dd>
+</ul>
+<dt>本栏目播放页模板名：</dt>
+ <dd><input type="text" name="list_skin_play" id="list_skin_play" value="{$list_skin_play|default='pp_play'}" maxlength="40" class="text w120"></dd>
+</ul>
+<dt>本栏目筛选页模板名：</dt>
+ <dd><input type="text" name="list_skin_type" id="list_skin_type" value="{$list_skin_type|default='pp_type'}" maxlength="40" class="text w120"></dd>
+<div id="listseo">
+<dt>栏目SEO标题：</dt>
+ <dd><input type="text" name="list_title" id="list_title" value="{$list_title}" maxlength="80" class="text w400">&nbsp;</dd>
+<dt>栏目SEO关键词：</dt>
+ <dd><input type="text" name="list_keywords" id="list_keywords" value="{$list_keywords}" maxlength="150" class="text w400">&nbsp;</dd>
+<dt>栏目SEO描述：</dt>
+ <dd><textarea name="list_description" class="text" id="list_description">{$list_description}</textarea></dd>
+</div>
+<dt>外部链接地址：</dt>
+ <dd><input type="text" name="list_jumpurl" id="list_jumpurl" value="{$list_jumpurl|default='http://'}" maxlength="150" class="text w400"><dt>
+<input type="submit" class="ui-button" name="submit" value="提交"> <input type="reset" class="ui-button" name="reset" value="重置"> <gt name="admin_id" value="0">注：不修改密码请留空</gt>
+</dl>
+</form>
+</div>

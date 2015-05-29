@@ -1,0 +1,40 @@
+<h4><a href="?s=admin-link-show">友情链接管理</a> <em>>> </em> {$tpltitle}友情链接</h4>
+<script language="javascript">
+$(document).ready(function(){
+	$("#myform").submit(function(){
+		if($jisucms.form.empty('myform','link_name') == false){
+			return false;
+		}
+		if($jisucms.form.empty('myform','link_url') == false){
+			return false;
+		}		
+	});
+});
+</script>
+<!--图片预览框-->
+<div id="showpic" class="showpic" style="display:none;"><img name="showpic_img" id="showpic_img" width="120" height="160"></div>
+<div class="fieldset">
+    <dl class="fieldset">
+	<gt name="link_id" value="0">
+    <form action="?s=admin-link-update" method="post" name="myform" id="myform">
+    <input type="hidden" name="link_id" value="{$link_id}">
+    <else/>
+    <form action="?s=admin-link-insert" method="post" name="myform" id="myform">
+    </gt>
+    <dt>网站名称：</dt>
+    	<dd><input type="text" name="link_name" id="link_name" value="{$link_name}" class="text w250" error="* 请填写网站名称!"><span id="link_name_error">*</span></dd>
+    <dt>链接地址：</dt>
+    	<dd><input type="text" name="link_url" id="link_url" value="{$link_url|default='http://'}" class="text w250" error="* 请填写链接地址!"><span id="link_url_error">*</span></dd>
+    <dt>Logo链接：</dt>
+    	<dd><input type="text" name="link_logo" id="link_logo" value="{$link_logo}" class="text w250" onMouseOver="if(this.value)showpic(event, this.value, '{&upload_path}/');" onMouseOut="hiddenpic();">&nbsp;</dd>
+        <dt>上传图片：</dt>
+        <dd><iframe src="?s=admin-upload-show-sid-link-fileback-link_logo" scrolling="no" width="350" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:5px"></iframe></dd>
+    <dt>连接排序：</dt>
+    	<dd><input type="text" name="link_order" id="link_order" value="{$link_order}" class="text w70">&nbsp;</dd>
+    <dt>连接类型：</dt>
+    	<dd><select name="link_type" class="select"><option value="1">文字链接</option><option value="2" <eq name="list_type" value="2">selected</eq>>图片链接</option></select>&nbsp;</dd>
+        <dt>&nbsp;</dt>
+    <dd><input type="submit" class="ui-button" name="submit" value="提交"> <input type="reset" class="ui-button" name="reset" value="重置"></dd>
+    </form>
+    </dl>
+</div>

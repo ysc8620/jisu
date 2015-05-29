@@ -1,0 +1,15 @@
+<h4>自定义快捷菜单</h4>
+<div class="fieldset">
+<div class="add">
+<form action="?s=admin-nav-update" method="post" name="myform" id="myform">
+<ul style="padding:10px 0px">
+ <textarea name="content" class="text" style="width:98%;height:320px"><volist name="array_nav" id="ppvod">{$key|htmlspecialchars}|{$ppvod|htmlspecialchars}<php>echo(chr(13));</php></volist></textarea>
+<label>自定义快捷菜单一行一个名称和链接用|分开</label>
+</ul>
+<ul class="footer"><input type="submit" class="ui-button" name="submit" value="提交"> <input type="reset" name="reset" class="ui-button" value="重置"></ul>
+</form>
+</div>
+<eq name="Think.get.reload" value="1">
+<script>window.parent.left.location.reload();</script>
+</eq>
+</div>

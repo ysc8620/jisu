@@ -1,0 +1,23 @@
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+  <thead>
+    <tr class="ct">
+      <th class="l">标签名称</th>
+      <th class="l" width="80">收录数量</th>
+      <th class="l" width="80">所属模型</th>
+      <th class="r" width="60">相关操作</th>
+    </tr>
+  </thead>
+  <volist name="list_tag" id="ppvod">
+  <tbody>
+  <tr>
+    <td class="l pd">{$ppvod.tag_name}</td>
+    <td class="l ct">{$ppvod.tag_count}条</td>
+    <td class="l ct">{$ppvod.tag_sid|getsidname}</td>
+    <td class="r ct"><a href="{$ppvod.tag_url}" title="查看所标识的具体数据">查看</a> <a href="?s=admin-tag-del-id-{:urlencode($ppvod['tag_name'])}" onClick="return confirm('确定删除?')"  title="删除用户资料">删除</a></td>
+  </tr>
+  </tbody>
+  </volist>   
+  <tfoot>
+   <tr><td colspan="4" class="r pages">{$pages}</td></tr>  
+  </tfoot>
+</table>

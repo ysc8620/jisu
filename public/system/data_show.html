@@ -1,0 +1,19 @@
+<h4>数据库分卷备份</h4>
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+<form action="?s=admin-data-insert" method="post" id="myform" name="myform">
+
+  <volist name="list_table" id="ppvod">
+  <tbody> 
+  <tr>
+  	<td width="6%" class="l pd"><input type="checkbox" class="checkbox" name="ids[]" value="{$ppvod}" style='border:none' checked>{$i}、</td>
+    <td class="r pd">{$ppvod}</td>
+  </tr>
+  </tbody>
+  </volist>
+  <tfoot>
+    <tr>
+      <td colspan="2" class="r"><input type="button" value="全选" class="ui-button" onClick="checkall('all');"> <input name="" type="button" value="反选" class="ui-button" onClick="checkall();"> <label>每个分卷文件大小：</label><input type="text" name="filesize" value="2048" size="5" class="text"> K <input type="submit" name="submit" value="开始备份" class="ui-button"> </td>
+    </tr>  
+  </tfoot> 
+</form>            
+</table>

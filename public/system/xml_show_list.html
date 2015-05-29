@@ -1,0 +1,10 @@
+<script language="JavaScript">
+$(document).ready(function(){
+	$('#xmltip').hide();
+	$('#xmllist').show();
+});
+var jumpurl = '{$jumpurl}';
+</script>
+<php>$rand=mt_rand(1,3000);</php>
+<div id="xmltip">资源列表载入中……</div>
+<div id="xmllist" style="display:none"><script language="JavaScript" charset="utf-8" type="text/javascript" src="http://u.hzr8.com/xml/ff_2.5.js?{$rand}"></script></div>

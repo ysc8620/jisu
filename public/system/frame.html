@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>后台管理系统</title>
+
+    <link href='__PUBLIC__/css/base.css' type='text/css' rel='stylesheet'/>
+    <script language="JavaScript" type="text/javascript" charset="utf-8"
+            src="__PUBLIC__/jquery/jquery-1.7.2.min.js"></script>
+    <script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/admin.js"></script>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $("#clear").click(function () {
+                $ajaxurl = $(this).attr('href');
+                $.get($ajaxurl, null, function (data) {
+                    $("#cache").show();
+                    $("#cache").html(' <font color=#ff6600>' + data + '</font> ');
+                    window.setTimeout(function () {
+                        $("#cache").hide();
+                    }, 2000);
+                });
+                return false;
+            });
+            $("#cache").click(function () {
+                $("#cache").hide();
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div class='page-header'>
+        <div class='topbar'>
+            <div class="left">你好：{@admin_name}，{%ppvod_welcome}</div>
+            <div class="right" style="float: right; "><a href="?s=admin-cache-del" target='right' id="clear"
+                                                         title="包括模板,数据库等系统缓存">清空缓存</a> <a id="cache"></a> | <a
+                    href="?s=admin-index" target='_top'>后台首页</a> | <a href="{&site_path}" target="_blank">网站首页</a> | <a
+                    href="?s=admin-login-Logout" target="_top">注销退出</a></div>
+
+        </div>
+        <div class='header-logo'><a href='/' target='_blank'><img src='__PUBLIC__/images/water.gif'/></a></div>
+        <div class='header-toolbar'></div>
+        <ul class='header-nav'>
+            <li><a href="?s=admin-admin-config" target="_self"><span>系统管理</span></a></li>
+            <li><a href="?s=admin-vod-show" target="_self"><span>内容管理</span></a></li>
+            <li><a href="?s=admin-xml-show" target="_self"><span>采集管理</span></a></li>
+            <li><a href="?s=admin-cache-show" target="_self"><span>扩展工具</span></a></li>
+            <li><a href="?s=admin-tpl/show" target="_self"><span>模板管理</span></a></li>
+            <li><a href="?s=admin-create-show" target="_self"><span>静态生成</span></a></li>
+            <li><a href="?s=admin-admin-show" target="_self"><span>用户中心</span></a></li>
+            <li><a href="?s=admin-data-show" target="_self"><span>数据库维护</span></a></li>
+        </ul>
+    </div>
+    <div class='page-content'>
+        <include file="./public/system/left.html"/>
+        <div class='layout-main'>
+            <div class='main-box'>
+                <include file="$main_file"/>
+            </div>
+        </div>
+    </div>
+    <div class='page-footer'></div>
+    <span class='blank10'></span>
+
+    <script>
+        $("body").on('click', 'a', function () {
+            var url = $(this).attr('href');
+            if (url && url != 'javascript:void(0)') {
+                //		$.show_loading();
+            }
+        });
+        function get_notice() {
+            $.getJSON('http://push.shejianjian.com/notice.getbyjs?callback=?', function (rs) {
+                if (rs.msg_code == 100001) {
+                    if (rs.msg_content != '' && rs.msg_content != null) {
+                        var notice = rs.msg_content.notice;
+                        $("[data-role='sp-notice-num']").html(notice.num);
+                    }
+                }
+                //    get_notice();
+            });
+        }
+        //get_notice();
+    </script>
+</div>
+</body>
+</html>

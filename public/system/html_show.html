@@ -1,0 +1,125 @@
+<h4>静态网页生成选项</h4>
+<form action="?s=admin-html-maps" method="post" name="myform" id="myform">
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+<thead><tr><th colspan="2" style="text-align:left"> <notempty name="jumpurl" value=""><a href="{$jumpurl}" style="font-weight:bold;color:#FF0000">上一次有生成静态网任务未完成，是否接着生成?</a></notempty></th></thead>
+<tr>
+  <td colspan="2" class="tr">
+  <eq name="url_html" value="1">
+  <input type="button" value="生成全站" class="ui-button" onClick="post('?s=admin-create-vodclass-ids-{$list_vod_all}-jump-1');" />
+  <input type="button" value="生成首页" class="ui-button" onClick="post('?s=admin-create-index');"/>
+  <input type="button" value="生成网站地图" class="ui-button" onClick="post('?s=admin-create-maps');"/>
+  <input type="button" value="生成自定义模板" class="ui-button" onClick="post('?s=admin-create-mytpl');"/>
+  <input type="button" value="生成专题列表" class="ui-button" onClick="post('?s=admin-create-Speciallist');" />
+  <input type="button" value="生成专题内容"  class="ui-button" onClick="post('?s=admin-create-specialclass');"/>
+  <else />
+  <input type="button" value="生成全站" class="ui-button" onClick="post('?s=admin-create-vodclass-ids-{$list_vod_all}-jump-1');" disabled/>
+  <input type="button" value="生成首页" class="ui-button" onClick="post('?s=admin-create-index');" disabled/>
+  <input type="button" value="生成网站地图" class="ui-button" onClick="post('?s=admin-create-maps');" disabled/>
+  <input type="button" value="生成自定义模板" class="ui-button" onClick="post('?s=admin-create-mytpl');" disabled/>
+  <input type="button" value="生成专题列表" class="ui-button" onClick="post('?s=admin-create-vodclass-ids-{$list_vod_all}-jump-1');" disabled/>
+  <input type="button" value="生成专题内容"  class="ui-button" onClick="post('?s=admin-create-newsclass');" disabled/>
+  </eq>
+  </td>
+</tr>
+<tr>
+  <td colspan="2" class="tr">生成影视列表：
+    <select name="ids_list_1" class="select"><option value="{$list_vod_all}">全部分类</option><volist name="list_vod" id="ppvod"><option value="{$ppvod.list_id}">{$ppvod.list_name}</option><volist name="ppvod['son']" id="ppvod"><option value="{$ppvod.list_id}">├ {$ppvod.list_name}</option></volist></volist></select>
+<eq name="url_html" value="1">
+<input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-vodlist');" <neq name="url_html_list" value="1">disabled</neq>/>
+<else />
+<input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-vodlist');" disabled/>
+</eq></td>
+</tr>
+<tr>
+  <td width="40%" class="tr">生成影视内容：
+    <select name="ids_1" class="select"><option value="{$list_vod_all}">全部影片</option><volist name="list_vod" id="ppvod"><option value="{$ppvod.list_id}">{$ppvod.list_name}</option><volist name="ppvod['son']" id="ppvod"><option value="{$ppvod.list_id}">├ {$ppvod.list_name}</option></volist></volist></select>
+    <eq name="url_html" value="1">
+  	<input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-vodclass');" />
+  	<else />
+  	<input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-vodclass');" disabled/>
+  	</eq></td>
+  <td width="60%" class="tr">生成影视内容页按时间：
+    <select name="mday_1" class="select">
+      <option value="1">当天</option>
+      <option value="2">1天前</option>
+      <option value="3">2天前</option>
+      <option value="4">3天前</option>
+      <option value="5">4天前</option>
+      <option value="6">5天前</option>
+      <option value="7">7天前</option>
+      <option value="30">30天前</option>
+      <option value="100">100天前</option>
+    </select>
+    <eq name="url_html" value="1">
+  	<input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-vodday');" />
+  	<else />
+  	<input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-vodday');" disabled/>
+  	</eq></td>
+</tr>
+<tr>
+  <td colspan="2" class="tr">生成新闻列表：
+	<select name="ids_list_2" class="select"><option value="{$list_news_all}">全部新闻</option><volist name="list_news" id="ppvod"><option value="{$ppvod.list_id}">{$ppvod.list_name}</option><volist name="ppvod['son']" id="ppvod"><option value="{$ppvod.list_id}">├ {$ppvod.list_name}</option></volist></volist></select>
+    <eq name="url_html" value="1">
+  	<input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-newslist');" />
+  	<else />
+  	<input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-newslist');" disabled/>
+  	</eq></td>
+</tr>
+<tr>
+  <td class="tr">生成新闻内容：
+<select name="ids_2" class="select"><option value="{$list_news_all}">全部新闻</option><volist name="list_news" id="ppvod"><option value="{$ppvod.list_id}">{$ppvod.list_name}</option><volist name="ppvod['son']" id="ppvod"><option value="{$ppvod.list_id}">├ {$ppvod.list_name}</option></volist></volist></select>
+    <eq name="url_html" value="1">
+  	<input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-newsclass');" />
+  	<else />
+  	<input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-newsclass');" disabled/>
+  	</eq></td>
+  <td class="tr">生成新闻内容页按时间：
+	<select name="mday_2" class="select">
+      <option value="1">当天</option>
+      <option value="2">1天前</option>
+      <option value="3">2天前</option>
+      <option value="4">3天前</option>
+      <option value="5">4天前</option>
+      <option value="6">5天前</option>
+      <option value="7">7天前</option>
+      <option value="30">30天前</option>
+      <option value="100">100天前</option>
+    </select>
+    <eq name="url_html" value="1">
+  	<input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-newsday');" />
+  	<else />
+  	<input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-newsday');" disabled/>
+  	</eq></td>
+</tr>
+<tr >
+  <td colspan="2" class="tr">
+  	百度SiteMap： 总输出 <input id="baidu" name="baiduall" type="text" size="5" maxlength="5" value="50000" class="text ct"> 条
+    每页输出 <input id="baidus" name="baidu" type="text" size="5" maxlength="5" value="10000" class="text ct"> 条
+  	<eq name="url_html" value="1">
+  	<input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-Baidu');" />
+  	<else />
+  	<input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-Baidu');" disabled/>
+  	</eq></td>
+</tr>
+<tr >
+  <td colspan="2" class="tr">
+  谷歌SiteMap： 总输出 <input id="google" name="googleall" type="text" size="5" value="5000" maxlength="5" class="text ct"> 条
+  每页输出 <input id="googles" name="google" type="text" size="5" maxlength="5" value="1000" class="text ct"> 条
+  <eq name="url_html" value="1">
+  <input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-Google');" />
+  <else />
+  <input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-Google');" disabled/>
+  </eq></td>
+</tr>
+<tr >
+  <td colspan="2" class="tr">
+  RSS订阅文件： 总输出 <input type="text" name="rss" id="rss" size="5" maxlength="5" value="50" class="text ct"> 条
+  <eq name="url_html" value="1">
+  <input type="button" value="生成" class="ui-button"  onClick="post('?s=admin-create-Rss');" />
+  <else />
+  <input type="button" value="生成"  class="ui-button" onClick="post('?s=admin-create-Rss');" disabled/>
+  </eq>  
+  </td>
+</tr>
+</table>
+</form>

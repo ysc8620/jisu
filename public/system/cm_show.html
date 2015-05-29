@@ -1,0 +1,53 @@
+<h4>评论管理</h4>
+<script language="javascript">
+function changeurl(status){
+	self.location.href='?s=admin-cm-show-status-'+status;
+}
+$(document).ready(function(){
+	$('#selectcid').change(function(){
+		changeurl($(this).val(),'','','','');
+	});
+	$('#selectstars').change(function(){
+		changeurl('','','',$(this).val(),'');
+	});		
+});
+</script>
+<form action="?s=admin-cm-show" method="post" name="myform" id="myform">
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+  <tr>
+    <td class="tr ct" style="height:40px"><input type="button" value="所有" class="ui-button" onClick="changeurl(0);"> <input type="button" value="未审核" class="ui-button" onClick="changeurl(2);"> <input type="button" value="已审核" class="ui-button" onClick="changeurl(1);"> <input type="text" name="wd" id="wd" maxlength="20" value="{$wd|default='可搜索(评论内容,用户呢称,用户IP)'|urldecode}" onClick="this.select();" style="color:#666;width:200px"> <input type="button" value="搜索" class="ui-button" onClick="post('?s=admin-cm-show');"></td>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+  <thead>
+    <tr class="ct">
+      <th class="r" width="20">ID</th>
+      <th class="l" >评论内容</th>
+      <th class="l" width="80">用户名</th>
+      <th class="l" width="60">用户IP</th>
+      <th class="l" width="80">评论时间</th>
+      <th class="r" width="90">相关操作</th>
+    </tr>
+  </thead>
+  <volist name="list" id="ppvod">
+  <tbody>
+  <tr>
+    <td class="r ct"><input name='ids[]' type='checkbox' value='{$ppvod.cm_id}' class="noborder" checked="checked"></td>
+    <td class="l pd" style="color:#999"><a href="?s=admin-cm-add-id-{$ppvod.cm_id}" title="点击编辑评论">{$ppvod.cm_content|msubstr=0,40,'utf-8',true|htmlspecialchars|remove_xss}</a></td>
+    <td class="l ct"><a href="?s=admin-cm-show-cid-{$cid}-wd-{$ppvod.user_name}">{$ppvod.user_name}</a></td>
+    <td class="l ct"><a href="?s=admin-cm-show-cid-{$cid}-wd-{$ppvod.cm_ip}">{$ppvod.cm_ip}</a></td>
+    <td class="l ct">{$ppvod.cm_addtime|date='Y-m-d',###}</td>
+    <td class="r ct"><eq name="ppvod.cm_status" value="1"><a href="?s=admin-cm-status-id-{$ppvod.cm_id}-value-0" title="点击隐藏评论">隐藏</a><else /><a href="?s=admin-cm-status-id-{$ppvod.cm_id}-value-1" title="点击显示评论"><font color="red">显示</font></a></eq> <a href="?s=admin-cm-add-id-{$ppvod.cm_id}" title="点击编辑评论">编辑</a> <a href="?s=admin-cm-del-id-{$ppvod.cm_id}" onClick="return confirm('确定删除该评论吗?')" title="点击删除评论">删除</a></td>
+  </tr>
+  </tbody>
+  </volist>
+    <tr>
+      <td colspan="8" class="r pages">{$pages}</td>
+    </tr>   
+  <tfoot>
+    <tr>
+      <td colspan="9" class="r"><input type="button" value="全选" class="ui-button" onClick="checkall('all');"> <input name="" type="button" value="反选" class="ui-button" onClick="checkall();"> <input type="button" value="批量审核" class="ui-button" onClick="post('?s=admin-cm-statusall-value-1');"> <input type="button" value="取消审核" class="ui-button" onClick="post('?s=admin-cm-statusall-value-0');"> <input type="button" value="批量删除" class="ui-button" onClick="if(confirm('删除后将无法还原,确定要删除吗?')){post('?s=admin-cm-delall');}else{return false;}"> <input type="button" value="清空评论" class="ui-button" onClick="if(confirm('清空后将无法还原,确定要清空吗?')){post('?s=admin-cm-delclear');}else{return false;}"></td>
+    </tr>  
+  </tfoot>
+</table>
+</form>

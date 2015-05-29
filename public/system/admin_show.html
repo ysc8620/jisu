@@ -1,0 +1,34 @@
+<h4><a href="?s=admin-admin-show">后台用户管理</a> <em>>></em>用户中心</h4>
+<script language="javascript">
+</script>
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+  <thead>
+    <tr class="ct">
+      <th class="l" width="50">ID</th>
+      <th class="l">后台用户名称</th>
+      <th class="l" width="150">上次登录时间</th>
+      <th class="l" width="120">上次登录IP</th>
+      <th class="l" width="100">登录次数</th>
+      <th class="r" width="90">相关操作</th>
+    </tr>
+  </thead>
+  <form action="?s=admin-admin-delall" method="post" name="myform" id="myform">
+  <volist name="list" id="ppvod">
+  <tbody>
+  <tr>
+    <td class="l ct"><input name='ids[]' type='checkbox' value='{$ppvod.admin_id}' class="checkbox">{$ppvod.admin_id}</td>
+    <td class="l pd">{$ppvod.admin_name}</td>
+    <td class="l ct">{$ppvod.admin_logintime|date='Y-m-d H:i:s',###}</td>
+    <td class="l ct">{$ppvod.admin_ip}</td>
+    <td class="l ct">{$ppvod.admin_count}</td>
+    <td class="r ct"><a href="?s=admin-admin-add-id-{$ppvod.admin_id}" class="min-button" title="编辑用户资料">编辑</a> <a href="?s=admin-admin-del-id-{$ppvod.admin_id}" class="min-button" onClick="return confirm('确定删除?')"  title="删除用户资料">删除</a></td>
+  </tr>
+  </tbody>
+  </volist>
+  <tfoot>
+    <tr>
+      <td colspan="6" class="r"><input type="button" value="全选" class="ui-button" onClick="checkall('all');"> <input name="" type="button" value="反选" class="ui-button" onClick="checkall();"> <input type="button" value="批量删除" class="ui-button" onClick="post('?s=admin-admin-delall');"> <input type="button" class="ui-button" value="添加" onClick="window.location='?s=admin-admin-add';"></td>
+    </tr>  
+  </tfoot>
+  </form>
+</table>

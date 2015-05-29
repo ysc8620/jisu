@@ -1,0 +1,17 @@
+<h4>用户留言信息</h4>
+<form action="?s=admin-gb-update" method="post" name="myform" id="myform">
+<div class="fieldset" style="margin-bottom:5px; border-bottom:none">
+<input type="hidden" name="gb_id" value="{$gb_id}"> 
+<ul style="padding:10px 0px">
+<textarea name="gb_content" class="text" style="width:98%;height:150px">{$gb_content|htmlspecialchars|remove_xss|trim}</textarea>
+</ul>
+</div>
+	<h4>管理员回复信息</h4>
+<div class="fieldset">
+<ul style="padding:10px 0px;">
+<textarea name="gb_intro" class="text" id="content" style="width:98%;height:250px">{$gb_intro}</textarea>
+</ul>
+<ul class="footer fl"><input name='gb_status' type='checkbox' value='1' class="checkbox" <eq name="gb_status" value="1">checked</eq>>是否审核 <input type="submit" class="ui-button" name="submit" value="提交" /> <input type="reset" name="reset" value="重置" class="ui-button" /></ul>
+</div>
+</form>
+<include file="./public/system/plus_kedit.html" />

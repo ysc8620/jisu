@@ -1,0 +1,91 @@
+<div class='layout-sidebar' xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class='sidebar-box'>
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('admin','index','nav'))">style="display:block"</if>>
+            <dt>系统工具</dt>
+            <dd <if condition="$sys_action_name eq 'config'"> class="active"</if>> <a href="?s=admin-admin-config">网站信息配置</a></dd>
+            <dd <if condition="$sys_action_name eq 'index'"> class="active"</if>><a href="?s=admin-index-Index">系统运行环境</a></dd>
+            <dd <if condition="$sys_action_name eq 'show'"> class="active"</if>><a href="?s=admin-nav-show">快捷菜单设置</a></dd>
+            <volist name="array_nav" id="ppvod">
+                <dd><a href="{$ppvod}">{$key}</a></dd>
+            </volist>
+        </dl>
+
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('list','vod','news','special','tag'))">style="display:block"</if>>
+            <dt>内容管理</dt>
+            <dd <if condition="($sys_action_name eq 'show')AND($sys_model_name eq 'list')"> class="active"</if>><a href="?s=admin-list-show">网站栏目管理</a></dd>
+            <dd><a href="?s=admin-list-add">添加网站栏目</a></dd>
+            <dd><a href="?s=admin-vod-show" class="on">视频数据管理</a></dd>
+            <dd><a href="?s=admin-vod-add">添加视频数据</a></dd>
+            <dd><a href="?s=admin-news-show">新闻资讯管理</a></dd>
+            <dd><a href="?s=admin-news-add">添加新闻资讯</a></dd>
+            <dd><a href="?s=admin-special-show">网站专题管理</a></dd>
+            <dd><a href="?s=admin-special-add">添加网站专题</a></dd>
+            <dd><a href="?s=admin-tag-show">标签TAG管理</a></dd>
+            <dd><a href="?s=admin-vod-show-continu-1" class="line">连载中的影片</a></dd>
+            <dd><a href="?s=admin-vod-show-status-2" class="line">未审核的影片</a></dd>
+            <dd><a href="?s=admin-vod-show-status-3" class="line">待复查的影片</a></dd>
+            <dd><a href="?s=admin-vod-show-isfilm-1" class="line">已上映的影片</a></dd>
+            <dd><a href="?s=admin-vod-show-isfilm-2" class="line">未上映的影片</a></dd>
+            <dd><a href="?s=admin-vod-show-isfilm-3" class="line">热映中的影片</a></dd>
+            <dd><a href="?s=admin-vod-show-url-1" class="line">无播放地址影片</a></dd>
+        </dl>
+
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('xml','dswin','cj'))">style="display:block"</if>>
+            <dt>采集管理</dt>
+            <dd><a href="?s=admin-xml-show" class="on">一键采集视频</a></dd>
+            <dd><a href="?s=plus-dswin-show">定时自动采集</a></dd>
+            <dd><a href="?s=admin-cj-change">栏目转换规则</a></dd>
+        </dl>
+
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('cache','slide','ads','link','pic'))">style="display:block"</if>>
+            <dt>扩展工具</dt>
+            <dd><a href="?s=admin-cache-show" class="on">系统缓存管理</a></dd>
+            <dd><a href="?s=admin-slide-show">幻灯贴片管理</a></dd>
+            <dd><a href="?s=admin-slide-add">添加幻灯贴片</a></dd>
+            <dd><a href="?s=admin-ads-show">网站广告管理</a></dd>
+            <dd><a href="?s=admin-ads-add">添加网站广告</a></dd>
+            <dd><a href="?s=admin-link-show">友情链接管理</a></dd>
+            <dd><a href="?s=admin-link-add">添加友情链接</a></dd>
+            <dd><a href="?s=admin-pic-show">无效图片清理</a></dd>
+            <dd><a href="?s=admin-pic-down" onClick="return confirm('消耗资源较多，请勿在高峰期执行该操作!')">下载远程图片</a></dd>
+        </dl>
+
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('tpl'))">style="display:block"</if>>
+            <dt>模版管理</dt>
+            <dd><a href="?s=admin-tpl/show" class="on">模板在线管理</a></dd>
+        </dl>
+
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('create'))">style="display:block"</if>>
+            <dt>静态生成</dt>
+            <dd><a href="?s=admin-create-show" class="on">网站生成选项</a></dd>
+            <dd><a href="?s=admin-create-index">生成网站首页</a></dd>
+            <dd><a href="?s=admin-create-vodday-mday_1-1-jump-1">生成当天视频</a></dd>
+            <dd><a href="?s=admin-create-newsday-mday_2-1">生成当天新闻</a></dd>
+            <dd><a href="?s=admin-create-maps">生成网站地图</a></dd>
+            <dd><a href="?s=admin-create-mytpl">生成自定义模板</a></dd>
+        </dl>
+
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('admin','cm','gb'))">style="display:block"</if>>
+            <dt>用户中心</dt>
+            <dd><a href="?s=admin-admin-show" class="on">后台管理员</a></dd>
+            <dd><a href="?s=admin-admin-add">添加管理员</a></dd>
+            <!--<dd><a href="?s=admin-user-show">会员管理中心</a></dd>
+            <dd><a href="?s=admin-user-show">添加新用户</a></dd> -->
+            <dd><a href="?s=admin-cm-show">评论管理</a></dd>
+            <dd><a href="?s=admin-gb-show">留言管理</a></dd>
+            <dd><a href="?s=admin-gb-show-cid-1">报错管理</a></dd>
+        </dl>
+
+        <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('data'))">style="display:block"</if>>
+            <dt>数据库维护</dt>
+            <dd><a href="?s=admin-data-show" class="on">数据库备份</a></dd>
+            <dd><a href="?s=admin-data-restore">数据库恢复</a></dd>
+            <dd><a href="?s=admin-data-sql">执行SQL语句</a></dd>
+            <dd><a href="?s=admin-data-replace">数据批量替换</a></dd>
+        </dl>
+
+        <dl class='sub-nav' style="padding: 10px;">
+            <tr><td class="power">Powered by <a href="{%ppvod_homeurl}" target="_blank">jisucms</a></td></tr>
+        </dl>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<include file="./public/system/plus_special.html" />
+<script language="javascript">
+$(document).ready(function(){
+	special_news(0,'show',0);
+})
+</script>
+<div style=" width:790px; height:400px">
+<div style="float:left; width:390px">
+<table border="0" cellpadding="0" cellspacing="0" class="table-list" style="margin-bottom:5px">
+    <thead><tr class="ct"><th class="tr">已收录资讯列表(<label id="count" class="count"></label>)篇</th></tr></thead>
+    <tr><td class="r" ><ul id="specialhtml" style="width:100%;height:378px;overflow-y:auto">loading...</ul></td></tr>
+</table>
+</div>
+<div style="float:right; width:390px">
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+  <thead><tr class="ct"><th class="tr">待收录资讯列表</th></tr></thead>
+  <tr><td class="r"><ul><volist name="list" id="ppvod"><li style="width:100%"><span><a href="javascript:void(0);" onclick="special_news({$ppvod.news_id},'add',0);$(this).css({color:'#999'});" class="adds">添加</a></span><label>{$ppvod.news_id}</label><a href="{:js_data_url('news',$ppvod['news_id'],$ppvod['news_cid'],$ppvod['news_name'],1,'')}" target="_blank" title="{$ppvod.news_name}">{$ppvod.news_name|msubstr=0,26}</a></li></volist></ul></td></tr>
+</table>
+</div>
+<div style="clear:both" class="pages">{$pages}</div>
+<div><form action="?s=admin-news-show" method="post" name="myform" id="myform"><input name="tid" type="hidden" value="{$tid}" /><input type="text" name="wd" id="wd" maxlength="20" value="{$wd|default='输入关键字搜索影片'|urldecode}" onClick="this.select();" style="color:#666666"> <input type="button" value="搜索" class="ui-button" onClick="post('?s=admin-news-show');"></form></div>
+</div>

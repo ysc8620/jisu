@@ -1,0 +1,31 @@
+<h4>数据恢复</h4>
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+<form action="?s=admin-data-delall" method="post" id="myform" name="myform">
+  <thead>
+    <tr class="ct">
+      <th class="l" width="5%">ID</th>
+      <th class="l">文件名</th>
+      <th class="l" width="5%">卷号</th>
+      <th class="l" width="6%">大小</th>
+      <th class="l" width="14%">备份时间</th>
+      <th class="r" width="12%">相关操作</th>
+    </tr>
+  </thead><volist name="list_restore" id="ppvod">
+  <tbody> 
+  <tr>
+  	<td class="l pd"><input type="checkbox" name="ids[]" class="checkbox" value="{$ppvod.filename}" style='border:none'>{$i}、</td>
+    <td class="l pd">{$ppvod.filename}</td>
+    <td class="l ct">{$ppvod.number}</td>
+    <td class="l ct">{$ppvod.filesize} M</td>
+    <td class="l ct">{$ppvod.maketime}</td>
+    <td class="r ct"><a href="?s=admin-data-back-id-{$ppvod.pre}" class="min-button" onClick="return confirm('导入数据会删除现在数据库的所有信息,请确定是否导入?')">导入</a> <a href="?s=admin-data-del-id-{$ppvod.filename}" class="min-button" onClick="return confirm('确定删除?')">删除</a> <a class="min-button" href="?s=admin-data-down-id-{$ppvod.filename}">下载</a></td>
+  </tr>
+  </tbody>
+  </volist>
+  <tfoot>
+    <tr>
+      <td colspan="6" class="r"><input type="button" value="全选" class="ui-button" onClick="checkall('all');"> <input name="" type="button" value="反选" class="ui-button" onClick="checkall();"> <input type="submit" class="ui-button" value="删除" onClick="return confirm('确定要删除备份文件吗?')"/> <label>只需要点击任意一个文件的导入链接，程序会自动导入剩余文件!</label></td>
+    </tr>  
+  </tfoot> 
+</form>            
+</table>

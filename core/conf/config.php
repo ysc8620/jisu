@@ -1,0 +1,59 @@
+<?php
+$config = require './runtime/conf/config.php';
+$array = array(
+	'USER_AUTH_KEY'=>'jsvod',// 用户认证SESSION标记
+	'NOT_AUTH_ACTION'=>'index,show,add,main',// 默认无需认证操作
+	'REQUIRE_AUTH_MODULE'=>'admin,list,vod,news,user,collect,data,upload,link,ads,cache,create,tpl,cm,gb,tag,special,nav,side,pic',// 默认需要认证模型
+    'URL_PATHINFO_DEPR'=>'-',
+	'APP_GROUP_LIST'=>'admin,home,plus,user',//项目分组
+	'TMPL_FILE_DEPR'=>'_',//模板文件MODULE_NAME与ACTION_NAME之间的分割符，只对项目分组部署有效
+	'LANG_SWITCH_ON'=>true,// 多语言包功能
+	'LANG_AUTO_DETECT'=>false,//是否自动侦测浏览器语言
+	'URL_CASE_INSENSITIVE'=>true,//URL是否不区分大小写 默认区分大小写
+    'DB_FIELDTYPE_CHECK'=>true, //是否进行字段类型检查
+	'DATA_CACHE_SUBDIR'=>true,//哈希子目录动态缓存的方式
+    'TMPL_ACTION_ERROR'     => './public/jump/jumpurl.html', // 默认错误跳转对应的模板文件
+    'TMPL_ACTION_SUCCESS'   => './public/jump/jumpurl.html', // 默认成功跳转对应的模板文件
+	'DATA_PATH_LEVEL'=>2,
+  	'url_model' => '3',
+	'play_player' =>array (
+		'qvod'=>    array('00','快播高清'),
+		'xigua'=>   array('01','西瓜影音'),
+		'xfplay'=>  array('02','影音先锋'),
+		'jjvod'=>   array('03','吉吉影音'),
+		'bdhd'=>    array('04','百度影音'),
+		'yuku'=>    array('05','优酷视频'),
+		'tudou'=>   array('06','土豆视频'),
+		'qiyi'=>    array('07','奇艺视频'),
+		'letv'=>    array('08','乐视视频'),
+		'sohu'=>    array('09','搜狐视频'),
+		'qq'=>      array('10','腾讯视频'),
+		'm1905'=>   array('11','M1905'),
+		'sinahd'=>  array('12','新浪视频'),
+		'cntv'=>    array('13','cntv高清'),
+		'pps'=>     array('14','PPS视频'),
+		'wole'=>    array('15','56视频'),
+		'joy'=>     array('16','激动视频'),
+		'room'=>    array('17','六间房'),
+		'pptv'=>    array('18','PPTV视频'),
+		'ku6'=>     array('19','酷六视频'),
+		'down'=>    array('20','影片下载'),
+		'swf'=>     array('21','Swf动画'),
+		'flv'=>     array('22','Flv视频'),
+		'web9'=>    array('23','久久影音'),
+		'pvod'=>    array('24','皮皮高清'),
+		'cool'=>    array('25','酷播高清'),
+		'gvod'=>    array('26','迅播高清'),
+		'funshion'=>array('27','风行影音'),
+		'baofeng'=> array('28','暴风影音'),
+		'pplive'=>  array('29','PPTV直播'),
+		'media'=>   array('30','Media Player'),
+		'real'=>    array('31','Real Player'),
+	),
+	//'APP_DEBUG'           =>true,    // 是否开启调试模式
+    //'SHOW_RUN_TIME'		=> true,   // 运行时间显示
+    //'SHOW_ADV_TIME'		=> true,   // 显示详细的运行时间
+    //'SHOW_DB_TIMES'		=> true,   // 显示数据库查询和写入次数	
+);
+return array_merge($config,$array);
+?>

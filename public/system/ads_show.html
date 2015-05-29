@@ -1,0 +1,19 @@
+<h4><a href="?s=admin-ads-show" >网站广告管理</a></h4>
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+<thead><tr><th colspan="2" class="r"><span style="float:left">网站广告管理</span><span style="float:right"><a href="?s=admin-ads-add">添加广告</a></span></th></tr></thead>
+<form action="?s=admin-ads-update" method="post" name="myform" id="myform">
+  <volist name="list_ads" id="ppvod"><input name="ads_id[{$ppvod.ads_id}]" type="hidden" value="{$ppvod.ads_id}">
+  <tbody>
+  <tr>
+    <td width="250" class="l pd">广告标识：<input name="ads_name[{$ppvod.ads_id}]" type="text" value="{$ppvod.ads_name}" maxlength="25" class="text w150" style="color:#003366;font-weight:bold"><br>调用代码：<input type="text" value="<literal>{:</literal>getadsurl('{$ppvod.ads_name}')}" maxlength="50" class="text w150"></td>
+    <td class="r" style="padding:5px"><span style="float:left;width:90%;"><textarea class="text" name="ads_content[{$ppvod.ads_id}]" style=" width:95%;height:60px">{$ppvod.ads_content|htmlspecialchars}</textarea></span> <label style="float:left; padding-top:5px; padding-left:10px"><a href="?s=admin-ads-view-id-{$ppvod.ads_id}" class="min-button" target="_blank">预览广告</a><br /><br /><a href="?s=admin-ads-del-id-{$ppvod.ads_id}" class="min-button" onClick="return confirm('确定删除该广告吗?')">删除广告</a></label></td>
+  </tr>
+  </tbody>
+  </volist> 
+  <tfoot>
+    <tr>
+      <td colspan="2" class="r"><input type="button" class="ui-button" value="批量修改" onClick="post('?s=admin-ads-update');"> <input class="ui-button" type="reset" name="Input" value="重置" > 注：提交时如果"广告标识"为空则删除该对应的广告位</td>
+    </tr>  
+  </tfoot>
+</form>       
+</table>

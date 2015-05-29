@@ -1,0 +1,30 @@
+<h4><a href="?s=admin-ads-show" >网站广告管理</a> <em>>></em> 添加网站广告</h4>
+<div class="fieldset">
+<script language="javascript">
+$(document).ready(function(){
+	$("#myform").submit(function(){
+		if($jisucms.form.empty('myform','ads_name') == false){
+			return false;
+		}
+	});
+});
+</script>
+<!--图片预览框-->
+<div id="showpic" class="showpic" style="display:none;"><img name="showpic_img" id="showpic_img" width="120" height="160"></div>
+    <div class="right"></div>
+ <dl class="fieldset">
+
+
+
+<div class="add">
+    <form action="?s=admin-ads-insert" method="post" name="myform" id="myform">
+    <dt>广告标识：</dt>
+    <dd><input type="text" name="ads_name" id="ads_name" value="{$ads_name}" class="text" error="* 请填写广告标识!"><span id="ads_name_error">*</span></dd>
+    <dt>广告代码：</dt>
+    	<dd><textarea name="ads_content" class="text" style="width:650px;height:120px">{$ads_content}</textarea></dd>
+        <dt>&nbsp;</dt>
+    <dd><input type="submit" class="ui-button" name="submit" value="提交"> <input type="reset" class="ui-button" name="reset" value="重置"></dd>
+    </form>
+</div>
+ </dl>
+</div>

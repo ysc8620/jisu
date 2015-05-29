@@ -1,0 +1,208 @@
+<h4>新闻资讯管理 <em> >></em> 新闻资讯编辑 <em> >></em> <a href="?s=admin-news-show" class="">返回新闻资讯</a></h4>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/editor/kindeditor.js"></script>
+<script language="javascript">
+    $(document).ready(function () {
+        $("#myform").submit(function () {
+            if ($jisucms.form.empty('myform', 'news_name') == false) {
+                return false;
+            }
+            if ($("#news_cid").val() == 0) {
+                alert('请选择分类');
+                return false;
+            }
+        });
+    });
+</script>
+<!--图片预览框-->
+<div id="showpic" class="showpic" style="display:none;"><img name="showpic_img" id="showpic_img" width="120"
+                                                             height="160"></div>
+<include file="./public/system/plus_tags.html"/>
+<gt name="news_id" value="0">
+    <form name="update" action="?s=admin-news-update" method="post" name="myform" id="myform">
+        <input type="hidden" name="news_id" value="{$news_id}">
+        <else/>
+        <form name="add" action="?s=admin-news-insert" method="post" name="myform" id="myform">
+</gt>
+<div class="tag-box">
+    <div class="tag-head">
+        <span data-tag="info" data-role="tag-head" class="curr">基本信息</span>
+        <span data-tag="other" data-role="tag-head" class="">其他设置</span>
+        <div class="cls"></div>
+    </div>
+    <div data-role="tag-body" class="tag-body">
+        <div class="form">
+            <div  data-role="tag-content" data-for="info">
+                <dl class="fieldset">
+                    <dt>新闻名称：</dt>
+                    <dd><input type="text" name="news_name" id="news_name" value="{$news_name}"
+                                          maxlength="255" error="* 名称不能为空" class="text w400"><span id="news_name_error">*</span>
+                        <lable><select name="news_cid" id="news_cid" style="width:108px" class="select">
+                            <option value=0>选择分类</option>
+                            <volist name="list_news" id="ppvod">
+                                <option value="{$ppvod.list_id}"
+                                <eq name="ppvod.list_id" value="$news_cid">selected</eq>
+                                >{$ppvod.list_name}</option>
+                                <volist name="ppvod['son']" id="ppvod">
+                                    <option value="{$ppvod.list_id}"
+                                    <eq name="ppvod.list_id" value="$news_cid">selected</eq>
+                                    >├ {$ppvod.list_name}</option></volist>
+                            </volist>
+                        </select></lable>
+                    </dd>
+                <dt>标签TAG：</dt>
+                    <dd><input type="text" name="news_keywords" id="news_keywords" maxlength="255"
+                                          value="{$news_keywords}" class="text w400 xy_tag"> <img
+                            src="__PUBLIC__/images/admin/edit.gif" onClick="javascript:showtags(2);" class="navpoint"
+                            alt="点击选择关键词"></dd>
+
+                    <dt>新闻图片：</dt>
+                    <dd><label style="float:left; margin-top:4px; margin-right:5px"><input type="text"
+                                                                                                      name="news_pic"
+                                                                                                      id="news_pic"
+                                                                                                      maxlength="255"
+                                                                                                      value="{$news_pic}"
+                                                                                                      class="text w400"
+                                                                                                      onMouseOver="if(this.value)showpic(event, this.value,'{&upload_path}/');"
+                                                                                                      onMouseOut="hiddenpic();"></label>
+                        <iframe src="?s=admin-upload-show-sid-news-fileback-news_pic" scrolling="no" topmargin="0"
+                                width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left"
+                                style="margin-top:4px; float:left"></iframe>
+                        </span></dd>
+
+
+                    <dt>新闻简介：</dt>
+                    <dd><textarea name="news_remark" class="text" id="news_remark"
+                                                          style="width:705px;height:50px;color:#666666"
+                                                          title="如果不填写简介则自动截取内容前100字">{$news_remark}</textarea></dd>
+
+
+                    <dt>新闻内容：</dt>
+                    <dd><textarea name="news_content" class="text" id="content"
+                                                          style="width:99%;height:300px;">{$news_content}</textarea>
+                    </dd>
+                </dl>
+            </div>
+            <div data-role="tag-content" data-for="other" style="display:none">
+            <dl class="fieldset">
+                    <dt>推荐星级：</dt>
+                    <dd><input name="news_stars" id="news_stars" type="hidden"
+                                                   value="{$news_stars}">
+                        <volist name="news_starsarr" id="ajaxstar"><img
+                                src="__PUBLIC__/images/admin/star{$ajaxstar}.gif" onClick="addstars('news',{$i});"
+                                id="star_{$i}" class="navpoint"></volist>
+                    </dd>
+
+
+                    <dt>新闻状态：</dt>
+                    <dd><select name="news_status" class="select w70">
+                        <option value="1">显示</option>
+                        <option value="0"
+                        <eq name="news_status" value="0">selected</eq>
+                        >隐藏</option></select></dd>
+
+
+                    <dt>标题颜色：</dt>
+                    <dd><select name="news_color" id="news_color" class="select w70">
+                        <option>颜色</option>
+                        <option value='#000000' style='background-color:#000000'
+                        <eq name="news_color" value="#000000">selected</eq>
+                        ></option>
+                        <option value='#FFFFFF' style='background-color:#FFFFFF'
+                        <eq name="news_color" value="#FFFFFF">selected</eq>
+                        ></option>
+                        <option value='#008000' style='background-color:#008000'
+                        <eq name="news_color" value="#008000">selected</eq>
+                        ></option>
+                        <option value='#FFFF00' style='background-color:#FFFF00'
+                        <eq name="news_color" value="#FFFF00">selected</eq>
+                        ></option>
+                        <option value='#FF0000' style='background-color:#FF0000'
+                        <eq name="news_color" value="#FF0000">selected</eq>
+                        ></option>
+                        <option value='#0000FF' style='background-color:#0000FF'
+                        <eq name="news_color" value="#0000FF">selected</eq>
+                        ></option>
+                        <option value=''>无色</option>
+                    </select></dd>
+                    <dt>首字母：</dt>
+                    <dd><input type="text" name="news_letter" id="news_letter" value="{$news_letter}"
+                                          maxlength="1" class="text w50"></dd>
+
+
+                    <dt>总人气：</dt>
+                    <dd><input type="text" name="news_hits" id="news_hits" maxlength="15"
+                                          value="{$news_hits}" class="text w50"></dd>
+
+
+                    <dt>月人气：</dt>
+                    <dd><input type="text" name="news_hits_month" id="news_hits_month" maxlength="15"
+                                          value="{$news_hits_month}" class="text w50"></dd>
+
+
+                    <dt>周人气：</dt>
+                    <dd><input type="text" name="news_hits_week" id="news_hits_week" maxlength="15"
+                                          value="{$news_hits_week}" class="text w50"></dd>
+
+
+                    <dt>日人气：</dt>
+                    <dd><input type="text" name="news_hits_day" id="news_hits_day" maxlength="15"
+                                          value="{$news_hits_day}" class="text w50"></dd>
+
+
+                    <dt>评分值：</dt>
+                    <dd><input type="text" name="news_gold" id="news_gold" value="{$news_gold}" maxlength="4"
+                                          class="text w50"></dd>
+
+
+                    <dt>评分人数：</dt>
+                    <dd><input type="text" name="news_golder" id="news_golder" value="{$news_golder}"
+                                          maxlength="8" class="text w50"></dd>
+
+
+                    <dt>顶：</dt>
+                    <dd><input type="text" name="news_up" id="news_up" value="{$news_up}" maxlength="8"
+                                          class="text w50"></dd>
+
+
+                    <dt>踩：</dt>
+                    <dd><input type="text" name="news_down" id="news_down" value="{$news_down}" maxlength="8"
+                                          class="text w50"></dd>
+
+
+                    <dt>时间：</dt>
+                    <dd><input type="text" name="news_addtime" id="news_addtime" maxlength="15"
+                                          value="{$news_addtime|date='Y-m-d H:i:s',###}" class="text w150">
+                        <input name="checktime" class="checkbox" type="checkbox" style="border:none;width:auto" value="1" {$checktime} title="勾选则使用系统当前时间">
+                    </dd>
+
+
+                    <dt>独立模板：</dt>
+                    <dd><input type="text" name="news_skin" id="news_skin" value="{$news_skin}"
+                                          maxlength="25" class="text w150"></dd>
+
+
+                    <dt>来源：</dt>
+                    <dd><input type="text" name="news_reurl" id="news_reurl" value="{$news_reurl}"
+                                          maxlength="150" class="text w400"></dd>
+
+
+                    <dt>跳转URL：</dt>
+                    <dd><input type="text" name="news_jumpurl" id="news_jumpurl" value="{$news_jumpurl}"
+                                          maxlength="150" class="text w400"></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="fieldset">
+        <ul class="footer">
+            <input type="submit" name="submit" class="ui-button" value="提交"/> <input type="reset" name="reset"
+                                                                                     class="ui-button" value="重置"/>
+        </ul>
+    </div>
+</div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("[data-role='tag-head']").tag_init();
+    });</script>
+<include file="./public/system/plus_kedit.html"/>

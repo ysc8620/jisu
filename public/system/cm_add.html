@@ -1,0 +1,15 @@
+<h4>用户评论信息</h4>
+<form action="?s=admin-cm-update" method="post" name="myform" id="myform">
+
+<div class="fieldset">
+<input type="hidden" name="cm_id" value="{$cm_id}"> 
+<input type="hidden" name="cm_cid" value="{$cm_cid}">
+<input type="hidden" name="cm_sid" value="{$cm_sid}">
+<input type="hidden" name="cm_uid" value="{$cm_sid}">
+<ul style="padding-bottom:5px">
+<textarea name="cm_content" id="content" class="text" style="width:98%;height:300px">{$cm_content|htmlspecialchars|remove_xss|trim}</textarea>
+</ul>
+<ul class="footer fl"><input name='cm_status' type='checkbox' value='1' class="checkbox" <eq name="cm_status" value="1">checked</eq>>是否审核 <input type="submit" name="submit" value="提交"  class="ui-button" /> <input type="reset" name="reset" value="重置" class="ui-button" /></ul>
+</div>
+</form>
+<include file="./public/system/plus_kedit.html" />

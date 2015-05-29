@@ -1,0 +1,6 @@
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/css/base.css' />
+<form action="?s=admin-upload-upload" method="post" enctype="multipart/form-data" name="myform" id="myform">
+<input name="sid" type="hidden" value="{$Think.get.sid|htmlspecialchars}"/>
+<input name="fileback" type="hidden" value="{$Think.get.fileback|htmlspecialchars}"/>
+<input type="file" name="upthumb" class="text" id="upthumb" style="height:28px;width:200px"> <input height="26" type="submit" value="上 传" class="ui-button"/>{__NOTOKEN__}
+</form>

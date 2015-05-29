@@ -1,0 +1,61 @@
+<h4><a href="?s=admin-admin-show">后台用户管理</a> <em>>></em>添加后台用户管理</h4>
+<script language="javascript">
+$(document).ready(function(){
+	$("#myform").submit(function(){
+		if($jisucms.form.empty('myform','admin_name') == false){
+			return false;
+		}
+		<eq name="admin_id" value="0">
+		if($jisucms.form.empty('myform','admin_pwd') == false){
+			return false;
+		}
+		if($jisucms.form.repwd('myform','admin_pwd','admin_repwd') == false){
+			return false;
+		}
+		</eq>		
+	});
+});
+</script>
+<div class="fieldset">
+    <dl class="fieldset">
+	<gt name="admin_id" value="0">
+    <form action="?s=admin-admin-update" method="post" name="myform" id="myform">
+    <input type="hidden" name="admin_id" value="{$admin_id}"><input type="hidden" name="admin_pwd2" value="{$admin_pwd}">
+    <else/>
+    <form action="?s=admin-admin-insert" method="post" name="myform" id="myform">
+    </gt> 
+    <dt>用户名称：</dt>
+    	<dd><input type="text" class="text" name="admin_name" id="admin_name" value="{$admin_name}" maxlength="12" error="* 用户名长度为2-12个字符!"><span id="admin_name_error">*</span></dt>
+    </ul>
+    <dt>用户密码：</dt>
+    	<dd><input type="password" class="text"  name="admin_pwd" id="admin_pwd" value="" maxlength="12" error="* 用户密码长度为2-12个字符!"><span id="admin_pwd_error">*</span></dt>
+    </ul>
+    <dt>确认密码：</dt>
+    	<dd><input type="password" class="text" name="admin_repwd" id="admin_repwd" value="" maxlength="12" error="* 两次输入的密码不一样!"><span id="admin_repwd_error">*</span></dt>
+    </ul>
+    <dt>管理权限：</dt>
+    	<dd><input name="ids[0]" type="checkbox" value="1" class="checkbox" <eq name="admin.0" value="1">checked</eq>>后台设置
+          <input name="ids[1]" type="checkbox" value="1" class="checkbox" <eq name="admin.1" value="1">checked</eq>>分类管理
+          <input name="ids[2]" type="checkbox" value="1" class="checkbox" <eq name="admin.2" value="1">checked</eq>>视频管理
+          <input name="ids[3]" type="checkbox" value="1" class="checkbox" <eq name="admin.3" value="1">checked</eq>>新闻管理
+          <input name="ids[4]" type="checkbox" value="1" class="checkbox" <eq name="admin.4" value="1">checked</eq>>用户管理
+          <input name="ids[5]" type="checkbox" value="1" class="checkbox" <eq name="admin.5" value="1">checked</eq>>采集管理
+          <input name="ids[6]" type="checkbox" value="1" class="checkbox" <eq name="admin.6" value="1">checked</eq>>数据备份
+          <input name="ids[7]" type="checkbox" value="1" class="checkbox" <eq name="admin.7" value="1">checked</eq>>上传管理
+          <input name="ids[8]" type="checkbox" value="1" class="checkbox" <eq name="admin.8" value="1">checked</eq>>友链管理
+          <input name="ids[9]" type="checkbox" value="1" class="checkbox" <eq name="admin.9" value="1">checked</eq>>广告管理<br>
+          <input name="ids[10]" type="checkbox" value="1" class="checkbox" <eq name="admin.10" value="1">checked</eq>>缓存管理
+          <input name="ids[11]" type="checkbox" value="1" class="checkbox" <eq name="admin.11" value="1">checked</eq>>生成管理
+          <input name="ids[12]" type="checkbox" value="1" class="checkbox" <eq name="admin.12" value="1">checked</eq>>模板管理
+          <input name="ids[13]" type="checkbox" value="1" class="checkbox" <eq name="admin.13" value="1">checked</eq>>评论管理
+          <input name="ids[14]" type="checkbox" value="1" class="checkbox" <eq name="admin.14" value="1">checked</eq>>留言管理
+          <input name="ids[15]" type="checkbox" value="1" class="checkbox" <eq name="admin.15" value="1">checked</eq>>TAG管理
+          <input name="ids[16]" type="checkbox" value="1" class="checkbox" <eq name="admin.16" value="1">checked</eq>>专题管理
+          <input name="ids[17]" type="checkbox" value="1" class="checkbox" <eq name="admin.17" value="1">checked</eq>>自定义菜单
+          <input name="ids[18]" type="checkbox" value="1" class="checkbox" <eq name="admin.18" value="1">checked</eq>>幻灯管理
+          <input name="ids[19]" type="checkbox" value="1" class="checkbox" <eq name="admin.19" value="1">checked</eq>>图片清理
+        </dd>
+    <dt></dt><dd><input type="submit" class="ui-button" name="submit" value="提交"> <input type="reset" class="ui-button" name="reset" value="重置"> <gt name="admin_id" value="0">注：不修改密码请留空</gt></dd>
+    </form>
+    </dl>
+</div>

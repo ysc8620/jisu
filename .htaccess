@@ -1,0 +1,13 @@
+# �� RewriteEngine ģʽ��
+RewriteEngine On
+# ��װĿ¼·��
+RewriteBase /
+# Rewrite ϵͳ���������޸�
+RewriteRule ^vod-(.*)$ index.php\?s=/home-vod-$1
+RewriteRule ^news-(.*)$ index.php\?s=/home-news-$1
+RewriteRule ^special-(.*)$ index.php\?s=/home-special-$1
+RewriteRule ^tag-(.*)$ index.php\?s=/home-tag-$1
+RewriteRule ^gb-(.*)$ index.php\?s=/home-gb-$1
+RewriteRule ^cm-(.*)$ index.php\?s=/home-cm-$1
+RewriteRule ^map-(.*)$ index.php\?s=/home-map-$1
+RewriteRule ^my-(.*)$ index.php\?s=/home-my-$1

@@ -1,0 +1,32 @@
+<h4><a href="?s=admin-link-show">友情链接管理</a></h4>
+<table border="0" cellpadding="0" cellspacing="0" class="table-list">
+<form action="?s=admin-link-updateall" method="post" name="myform" id="myform">
+<thead>
+<tr class="ct">
+  <th class="l" width="70">排序</th>
+  <th class="l" width="120">链接形式</th>
+  <th class="l" width="200">网站名称</th>
+  <th class="l" width="320">友情链接地址</th>
+  <th class="l" >Logo地址</th>
+  <th class="r" width="120">相关操作</th>
+</tr>
+</thead>
+<volist name="list_link" id="ppvod"><input name="link_id[{$ppvod.link_id}]" type="hidden" value="{$ppvod.link_id}">
+<tbody>
+<tr>
+<td class="l ct"><input name="link_order[{$ppvod.link_id}]" type="text" value="{$ppvod.link_order}" size="5" maxlength="5" class="text w50"></td>
+<td class="l ct"><select name="link_type[{$ppvod.link_id}]" class="select"><option value="1">文字链接</option><option value="2" <eq name="ppvod.link_type" value="2">selected</eq>>图片链接</option></select></td>
+<td class="l ct"><input name="link_name[{$ppvod.link_id}]" type="text" value="{$ppvod.link_name}" maxlength="250" class="text w150"></td>
+<td class="l ct"><input name="link_url[{$ppvod.link_id}]" type="text" value="{$ppvod.link_url}" maxlength="250" class="text w300"></td>
+<td class="l ct"><input name="link_logo[{$ppvod.link_id}]" type="text" value="{$ppvod.link_logo}" maxlength="250" style="width:90%" class="text"></td>
+<td class="r ct"><a href="?s=admin-link-add-id-{$ppvod.link_id}" title="点击修改友链" class="min-button">修改</a> <a href="?s=admin-link-del-id-{$ppvod.link_id}" onClick="return confirm('确定删除该友情链接吗?')" title="点击删除影片" class="min-button">删除</a></td>
+</tr>
+</tbody>
+</volist> 
+<tfoot>
+<tr>
+  <td colspan="6" class="r"><input type="button" class="ui-button" value="批量修改" onClick="post('?s=admin-link-updateall');"> <input class="ui-button" type="reset" name="Input" value="重置" > <input type="button" class="ui-button" value="添加链接" onClick="window.location='?s=admin-link-add';"> 注：提交时如果"网站名称"为空则删除该对应的链接</td>
+</tr>  
+</tfoot>
+</form>       
+</table>

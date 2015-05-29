@@ -1,0 +1,42 @@
+<?php
+return array(
+    array(
+        'name'=>'系统工具',
+        'url'=>'admin/config',
+        'sub'=>array(
+            array(
+                'name'=> '网站信息配置',
+                'url'=>'admin/config',
+            ),
+            array(
+                'name'=>'系统运行环境',
+                'url'=>'index/index'
+            ),
+            array(
+                'name'=>'快捷菜单设置',
+                'url'=>'nav/show'
+            )
+        )
+    ),
+    array(
+        'name'=>'内容管理'
+    ),
+    array(
+        'name'=>'采集管理'
+    ),
+    array(
+        'name'=>'扩展工具'
+    ),
+    array(
+        'name'=>'模版管理'
+    ),
+    array(
+        'name'=>'静态生成'
+    ),
+    array(
+        'name'=>'用户中心'
+    ),
+    array(
+        'name'=>'数据库维护'
+    )
+);
