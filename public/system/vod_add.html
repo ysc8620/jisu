@@ -42,7 +42,18 @@ $(document).ready(function(){
   <dl class="fieldset">
     <dt>影片名称：</dt>
     <dd><input type="text" name="vod_name" id="vod_name" value="{$vod_name}" maxlength="255" error="* 名称不能为空" class="w300 text">
-    <label><select name="vod_cid" id="vod_cid" style="width:100px" class="select"><option value=0>选择分类</option><volist name="listvod" id="ppvod"><option value="{$ppvod.list_id}" <eq name="ppvod.list_id" value="$vod_cid">selected</eq>>{$ppvod.list_name}</option><volist name="ppvod['son']" id="ppvod"><option value="{$ppvod.list_id}" <eq name="ppvod.list_id" value="$vod_cid">selected</eq>>├ {$ppvod.list_name}</option></volist></volist></select></label> <label><select name="vod_status" class="select"><option value="1">显示</option><option value="0" <eq name="vod_status" value="0">selected</eq>>隐藏</option></select></label> <label><select name="vod_language" id="vod_language" class="w70 select"><notempty name="vod_language"><option value='{$vod_language}'>{$vod_language}</option></notempty><option value=''>对白</option><volist name="vod_language_list" id="val"> <option value="{$val}">{$val}</option></volist></select></label> 影片时长：<label><input type="text" name="vod_length" id="vod_length" maxlength="3" value="{$vod_length}" class="w50 text" title="单位：分钟"></label></dd>
+    <label><label><select name="vod_status" class="select"><option value="1">显示</option><option value="0" <eq name="vod_status" value="0">selected</eq>>隐藏</option></select></label> <label><select name="vod_language" id="vod_language" class="w70 select"><notempty name="vod_language"><option value='{$vod_language}'>{$vod_language}</option></notempty><option value=''>对白</option><volist name="vod_language_list" id="val"> <option value="{$val}">{$val}</option></volist></select></label> 影片时长：<label><input type="text" name="vod_length" id="vod_length" maxlength="3" value="{$vod_length}" class="w50 text" title="单位：分钟"></label></dd>
+    <dt>影片分类：</dt>
+    <dd><select name="vod_cid" id="vod_cid" style="width:100px" class="select" onchange="change_select(this)"><option value=0>选择分类</option><volist name="listvod" id="ppvod"><option value="{$ppvod.list_id}" <eq name="ppvod.list_id" value="$vod_cid">selected</eq>>{$ppvod.list_name}</option></volist></select></label> </dd>
+      <dt>影片剧情：</dt><dd><span class="sub_class">
+      <volist name="listvod" id="ppvod">
+          <eq name="ppvod.list_id" value="$vod_cid">
+          <volist name="ppvod['son']" id="son">
+              <input type="checkbox"  <if condition="in_array($son['list_id'],$vod_class_array)">checked</if> name="vod_class[]" value="{$son.list_id}" />{$son.list_name}
+          </volist>
+          </eq>
+      </volist>
+      </span></dd>
     <dt>影片备注：</dt>
     <dd><input type="text" name="vod_title" id="vod_title" maxlength="255" value="{$vod_title}" class="w300 text"> <label><select name="vod_area" id="vod_area" style="width:100px" class="select"><notempty name="vod_area"><option value='{$vod_area}'>{$vod_area}</option></notempty><option value=''>出产地区</option><volist name="vod_area_list" id="val"> <option value="{$val}">{$val}</option></volist></select></label> <lable><select name="vod_year" id="vod_year" class="select"><notempty name="vod_year"><option value='{$vod_year}'>{$vod_year}</option></notempty><option value=''>年代</option><volist name="vod_year_list" id="val"><option value="{$val}">{$val}</option></volist></select></label> <lable><select name="vod_isfilm" class="w70 select"><option value="1">已上映</option><option value="2" <eq name="vod_isfilm" value="2">selected</eq>>未上映</option><option value="3" <eq name="vod_isfilm" value="3">selected</eq>>热映中</option></select></lable> 节目周期：<label><input type="text" name="vod_weekday" id="vod_weekday" maxlength="7" value="{$vod_weekday}" class="w50 text" title="周1-周日(1-7)/周1+周2(12)"></label></dd>
     <dt>影片主演：</dt>
@@ -52,11 +63,25 @@ $(document).ready(function(){
     <dt>海报剧照：</dt>
     <dd><label style="float:left; margin-top:3px; margin-right:5px"><input type="text" name="vod_pic" id="vod_pic" maxlength="255" value="{$vod_pic}" class="w300 text" onMouseOver="if(this.value)showpic(event,this.value,'{&upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=admin-upload-show-sid-vod" scrolling="no" topmargin="0" width="280" height="26" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:3px; float:left"></iframe></span></dd>
 
-  
     <dt>影片TAG：</dt>
     <dd><input type="text" name="vod_keywords" id="vod_keywords"  maxlength="255" value="{$vod_keywords}" class="w300 xy_tag text"> <img src="__PUBLIC__/images/admin/edit.gif" onClick="javascript:showtags(1);" class="navpoint" ></dd>
 
   <script language="javascript">
+        var listData = {};
+      <volist name="listvod" id="ppvod">
+                listData['id{$ppvod.list_id}'] = {};
+                <volist name="ppvod['son']" id="son">
+                listData['id{$ppvod.list_id}']['id{$son.list_id}'] = '{$son.list_name}';
+                        </volist>
+                </volist>
+        function change_select(_this){
+            $('span.sub_class').html('');
+            var data = listData['id'+$(_this).val()];
+            $.each(data,function(i){
+                $('span.sub_class').html($('span.sub_class').html()+'<input type="checkbox" name="vod_class[]" value="'+ i.replace('id','')+'" />'+data[i]+' ')
+            })
+        }
+        change_select('#vod_cid')
 	var $urln={:count($vod_url)};
 	function addurl(){
 		var $old = $("#urllist>dl:last").html();

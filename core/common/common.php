@@ -385,6 +385,11 @@ function getlistname($cid,$type='list_name'){
 	    return '未知ID'.$cid;
 	}
 }
+
+// 检查剧情
+function getvodclass($pid){
+    return empty($pid)?false:true;
+}
 // 检查当前栏目是否没有小类
 function getlistson($pid){
 	$tree=list_search(F('_ppvod/listtree'),'list_id='.$pid);

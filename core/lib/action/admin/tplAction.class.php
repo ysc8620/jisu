@@ -49,6 +49,10 @@ class tplAction extends baseAction{
 		if (empty($filename)) {
 			$this->error('模板名称不能为空！');
 		}
+        $dirlast = $this->dirlast();//上一层目录
+        if($dirlast && $dirlast != '.'){
+            $this->assign('dirlast',admin_js_url_repalce($dirlast,'desc'));
+        }
 		$content = read_file($filename);
 		$this->assign('filename',$filename);
 		$this->assign('content',htmlspecialchars($content));

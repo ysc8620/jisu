@@ -112,6 +112,7 @@ class vodAction extends baseAction{
 			$array['vod_server'] = explode('$$$',$array['vod_server']);	
 			$array['vod_url'] = explode('$$$',$array['vod_url']);
 			$array['vod_starsarr'] = admin_star_arr($array['vod_stars']);
+            $array['vod_class_array'] = explode('/', $array['vod_class']);
 			$array['vod_keywords'] = implode(',',$tag);
 			if (C('admin_time_edit')){
 				$array['checktime'] = 'checked';
@@ -140,6 +141,7 @@ class vodAction extends baseAction{
 		$this->assign($array);
 		$this->assign("jumpUrl",$_SESSION['vod_jumpurl']);
 		$this->assign('listvod',F('_ppvod/listvod'));
+        //print_r(F('_ppvod/listvod'));
 		$this->display('./public/system/vod_add.html');
     }
 	// 数据库写入前置操作

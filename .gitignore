@@ -1,5 +1,5 @@
 .idea
 *.log
-#runtime
-#uploads
+runtime
+uploads
 

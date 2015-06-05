@@ -1,3 +1,4 @@
+<h4><eq name="cid" value="1">报错<else/>留言本</eq>管理</h4>
 <script language="javascript">
 function changeurl(cid,status,intro){
 	self.location.href='?s=admin-gb-show-cid-'+cid+'-status-'+status+'-intro-'+intro+'';
@@ -13,7 +14,6 @@ $(document).ready(function(){
 </script>
 <form action="?s=admin-gb-show" method="post" name="myform" id="myform">
 <table border="0" cellpadding="0" cellspacing="0" class="table-list">
-<thead><tr><th class="r"><span style="float:left">留言本管理</span></th></tr></thead>
   <tr>
     <td class="tr ct" style="height:40px"><input type="button" value="所有" class="ui-button" onClick="changeurl({$cid},0,0);"> <input type="button" value="未审核" class="ui-button" onClick="changeurl({$cid},2,0);"> <input type="button" value="已审核" class="ui-button" onClick="changeurl({$cid},1,1);"> <input type="button" value="未回复" class="ui-button" onClick="changeurl({$cid},0,2);"> <input type="text" name="wd" id="wd" maxlength="20" value="{$wd|default='可搜索(留言内容,用户呢称,用户IP)'|urldecode}" onClick="this.select();" style="color:#666;width:200px"> <input type="button" value="搜索" class="ui-button" onClick="post('?s=admin-gb-show');"></td>
   </tr>

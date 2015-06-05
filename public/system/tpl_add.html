@@ -1,9 +1,10 @@
+<h4><a href="?s=admin-tpl-show">网站模板管理</a><em>　>> </em><a href="?s=admin-tpl-show-id-{$dirlast}">返回上级目录</a></h4>
 <table border="0" cellpadding="0" cellspacing="0" class="table-list">
 <form action="index.php?s=admin-tpl-update" method="post" name="myform" id="myform">
 <thead>
 <tr><th class="r pd" colspan="2" style="text-align:left">模板编辑：<input name="filename" type="text" value="{$filename}" class="w300">（不允许用 “..” 形式的路径）</th></tr>
 </thead>
-<tr><td class="r ct" style="padding:5px 0px"><textarea name="content" style="width:95%;height:450px">{$content}</textarea></td></tr>
+<tr><td class="r ct" style="padding:5px 0px"><textarea name="content" class="text" style="width:95%;height:450px">{$content}</textarea></td></tr>
 <tr><td class="r"><input type="submit" name="submit" class="ui-button" value="提交" > <input type="reset" name="Input" class="ui-button" value="重置" ></td></tr>
 {__NOTOKEN__}</form> 
 </table>

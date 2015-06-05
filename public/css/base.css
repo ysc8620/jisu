@@ -90,20 +90,8 @@ textarea.code{white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre
 .strong{font-weight:bold;}
 
 .page-header {
-background: -moz-linear-gradient(#485063, #363b49);
-background: -ms-linear-gradient(#485063, #363b49);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #485063),color-stop(100%, #363b49) );
-background: -webkit-linear-gradient(#485063, #363b49);
-background: -o-linear-gradient(#485063, #363b49);
-background: linear-gradient(#485063, #363b49);
-background-color: #3f4657;
-clear: both;
-height: 67px;
-overflow: visible;
-padding: 0 0px;
-position: relative;
-z-index: 50;
-}
+background: -moz-linear-gradient(#485063, #363b49);background: -ms-linear-gradient(#485063, #363b49);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #485063),color-stop(100%, #363b49) );
+background: -webkit-linear-gradient(#485063, #363b49);background: -o-linear-gradient(#485063, #363b49);background: linear-gradient(#485063, #363b49);background-color: #3f4657;clear: both;height: 67px;overflow: visible;padding: 0 0px;position: relative;z-index: 50;}
 
 .header-logo {float: left;margin:-8px 10px;}
 .header-toolbar {clear: right;color: #C8C8C8;float: right;}
@@ -165,22 +153,11 @@ background: -o-linear-gradient(#fff, #f4f4f4);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#f4f4f4' );
 -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#f4f4f4')";
 background: linear-gradient(#fff, #f4f4f4);
-border-bottom: 1px solid #CCCCCC;color: #333333;font-size: 13px;font-weight: bold;height: 30px;line-height: 30px;margin: 0;padding: 0 20px;
-}
+border-bottom: 1px solid #CCCCCC;color: #333333;font-size: 13px;font-weight: bold;height: 30px;line-height: 30px;margin: 0;padding: 0 20px;}
 
-.sub-nav dd {height: 38px;line-height: 38px;margin: 0;overflow: hidden;}
+.sub-nav dd {height: 38px;line-height: 38px;margin: 0;overflow: hidden; border-bottom: 1px #eee solid;}
 .sub-nav dd.active {background-color: #78849C;}
-.sub-nav dd a {
-background-color: #FFFFFF;
-color: #000000;
-display: block;
-height: 100%;
-padding: 0 20px;
-text-decoration: none;
-transition: background-color ease .5s;
--moz-transition: background-color ease .5s;
--webkit-transition: background-color ease .5s;
-}
+.sub-nav dd a {background-color: #FFFFFF;color: #000000;display: block;height: 100%;padding: 0 20px;text-decoration: none;transition: background-color ease .5s;-moz-transition: background-color ease .5s;-webkit-transition: background-color ease .5s;}
 .sub-nav dd a:hover {background-color: #F0F0F0;}
 .sub-nav dd.active a {background: url("./images/li_arrow.png") no-repeat scroll 190px 0 transparent;color: #FFFFFF;font-weight: bold;}
 .sub-nav dd.active a:hover {background-color: #78849C;}
@@ -218,7 +195,6 @@ transition: background-color ease .5s;
 .table-list tbody tr td q {color: #0066CC;cursor: pointer;margin: 0 5px;}
 .table-list tbody tr td a.min-button{color:#666}
 
-
 .table-form{width: 100%;border-spacing: 0;border:1px solid #ccc;background:#000;}
 .table-form thead tr th {line-height: 30px;background: #EFEFEF;color: #666666;padding: 0px 5px;}
 .table-form tbody tr td {background: #fff;line-height: 28px;padding: 2px 5px;border-top: 1px dotted #CCCCCC;color: #666666}
@@ -226,8 +202,6 @@ transition: background-color ease .5s;
 .table-form tbody tr td a {color: #0066CC;text-decoration: none;margin-right: 5px;}
 .table-form tbody tr td a:after,.table-form tbody tr td a:before,.table-form tbody tr td q:after,.table-form tbody tr td q:before {content: "";}
 .table-form tbody tr td q {color: #0066CC;cursor: pointer;margin: 0 5px;}
-
-
 
 /*button*/
 .min-button{border: 1px solid #A8ADB6;border-radius: 2px 2px 2px 2px;cursor: pointer;display: inline-block;font-size: 12px;height: auto;line-height: 16px;overflow: visible;padding: 1px 4px;color: #666;background: linear-gradient(#FFFFFF, #F4F4F4) ;margin-right:0px;margin-left:3px;}
@@ -615,3 +589,5 @@ Uploadify
     color:#FF0000;
     font-weight:bold;
 }
+
+.line{color: #999!important;}

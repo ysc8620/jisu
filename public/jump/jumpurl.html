@@ -3,11 +3,11 @@
 <head>
 <title>{&site_name}-系统提示</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv='Refresh' content='{$waitSecond};URL={$jumpUrl}'>
+<meta http-equiv='Refresh' content='{$waitSecond};URL={$jumpUrl}' >
 </head>
 <body>
-<table border="0" align="center" cellpadding="5" cellspacing="1" style="color:#333333;margin-top:100px;background:#70afd3">
-<tr><th style="color:#FFFFFF">{$msgTitle}</th></tr>
+<table border="0" align="center" cellpadding="5" cellspacing="1" style="width:400px;color:#666;margin-top:100px;background:#f4f4f4; border:1px solid #ccc">
+<tr><th style="color:#999; border-bottom: #ccc 1px solid;">{$msgTitle}</th></tr>
 <tr><td style="background:#FFF; padding:20px 10px; font-size:12px; line-height:25px">
 	<font style="color:#FF0000;font-size:14px">{$message}</font><br />系统将在<span id="countDownSec" style="color:blue;font-weight:bold">{$waitSecond}</span>&nbsp;秒后自动跳转，如果不想等待请<a href="{$jumpUrl}" style="color:#069;">点击这里</a>
 </td></tr>
@@ -23,7 +23,7 @@ var countDown = function(timer,eleId,interType){
 		}
 	},interval);
 };
-countDown(parseInt({$waitSecond}),'countDownSec','s');
+countDown(parseInt('{$waitSecond}'),'countDownSec','s');
 </script>
 </body>
 </html>

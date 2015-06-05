@@ -4,11 +4,13 @@ class VodModel extends RelationModel {
 	//自动验证
 	protected $_validate = array(
 	    array('vod_cid','number','请选择分类！',1,'',3),
-		array('vod_cid','getlistson','请选择当前子类栏目！',1,'function',3),
+        array('vod_class','getvodclass','请选择影视剧情！',1,'function',3),
+		//array('vod_class','getlistson','请选择当前子类栏目！',1,'function',3),
 		array('vod_name','require','影片名称必须填写！',1,'',3),
 	);
 	//自动完成
 	protected $_auto = array(
+        array('vod_class','vod_class',3,'callback'),
 		array('vod_letter','vod_letter',3,'callback'),
 		array('vod_gold','vod_gold',3,'callback'),
 		array('vod_pic','vod_pic',3,'callback'),
@@ -30,6 +32,10 @@ class VodModel extends RelationModel {
 			//'mapping_order' => 'create_time desc',
 		)
 	);
+
+    public function vod_class(){
+        return join('/', ($_POST["vod_class"]));
+    }
 	//字母处理
 	public function vod_letter(){
 		return js_letter_first(trim($_POST["vod_name"]));
