@@ -42,14 +42,14 @@
         <div class='header-logo'><a href='/' target='_blank'><img src='__PUBLIC__/images/water.gif'/></a></div>
         <div class='header-toolbar'></div>
         <ul class='header-nav'>
-            <li><a href="?s=admin-admin-config" target="_self"><span>系统管理</span></a></li>
-            <li><a href="?s=admin-vod-show" target="_self"><span>内容管理</span></a></li>
-            <li><a href="?s=admin-xml-show" target="_self"><span>采集管理</span></a></li>
-            <li><a href="?s=admin-cache-show" target="_self"><span>扩展工具</span></a></li>
-            <li><a href="?s=admin-tpl-show" target="_self"><span>模板管理</span></a></li>
-            <li><a href="?s=admin-create-show" target="_self"><span>静态生成</span></a></li>
-            <li><a href="?s=admin-admin-show" target="_self"><span>用户中心</span></a></li>
-            <li><a href="?s=admin-data-show" target="_self"><span>数据库维护</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('admin','index','nav'))">class="active"</if>><a href="?s=admin-admin-config" target="_self"><span>系统管理</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('list','vod','news','special','tag','area'))">class="active"</if>><a href="?s=admin-vod-show" target="_self"><span>内容管理</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('xml','dswin','cj'))">class="active"</if>><a href="?s=admin-xml-show" target="_self"><span>采集管理</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('cache','slide','ads','link','pic'))">class="active"</if>><a href="?s=admin-cache-show" target="_self"><span>扩展工具</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('tpl'))">class="active"</if>><a href="?s=admin-tpl-show" target="_self"><span>模板管理</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('create'))">class="active"</if>><a href="?s=admin-create-show" target="_self"><span>静态生成</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('admin','cm','gb'))">class="active"</if>><a href="?s=admin-admin-show" target="_self"><span>用户中心</span></a></li>
+            <li <if condition="in_array($sys_model_name, array('data'))">class="active"</if>><a href="?s=admin-data-show" target="_self"><span>数据库维护</span></a></li>
         </ul>
     </div>
     <div class='page-content'>
