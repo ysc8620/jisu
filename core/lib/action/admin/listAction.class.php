@@ -47,7 +47,7 @@ class listAction extends baseAction{
 		if ($rs->create()) {
 			if ( false !==  $rs->add() ) {
 			    $this->ppvod_list();
-				$this->assign("jumpUrl",'?s=admin-list-show');
+				$this->assign("jumpUrl");
 				$this->success('添加栏目分类成功！');
 			}else{
 				$this->error('添加栏目分类错误');

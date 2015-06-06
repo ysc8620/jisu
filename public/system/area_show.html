@@ -1,4 +1,5 @@
 <h4>栏目分类</h4>
+        <div class="fieldset"><a href="?s=admin-area-add" class="min-button">添加新地区</a></div>
 <table border="0" cellpadding="0" cellspacing="0" class="table-list">
   <thead>
     <tr class="ct">
@@ -12,18 +13,16 @@
   <form action="?s=admin-area-updateall" method="post" name="myform" id="myform">
   <volist name="list_tree" id="vod">
   <tbody><tr>
-    <td class="r pd">{$vod.list_name}</td>
-
+    <td class="r pd">{$vod.list_name} <span style="float: right"><a href="?s=admin-area-add&list_id={$vod.list_id}" class="min-button">添加新地区</a></span> </td>
     <td class="r ct"></td>
     <td class="r ct"></td>
     <td class="r ct"></td>
-
     <td class="r ct"></td>
   </tr></tbody>
       <volist name="listarea" id="area">
           <eq name="area.list_id" value="$vod.list_id">
           <tbody><tr>
-              <td class="r pd"> &nbsp; &nbsp; <input type='checkbox' name='ids[]' value='{$area.id}' class="checkbox" checked>{$area.id}、{$area.name}</td>
+              <td class="r pd"> &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; <input type='checkbox' name='ids[]' value='{$area.id}' class="checkbox" checked>{$area.id}、{$area.name}</td>
 
               <td class="r ct"><eq name="area.status" value="1"><a href="?s=admin-area-status-id-{$area.id}-sid-0" title="显示状态,点击隐藏该地区" class="min-button">显示</a><else /><a href="?s=admin-area-status-id-{$area.id}-sid-1" title="隐藏状态,点击隐藏该分类" class="min-button"><font color="red">隐藏</font></a></eq></td>
               <td class="r ct">{$area.sort}</td>

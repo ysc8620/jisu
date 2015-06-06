@@ -28,7 +28,7 @@
   </tr></tbody>
   <volist name="ppvod.son" id="ppvod">
   <tbody><tr>
-    <td class="r pd">&nbsp;&nbsp;&nbsp;&nbsp;<input type='checkbox' name='ids[]' value='{$ppvod.list_id}' class="noborder" checked>{$ppvod.list_id}、{$ppvod.list_name}(<font color="red">{$ppvod.list_id|getcount}</font>)</td>
+    <td class="r pd"> &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; <input type='checkbox' name='ids[]' value='{$ppvod.list_id}' class="noborder" checked>{$ppvod.list_id}、{$ppvod.list_name}(<font color="red">{$ppvod.list_id|getcount}</font>)</td>
     <td class="r ct">&nbsp;</td>
     <td class="r ct"><eq name="ppvod.list_status" value="1"><a href="?s=admin-list-status-id-{$ppvod.list_id}-sid-0" title="显示状态,点击隐藏该分类" class="min-button">显示</a><else /><a href="?s=admin-list-status-id-{$ppvod.list_id}-sid-1" title="隐藏状态,点击显示该分类" class="min-button"><font color="red">隐藏</font></a></eq></td>
     <td class="r ct">{$ppvod.list_sid|getsidname}</td>

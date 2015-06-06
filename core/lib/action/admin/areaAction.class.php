@@ -18,6 +18,7 @@ class areaAction extends baseAction{
 	// 添加编辑分类
     public function add(){
 		$cid = intval($_GET['id']);
+        $list_id = intval($_GET['list_id']);
 	    $rs = D("Area");
 		if ($cid>0) {
             $where['id'] = $cid;
@@ -29,7 +30,7 @@ class areaAction extends baseAction{
 			$list['status'] = 1;
 			$list['tpltitle'] = '添加';
 		}
-
+        $this->assign('list_id', $list_id);
         $this->assign('list_tree',F('_ppvod/listvod'));
 		$this->assign($list);
 		$this->display('./public/system/area_add.html');
@@ -40,7 +41,7 @@ class areaAction extends baseAction{
 		if ($rs->create()) {
 			if ( false !==  $rs->add() ) {
 			    $this->parea_list();
-				$this->assign("jumpUrl",'?s=admin-area-show');
+				//$this->assign("jumpUrl",'?s=admin-area-show');
 				$this->success('添加地区成功！');
 			}else{
 				$this->error('添加地区错误');
@@ -54,7 +55,7 @@ class areaAction extends baseAction{
 		if ($rs->create()) {
 			$list = $rs->save();
 			if ($list !== false) {
-			    $this->ppvod_list();
+			    $this->parea_list();
 				$this->assign("jumpUrl",'?s=admin-area-show');
 				$this->success('地区更新成功！');
 			}else{

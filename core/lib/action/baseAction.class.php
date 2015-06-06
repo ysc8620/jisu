@@ -32,10 +32,28 @@ class baseAction extends allAction{
     public function parea_list(){
         $rs = D("Area");
         $where['status'] = array('eq',1);
-        $list=$rs->where($where)->order('sort asc')->select();
+        $list = $rs->where($where)->order('sort asc')->select();
 
         F('_ppvod/area',$list);
 
+        // 获取分类
+        $class_list = F('_ppvod/listvod');
+        $new_list = array();
+        foreach($class_list as $vod){
+            $new_vod = array(
+                'list_id'=>$vod['list_id'],
+                'list_name'=>$vod['list_name'],
+                'son'=>array()
+            );
+            foreach($list as $a){
+                if($a['list_id'] == $vod['list_id']){
+                    array_push($new_vod['son'], $a);
+                }
+            }
+            array_push($new_list, $new_vod);
+        }
+
+        F('_ppvod/areatree',$new_list);
     }
 	//生成前台分类缓存
     public function ppvod_list(){

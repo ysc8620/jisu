@@ -13,7 +13,7 @@
         <dl class='sub-nav hidden' <if condition="in_array($sys_model_name, array('list','vod','news','special','tag','area'))">style="display:block"</if>>
             <dt>内容管理</dt>
             <dd <if condition="($sys_action_name eq 'show')AND($sys_model_name eq 'list')"> class="active"</if>><a href="?s=admin-list-show">网站栏目管理</a></dd>
-            <dd <if condition="($sys_action_name eq 'show')AND($sys_model_name eq 'list')"> class="active"</if>><a href="?s=admin-list-add">添加网站栏目</a></dd>
+            <dd <if condition="($sys_action_name eq 'add')AND($sys_model_name eq 'list')"> class="active"</if>><a href="?s=admin-list-add">添加网站栏目</a></dd>
             <dd <if condition="($sys_action_name eq 'show')AND($sys_model_name eq 'vod')"> class="active"</if>><a href="?s=admin-vod-show" class="on">视频数据管理</a></dd>
             <dd <if condition="($sys_action_name eq 'add')AND($sys_model_name eq 'vod')"> class="active"</if>><a href="?s=admin-vod-add">添加视频数据</a></dd>
             <dd <if condition="($sys_action_name eq 'show')AND($sys_model_name eq 'news')"> class="active"</if>><a href="?s=admin-news-show">新闻资讯管理</a></dd>
