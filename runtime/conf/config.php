@@ -8,7 +8,7 @@ return array (
   'db_port' => '3306',
   'db_prefix' => 'js_',
   'db_charset' => 'utf8',
-  'default_theme' => 'defalut',
+  'default_theme' => 'default',
   'site_name' => '极速影视导航系统',
   'site_path' => '/',
   'site_url' => 'http://127.0.0.1/',
