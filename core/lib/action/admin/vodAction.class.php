@@ -135,8 +135,9 @@ class vodAction extends baseAction{
 			$array['vod_tplname'] = '添加';
 		}
 		$array['vod_language_list']=explode(',',C('play_language'));
-		$array['vod_area_list']=explode(',',C('play_area'));
-		$array['vod_year_list']=explode(',',C('play_year'));
+		$array['vod_area_list']=F('_ppvod/areatree');#explode(',',C('play_area'));
+        //print_r($array['vod_area_list']);
+		#$array['vod_year_list']=explode(',',C('play_year'));
 		$this->ppvod_play();
 		$this->assign($array);
 		$this->assign("jumpUrl",$_SESSION['vod_jumpurl']);

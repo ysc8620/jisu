@@ -45,7 +45,7 @@ $(document).ready(function(){
     <label><label><select name="vod_status" class="select"><option value="1">显示</option><option value="0" <eq name="vod_status" value="0">selected</eq>>隐藏</option></select></label> <label><select name="vod_language" id="vod_language" class="w70 select"><notempty name="vod_language"><option value='{$vod_language}'>{$vod_language}</option></notempty><option value=''>对白</option><volist name="vod_language_list" id="val"> <option value="{$val}">{$val}</option></volist></select></label> 影片时长：<label><input type="text" name="vod_length" id="vod_length" maxlength="3" value="{$vod_length}" class="w50 text" title="单位：分钟"></label></dd>
     <dt>影片分类：</dt>
     <dd><select name="vod_cid" id="vod_cid" style="width:100px" class="select" onchange="change_select(this)"><option value=0>选择分类</option><volist name="listvod" id="ppvod"><option value="{$ppvod.list_id}" <eq name="ppvod.list_id" value="$vod_cid">selected</eq>>{$ppvod.list_name}</option></volist></select></label> </dd>
-      <dt>影片剧情：</dt><dd><span class="sub_class">
+     <dt>影片剧情：</dt><dd><span class="sub_class">
       <volist name="listvod" id="ppvod">
           <eq name="ppvod.list_id" value="$vod_cid">
           <volist name="ppvod['son']" id="son">
@@ -54,10 +54,21 @@ $(document).ready(function(){
           </eq>
       </volist>
       </span></dd>
+
+      <dt>出产地区：</dt><dd><span class="sub_area">
+      <volist name="vod_area_list" id="area">
+          <eq name="area.list_id" value="$vod_cid">
+              <volist name="area['son']" id="son">
+                  <input type="radio"  <if condition="$son['id'] eq $vod_area">checked</if> name="vod_area" value="{$son.id}" />{$son.name}
+              </volist>
+          </eq>
+      </volist>
+      </span></dd>
+
     <dt>影片备注：</dt>
-    <dd><input type="text" name="vod_title" id="vod_title" maxlength="255" value="{$vod_title}" class="w300 text"> <label><select name="vod_area" id="vod_area" style="width:100px" class="select"><notempty name="vod_area"><option value='{$vod_area}'>{$vod_area}</option></notempty><option value=''>出产地区</option><volist name="vod_area_list" id="val"> <option value="{$val}">{$val}</option></volist></select></label> <lable><select name="vod_year" id="vod_year" class="select"><notempty name="vod_year"><option value='{$vod_year}'>{$vod_year}</option></notempty><option value=''>年代</option><volist name="vod_year_list" id="val"><option value="{$val}">{$val}</option></volist></select></label> <lable><select name="vod_isfilm" class="w70 select"><option value="1">已上映</option><option value="2" <eq name="vod_isfilm" value="2">selected</eq>>未上映</option><option value="3" <eq name="vod_isfilm" value="3">selected</eq>>热映中</option></select></lable> 节目周期：<label><input type="text" name="vod_weekday" id="vod_weekday" maxlength="7" value="{$vod_weekday}" class="w50 text" title="周1-周日(1-7)/周1+周2(12)"></label></dd>
+    <dd><input type="text" name="vod_title" id="vod_title" maxlength="255" value="{$vod_title}" class="w300 text"> 年代：<lable><input name="vod_year" id="vod_year" class="text w50" c value="{$vod_year}" Placeholder="年代" title="年代" /></label> 时长：<lable><select name="vod_isfilm" class="w70 select"><option value="1">已上映</option><option value="2" <eq name="vod_isfilm" value="2">selected</eq>>未上映</option><option value="3" <eq name="vod_isfilm" value="3">selected</eq>>热映中</option></select></lable> 节目周期：<label><input type="text" name="vod_weekday" id="vod_weekday" maxlength="7" value="{$vod_weekday}" class="w50 text" title="周1-周日(1-7)/周1+周2(12)"></label></dd>
     <dt>影片主演：</dt>
-    <dd><input type="text" name="vod_actor" id="vod_actor" maxlength="255" value="{$vod_actor}" class="w300 text" title="可使用半角逗号,分隔"> 上映日期：<label><input type="text" name="vod_filmtime" id="vod_filmtime" maxlength="10" value="<notempty name="vod_filmtime">{$vod_filmtime|date='Y-m-d',###}</notempty>" class="w100 ct" title="如：2013-07-20"></label> 更新日期：<label><input type="text" name="vod_addtime" id="vod_addtime" value="{$vod_addtime|date='Y-m-d H:i:s',###}" class="w120"> <input name="checktime" type="checkbox" class="checkbox" value="1" {$checktime} title="勾选则使用系统当前时间" /></label></dd>
+    <dd><input type="text" name="vod_actor" id="vod_actor" maxlength="255" value="{$vod_actor}" class="w300 text" title="可使用半角逗号,分隔"> 上映日期：<label><input type="text" name="vod_filmtime" id="vod_filmtime" maxlength="10" value="<notempty name='vod_filmtime'>{$vod_filmtime|date='Y-m-d',###}</notempty>" class="w100 ct" title="如：2013-07-20"></label> 更新日期：<label><input type="text" name="vod_addtime" id="vod_addtime" value="{$vod_addtime|date='Y-m-d H:i:s',###}" class="w120"> <input name="checktime" type="checkbox" class="checkbox" value="1" {$checktime} title="勾选则使用系统当前时间" /></label></dd>
     <dt>影片导演：</dt>
     <dd><input type="text" name="vod_director" id="vod_director" maxlength="255" value="{$vod_director}" class="w300 text"> 总共集数：<label><input type="text" name="vod_total" id="vod_total" maxlength="10" value="{$vod_total}" class="w100 ct" title="如：共40集"></label> 连载信息：<label><input type="text" name="vod_continu" id="vod_continu" maxlength="15" value="{$vod_continu}" class="w120 ct" title="留空为完结"></label></dd>
     <dt>海报剧照：</dt>
@@ -74,14 +85,29 @@ $(document).ready(function(){
                 listData['id{$ppvod.list_id}']['id{$son.list_id}'] = '{$son.list_name}';
                         </volist>
                 </volist>
+
+        var areaData = {};
+        <volist name="vod_area_list" id="area">
+                areaData['id{$area.list_id}'] = {};
+        <volist name="area['son']" id="son">
+                areaData['id{$area.list_id}']['id{$son.id}'] = '{$son.name}';
+        </volist>
+        </volist>
+     
         function change_select(_this){
             $('span.sub_class').html('');
             var data = listData['id'+$(_this).val()];
             $.each(data,function(i){
                 $('span.sub_class').html($('span.sub_class').html()+'<input type="checkbox" name="vod_class[]" value="'+ i.replace('id','')+'" />'+data[i]+' ')
+            });
+
+            $('span.sub_area').html('');
+            var data = areaData['id'+$(_this).val()];
+            $.each(data,function(i){
+                $('span.sub_area').html($('span.sub_area').html()+'<input type="radio" name="vod_area" value="'+ i.replace('id','')+'" />'+data[i]+' ')
             })
         }
-        change_select('#vod_cid')
+        //change_select('#vod_cid');
 	var $urln={:count($vod_url)};
 	function addurl(){
 		var $old = $("#urllist>dl:last").html();
