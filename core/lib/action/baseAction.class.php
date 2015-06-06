@@ -26,7 +26,17 @@ class baseAction extends allAction{
     public function ppvod_play(){
 	    $this->assign('countplayer',count(C('PP_PLAYER')));
 		$this->assign('playtree',C('play_player'));
-    }	
+    }
+
+    // 生成前台地区缓存
+    public function parea_list(){
+        $rs = D("Area");
+        $where['status'] = array('eq',1);
+        $list=$rs->where($where)->order('sort asc')->select();
+
+        F('_ppvod/area',$list);
+
+    }
 	//生成前台分类缓存
     public function ppvod_list(){
 		$rs = D("List");

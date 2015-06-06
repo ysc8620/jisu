@@ -125,6 +125,7 @@ class listAction extends baseAction{
 		if (!getlistson($_GET['id'])) {
 			$this->error("请先删除本类下面的子栏目！");
 		}
+        $id = $_GET['id'];
 		$rs->where($where)->delete();
 		$sid = getlistname($id,'list_id');
 		$this->deldata($sid,$id);

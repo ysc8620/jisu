@@ -1,0 +1,37 @@
+<h4>{$tpltitle}地区   <em> >></em> <a href="?s=admin-area-show" >返回栏目管理</a></h4>
+<script language="javascript">
+$(document).ready(function(){
+	$("#myform").submit(function(){
+		if($jisucms.form.empty('myform','name') == false){
+			return false;
+		}
+        if($jisucms.form.empty('myform','list_id') == false){
+            return false;
+        }
+	});
+});
+</script>
+<div class="fieldset">
+<dl class="fieldset">
+<gt name="id" value="0">
+<form action="?s=admin-area-update" method="post" name="myform" id="myform">
+<input type="hidden" name="id" id="id" value="{$id}">
+<else/>
+<form action="?s=admin-area-insert" method="post" name="myform" id="myform">
+</gt> 
+<dt>所属分类：</dt>
+<dd><select name="list_id" id="list_id" error="* 对应分类不能为空!" class="select w120"><option value="">现有分类</option><volist name="list_tree" id="ppvod"><option value="{$ppvod.list_id}" <eq name="ppvod.list_id" value="$list_id">selected</eq>>{$ppvod.list_name}</option></volist></select> <span id="list_id_error">*</span></dd>
+<dt>地区名称：</dt>
+<dd><input type="text" name="name" id="name" value="{$name}" maxlength="20" error="* 地区名称能为空!" class="text w120"><span id="name_error">*</span></dd>
+<dt>地区排序：</dt>
+<dd><input type="text" name="sort" id="sort" value="{$sort}" maxlength="20" class="text w120"><label>越小越前面</label></dd>
+
+<dt>地区别名：</dt>
+<dd><textarea type="text" name="alias_name" id="alias_name" value="{$alias_name}" maxlength="40" class="text "></textarea><label>识别地区用，多个请用/分开</label></dd>
+<dt></dt>
+    <dd>
+<input type="submit" class="ui-button" name="submit" value="提交"> <input type="reset" class="ui-button" name="reset" value="重置"> <gt name="admin_id" value="0">注：不修改密码请留空</gt>
+    </dd>
+</dl>
+</form>
+</div>
