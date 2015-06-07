@@ -1,0 +1,304 @@
+.moiveDetails{width: 980px; margin:0 auto;}
+.moiveDetails h3,.moiveDetails h2{font-size: 20px; color: #333;font-weight: normal; border-bottom: 1px solid #e5e5e5; line-height:40px; height: 40px; margin-bottom: 20px; }
+.moiveDetails h3 span,.moiveDetails h2 span{float: right;}
+.moiveDetails h3 span a,.moiveDetails h2 span a{font-size: 12px; color: #333;}
+.moiveDetails h3 span a:hover,.moiveDetails h2 span a:hover{color: #e05032;}
+
+
+/*面包屑*/
+.detailsTop{font:12px Tahoma, Geneva, "\5B8B\4F53"; margin-bottom: 30px; color: #888;}
+.detailsTop i{margin:0 5px;}
+.detailsTop a{color: #585858; _width:60px; _text-align: center;}
+.detailsTop a:hover{color: #e05032;}
+
+/*影片介绍*/
+.movieDescription{margin-bottom: 40px; background: #f9f9f9;}
+.movieDeLeft{float:left; width: 180px; position: relative; height: 240px;}
+.movieDeLeft a{ display: block;}
+.movieDeLeft img{width: 180px; height: 240px; }
+.movieDeLeft .collection{position: absolute; top:0px; left: 0px;}
+.movieDeLeft .collection i{display: inline-block; width: 28px; height: 28px; float: left;}
+.movieDeLeft .collect i{background:url(../images/details.png) -6px -174px; }
+.movieDeLeft .cancel{display: none;}
+.movieDeLeft .cancel i{background:url(../images/details.png) -34px -174px; }
+.movieDeLeft .collection span{background: #fff; font-size:16px; display: inline-block; padding:0px 10px; height: 28px; line-height: 28px; }
+.movieDeLeft .collect span{display: none;}
+
+.movieDeCenter{float: left; width: 530px; padding:10px 20px; _width: 500px; overflow: hidden; }
+.movieDeCenter .movieDeCenterTop{margin-bottom: 10px;}
+.movieDeCenter .movieDeCenterTop .movieTitle{float: left;}
+.movieDeCenter .movieDeCenterTop .movieTitle h1{font-size: 28px; color: #191919; font-weight: normal;}
+.movieDeCenter .movieDeCenterTop .movieTitle h1 span{font-size: 14px; color: #929292; margin-left: 5px; }
+.movieDeCenter .movieDeCenterTop .start{float: left; width:200px;}
+.movieDeCenter .movieDeCenterTop .start  dl{margin-top: 10px;}
+.movieDeCenter .movieDeCenterTop .start  dd{float: left; width: 22px; height: 22px; background:url(../images/details.png) -237px -15px; margin-left: 5px;}
+.movieDeCenter .movieDeCenterTop .start  .mark{background:url(../images/details.png) -211px -15px;}
+.movieDeCenter .movieDeCenterTop .start  .fullStart{background:url(../images/details.png) -183px -15px;}
+.movieDeCenter .movieDeCenterTop .start  dt{float: left; margin-left: 10px; color: #e05032;font-size: 18px; margin-top: -10px;}
+.movieDeCenter .movieDeCenterTop .start  dt b{font-size: 28px;}
+.movieDeCenter .movieDeCenterCon p{line-height: 24px;}
+.movieDeCenter .movieDeCenterCon p a{background: #e9e9e9; border-radius:2px; padding:2px 3px; margin-right: 3px; _width: 50px; _text-align: center; _height: 20px; _line-height: 20px;}
+.movieDeCenter .movieDeCenterCon p a:hover{background: #e05032; border-radius:2px; padding:2px 3px; color: #fff;}
+.movieDeCenter .movieDeCenterCon span{color: #929292;}
+.movieDeCenter .movieDeCenterCon em{color: #333333;}
+.movieDeCenter .movieDeCenterCon .textRight{display: inline-block; min-width: 120px; _width:120px;}
+.movieDeCenter .movieDeCenterCon .textAbout a{display: inline; background:none; padding:0px; color: #1e6dc5;}
+.movieDeCenter .movieDeCenterCon .textAbout a:hover{display: inline; background:none; padding:0px; color:#e05032; }
+.movieDeCenter .movieDeCenterCon .textBd{_width: 120px; padding:2px 5px; background: #fdf9e4; border:1px solid #fcb6a7;}
+.movieDeCenter .movieDeCenterCon .movieFl{display: inline-block; float: left; width: 40px;}
+.movieDeCenter .movieDeCenterCon .movieFr{display: inline-block; float: left; width: 490px;}
+.movieDeCenter .movieDeCenterCon .movieFr a{background: none; color: #999;}
+.movieDeCenter .movieDeCenterCon .movieFr .textMore:hover{color: #e05032; background: none;}
+.movieDeCenter .movieDeCenterCon .movieFr .textMore{color: #1e6dc5; background: none;}
+.movieDeCenter .movieDeCenterCon .textAll{display: none;}
+
+.movieDeRight{float: left; width:210px; }
+.movieDeRight .evaluation{border-bottom: 1px solid #e5e5e5; margin-bottom: 20px; position: relative; }
+.movieDeRight .evaluation .link1{position: absolute; left: 0; top: -23px; color: red; font-weight: bold; font-family:arial; font-size: 24px; display: none; opacity:1;}
+.movieDeRight .evaluation ul{margin-top: 20px;}
+.movieDeRight .evaluation ul li{float: left; width: 50px; height: 100px; margin-right: 20px;}
+.movieDeRight .evaluation ul li a{width: 46px; height: 62px; display: block; -webkit-transition:none; -moz-transition:none; background: url(../images/details.png);  }
+.movieDeRight .evaluation ul li b{display: block; width: 46px; text-align:center; margin-top: 3px; color: #929292;}
+.movieDeRight .evaluation ul .good a{background-position:-7px -15px; }
+.movieDeRight .evaluation ul .good a:hover{background-position:-8px -87px;}
+.movieDeRight .evaluation ul .general a{background-position: -65px -15px;}
+.movieDeRight .evaluation ul .general a:hover{background-position:-65px -87px;}
+.movieDeRight .evaluation ul .poor a{background-position:-122px -15px;}
+.movieDeRight .evaluation ul .poor a:hover{background-position:-122px -87px;}
+
+.movieDeRight .shard{color: #999;}
+
+
+
+
+/*立即播放*/
+.detailsMain{float: left; width: 640px;}
+.playUrl{margin-bottom: 30px;}
+.playUrl h2{overflow: hidden; height: 35px; line-height: 35px;}
+.playUrl h2 strong{background: #e05032; color: #fff; font-weight: normal; padding:0px 5px; float: left;}
+.playUrl h2 .feedBack{float: right; display: block; margin-top: 5px;}
+.playUrl h2 .feedBack a{background: url(../images/details.png) -181px -118px; font-size: 12px; text-indent:25px; width:75px; display: block; color: #999; -webkit-transition:none; -moz-transition:none;}
+.playUrl h2 .feedBack a:hover{background-position:-181px -148px;color: #e05032;}
+.playUrl .puTitle{display: none;}
+.playUrl .playItem{position: relative; z-index: 1; _margin-bottom: 10px;}
+.playUrl .playItem ul li{float: left;  margin-bottom: 15px;}
+.playUrl .playItem ul li img{ margin-right: 5px; height: 16px; width: 16px;}
+.playUrl .playItem ul li i{height: 17px; vertical-align: middle; }
+.playUrl .playItem ul li a{vertical-align: middle; padding:5px 10px; border:1px solid #fff; display: block; position: relative; }
+.playUrl .playItem ul li a:hover{color: #e05032; border:1px solid #ccc;}
+.playUrl .playItem ul li a b{background:url(../images/host.png) no-repeat; display: block;width: 29px; height: 17px; position: absolute; top: -13px; right: 10px;}
+.playUrl .playItem ul li .plHv{color: #e05032;}
+
+/*图片、片花预告、视频资讯、专题*/
+.titleH3 h2 i,.titleH3 h3 i {color: #a7a7a7; margin:0 5px;font:20px "\5B8B\4F53";}
+.titleH3 h2 a,.titleH3 h3 a{color: #333; _width:100px; _height: 30px; _line-height: 30px;}
+.titleH3 h2 a:hover,.titleH3 h3 a:hover{color: #e05032;}
+.titleH3 h2 .titleHv,.titleH3 h3 .titleHv{border-bottom: 4px solid #e05032; position: relative; padding-bottom: 4px;}
+.titleH3 h2 .frText,.titleH3 h3 .frText{float: right;font-size: 12px; color: #333; margin-top: 5px;}
+.titleH3 h2 .frText s,.titleH3 h3 .frText s{margin:0px 5px; text-decoration: none;}
+.titleH3 h2 .frText a,.titleH3 h3 .frText a{font-size: 12px; color: #333;}
+.titleH3 h2 .frText a:hover,.titleH3 h3 .frText a:hover{color: #e05032;}
+.titleH3 h2 a strong{display: none;}
+.detailsType{margin-bottom: 30px;}
+.detailsType .page{text-align: center;}
+.detailsType .page a{display:inline-block; padding:0 5px; height: 20px; border: 1px solid #c4c4c4; line-height: 22px; color: #8a8a8a;}
+.detailsType .page .par{background: url(../images/details.png) no-repeat -222px -63px; padding-left: 15px; _width:36px; }
+.detailsType .page .par:hover{background: url(../images/details.png) no-repeat -222px -83px #e05032; padding-left: 15px;border:1px solid #e05032; color: #fff;}
+.detailsType .page .next{background: url(../images/details.png) no-repeat -235px -63px; padding-right: 15px; _width:36px;}
+.detailsType .page .next:hover{background: url(../images/details.png) no-repeat -235px -83px #e05032; padding-right: 15px; border:1px solid #e05032; color: #fff;}
+.detailsType .pageNum{margin:0 10px;}
+.deTypeUl{margin-right: -25px; overflow: hidden;}
+.deTypeUl>li{display: none;}
+.deTypeUl .disNone{display: none;}
+.deTypeUl .disPlay{display: block;}
+.moduleTwo ul{overflow: hidden; margin-right: -25px; float: left; position: relative;}
+.moduleTwo ul li{width: 140px; float: left; position: relative; margin-right: 25px; margin-bottom: 20px; height: 140px;}
+.moduleTwo ul li span{display: block;}
+.moduleTwo ul li a{color: #333333; width: 140px; height: 130px; display: block;}
+.moduleTwo ul li a:hover{color: #e05032;}
+.moduleTwo ul li a:hover b{display: block;}
+.moduleTwo ul li img{width: 140px; height: 94px;}
+.moduleTwo ul li em{background:#000; filter:alpha(opacity=50);  background: rgba(0,0,0,0.5); color: #fff; width: 50px; height: 20px; position: absolute; left: 0px; top: 74px; line-height: 20px; text-align:center;}
+.moduleTwo ul li b{width: 80px; height: 80px; position: absolute; left: 30px; top:7px; display: block; background: url(../images/play.png) no-repeat; display: none; }
+.moduleTwo ul li i{filter:alpha(opacity=50); background: #000; background: rgba(0,0,0,0.5); width: 140px; height:94px; position: absolute; left: 0px; top: 0px;}
+.moduleTwo ul .dePlayHv i{display: none;}
+.videoInfor .moduleTwo ul li i{display:none;}
+.videoInfor .moduleTwo ul li a:hover i{display:block;}
+
+
+.picture{position: relative; width: 665px; height: 90px; overflow: hidden;;}
+.picture ul li{float: left; width: 100px; height: 90px; margin-right: 11px; _margin-right: 5px;  }
+.picture ul li a{ width: 100px; height: 90px; display: block;}
+.picture ul li img{width: 100px; height: 90px;}
+.picture span{position: absolute; top: 20px; height: 50px; width: 30px; border-radius: 4px; background: #e05032; filter:alpha(opacity=50);  background: rgba(224,80,50,0.6); display: block;}
+.picture span a{height: 50px; width: 30px; display: block;}
+.picture .picLeft{left: 0px;}
+.picture .picLeft a{left: 0px; background: url(../images/details.png) no-repeat -5px -265px;}
+.picture .picRight{right: 25px;}/*10px*/
+.picture .picRight a{left: 0px; background: url(../images/details.png) no-repeat -42px -265px;}
+
+
+.dePro ul li{float: left; width: 200px; margin-right: 20px; _margin-right: 15px;}
+.dePro ul li img{width: 200px; height: 112px;}
+.dePro ul li a{width: 200px; height: 112px; display: block;}
+.dePro ul li a:hover{color: #e05032;}
+
+/*相关影评*/
+.filmCritics ul li{margin-bottom: 20px;}
+.filmCritics ul li h4{color:#1e6dc5; font-size:14px; background: #f5f5f5; padding:0 10px; height: 30px; line-height: 30px; margin-bottom: 20px; }
+.filmCritics ul li h4 a{color:#1e6dc5;  }
+.filmCritics ul li h4 a:hover{color:#e05032;  }
+.filmCritics ul li h4 span{float: right; color:#929292; font-size: 12px; font-weight: normal; }
+.filmCritics ul li h4 span a{background: url(../images/details.png) no-repeat -6px -404px;  padding-left: 23px; display: inline-block; height: 21px; line-height: 21px; _width: 48px; }
+.filmCritics ul li h4 span a:hover{color: #e05032; }
+.filmCritics ul li p{text-indent: 2em; line-height: 22px; color: #737373;}
+.filmCritics ul li p a{color:#1e6dc5; }
+.filmCritics ul li p a:hover{color:#e05032; }
+.filmCon{margin-bottom: 20px;}
+.filmTow{display: none;}
+.filmCritics .disPlay{display: block;}
+.moreFilm{text-align: center; margin-top: 20px;}
+.moreFilm a{display:inline-block; width: 120px; height: 30px; color: #4272b0; font-size: 14px; background: url(../images/details.png) no-repeat -6px -220px; line-height: 30px; font-weight: bold;}
+.moreFilm a:hover{text-decoration: underline;}
+.filmNum{margin-bottom: 20px;}
+.filmNum a{display: inline-block; width: 65px; font-size: 14px; text-align: center; margin-bottom: 10px; color: #333; _width:60px;}
+.filmNum a:hover{color: #d33c1d;}
+.filmNum a b{border:5px solid #666; border-color:#666 #fff #fff #fff; width: 0px; height: 0px; display: inline-block; margin-left: 5px;}
+.filmNum .flNumHv{color: #4272b0;}
+.filmText ul li h4 span a{color: #333;}
+.filmText ul{display: none;}
+.filmText .dis{display: block;}
+
+.movieSay .movieSayItem{margin-bottom: 20px;}
+.movieSay .movieSayItem .fl{float: left;}
+.movieSay .movieSayItem .fr{float: right;}
+.movieSay .sayName{border:1px solid #e5e5e5; width: 80px; padding:10px; text-align: center;}
+.movieSay .sayName strong{font-size: 14px; color: #737373; margin-bottom: 5px; display: block; width: 80px; white-space: nowrap; text-overflow:ellipsis; overflow: hidden;}
+.movieSay .sayName em{color: #929292;}
+.movieSay .sayCon{width: 470px; min-height: 24px; background: #f5f5f5; padding:20px; font:14px/1.5 Tahoma,Geneva,\5b8b\4f53,sans-serif; color: #737373; line-height: 24px; position: relative; }
+.movieSay .sayCon a{color: #1e6dc5; }
+.movieSay .sayCon .angle{border:10px solid #f5f5f5; height: 0px; width: 0px; display: block; position: absolute; top: 20px; }
+.movieSay .sayCon .AngleLeft{ left: -20px; border-color: #fff #f5f5f5 #fff #fff; }
+.movieSay .sayCon .AngleRight{ right: -20px; border-color: #fff #fff #fff #f5f5f5; }
+
+
+/*猜你喜欢*/
+.youLike{margin-bottom: 30px;}
+.youLike ul{margin-right: -10px; overflow: hidden;}
+.youLike ul li{float: left; width: 120px; line-height: 18px; margin:0 10px 10px 0; _margin-right:4px; height: 210px;  }
+.youLike ul li img{ width: 120px; height: 165px;}
+.youLike ul li a{color: #333; width: 120px; text-align: center; display: block; _height: 180px;}
+.youLike ul li a:hover{color: #e05032; }
+.youLike ul li span{display: block; width: 120px; text-align: center; color: #737373; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; _height:25px;  }
+.youLike ul li b{display: block; width: 120px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis; font-weight: normal;  }
+.youLike .youLikeItem{display: none;}
+.youLike .disPlay{display: block;}
+/*相关明星*/
+.detailsSidebar{float: right; width: 300px;}
+.theStart ul{margin-right: -30px; overflow: hidden; float: left; position: relative;}
+.theStart ul li{width:80px; float: left; margin:0 30px 20px 0; _margin-right: 25px; height: 110px;}
+.theStart ul li a{width:80px; display: block; text-align:center; height: 100px; }
+.theStart ul li a:hover{color: #e05032;}
+.theStart ul li img{width:80px; }
+.theStart ul li span{display: block; width: 80px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; line-height: 30px;}
+
+.project ul li{width:140px; margin-right: 20px; height: 115px;}
+.project ul li img{width:140px; height: 78px; }
+.project ul li a{text-align: left; _width: 140px; _height: 100px;}
+.project ul li span{width: 140px;}
+
+/*新闻速递*/
+.news{margin-bottom: 30px;}
+.news ul li{line-height: 25px; height: 25px;}
+.news ul li a{color: #333; width: 280px; display: inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size: 14px;}
+.news ul li a:hover{color: #e05032;}
+.news ul li b{width: 2px; height: 2px; border-top: 2px solid #666; display:inline-block;}
+
+/*分类检索*/
+.searchType{margin-bottom: 20px;}
+.searchType h3{margin-bottom: 0px;}
+.searchType .movieType{ background: #f3f3f3; overflow: hidden;}
+.searchType .movieType ul li{width: 60px;float: left; height: 30px; line-height: 30px; text-align:center;}
+.searchType .movieType ul li a{font-size: 14px; color: #737373; height: 27px; line-height: 27px; display:inline-block; _width: 40px;}
+.searchType .movieType ul li a:hover,.searchType .movieType ul li .typeHv{color: #e05032; border-bottom: 3px solid #e05032;}
+.searchType .typeCon{min-height: 230px;}
+.searchType .typeCon div{margin-top: 20px;}
+.searchType .typeCon .typeItem{display: none;}
+.searchType .typeCon .disPlay{display: block;}
+.searchType .typeModule{border:1px solid #e5e5e5; padding:10px; position: relative;}
+.searchType .typeModule .theType{color: #737373; position: absolute; left: 50%; top: -10px;background: #fff; display: block; height: 20px; width: 50px; text-align: center; margin-left: -25px;}
+.searchType .typeModule ul {margin-right: -5px; overflow: hidden;}
+.searchType .typeModule ul li{float: left; width: 35px; float: left; height: 25px; line-height: 25px; margin-right: 5px;}
+.searchType .typeModule ul li a{ height: 25px; line-height: 25px; display: block; text-align: center; _width:30px;}
+.searchType .typeModule ul li a:hover{background:#e05032; color: #fff; }
+.searchType .theTime ul li{width: 50px;}
+
+/*电视剧*/
+#teleplay .playItem a{border:none;}
+#teleplay .playItem a:hover{border:none;}
+#teleplay .movieLine{float: left; margin-top: 3px;}
+#teleplay .movieLine ul li{margin-bottom: 0px;}
+#teleplay .movieLine ul li a{display: inline-block; padding:0px 5px;}
+#teleplay .movieLine span i{vertical-align:middle; margin-right: 5px;}
+
+.movieListCon{background: #f3f3f3; padding:10px 25px; border-top: 1px solid #dadada; position: relative;}
+.movieListCon .triangle{position: absolute; top: -20px; left: 30px; display:inline-block; border:10px solid #f3f3f3; border-color:#fff #fff #ddd #fff; width: 0px; height: 0px;}
+.movieListCon .triangle b{border:10px solid #f3f3f3; border-color:transparent  transparent  #f3f3f3 transparent ;  _border-color:#fff  #fff  #f3f3f3 #fff; width: 0px; height: 0px; display: inline-block; position: absolute; left: -10px; bottom:-11px;}
+.movieListNum ul{margin-right: -10px;overflow: hidden; padding-top: 5px;}
+.movieListNum ul li{float: left; margin-right: 10px; margin-bottom: 10px; position: relative;}
+.movieListNum ul li a{display: block; width: 48px; height: 30px; background: #fff; line-height: 30px; border-radius:3px; border:1px solid #dadada; text-align: center;}
+.movieListNum ul li a:hover{background: #e05032; color: #fff; border:1px solid #d33b1b;}
+.movieListNum ul li i{position:absolute; top: -5px; right:-5px; display: block; background:red; border-radius: 15px; width: 15px; height: 15px; color: #fff; text-align: center; line-height: 15px;}
+
+.movieListBottom{border-top: 1px solid #dadada; padding-top: 10px; overflow: hidden; *margin-top: 10px;}
+.movieListBottom .mlBottomLeft{float: left; width:350px;}
+.movieListBottom .mlBottomLeft a{ width: 50px;}
+.movieListBottom .mlBottomLeft .radio{background:url(../images/details.png) no-repeat -5px -372px;  height: 20px; line-height: 20px;padding-left: 20px; margin-right: 10px;}
+.movieListBottom .mlBottomLeft .radioEd{background-position:-5px -344px;}
+.movieListBottom .mlBottomRight{ float: right; vertical-align: middle; width: 240px; text-align:right; color: #8a8a8a;}
+.movieListBottom .mlBottomRight a{width: 18px; height: 18px; line-height: 18px; display: inline-block; background: #fff; border:1px solid #c4c4c4; text-align:center; color: #8a8a8a;}
+.movieListBottom .mlBottomRight a:hover{color: #fff; background:#e05032; border:1px solid #d33c1d;}
+.movieListBottom .mlBottomRight .par{background:url(../images/details.png) no-repeat -222px -64px #fff; -webkit-transition:none;}
+.movieListBottom .mlBottomRight .par:hover{background:url(../images/details.png) no-repeat -222px -85px #e05032;}
+.movieListBottom .mlBottomRight .next{background:url(../images/details.png) no-repeat -273px -64px #fff; -webkit-transition:none;}
+.movieListBottom .mlBottomRight .next:hover{background:url(../images/details.png) no-repeat -273px -85px #e05032;}
+
+/*综艺*/
+#dayNum ul li a{width: 108px; _width:100px;}
+#titleNum ul li a{width: 287px; _width:275px; white-space:nowrap; overflow: hidden; display: block; text-overflow:ellipsis;}
+#picNum {overflow: hidden;}
+#picNum ul{overflow: hidden; margin-right: -10px;}
+#picNum ul li{width: 110px; height: 110px; position: relative; float: left; margin-right: 10px; margin-bottom: 10px; _margin-right:5px;}
+#picNum ul li em{width: 110px; display: block; height:20px; background: #000; filter:alpha(opacity=50); background:rgba(0,0,0,0.5); color: #fff; top: 50px; position: absolute; left: 0px; text-align: center; line-height: 20px; }
+#picNum ul li a{display: block; color: #333;  _height:130px; _width:110px; }
+#picNum ul li a:hover{ color: #e05032;}
+
+.bdsharebuttonbox a{_width: 0px;}
+.sidebarAd a{width: 298px; height: 248px;}
+
+
+
+/*播放页*/
+.dePlayTitle h2{color: #303030; font-size: 24px; font-weight: normal; margin-bottom: 10px;}
+.dePlayCon{background: #252525; height: 460px;}
+.dePlayCon .dePlayMain{float: left; width: 800px;  height: 460px; background: #000;}
+.dePlayCon .dePlaySidebar{float: left; width: 140px;  height: 420px; padding:20px;}
+#playSidebarCon{height: 400px; overflow: hidden; position: relative;}
+#playSidebarCon .moduleTwo{position: absolute; top: 0px; left: 0px; display: none;}
+#playSidebarCon .disPlay{display: block;}
+#playSidebarCon .moduleTwo ul li{height: 90px; margin-bottom: 10px; margin-right: 0px; position: relative;}
+#playSidebarCon .moduleTwo ul li a:hover i{display: none;}
+
+.dePlaySidebar .page{margin-top: 10px; color: #fff;}
+.dePlaySidebar .page .pageNum{margin:0 5px;}
+.dePlaySidebar .page a{display:inline-block;width: 50px; height: 20px; line-height: 20px; color: #252525; background:#cccccc; border-radius:4px; text-align: center; }
+.dePlaySidebar .page a:hover{color: #fff; background:#e05032; }
+
+
+
+.dePlayBottom{padding:20px 0; margin-bottom: 30px; color: #929292; font:12px Tahoma, Geneva, "\5B8B\4F53";}
+.dePlayBottom span{margin-right: 40px;}
+.dePlayBottom a{color: #303030; margin-right: 5px;}
+.dePlayBottom a:hover{color: #e05032; }
+.dePlayBottom .playTag a{background: #e9e9e9; display: inline-block; padding:3px 4px; border-radius:2px;}
+.dePlayBottom .playTag a:hover{background: #e05032; color: #fff;}

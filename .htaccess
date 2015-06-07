@@ -1,8 +1,8 @@
-# �� RewriteEngine ģʽ��
+# 将 RewriteEngine 模式打开
 RewriteEngine On
-# ��װĿ¼·��
+# 安装目录路径
 RewriteBase /
-# Rewrite ϵͳ���������޸�
+# Rewrite 系统规则请勿修改
 RewriteRule ^vod-(.*)$ index.php\?s=/home-vod-$1
 RewriteRule ^news-(.*)$ index.php\?s=/home-news-$1
 RewriteRule ^special-(.*)$ index.php\?s=/home-special-$1
@@ -11,3 +11,4 @@ RewriteRule ^gb-(.*)$ index.php\?s=/home-gb-$1
 RewriteRule ^cm-(.*)$ index.php\?s=/home-cm-$1
 RewriteRule ^map-(.*)$ index.php\?s=/home-map-$1
 RewriteRule ^my-(.*)$ index.php\?s=/home-my-$1
+RewriteRule ^test/(.*)$ index.php\?s=/home-test-index-page-$1
