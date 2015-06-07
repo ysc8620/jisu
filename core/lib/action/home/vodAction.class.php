@@ -37,6 +37,7 @@ class vodAction extends homeAction{
     public function read(){
 		$array_detail = $this->get_cache_detail( intval($_GET['id']) );
 		if($array_detail){
+           // print_r($array_detail);
 			$this->assign($array_detail['show']);
 			$this->assign($array_detail['read']);
 			$this->display($array_detail['read']['vod_skin_detail']);
