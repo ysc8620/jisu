@@ -137,7 +137,7 @@ a.bli i, #navis dl dd i{display:block;width:2px;height:20px;background:url(../im
 /*#navis ul li a i{display:block;width:2px;height:20px;background:url(../images/bg.png) no-repeat -269px 0;position:absolute;right:0;top:18px;}*/
 /*#navis ul li.active a:hover,#navis ul li.active a{background:#e05032; }*/
 #navis ul li.active{z-index: 2;}
-#navis ul li.active a{ color: #f9faa9;background: #e05032; margin-left: -2px; padding-left: 2px; }
+#navis ul li.active a{ color: #f9faa9;background: #1D5C03; margin-left: -2px; padding-left: 2px; }
 /*#navis ul li a:hover i,#navis ul li.active a i{display:none;}*/
 #navis ul li a.co{color:#f9faa9;}
 #navis ul li a em{display:block;width:21px;height:12px;background:url(../images/sprit_not.png) no-repeat -139px 0;line-height:999pt;overflow:hidden;position:absolute;top:12px;right:5px;}
