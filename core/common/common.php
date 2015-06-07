@@ -764,7 +764,27 @@ function js_data_url_dir($sid,$id,$cid,$name,$page){
 	return $datadir;
 }
 
-
+//获取播放页链接
+function js_play_url($id,$sid,$pid,$cid,$name){
+    //静态模式
+    if(C('url_html') && C('url_html_play')){
+        $playurl = C('site_path').str_replace('index'.C('html_file_suffix'),'',js_play_url_dir($id,$sid,$pid,$cid,$name).C('html_file_suffix'));
+        if(C('url_html_play') == 1){
+            $playurl .= '?'.$id.'-'.$sid.'-'.$pid;
+        }
+    }else{//动态
+        $playurl = UU('Home-vod/play',array('id'=>$id,'sid'=>$sid,'pid'=>$pid),false,true);
+    }
+    return $playurl;
+}
+//播放页静态生成结构
+function js_play_url_dir($id,$sid,$pid,$cid,$name){
+    $playdir = str_replace_dir(C('url_play'),$id,$cid,$name);
+    if(C('url_html_play') == 2){
+        $playdir .= '-'.$id.'-'.$sid.'-'.$pid;
+    }
+    return $playdir;
+}
 //获取专题URL
 function js_special_url($page){
 	if(C('url_html')){
@@ -884,6 +904,7 @@ function js_search_url($str,$type="actor",$sidname='vod',$action='search'){
 function js_play_url_end($vod_url){
 	$array = array();
 	$arr_server = explode('$$$',trim($vod_url));
+
 	foreach($arr_server as $key=>$value){
 		$array[$key] = array(count(explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$value))),$key);
 	}
@@ -895,6 +916,24 @@ function js_play_url_end($vod_url){
 	}else{
 		return array($max_key[1],$max_key[0],'第'.$max_key[0].'集',$arr_url[0]);
 	}
+}
+
+function js_play_url_all($vod_url){
+    $array = array();
+    $arr_server = explode('$$$',trim($vod_url));
+
+    foreach($arr_server as $key=>$value){
+        $array[$key] = array(count(explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$value))),$key);
+    }
+    $max_key = max($array);
+    $array = explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$arr_server[$max_key[1]]));
+    $arr_url = explode('$',end($array));
+    return array($array, $arr_url);
+    if($arr_url[1]){
+        return array($max_key[1],$max_key[0],$arr_url[0],$arr_url[1]);
+    }else{
+        return array($max_key[1],$max_key[0],'第'.$max_key[0].'集',$arr_url[0]);
+    }
 }
 /*---------------------------------------标签解析函数开始------------------------------------------------------------------*/
 //路径参数处理函数
@@ -1609,6 +1648,7 @@ function list_sort_by($list,$field, $sortby='asc') {
    }
    return false;
 }
+
 
 /**
  * @param $data

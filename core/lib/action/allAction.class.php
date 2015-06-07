@@ -65,7 +65,12 @@ class allAction extends Action{
 		}
 
 		//按顺序排列
-
+        //播放列表解析
+        $array['vod_playlist'] = $this->js_playlist_all($array);
+        $array['vod_playcount'] = count($array['vod_playlist']);
+        $array['vod_player'] = 'var ff_urls=\''.$this->js_playlist_json(array($array['vod_name'],$array_list[0]['list_name'],$array_list[0]['list_url']),$array['vod_playlist']).'\';';
+        //按顺序排列
+        ksort($array['vod_playlist']);
 		$arrays['show'] = $array_list[0];
 		$arrays['read'] = $array;
 		return $arrays;
@@ -73,7 +78,53 @@ class allAction extends Action{
 
 
 
-
+//组合播放地址组列表为二维数组
+    public function js_playlist_all($array){
+        if(empty($array['vod_url'])){return false;}
+        $playlist = array();
+        $array_server = explode('$$$',$array['vod_server']);
+        $array_player = explode('$$$',$array['vod_play']);
+        $array_urllist = explode('$$$',$array['vod_url']);
+        $player = C('play_player');
+        $server = C('play_server');
+        foreach($array_player as $sid=>$val){
+            $playlist[$player[$val][0].'-'.$sid] = array('servername' => $array_server[$sid],'serverurl' => $server[$array_server[$sid]],'playername'=>$player[$val][1],'playname'=>$val,'son' => $this->js_playlist_one($array_urllist[$sid],$array['vod_id'],$sid,$array['vod_cid'],$array['vod_name']));
+        }
+        //ksort($playlist);
+        return $playlist;
+    }
+    //分解单组播放地址链接
+    public function js_playlist_one($urlone,$id,$sid,$cid,$name){
+        $urllist = array();
+        $array_url = explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$urlone));
+        foreach($array_url as $key=>$val){
+            if (strpos($val,'$') > 0) {
+                $ji = explode('$',$val);
+                $urllist[$key]['playname'] = trim($ji[0]);
+                $urllist[$key]['playpath'] = trim($ji[1]);
+            }else{
+                $urllist[$key]['playname'] = '第'.($key+1).'集';
+                $urllist[$key]['playpath'] = trim($val);
+            }
+            $urllist[$key]['playurl'] = js_play_url($id,$sid,$key+1,$cid,$name);
+            $urllist[$key]['playcount'] = count($array_url);
+        }
+        return $urllist;
+    }
+    //生成播放列表字符串
+    public function js_playlist_json($vod_info_array,$vod_url_array){
+        //json数组创建
+        $key = 0;
+        foreach($vod_url_array as $val){
+            $array_urls[$key]['servername'] = $val['servername'];
+            $array_urls[$key]['playname'] = $val['playname'];
+            foreach($val['son'] as $keysub=>$valsub){
+                $array_urls[$key]['playurls'][$keysub] = array($valsub['playname'], $valsub['playpath'], $valsub['playurl']);
+            }
+            $key++;
+        }
+        return json_encode(array('Vod'=>$vod_info_array,'Data'=>$array_urls));
+    }
 	//资讯栏目页变量定义
 	public function Lable_News_List($param,$array_list){
 		$array_list['sid'] = 2;
