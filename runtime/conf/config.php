@@ -126,7 +126,7 @@ return array (
   array (
     0 => '',
   ),
-  'url_html' => '1',
+  'url_html' => '0',
   'url_dir_a' => '2',
   'url_dir_b' => '5',
   'url_time' => '2',
@@ -137,7 +137,7 @@ return array (
   'url_newslist' => '{listdir}/index.html',
   'url_newsdata' => '{listdir}/{id}/index.html',
   'url_html_list' => '0',
-  'url_rewrite' => '1',
+  'url_rewrite' => '0',
   'url_map' => 'detail/',
   'url_mytpl' => 'detail/',
   'url_special' => 'detail/',

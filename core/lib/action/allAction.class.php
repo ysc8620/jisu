@@ -165,7 +165,6 @@ class allAction extends Action{
 			$list_vod[$key]['list_name'] = getlistname($list_vod[$key]['list_id'],'list_name');
 			$list_vod[$key]['list_url'] = getlistname($list_vod[$key]['list_id'],'list_url');
 			$list_vod[$key]['vod_readurl'] = js_data_url('vod',$list_vod[$key]['vod_id'],$list_vod[$key]['vod_cid'],$list_vod[$key]['vod_name'],1,$list_vod[$key]['vod_jumpurl']);
-			$list_vod[$key]['vod_playurl'] = js_play_url($list_vod[$key]['vod_id'],0,1,$list_vod[$key]['vod_cid'],$list_vod[$key]['vod_name']);
 			$list_vod[$key]['vod_picurl'] = js_img_url($list_vod[$key]['vod_pic'],$list_vod[$key]['vod_content']);
 			$list_vod[$key]['vod_picurl_small'] = js_img_url_small($list_vod[$key]['vod_pic'],$list_vod[$key]['vod_content']);
 		}

@@ -1,5 +1,6 @@
 // 头部
-var topMd = '<div id="top"><div id="top"><div class="wrapper"><div class="fl"><a href="http://www.114la.com" class="home" target="_blnak">114啦首页</a><i class="sq">|</i><a href="http://youxi.114la.com/" target="_blnak">游戏</a><a href="http://yinyue.114la.com/" target="_blnak">音乐</a><a href="http://meishi.114la.com/" target="_blnak">美食</a><a href="http://book.114la.com/" target="_blnak">小说</a><a href="http://tuan.114la.com/" target="_blnak">团购</a><a href="http://app.114la.com/" target="_blank">实用工具</a></div><div class="fr"><a href="http://www.114la.com/feedback" target="_blnak">意见反馈</a><i class="sq">|</i><a href="javascript:;" title="收藏114la影视" id="collet">收藏本页</a></div></div></div></div>';
+/*<div id="top"><div id="top"><div class="wrapper"><div class="fl"><a href="/" class="home" target="_blnak">首页</a><i class="sq">|</i><a href="/youxi/" target="_blnak">游戏</a><a href="/yinyue/" target="_blnak">音乐</a><a href="/meishi/" target="_blnak">美食</a><a href="/book/" target="_blnak">小说</a><a href="http://tuan.114la.com/" target="_blnak">团购</a><a href="http://app.114la.com/" target="_blank">实用工具</a></div>*/
+var topMd = '<div id="top"><div id="top"><div class="wrapper"><div class="fl"><a href="/" class="home" target="_blnak">首页</a></div><div class="fr"><a href="http://www.114la.com/feedback" target="_blnak">意见反馈</a><i class="sq">|</i><a href="javascript:;" title="收藏114la影视" id="collet">收藏本页</a></div></div></div></div>';
 $("body").prepend(topMd);
 
 
@@ -10,7 +11,7 @@ $("body").append(bottomMd);
 
 //登录
 var userlog = '<a href="/?ct=login">登录</a><a href="/?ct=register">注册</a>';
-$(".userlog").html(userlog);
+$(".userlog").html('');
 
 //影视名站
 var siteLink ='<dt>影视名站<i></i></dt><dd><a href="http://v.qq.com/" target="_blnak" rel="nofollow">腾讯视频</a><i>|</i><a href="http://www.youku.com/" target="_blnak" rel="nofollow">优酷网</a><i>|</i><a href="http://www.iqiyi.com/" target="_blnak" rel="nofollow">爱奇艺</a><i>|</i><a href="http://www.letv.com/" target="_blnak" rel="nofollow">乐视网</a><i>|</i><a href="http://tv.sohu.com/" target="_blnak" rel="nofollow">搜狐视频</a><i>|</i><a href="http://www.kankan.com/" target="_blnak" rel="nofollow">迅雷看看</a><i>|</i><a href="http://www.v1.cn/" target="_blnak" rel="nofollow">第一视频</a><i>|</i><a href="http://www.tudou.com/" target="_blnak" rel="nofollow">土豆网</a><i>|</i><a href="http://www.m1905.com/vod/" target="_blnak" rel="nofollow">电影网</a><i>|</i><a href="http://www.pps.tv/" target="_blnak" rel="nofollow">PPS网络电视</a><i>|</i><a href="http://www.wasu.cn/" target="_blnak" rel="nofollow">华数TV</a><i>|</i><a href="/live/bjws.html" target="_blnak" rel="nofollow">电视直播</a><a href="/website/" target="_blnak" class="more" rel="nofollow">更多&gt;&gt;</a></dd>';

@@ -11,7 +11,6 @@
     stat_server = get_stat_server();
     _ylmf_click_.query = function(u, n, q)
     {
-        //img.src = "http://stat.demo.114la.com/test.add_click.php?u=" + encodeURIComponent(u) + "&n=" + encodeURIComponent(n) + "&q="+q+"&i=" + Math.random();
         img.src = "http://" + stat_server + "/index?u=" + encodeURIComponent(u) + "&n=" + encodeURIComponent(n) + "&q=0&i=" + Math.random();
     };
     

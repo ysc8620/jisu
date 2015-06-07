@@ -15,7 +15,7 @@ $(function(){
 				var data = $.evalJSON(data);
 				uid = data['user_id'];
 
-                Cookie.set('videoUid',uid,new Date(new Date().getTime() + 1000 * 3600 * 24 * 365),"/",'.114la.com');
+                Cookie.set('videoUid',uid,new Date(new Date().getTime() + 1000 * 3600 * 24 * 365),"/",'.php369.com');
 				var logHtml = '<p class="loged" uid="'+uid+'"><a href="/?ct=account" class="u">'+data['show_name']+'</a><a href="/?ct=account&ac=logout">退出</a></p>';
 				$(".userlog").html(logHtml);
 			}
