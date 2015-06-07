@@ -76,7 +76,7 @@
             <ul>
                 <volist name="vod_playlist" id="pay" key="i">
                     <if condition="$i lt 6">
-              <li data-value="{$i+1}"> <a href="javascript:;" class="plHv cp_{$i}_name" title="{$pay['playername']}"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']}</a> </li>
+              <li data-value="{$i}"> <a href="javascript:;" class="<if condition='$i lt 2'>plHv</if> cp_{$i}_name" title="{$pay['playername']}"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']}</a> </li>
                     </if>
                 </volist>
                 </ul>
@@ -84,8 +84,8 @@
                   <div class="fishSelect movieLine"> <span data-value='x'></span>
                 <ul>
                     <volist name="vod_playlist" id="pay" key="i">
-                        <if condition="$i lt 5">
-                <li data-value="{$i+1}"> <a href="javascript:;" class="cp_{$i}_name"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']} </a> </li>
+                        <if condition="$i gt 6">
+                <li data-value="{$i}"> <a href="javascript:;" class="cp_{$i}_name"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']} </a> </li>
             </if>
                     </volist>
               </ul>
@@ -93,11 +93,11 @@
                   </if>
           </div>
             <volist name="vod_playlist" id="pay" key="i">
-          <div class="movieListCon cp_{$i+1}_content" style="<if condition='$i gt 0'>display: none</if>"> <span class="triangle"> <b></b> </span>
+          <div class="movieListCon cp_{$i}_content" style="<if condition='$i gt 1'>display: none</if>"> <span class="triangle"> <b></b> </span>
             <!-- 数字列表 正序-->
             <div class="movieListNum clearfix list_zhengxu" style="display:block">
               <ul class="pages_1">
-                  <volist name="pay['son']" id="ppvodson">
+                  <volist name="pay['son']" id="ppvodson" key="j">
                 <li> <a href="{$siteurl}?s=vod-play-id-{$vod_id}&url={:urlencode($ppvodson['playpath'])}" rel="nofollow" target="_blank">{$ppvodson.playname}</a> </li>
             </volist>     </ul>
             </div>
@@ -109,79 +109,9 @@
           <!-- 广告位：详情页导量 -->
          BAIDU_CLB_fillSlot("918168");
         </div>
-        <!-- 图片、片花预告、视频资讯、专题detailsType -->
-        <div class="detailsType titleH3">
-          <h2> <span class="frText"> <a href="http://www.fun.dianshi/subject/onepic/116241/s-poster.p-4895442/" rel="nofollow" target="_blank"> <strong>《待嫁老爸》</strong>海报6 </a> <s>|</s> <a href="http://www.fun.dianshi/subject/onepic/116241/s-still.p-4901194/" rel="nofollow" target="_blank"> <strong>《待嫁老爸》</strong>剧照6 </a> </span> <a href="javascript:" class="titleHv"><strong>《待嫁老爸》</strong>图片</a><i>|</i> <a href="javascript:" class=""><strong>《待嫁老爸》</strong>片花预告</a><i>|</i> <a href="javascript:"  class=""><strong>《待嫁老爸》</strong>视频资讯</a><i>|</i> </h2>
-          <ul class="deTypeUl">
-            <!--剧照-->
-            <li class="disPlay">
-              <div class="picture clearfix">
-                <ul class="bxslider">
-                  <li> <a href="http://www.fun.dianshi/subject/onepic/116241/s-poster.p-4895442/" rel="nofollow" target="_blank"> <img src="{$siteurl}img/2015/05/27/v114la/dianying/8/8Y94778XVN3.jpg" title="待嫁老爸 海报" alt="待嫁老爸 海报" style="width:100px;height:90px;"> </a> </li>
-                  <li> <a href="http://www.fun.dianshi/subject/onepic/116241/s-still.p-4901194/" rel="nofollow" target="_blank"> <img src="{$siteurl}img/2015/05/29/v114la/dianying/9/D484fU29o76.jpg" title="待嫁老爸 剧照" alt="待嫁老爸 剧照" style="width:100px;height:90px;"> </a> </li>
-                  <li> <a href="http://www.fun.dianshi/subject/onepic/116241/s-still.p-4898058/" rel="nofollow" target="_blank"> <img src="{$siteurl}img/2015/05/28/v114la/dianying/5/C74F0rd304M.jpg" title="待嫁老爸 剧照" alt="待嫁老爸 剧照" style="width:100px;height:90px;"> </a> </li>
-                  <li> <a href="http://www.fun.dianshi/subject/onepic/116241/s-still.p-3972287/" rel="nofollow" target="_blank"> <img src="{$siteurl}img/2015/05/27/v114la/dianying/8/4458k5Lw7pn.jpg" title="待嫁老爸 剧照" alt="待嫁老爸 剧照" style="width:100px;height:90px;"> </a> </li>
-                  <li> <a href="http://www.fun.dianshi/subject/onepic/116241/s-still.p-3972288/" rel="nofollow" target="_blank"> <img src="{$siteurl}img/2015/05/27/v114la/dianying/3/Sq14k89106J.jpg" title="待嫁老爸 剧照" alt="待嫁老爸 剧照" style="width:100px;height:90px;"> </a> </li>
-                  <li> <a href="http://www.fun.dianshi/subject/onepic/116241/s-still.p-3972289/" rel="nofollow" target="_blank"> <img src="{$siteurl}img/2015/05/27/v114la/dianying/10/71z1080a432.jpg" title="待嫁老爸 剧照" alt="待嫁老爸 剧照" style="width:100px;height:90px;"> </a> </li>
-                  <li> <a href="http://www.fun.dianshi/subject/onepic/116241/s-still.p-4895825/" rel="nofollow" target="_blank"> <img src="{$siteurl}img/2015/05/27/v114la/dianying/7/6P1i04hkj70.jpg" title="待嫁老爸 剧照" alt="待嫁老爸 剧照" style="width:100px;height:90px;"> </a> </li>
-                </ul>
-                <span class="picLeft"><a href="javascript:"></a></span> <span class="picRight"><a href="javascript:"></a></span> </div>
-            </li>
-            <!--预告-->
-            <li class="disNone">
-              <div class="moduleTwo clearfix">
-                <ul>
-                  <li> <a href="{$siteurl}895057-217587-1.html" title="电视剧【待嫁老爸】片头曲【三只小鸟】MV-敖源" target="_self"> <img src="{$siteurl}img/2015/05/29/funshion_6/dianying/9/5551I9W6bEG.jpg" alt="电视剧【待嫁老爸】片头曲【三只小鸟】MV-敖源" title="电视剧【待嫁老爸】片头曲【三只小鸟】MV-敖源"> <span>电视剧【待嫁老爸】片头曲【三只小鸟】MV-敖</span> </a> <em>01:58</em> </li>
-                  <li> <a href="{$siteurl}895057-217585-1.html" title="电视剧【待嫁老爸】片尾曲【当秋风吹起的时候】MV-孙楠" target="_self"> <img src="{$siteurl}img/2015/05/29/funshion_6/dianying/5/o28q6nt1756.jpg" alt="电视剧【待嫁老爸】片尾曲【当秋风吹起的时候】MV-孙楠" title="电视剧【待嫁老爸】片尾曲【当秋风吹起的时候】MV-孙楠"> <span>电视剧【待嫁老爸】片尾曲【当秋风吹起的时候】</span> </a> <em>02:56</em> </li>
-                  <li> <a href="{$siteurl}895057-217583-1.html" title="【待嫁老爸】第8集预告-苏达巧遇旧爱引争吵" target="_self"> <img src="{$siteurl}img/2015/05/29/funshion_6/dianying/1/i4b702r59u0.jpg" alt="【待嫁老爸】第8集预告-苏达巧遇旧爱引争吵" title="【待嫁老爸】第8集预告-苏达巧遇旧爱引争吵"> <span>【待嫁老爸】第8集预告-苏达巧遇旧爱引争吵</span> </a> <em>03:00</em> </li>
-                  <li> <a href="{$siteurl}895057-217581-1.html" title="【待嫁老爸】第7集预告-苏达教姐夫追姐姐" target="_self"> <img src="{$siteurl}img/2015/05/29/funshion_6/dianying/6/754Qf034rE2.jpg" alt="【待嫁老爸】第7集预告-苏达教姐夫追姐姐" title="【待嫁老爸】第7集预告-苏达教姐夫追姐姐"> <span>【待嫁老爸】第7集预告-苏达教姐夫追姐姐</span> </a> <em>00:44</em> </li>
-                  <li> <a href="{$siteurl}895057-217513-1.html" title="【待嫁老爸】第6集预告-打响穷追朱丹保卫战" target="_self"> <img src="{$siteurl}img/2015/05/28/funshion_6/dianying/8/8nK4c427191.jpg" alt="【待嫁老爸】第6集预告-打响穷追朱丹保卫战" title="【待嫁老爸】第6集预告-打响穷追朱丹保卫战"> <span>【待嫁老爸】第6集预告-打响穷追朱丹保卫战</span> </a> <em>03:00</em> </li>
-                  <li> <a href="{$siteurl}895057-217511-1.html" title="【待嫁老爸】第5集预告-王志文被逼相亲奇葩女" target="_self"> <img src="{$siteurl}img/2015/05/28/funshion_6/dianying/8/G4756G11N7E.jpg" alt="【待嫁老爸】第5集预告-王志文被逼相亲奇葩女" title="【待嫁老爸】第5集预告-王志文被逼相亲奇葩女"> <span>【待嫁老爸】第5集预告-王志文被逼相亲奇葩女</span> </a> <em>02:57</em> </li>
-                  <li> <a href="{$siteurl}895057-217413-1.html" title="待嫁老爸：王志文陷“三个妈”难抉择" target="_self"> <img src="{$siteurl}img/2015/05/27/funshion_6/dianying/1/a2236x4J648.jpg" alt="待嫁老爸：王志文陷“三个妈”难抉择" title="待嫁老爸：王志文陷“三个妈”难抉择"> <span>待嫁老爸：王志文陷“三个妈”难抉择</span> </a> <em>13:28</em> </li>
-                  <li> <a href="{$siteurl}895057-217411-1.html" title="待嫁老爸：王志文“待嫁”上演一男对三女" target="_self"> <img src="{$siteurl}img/2015/05/27/funshion_6/dianying/1/2V85cO1d97H.jpg" alt="待嫁老爸：王志文“待嫁”上演一男对三女" title="待嫁老爸：王志文“待嫁”上演一男对三女"> <span>待嫁老爸：王志文“待嫁”上演一男对三女</span> </a> <em>01:19</em> </li>
-                </ul>
-              </div>
-            </li>
-            <!--视频资讯-->
-            <li class="disNone">
-              <div class="moduleItem videoInfor">
-                <ul class="bxslider">
-                  <li>
-                    <div class="moduleTwo clearfix">
-                      <ul>
-                        <li> <a href="{$siteurl}895057-887541-2.html" title="《待嫁老爸》预告片 王志文待“嫁”三美女" target="_self"> <img src="{$siteurl}img/2015/05/21/ct/dianying/9/0Fa7sT035H2.jpg" alt="《待嫁老爸》预告片 王志文待“嫁”三美女"> <span>《待嫁老爸》预告片 王志文待“嫁”三美女</span> </a> <em>01:19</em> </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
+
         <!-- 相关影评 -->
-        <div class="filmCritics titleH3">
-          <h2> <a href="javascript:"  class="titleHv"><strong>《待嫁老爸》</strong>每集剧情</a><i>|</i> <a href="javascript:"  class=""><strong>《待嫁老爸》</strong>花絮</a> </h2>
-          <div class="filmCon">
-            <div class="filmOne fitem disPlay">
-              <div class="filmNum"> <a href="javascript:" class="flNumHv juqing_0">1-5集</a> </div>
-              <div class="filmText">
-                <ul class="dis juqing_content_0">
-                  <li>
-                    <h4> <span> <a href="http://www.fun.dianshi/vplay/m-116241.e-1/?alliance=174078" rel="nofollow" target="_blank">立即播放</a> </span> <a href="http://www.funshion.com/subject/serial_plots/116241/pg-1" rel="nofollow" target="_blank">待嫁老爸第1集剧情</a> </h4>
-                    <p> <span class="textOmit">程春红在国外生意做得风生水起，还打算在国内创办公司。周黛黛把这个消息告诉了父亲，并且说希望父亲能够在公司开业的当天去公司祝贺，因为周黛黛一直觉得自己父亲和母亲还有感情，希望父亲能够找到幸福。程春红看到了台下的周黛黛很是惊喜，周黛黛却一脸不高兴的转身离开了，程春红追了出去，周黛黛故意对周东风旁边的苏简叫她后妈，说苏简就是自己的后妈，还逼着周东风向苏简求婚，程春......<a href="http://www.funshion.com/subject/serial_plots/116241/pg-1" rel="nofollow" target="_blank">[更多]</a> </span> <span class="textAll">程春红在国外生意做得风生水起，还打算在国内创办公司。周黛黛把这个消息告诉了父亲，并且说希望父亲能够在公司开业的当天去公司祝贺，因为周黛黛一直觉得自己父亲和母亲还有感情，希望父亲能够找到幸福。程春红看到了台下的周黛黛很是惊喜，周黛黛却一脸不高兴的转身离开了，程春红追了出去，周黛黛故意对周东风旁边的苏简叫她后妈，说苏简就是自己的后妈，还逼着周东风向苏简求婚，程春红惊呆当地。<a href="http://www.funshion.com/subject/serial_plots/116241/pg-1" rel="nofollow" target="_blank">[更多]</a> </span> </p>
-                  </li>
-                  <li>
-                    <h4> <span> <a href="http://www.fun.dianshi/vplay/m-116241.e-2/?alliance=174078" rel="nofollow" target="_blank">立即播放</a> </span> <a href="http://www.funshion.com/subject/serial_plots/116241/pg-1" rel="nofollow" target="_blank">待嫁老爸第2集剧情</a> </h4>
-                    <p> <span class="textOmit">周黛黛说起来苏达和苏简长得并不相像，苏达说两个人其实是同父异母的血缘关系，并且说起来双方父母相识的经过，周黛黛很是惊讶。周黛黛对于苏简非常满意，想要撮合苏简和自己父亲，苏达却想要姐姐和凯迪重新和好。三个人来到KTV一起唱歌，苏达接到了凯迪的电话，于是趁机要凯迪来接自己姐姐，希望两个人能够和好。周黛黛有些不满，认为苏达这是在给自己拖后腿。<a href="http://www.funshion.com/subject/serial_plots/116241/pg-1" rel="nofollow" target="_blank">[更多]</a></span> <span class="textAll">周黛黛说起来苏达和苏简长得并不相像，苏达说两个人其实是同父异母的血缘关系，并且说起来双方父母相识的经过，周黛黛很是惊讶。周黛黛对于苏简非常满意，想要撮合苏简和自己父亲，苏达却想要姐姐和凯迪重新和好。三个人来到KTV一起唱歌，苏达接到了凯迪的电话，于是趁机要凯迪来接自己姐姐，希望两个人能够和好。周黛黛有些不满，认为苏达这是在给自己拖后腿。<a href="http://www.funshion.com/subject/serial_plots/116241/pg-1" rel="nofollow" target="_blank">[更多]</a></span> </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="filmTow fitem "> 　　《待嫁老爸》:电视剧《待嫁老爸》牙医周东风，离异多年，经营着一家口腔诊所，并独自抚养女儿黛黛。黛黛体谅父亲艰辛，不想让父亲孤身一人，希望撮合杂志社女编辑苏简和父亲组成家庭。这时，周东风的前妻、黛黛的亲妈程春红从海外归国创业，使周东风和苏简的生活掀起波澜。同时，苏简的前男友黄凯迪虽然对苏简旧情难舍，却不得不面对家庭的安排与艾莉小姐交往。女艺人文雅偶遇周东风后，也一见倾心，奋力追求。世事难料，在一次突发事故中程春红舍身挽救了女儿黛黛，自己病重入院，苏简、文雅纷纷伸出援助之手，情意温暖人间。程春红、苏简、文雅三个女人以各自不同的面孔出现在周东风的生活之中，使他的人生异彩纷呈，而周黛黛也幸福的拥有了一个老爸和亲妈、后妈、干妈这三个妈的全新生活。
-              <p class="moreFilm"> <a href="http://www.fun.dianshi/subject/plots/116241/" target="_blank" rel="nofollow">查看更多花絮</a> </p>
-            </div>
-          </div>
-        </div>
+
         <!-- 猜你喜欢 -->
         <div class="youLike titleH3">
           <h2> <a href="javascript:" class="titleHv"><strong>根据《待嫁老爸》</strong>猜你喜欢</a><i>|</i> <a href="javascript:" class=""><strong>《待嫁老爸》</strong>同主演作品</a><i>|</i> </h2>
@@ -320,15 +250,19 @@
 <input type="hidden" class="collectVid" value="895057">
 <input type="hidden" class="videoClass" value="2">
 <input type="hidden" class="videoUid" value="0">
+  <include file="home:pp_footer" />
 <script src="{$tpl}/js/details.js"></script>
+
+
   <script type="text/javascript">
       $('.playItem li').click(function(){
-          // <li data-value=
-          // movieListCon cp_{$i+1}_content
+          $('.playItem li a').removeClass('plHv');
+          $(this).find('a').addClass('plHv');
           $('div.movieListCon').hide();
+          //triangle
           $('div.cp_'+$(this).attr('data-value')+'_content').show();
+          $('div.cp_'+$(this).attr('data-value')+'_content .triangle').css('left',$(this).css('left'));
       });
   </script>
-<include file="home:pp_footer" />
 </body>
 </html>
