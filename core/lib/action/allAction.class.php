@@ -49,7 +49,7 @@ class allAction extends Action{
 		$array['sid'] = 1;
 		$array['title'] = $array['vod_name'].'-'.C('site_name');		
 		$array['vod_readurl'] = js_data_url('vod',$array['vod_id'],$array['vod_cid'],$array['vod_name'],1,$array['vod_jumpurl']);
-		$array['vod_playurl'] = js_play_url($array['vod_id'],0,1,$array['vod_cid'],$array['vod_name']);
+
 		$array['vod_picurl'] = js_img_url($array['vod_pic'],$array['vod_content']);
 		$array['vod_picurl_small'] = js_img_url_small($array['vod_pic'],$array['vod_content']);
 		$array['vod_rssurl'] = UU('home-map/rss',array('id'=>$array['vod_id']),false,true);
@@ -59,10 +59,8 @@ class allAction extends Action{
 		$array['vod_hits_day'] = js_get_hits('vod','vod_hits_day',$array);
 		if($array['vod_skin']){
 			$array['vod_skin_detail'] = 'home:'.trim($array['vod_skin']);
-			$array['vod_skin_play'] = 'home:'.trim($array['vod_skin']).'_play';
 		}else{
 			$array['vod_skin_detail'] = !empty($array_list['list_skin_detail']) ? 'home:'.$array_list['list_skin_detail'] : 'home:pp_vod';
-			$array['vod_skin_play'] = !empty($array_list['list_skin_play']) ? 'home:'.$array_list['list_skin_play'] : 'home:pp_play';
 		}
 		//播放列表解析
 		$array['vod_playlist'] = $this->js_playlist_all($array);
@@ -269,8 +267,6 @@ class allAction extends Action{
 		$array['tongji'] = C('site_tongji');
 		$array['icp'] = C('site_icp');
 		$array['hotkey']   = js_hot_key(C('site_hot'));
-		//$array['username'] = $_COOKIE['bd_username'];
-		//$array['userid'] = intval($_COOKIE['bd_userid']);
 		$array['url_tag'] = UU('home-tag/show','',false,true);
 		$array['url_guestbook'] = UU('home-gb/show','',false,true);
 		$array['url_special'] = js_special_url(1);

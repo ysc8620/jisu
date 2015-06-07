@@ -764,27 +764,8 @@ function js_data_url_dir($sid,$id,$cid,$name,$page){
 	}
 	return $datadir;
 }
-//获取播放页链接
-function js_play_url($id,$sid,$pid,$cid,$name){
-	//静态模式
-	if(C('url_html') && C('url_html_play')){
-		$playurl = C('site_path').str_replace('index'.C('html_file_suffix'),'',js_play_url_dir($id,$sid,$pid,$cid,$name).C('html_file_suffix'));
-		if(C('url_html_play') == 1){
-			$playurl .= '?'.$id.'-'.$sid.'-'.$pid;
-		}
-	}else{//动态
-		$playurl = UU('home-vod/play',array('id'=>$id,'sid'=>$sid,'pid'=>$pid),false,true);
-	}
-	return $playurl;
-}
-//播放页静态生成结构
-function js_play_url_dir($id,$sid,$pid,$cid,$name){
-	$playdir = str_replace_dir(C('url_play'),$id,$cid,$name);
-	if(C('url_html_play') == 2){
-		$playdir .= '-'.$id.'-'.$sid.'-'.$pid;
-	}	
-	return $playdir;
-}
+
+
 //获取专题URL
 function js_special_url($page){
 	if(C('url_html')){
