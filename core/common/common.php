@@ -628,8 +628,7 @@ function UU($model,$params,$redirect=false,$suffix=false){
 			$reurl = str_replace(array('$id','$page'),array($params['id'],$params['p']),C('rewrite_vodlist'));
 		}elseif($model == 'home-vod/read'){
 			$reurl = str_replace('$id',$params['id'],C('rewrite_voddetail'));
-		}elseif($model == 'home-vod/play'){
-			$reurl = str_replace(array('$id','$sid','$pid'),array($params['id'],$params['sid'],$params['pid']),C('rewrite_vodplay'));
+
 		}elseif($model == 'home-vod/search'){
 			$reurl = str_replace(array('$wd','$page','$actor','$director','$order'),array($params['wd'],$params['p'],$params['actor'],$params['director'],$params['order']),C('rewrite_vodsearch'));
 		}elseif($model == 'home-vod/type'){

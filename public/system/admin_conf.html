@@ -276,44 +276,8 @@
                 class="dir">{md5}</a> <a href="javascript:"
                                          onClick="dir_html_add('url_newsdata','index{$html_file_suffix}');" title="默认首页"
                                          class="dir">index{$html_file_suffix}</a></dd>
-            <dt>是否生成播放页：</dt>
-            <dd>
-              <select name="config[url_html_play]" id="url_html_play" class="select w120"
-                onChange="playtab('playhtml1',this.value);">
-                <option value="0">动态不生成</option>
-                <option value="1"
-        
-                <eq name="url_html_play" value="1">selected</eq>
-                >生成静态网页
-                </option>
-                <option value="2"
-        
-                <eq name="url_html_play" value="2">selected</eq>
-                >每集生成单页
-                </option>
-              </select>
-              (每集生成单页的情况建议不使用{id}这个变量) </dd>
-            <dt>播放页路径：</dt>
-            <dd>
-              <input type="text" class="text w200 diri" name="config[url_play]" id="url_play" maxlength="150" value="{$url_play}" />
-              <select style="width:120px" class="select" onChange="dir_html('url_play',this.value);">
-                <option>常用结构</option>
-                <option value="vod/{id}/play{$html_file_suffix}">1.vod/id/play{$html_file_suffix}</option>
-                <option value="vod/{md5}/play{$html_file_suffix}">2.vod/md5值/play{$html_file_suffix}</option>
-                <option value="vod/{pinyin}/play{$html_file_suffix}">3.vod/拼音/play{$html_file_suffix}</option>
-                <option value="vod/{id}-play{$html_file_suffix}">4.vod/id-play{$html_file_suffix}</option>
-                <option value="vod/{md5}-play{$html_file_suffix}">5.vod/md5-play{$html_file_suffix}</option>
-                <option value="vod/{pinyin}-play{$html_file_suffix}">6.vod/拼音-play{$html_file_suffix}</option>
-                <option value="{listid}/{id}-play{$html_file_suffix}">7.listid/id-play{$html_file_suffix}</option>
-                <option value="{listdir}/{pinyin}/play{$html_file_suffix}">8.listdir/拼音/play{$html_file_suffix}</option>
-              </select>
-              变量：<a href="javascript:" onClick="dir_html_add('url_play','{listid}');" title="分类ID值"
-                    class="dir">{listid}</a> <a href="javascript:" onClick="dir_html_add('url_play','{listdir}');"
-                                                title="分类英文名" class="dir">{listdir}</a> <a href="javascript:"
-                                                                                           onClick="dir_html_add('url_play','{pinyin}');"
-                                                                                           title="影片拼音" class="dir">{pinyin}</a> <a href="javascript:" onClick="dir_html_add('url_play','{id}');" title="影片ID" class="dir">{id}</a> <a
-                href="javascript:" onClick="dir_html_add('url_play','{md5}');" title="影片md5(id)" class="dir">{md5}</a> <a href="javascript:" onClick="dir_html_add('url_play','play{$html_file_suffix}');" title="影片md5(id)"
-           class="dir">play{$html_file_suffix}</a></dd>
+
+
             <dt>网站专题保存目录：</dt>
             <dd>
               <input type="text" class="text w120" name="config[url_special]" id="url_special" maxlength="15" value="{$url_special}" />
@@ -380,14 +344,7 @@
               <input type="text" class="text w250 diri" name="config[rewrite_voddetail]" id="rewrite_voddetail" maxlength="150"
                value="{$rewrite_voddetail|default='/vod-read-id-$id'}" />
               变量: $id </dd>
-            <dt>视频播放页规则：</dt>
-            <dd>
-              <input type="text" class="text w250 diri" name="config[rewrite_vodplay]" id="rewrite_vodplay" maxlength="150"
-               value="{$rewrite_vodplay|default='/vod-play-id-$id-sid-$sid-pid-$pid'}" />
-              变量:
-              $id，$sid，$pid
-              <label>说明: $sid=播放器组ID $pid=播放集数 必须为id>sid>pid的顺序 否则不能正常播放</label>
-            </dd>
+
             <dt>视频搜索页规则：</dt>
             <dd>
               <input type="text" class="text w250 diri" name="config[rewrite_vodsearch]" id="rewrite_vodsearch" maxlength="150"
@@ -713,30 +670,8 @@
       <!--//start video-->
       <div data-role="tag-content" data-for="video" style="display: none;"> <span class="blank20"></span>
         <dl class="fieldset">
-          <dt>播放器宽度与高度：</dt>
-          <dd>
-            <input type="text" class="text w70" name="config[play_width]" value="{$play_width}">
-            X
-            <input
-                type="text" class="text w70" name="config[play_height]" value="{$play_height}">
-            &nbsp;</dd>
-          <dt>默认是否开启列表：</dt>
-          <dd>
-            <select name="config[play_show]" class="select w70">
-              <option value=1>开启</option>
-              <option value=0
-            
-      
-              <eq name="play_show" value="0">selected</eq>
-              >关闭
-      
-              </option>
-            </select>
-            &nbsp;</dd>
-          <dt>FLV视频片头广告时长：</dt>
-          <dd>
-            <input type="text" class="text w70 ct" name="config[play_second]" value="{$play_second}" maxlength="2" title="设为0则不启用" />
-            &nbsp; </dd>
+
+
 
           <dt>默认视频对白列表：</dt>
           <dd>

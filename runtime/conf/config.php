@@ -34,7 +34,6 @@ return array (
   'home_pagego' => 'pagego',
   'rewrite_vodlist' => '/vod-show-id-$id-p-$page',
   'rewrite_voddetail' => '/vod-read-id-$id',
-  'rewrite_vodplay' => '/vod-play-id-$id-sid-$sid-pid-$pid',
   'rewrite_vodsearch' => '/vod-search-wd-$wd$actor$director-p-$page',
   'rewrite_vodtype' => '/vod-type-id-$id-wd-$wd-letter-$letter-year-$year-area-$area-order-$order-p-$page',
   'rewrite_vodtag' => '/tag-vod-wd-$wd-p-$page',
@@ -93,11 +92,6 @@ return array (
       0 => '{:module}_{:action}/{$_SERVER.REQUEST_URI|md5}',
       1 => 43200,
     ),
-    'home:vod:play' => 
-    array (
-      0 => '{:module}_{:action}/{$_SERVER.REQUEST_URI|md5}',
-      1 => 43200,
-    ),
     'home:my:show' => 
     array (
       0 => '{:module}_{:action}/{$_SERVER.REQUEST_URI|md5}',
@@ -123,10 +117,6 @@ return array (
   'upload_ftp_pass' => '',
   'upload_ftp_port' => '',
   'upload_ftp_dir' => '',
-  'play_show' => '0',
-  'play_width' => '640',
-  'play_height' => '480',
-  'play_second' => 10,
   'play_language' => '国语,英语,粤语,闽南语,韩语,日语,国语/粤语,其它',
   'play_urllist' => '1',
   'play_collect_time' => '2',
@@ -136,7 +126,7 @@ return array (
   array (
     0 => '',
   ),
-  'url_html' => '0',
+  'url_html' => '1',
   'url_dir_a' => '2',
   'url_dir_b' => '5',
   'url_time' => '2',
@@ -146,10 +136,8 @@ return array (
   'url_vodplay' => 'vod/player/',
   'url_newslist' => '{listdir}/index.html',
   'url_newsdata' => '{listdir}/{id}/index.html',
-  'url_play' => '{listdir}/{id}/play.html',
   'url_html_list' => '0',
-  'url_html_play' => '0',
-  'url_rewrite' => '0',
+  'url_rewrite' => '1',
   'url_map' => 'detail/',
   'url_mytpl' => 'detail/',
   'url_special' => 'detail/',
@@ -169,5 +157,6 @@ return array (
   'rand_tag' => '0',
   'user_post' => '0',
   'user_check' => '0',
+  'play_second' => 0,
 );
 ?>

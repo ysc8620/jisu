@@ -132,11 +132,7 @@ class adminAction extends baseAction{
 		    $config['_htmls_']['home:vod:read'] = NULL;
 			$config['_htmls_']['home:news:read'] = NULL;
 		}
-		if($config['html_cache_play']>0){
-		    $config['_htmls_']['home:vod:play'] = array('{:module}_{:action}/{$_SERVER.REQUEST_URI|md5}',$config['html_cache_play']*3600);
-		}else{
-		    $config['_htmls_']['home:vod:play'] = NULL;
-		}						
+
 		if($config['html_cache_ajax']>0){
 		    $config['_htmls_']['home:my:show'] = array('{:module}_{:action}/{$_SERVER.REQUEST_URI|md5}',$config['html_cache_ajax']*3600);
 		}else{
