@@ -3,12 +3,14 @@ RewriteEngine On
 # 安装目录路径
 RewriteBase /
 # Rewrite 系统规则请勿修改
-RewriteRule ^vod-(.*)$ index.php\?s=/home-vod-$1
-RewriteRule ^news-(.*)$ index.php\?s=/home-news-$1
-RewriteRule ^special-(.*)$ index.php\?s=/home-special-$1
-RewriteRule ^tag-(.*)$ index.php\?s=/home-tag-$1
-RewriteRule ^gb-(.*)$ index.php\?s=/home-gb-$1
-RewriteRule ^cm-(.*)$ index.php\?s=/home-cm-$1
-RewriteRule ^map-(.*)$ index.php\?s=/home-map-$1
-RewriteRule ^my-(.*)$ index.php\?s=/home-my-$1
-RewriteRule ^test/(.*)$ index.php\?s=/home-test-index-page-$1
+#RewriteRule ^vod-(.*)$ index.php\?s=/home-vod-$1 [QSA,PT,L]
+#RewriteRule ^news-(.*)$ index.php\?s=/home-news-$1 [QSA,PT,L]
+#RewriteRule ^special-(.*)$ index.php\?s=/home-special-$1 [QSA,PT,L]
+#RewriteRule ^tag-(.*)$ index.php\?s=/home-tag-$1 [QSA,PT,L]
+#RewriteRule ^gb-(.*)$ index.php\?s=/home-gb-$1 [QSA,PT,L]
+#RewriteRule ^cm-(.*)$ index.php\?s=/home-cm-$1 [QSA,PT,L]
+#RewriteRule ^map-(.*)$ index.php\?s=/home-map-$1 [QSA,PT,L]
+#RewriteRule ^my-(.*)$ index.php\?s=/home-my-$1 [QSA,PT,L]
+RewriteRule ^(\w+)/?$ index.php\?s=/home-video-channel-list_dir-$1 [QSA,PT,L]
+RewriteRule ^(\w+)/(\d+).html$ index.php\?s=/home-video-detail-list_dir-$1-id-$2 [QSA,PT,L]
+RewriteRule ^test/(.*)$ index.php\?s=/home-test-index-page-$1 [QSA,PT,L]

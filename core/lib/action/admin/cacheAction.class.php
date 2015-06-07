@@ -13,8 +13,8 @@ class cacheAction extends baseAction{
 		@unlink('./runtime/~runtime.php');
 		if(!$dir->isEmpty('./runtime/data/_fields')){$dir->del('./runtime/data/_fields');}
 		if(!$dir->isEmpty('./runtime/temp')){$dir->delDir('./runtime/temp');}
-		if(!$dir->isEmpty('./runtime/cache')){$dir->delDir('./tuntime/cache');}
-		if(!$dir->isEmpty('./runtime/logs')){$dir->delDir('./tuntime/logs');}
+		if(!$dir->isEmpty('./runtime/cache')){$dir->delDir('./runtime/cache');}
+		if(!$dir->isEmpty('./runtime/logs')){$dir->delDir('./runtime/logs');}
 		echo('清除成功');
     }
 	// 删除静态缓存

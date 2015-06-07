@@ -900,6 +900,8 @@ function js_play_url_end($vod_url){
 //路径参数处理函数
 function js_param_url(){
 	$where = array();
+    $where['list_dir'] = strval($_REQUEST['list_dir']);
+    $where['cid'] = intval($_REQUEST['cid']);
 	$where['sid'] = intval($_REQUEST['sid']);
 	$where['id'] = intval($_REQUEST['id']);
 	$where['year'] = intval($_REQUEST['year']);

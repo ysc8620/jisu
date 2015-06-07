@@ -11,7 +11,7 @@ return array (
   'default_theme' => 'default',
   'site_name' => '极速影视导航系统',
   'site_path' => '/',
-  'site_url' => 'http://php369.com/',
+  'site_url' => 'http://feifei.com/',
   'site_keywords' => '极速影视导航系统PHP版,PHP电影程序',
   'site_description' => '努力打造极速影视导航系统为最好的PHP影视系统!',
   'site_email' => '110119@qq.com',

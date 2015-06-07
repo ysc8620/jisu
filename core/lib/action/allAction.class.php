@@ -57,36 +57,21 @@ class allAction extends Action{
 		$array['vod_hits_month'] = js_get_hits('vod','vod_hits_month',$array);
 		$array['vod_hits_week'] = js_get_hits('vod','vod_hits_week',$array);
 		$array['vod_hits_day'] = js_get_hits('vod','vod_hits_day',$array);
+        $array_list = $array_list[0];
 		if($array['vod_skin']){
 			$array['vod_skin_detail'] = 'home:'.trim($array['vod_skin']);
 		}else{
 			$array['vod_skin_detail'] = !empty($array_list['list_skin_detail']) ? 'home:'.$array_list['list_skin_detail'] : 'home:pp_vod';
 		}
-		//播放列表解析
-		$array['vod_playlist'] = $this->js_playlist_all($array);
-		$array['vod_playcount'] = count($array['vod_playlist']);
+
 		//按顺序排列
-		ksort($array['vod_playlist']);
+
 		$arrays['show'] = $array_list[0];
 		$arrays['read'] = $array;
 		return $arrays;
 	}
 
-	//组合播放地址组列表为二维数组
-	public function js_playlist_all($array){
-		if(empty($array['vod_url'])){return false;}
-		$playlist = array();
-		$array_server = explode('$$$',$array['vod_server']);
-		$array_player = explode('$$$',$array['vod_play']);
-		$array_urllist = explode('$$$',$array['vod_url']);
-		$player = C('play_player');
-		$server = C('play_server');
-		foreach($array_player as $sid=>$val){
-			$playlist[$player[$val][0].'-'.$sid] = array('servername' => $array_server[$sid],'serverurl' => $server[$array_server[$sid]],'playername'=>$player[$val][1],'playname'=>$val,'son' => $this->js_playlist_one($array_urllist[$sid],$array['vod_id'],$sid,$array['vod_cid'],$array['vod_name']));
-		}
-		//ksort($playlist);
-	    return $playlist;
-	}
+
 
 
 	//资讯栏目页变量定义

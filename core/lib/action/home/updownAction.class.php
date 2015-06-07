@@ -1,6 +1,6 @@
 <?php
 //顶踩模块
-class UpdownAction extends homeAction{
+class updownAction extends homeAction{
     public function vod(){
 		$id = intval($_GET['id']);
 		if ($id < 1) {

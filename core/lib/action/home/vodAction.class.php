@@ -1,5 +1,5 @@
 <?php
-class VodAction extends homeAction{
+class vodAction extends homeAction{
     // 影视搜索
     public function search(){
 		//获取地址栏参数
