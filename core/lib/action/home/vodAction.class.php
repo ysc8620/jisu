@@ -74,5 +74,11 @@ class vodAction extends homeAction{
 		}
 		return false;
 	}
+
+    function play(){
+        $id = intval($_GET['id']);
+        $url = urldecode(trim($_GET['url']));
+        return header('Location:'.$url);
+    }
 }
 ?>
