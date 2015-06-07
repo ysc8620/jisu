@@ -114,7 +114,7 @@ a:hover{text-decoration:none;}
 .snum a.current{background:#fff;opacity:1;filter:alpha(opacity=100);box-shadow:0 0 6px 2px #4aa3fe;}
 #indexSlide .snum{right:50%;margin-right:-470px;}
 
-#navis{height:60px;background:#191919;margin-bottom:10px;_overflow:hidden;}
+#navis{height:60px;background:#39a30c ;margin-bottom:10px;_overflow:hidden;}
 a.bli{width:90px;height:60px;display:inline-block;float:left;line-height:60px;text-align:center;font-weight:bold;font-size:14px;position:relative;color:#fff;}
 a.bli i, #navis dl dd i{display:block;width:2px;height:20px;background:url(../images/bg.png) no-repeat -269px 0;position:absolute;right:0;top:18px;}
 .subNavi{width:880px;padding-left:100px;height:60px;background:#e05032;margin:-10px auto 10px auto;position:relative;z-index:1;}
@@ -133,7 +133,7 @@ a.bli i, #navis dl dd i{display:block;width:2px;height:20px;background:url(../im
 #navis ul{width:980px;height:60px;margin:0 auto;}
 #navis ul li{display:inline;float:left;width:70px;height:60px;position:relative;}
 #navis ul li a{display:inline-block;width:70px;height:60px; position: relative; text-align:center;line-height:60px;font-size:14px;font-weight:bold;color:#fff; background:url(../images/navBg.jpg) no-repeat right center; -webkit-transition:background-color 0.2s ease-in-out 0s; -moz-transition:background-color 0.2s ease-in-out 0s;}
-#navis ul li a:hover{background:#282828;color:#f9faa9; margin-left: -2px; padding-left: 2px;}
+#navis ul li a:hover{background:#59CB29;color:#f9faa9; margin-left: -2px; padding-left: 2px;}
 /*#navis ul li a i{display:block;width:2px;height:20px;background:url(../images/bg.png) no-repeat -269px 0;position:absolute;right:0;top:18px;}*/
 /*#navis ul li.active a:hover,#navis ul li.active a{background:#e05032; }*/
 #navis ul li.active{z-index: 2;}
@@ -693,11 +693,11 @@ em.swHiCh{height:25px;line-height:25px;background:#fff;padding:0 15px;border:1px
 
 
 
-#footer{background:#282828;border-top:3px solid #e05032;padding:30px;color:#929292;}
-#footer dl{display:inline;float:left;width:320px;text-shadow:1px 1px 1px #000;}
+#footer{background:#f4f4f4;border-top:3px solid #e05032;padding:30px;color:#333;}
+#footer dl{display:inline;float:left;width:320px;}
 #footer dl dt{margin-bottom:15px;}
 #footer dl dd{width:270px;padding-bottom:30px;line-height:20px;}
-#footer dl dd a{color:#929292;margin-right:10px;}
+#footer dl dd a{color:#333;margin-right:10px;}
 #footer dl dd a:hover{color:#e05032;}
 p.bhr{display:block;height:2px;background:url(../images/bhr.png) repeat-x;clear:both;margin-bottom:15px;}
 #footer ul li{display:inline;}
