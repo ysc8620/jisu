@@ -74,18 +74,26 @@
             </span> <strong><span class="puTitle">《{$vod_name}》完整</span>播放地址</strong> </h2>
           <div class="playItem clearfix">
             <ul>
-                <volist name="vod_playlist" id="pay">
-              <li data-value="1"> <a href="javascript:;" class="plHv cp_0_name" title="{$pay['playername']}"> <i><img src="{$siteurl}images/{$pay['playname']}.png" alt="{$pay['playername']}"></i>{$pay['playername']}</a> </li>
+                <volist name="vod_playlist" id="pay" key="i">
+                    <if condition="$i lt 6">
+              <li data-value="{$i+1}"> <a href="javascript:;" class="plHv cp_{$i}_name" title="{$pay['playername']}"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']}</a> </li>
+                    </if>
                 </volist>
                 </ul>
-            <div class="fishSelect movieLine"> <span data-value='x'></span>
-              <ul>
-                <li data-value="8"> <a href="javascript:;" class="cp_7_name"> <i><img src="{$siteurl}static/images/i_funshion.png" alt="风行"></i>风行 </a> </li>
+              <if condition="count($vod_playlist) gt 6">
+                  <div class="fishSelect movieLine"> <span data-value='x'></span>
+                <ul>
+                    <volist name="vod_playlist" id="pay" key="i">
+                        <if condition="$i lt 5">
+                <li data-value="{$i+1}"> <a href="javascript:;" class="cp_{$i}_name"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']} </a> </li>
+            </if>
+                    </volist>
               </ul>
             </div>
+                  </if>
           </div>
-            <volist name="vod_playlist" id="pay">
-          <div class="movieListCon cp_1_content" style="display: block"> <span class="triangle"> <b></b> </span>
+            <volist name="vod_playlist" id="pay" key="i">
+          <div class="movieListCon cp_{$i+1}_content" style="<if condition='$i gt 0'>display: none</if>"> <span class="triangle"> <b></b> </span>
             <!-- 数字列表 正序-->
             <div class="movieListNum clearfix list_zhengxu" style="display:block">
               <ul class="pages_1">
@@ -93,12 +101,8 @@
                 <li> <a href="{$siteurl}?s=vod-play-id-{$vod_id}&url={:urlencode($ppvodson['playpath'])}" rel="nofollow" target="_blank">{$ppvodson.playname}</a> </li>
             </volist>     </ul>
             </div>
-
           </div>
         </volist>
-
-
-
         <!-- 广告位：详情页640*60*2 -->
        BAIDU_CLB_fillSlot("864456");
         <div style="margin:10px 0px 20px 0px;">
@@ -317,6 +321,14 @@
 <input type="hidden" class="videoClass" value="2">
 <input type="hidden" class="videoUid" value="0">
 <script src="{$tpl}/js/details.js"></script>
+  <script type="text/javascript">
+      $('.playItem li').click(function(){
+          // <li data-value=
+          // movieListCon cp_{$i+1}_content
+          $('div.movieListCon').hide();
+          $('div.cp_'+$(this).attr('data-value')+'_content').show();
+      });
+  </script>
 <include file="home:pp_footer" />
 </body>
 </html>
