@@ -3,7 +3,7 @@ if(!cid){
 		cid = 20;
 }
 
-var _feedBackUrl = "http://fankui.114la.com/gather.php?cid=" + cid + "&page=" + encodeURIComponent(window.location.href);
+var _feedBackUrl = "/gather.php?cid=" + cid + "&page=" + encodeURIComponent(window.location.href);
 function extend() {
 				 var options, name, src, copy, copyIsArray, clone,
 					target = arguments[0] || {},

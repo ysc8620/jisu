@@ -105,12 +105,7 @@ class adminAction extends baseAction{
 		$config['tmpl_cache_on'] = (bool) $config['tmpl_cache_on'];
 		$config['html_cache_on'] = (bool) $config['html_cache_on'];
 		$config['user_gbcm'] = (bool) $config['user_gbcm'];
-		//播放地址前缀
-		foreach(explode(chr(13),trim($config["play_server"])) as $v){
-			list($key,$val) = explode('$$$',trim($v));
-			$arrserver[trim($key)] = trim($val);
-		}
-		$config["play_server"] = $arrserver;
+
 		//采集伪原创内容
 		foreach(explode(chr(13),trim($config["play_collect_content"])) as $v){
 			$arrcollect[] = trim($v);
@@ -157,27 +152,7 @@ class adminAction extends baseAction{
 		arr2file('./runtime/conf/config.php',$config_new);
 		@unlink('./runtime/~app.php');
 
-		//
-        $pp_play = '';
-		$pp_play.= 'var js_root="'.$config['site_path'].'";';
-		$pp_play.= 'var js_width='.$config['play_width'].';';
-		$pp_play.= 'var js_height='.$config['play_height'].';';
-		$pp_play.= 'var js_showlist='.$config['play_show'].';';
-		$pp_play.= 'var js_second='.intval($config['play_second']).';';
-		$pp_play.= 'var js_qvod="'.$config['play_qvod'].'";';
-		$pp_play.= 'var js_gvod="'.$config['play_gvod'].'";';
-		$pp_play.= 'var js_pvod="'.$config['play_pvod'].'";';
-		$pp_play.= 'var js_web9="'.$config['play_web9'].'";';
-		$pp_play.= 'var js_bdhd="'.$config['play_bdhd'].'";';
-		$pp_play.= 'var js_pplive="";';
-		$pp_play.= 'var js_buffer="'.$config['play_playad'].'";';
-		foreach(C('play_server') as $key=>$value){
-			$pp_play.= 'var js_'.$key.'="'.$value.'";';
-		}
-		foreach(C('play_player') as $key=>$value){
-			$pp_play.= 'var play_'.$key.'="'.$value[1].'";';
-		}			
-		write_file('./runtime/player/play.js',$pp_play);
+
 		admin_js_hot_key(C('site_hot'));
 		$this->success('恭喜您，配置信息更新成功！');
     }				

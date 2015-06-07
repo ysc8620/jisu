@@ -67,44 +67,13 @@ class allAction extends Action{
 		//播放列表解析
 		$array['vod_playlist'] = $this->js_playlist_all($array);
 		$array['vod_playcount'] = count($array['vod_playlist']);
-		$array['vod_player'] = 'var js_urls=\''.$this->js_playlist_json(array($array['vod_name'],$array_list[0]['list_name'],$array_list[0]['list_url']),$array['vod_playlist']).'\';';
 		//按顺序排列
 		ksort($array['vod_playlist']);
 		$arrays['show'] = $array_list[0];
 		$arrays['read'] = $array;
 		return $arrays;
 	}
-	/*****************影视播放页变量定义 适用于动态与合集为一个播放页******************************<br />
-	* @$array 内容页解析好后的内容页变量 arrays['read']
-	* @$array_play 为播放页URL参数 array('id'=>558,'sid'=>1,'pid'=>1)
-	* @返回$array 内容页重新组装的数组*/
-	public function Lable_Vod_Play($array,$array_play,$createplayone){
-		$player = C('play_player');
-		$player_here = explode('$$$',$array['vod_play']);
-		$array['vod_sid'] = $array_play['sid'];
-		$array['vod_pid'] = $array_play['pid'];
-		$array['vod_playname'] = $player_here[$array_play['sid']];
-		$array['vod_playername'] = $player[$array['vod_playname']][1];
-		$array['vod_playerkey'] = $player[$array['vod_playname']][0];
-		$array['vod_jiname'] = $array['vod_playlist'][$array['vod_playerkey'].'-'.$array_play['sid']]['son'][$array_play['pid']-1]['playname'];
-		$array['vod_playpath']= $array['vod_playlist'][$array['vod_playerkey'].'-'.$array_play['sid']]['son'][$array_play['pid']-1]['playpath'];
-		$array['vod_nextpath']= $array['vod_playlist'][$array['vod_playerkey'].'-'.$array_play['sid']]['son'][$array_play['pid']]['playpath'];
-		$array['vod_count'] = $array['vod_playlist'][$array['vod_playerkey'].'-'.$array_play['sid']]['son'][0]['playcount'];
-		$array['title'] = '正在播放 '.$array['vod_name'].'-'.$array['vod_jiname'].'-'.C('site_name');
-		//播放器调用
-		if($createplayone){
-			//适用于静态网页生成每一集
-			$player_jsdir = C('site_path').js_play_url_dir($array['vod_id'],0,1,$array['vod_cid'],$array['vod_name']).'.js?'.uniqid();
-			$array['vod_player'] = '<script charset="utf-8" src="'.$player_jsdir.'"></script><script charset="utf-8" src="'.C('site_path').'runtime/player/play.js"></script><script charset="utf-8" src="'.C('site_path').'public/player2.9/play.js"></script>'."\n";
-		}else{
-			$array['vod_player'] = '<script language="javascript">'.$array['vod_player'].'</script><script charset="utf-8" src="'.C('site_path').'runtime/player/play.js"></script><script charset="utf-8" src="'.C('site_path').'public/player2.9/play.js?"></script>'."\n";
-		}
-		//点击数调用
-		$array['vod_hits_month'] = js_get_hits('vod','vod_hits_month',$array,C('url_html_play'));
-		$array['vod_hits_week'] = js_get_hits('vod','vod_hits_week',$array,C('url_html_play'));
-		$array['vod_hits_day'] = js_get_hits('vod','vod_hits_day',$array,C('url_html_play'));
-		return $array;
-	}
+
 	//组合播放地址组列表为二维数组
 	public function js_playlist_all($array){
 		if(empty($array['vod_url'])){return false;}
@@ -120,38 +89,8 @@ class allAction extends Action{
 		//ksort($playlist);
 	    return $playlist;
 	}
-	//分解单组播放地址链接
-	public function js_playlist_one($urlone,$id,$sid,$cid,$name){
-		$urllist = array();
-	    $array_url = explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$urlone));
-		foreach($array_url as $key=>$val){
-		    if (strpos($val,'$') > 0) {
-		        $ji = explode('$',$val);
-			    $urllist[$key]['playname'] = trim($ji[0]);
-			    $urllist[$key]['playpath'] = trim($ji[1]);
-			}else{
-			    $urllist[$key]['playname'] = '第'.($key+1).'集';
-			    $urllist[$key]['playpath'] = trim($val);
-			}
-			$urllist[$key]['playurl'] = js_play_url($id,$sid,$key+1,$cid,$name);
-			$urllist[$key]['playcount'] = count($array_url);
-		}
-	    return $urllist;
-	}
-	//生成播放列表字符串
-	public function js_playlist_json($vod_info_array,$vod_url_array){
-		//json数组创建
-		$key = 0;
-		foreach($vod_url_array as $val){
-			$array_urls[$key]['servername'] = $val['servername'];
-			$array_urls[$key]['playname'] = $val['playname'];
-			foreach($val['son'] as $keysub=>$valsub){
-				$array_urls[$key]['playurls'][$keysub] = array($valsub['playname'], $valsub['playpath'], $valsub['playurl']);
-			}
-			$key++;
-		}
-		return json_encode(array('Vod'=>$vod_info_array,'Data'=>$array_urls));
-	}
+
+
 	//资讯栏目页变量定义
 	public function Lable_News_List($param,$array_list){
 		$array_list['sid'] = 2;

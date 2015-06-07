@@ -329,45 +329,11 @@ class createAction extends baseAction{
 		$videodir = js_data_url_dir('vod',$arrays['read']['vod_id'],$arrays['read']['vod_cid'],$arrays['read']['vod_name'],1);
 		$this->buildHtml($videodir,'./',$arrays['read']['vod_skin_detail']);
 		echo('<li><a href="'.C('site_path').$videodir.C('html_file_suffix').'" target="_blank">'.$arrays['read']['vod_id'].'</a> detail ok</li>');
-		//生成播放页
-		if(C('url_html')){
-			$this->vod_play_create($arrays);
-		}
+
 		ob_flush();
 		flush();
     }
-	//生成播放页
-	public function vod_play_create($arrays){
-		//合集在一个页面
-		if(C('url_html_play')==1){
-			$this->assign($arrays['show']);
-			$arrays['read'] = $this->Lable_Vod_Play($arrays['read'],array('id'=>$arrays['read']['vod_id'],'sid'=>0,'pid'=>1));
-			$this->assign($arrays['read']);
-			$playdir = js_play_url_dir($arrays['read']['vod_id'],0,1,$arrays['read']['vod_cid'],$arrays['read']['vod_name']);
-			$this->buildHtml($playdir,'./',$arrays['read']['vod_skin_play']);
-			echo('<li>'.$arrays['read']['vod_id'].' play ok</li>');
-		}elseif(C('url_html_play')==2){
-			echo('<li>'.$arrays['read']['vod_id'].' play ');
-			//生成播放地址js(只需要一次)
-			$player_dir = js_play_url_dir($arrays['read']['vod_id'],0,1,$arrays['read']['vod_cid'],$arrays['read']['vod_name']);
-			write_file('./'.$player_dir.'.js',$arrays['read']['vod_player']);
-			//播放页模板通用变量解析
-			$this->assign($arrays['show']);
-			//第一个分集生成完后
-			foreach($arrays['read']['vod_playlist'] as $sid=>$son){
-				$arr_sid = explode('-',$sid);
-				$arr_play = array();
-				foreach($son["son"] as $pid=>$value){
-					//路径替换与生成
-					$player_dir_ji = preg_replace('/play-([0-9]+)-([0-9]+)-([0-9]+)/i','play-$1-'.$arr_sid[1].'-'.($pid+1).'',$player_dir);
-					$this->assign($this->Lable_Vod_Play($arrays['read'],array('id'=>$arrays['read']['vod_id'],'sid'=>$arr_sid[1],'pid'=>$pid+1),true));
-					$this->buildHtml($player_dir_ji,'./',$arrays['read']['vod_skin_play']);
-					//echo($arr_sid[1].'-'.($pid+1).' ');
-				}
-				echo('ok </li>');
-			}			
-		}
-	}
+
 	//一键生成全站地图
     public function maps(){
 		$this->check(C('url_html'),'网站地图');

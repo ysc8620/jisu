@@ -107,7 +107,6 @@ class vodAction extends baseAction{
 			    $play[array_search($val,C('play_player'))] = $val;
 			}
 			$array['vod_play_list'] = C('play_player');
-			$array['vod_server_list'] = C('play_server');
 			$array['vod_play'] = explode('$$$',$array['vod_play']);
 			$array['vod_server'] = explode('$$$',$array['vod_server']);	
 			$array['vod_url'] = explode('$$$',$array['vod_url']);
@@ -128,14 +127,13 @@ class vodAction extends baseAction{
 			$array['vod_continu'] = 0;
 			$array['vod_inputer'] = $_SESSION['admin_name'];
 			$array['vod_play_list'] = C('play_player');
-			$array['vod_server_list'] = C('play_server');
 			$array['vod_url']=array(0=>'');
 			$array['vod_starsarr'] = admin_star_arr(1);
 			$array['checktime'] = 'checked';
 			$array['vod_tplname'] = '添加';
 		}
 		$array['vod_language_list']=explode(',',C('play_language'));
-		$array['vod_area_list']=F('_ppvod/areatree');#explode(',',C('play_area'));
+		$array['vod_area_list']=F('_ppvod/areatree');
         //print_r($array['vod_area_list']);
 		#$array['vod_year_list']=explode(',',C('play_year'));
 		$this->ppvod_play();

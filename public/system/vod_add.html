@@ -124,7 +124,7 @@ $(document).ready(function(){
   <volist name="vod_url" id="url" key="uu"><php>$playername=$vod_play[$uu-1];$serverdown=$vod_server[$uu-1];</php>
       <dl>
     <dt>播放地址{$uu}<br /></dt>
-    <dd><select name="vod_play[]" id="vod_play" class="select"><volist name="vod_play_list" id="play"><option value="{$key}" <if condition="$key eq $playername">selected</if>>{$i}.{$key}.{$play[1]}</option></volist></select> <select name="vod_server[]" id="vod_server" style=" width:140px" class="select"><option value="">不使用公共前缀</option><volist name="vod_server_list" id="server"><option value="{$key}" <if condition="$key eq $serverdown">selected</if>>{$server}</option></volist></select> <label style=" color:#666666">注：自定义分集名称用"$"分隔，一行一集播放地址，留空则删除该组地址。</label><br><textarea name='vod_url[]' class="text" style="width:98%;height:150px;color:#333333">{$url}</textarea></dd>
+    <dd><select name="vod_play[]" id="vod_play" class="select"><volist name="vod_play_list" id="play"><option value="{$key}" <if condition="$key eq $playername">selected</if>>{$i}.{$key}.{$play[1]}</option></volist></select><label style=" color:#666666">注：自定义分集名称用"$"分隔，一行一集播放地址，留空则删除该组地址。</label><br><textarea name='vod_url[]' class="text" style="width:98%;height:150px;color:#333333">{$url}</textarea></dd>
     </dl>
   </volist>
   </span>

@@ -348,7 +348,7 @@ $(function(){
 		queryData : function(value, callback){
 			$.ajax({
 				tpye:'post',
-				url:'http://v.114la.com/?ct=index&ac=search_tips',
+				url:'/?ct=index&ac=search_tips',
 				data:{'q':value},
 				dataType:'jsonp',
 				jsonp:'callback',

@@ -737,40 +737,14 @@
           <dd>
             <input type="text" class="text w70 ct" name="config[play_second]" value="{$play_second}" maxlength="2" title="设为0则不启用" />
             &nbsp; </dd>
-          <dt>默认视频地区列表：</dt>
-          <dd>
-            <input type="text" class="text w400" name="config[play_area]" id="play_area" value="{$play_area}" maxlength="250" />
-            &nbsp;</dd>
-          <dt>默认视频年代列表：</dt>
-          <dd>
-            <input type="text" class="text w400" name="config[play_year]" id="play_year" value="{$play_year}" maxlength="250" />
-            &nbsp;</dd>
+
           <dt>默认视频对白列表：</dt>
           <dd>
             <input type="text" class="text w400" name="config[play_language]" id="play_language" value="{$play_language}" maxlength="250" />
             &nbsp;</dd>
-          <dt>节目缓冲广告地址：</dt>
-          <dd>
-            <input type="text" class="text w400" name="config[play_playad]" id="play_playad" value="{$play_playad}"  maxlength="150" />
-            &nbsp;</dd>
-          <dt>快播Qvod下载地址：</dt>
-          <dd>
-            <input type="text" class="text w400" name="config[play_qvod]" id="play_qvod" value="{$play_qvod}" maxlength="150" />
-            &nbsp;</dd>
-          <dt>百度影音下载地址：</dt>
-          <dd>
-            <input type="text" class="text w400" name="config[play_bdhd]" id="play_bdhd" value="{$play_bdhd}" maxlength="150" />
-            &nbsp;</dd>
-          <dt>下载服务器组前缀：</dt>
-          <dd>
-            <textarea name="config[play_server]" id="play_server" style="height:133px" class="text">
-            <volist name="play_server" id="ppvod">{$key}$$${$ppvod}
-                <php>echo(chr(13));</php>
-            </volist>
-        </textarea>
-            <label> <font color="red">前缀名称$$$对应地址</font><br/>
-            (一行一个)</label>
-          </dd>
+
+
+
         </dl>
         <span class="blank20"></span> </div>
       <!--//end video-->

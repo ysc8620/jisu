@@ -45,20 +45,7 @@ class VodAction extends homeAction{
 			$this->error('此影片已经删除，请选择观看其它节目！');
 		}
     }
-	// 影片播放页
-    public function play(){
-		$array_detail = $this->get_cache_detail( intval($_GET['id']) );
-		if($array_detail){
-			$array_detail['read'] = $this->Lable_Vod_Play($array_detail['read'],array('id'=>intval($_GET['id']), 'sid'=>intval($_GET['sid']), 'pid'=>intval($_GET['pid'])));
-            $this->assign($array_detail['show']);
-            			$this->assign($array_detail['read']);
-            			$this->display($array_detail['read']['vod_skin_play']);
-			// js_play_redirect($array_detail['read']);
-		}else{
-			$this->assign("jumpUrl",C('site_path'));
-			$this->error('此影片已经删除，请选择观看其它节目！');
-		}
-    }
+
 	// 从数据库获取数据
 	private function get_cache_detail($vod_id){
 		if(!$vod_id){ return false; }
