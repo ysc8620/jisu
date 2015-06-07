@@ -236,17 +236,18 @@
 /*电视剧*/
 #teleplay .playItem a{border:none;}
 #teleplay .playItem a:hover{border:none;}
+#teleplay .playItem li{position: relative;}
 #teleplay .movieLine{float: left; margin-top: 3px;}
 #teleplay .movieLine ul li{margin-bottom: 0px;}
 #teleplay .movieLine ul li a{display: inline-block; padding:0px 5px;}
 #teleplay .movieLine span i{vertical-align:middle; margin-right: 5px;}
 
 .movieListCon{background: #f3f3f3; padding:10px 25px; border-top: 1px solid #dadada; position: relative;}
-.movieListCon .triangle{position: absolute; top: -20px; left: 30px; display:inline-block; border:10px solid #f3f3f3; border-color:#fff #fff #ddd #fff; width: 0px; height: 0px;}
-.movieListCon .triangle b{border:10px solid #f3f3f3; border-color:transparent  transparent  #f3f3f3 transparent ;  _border-color:#fff  #fff  #f3f3f3 #fff; width: 0px; height: 0px; display: inline-block; position: absolute; left: -10px; bottom:-11px;}
+.playItem .triangle{position: absolute; top: 25px; left: 45%; display:none; border:10px solid #f3f3f3; border-color:#fff #fff #ddd #fff; width: 0px; height: 0px;}
+.playItem .triangle b{border:10px solid #f3f3f3; border-color:transparent  transparent  #f3f3f3 transparent ;  _border-color:#fff  #fff  #f3f3f3 #fff; width: 0px; height: 0px; display: inline-block; position: absolute; left: -10px; bottom:-11px;}
 .movieListNum ul{margin-right: -10px;overflow: hidden; padding-top: 5px;}
 .movieListNum ul li{float: left; margin-right: 10px; margin-bottom: 10px; position: relative;}
-.movieListNum ul li a{display: block; width: 48px; height: 30px; background: #fff; line-height: 30px; border-radius:3px; border:1px solid #dadada; text-align: center;}
+.movieListNum ul li a{display: block; overflow: hidden; width: 48px; height: 30px; background: #fff; line-height: 30px; border-radius:3px; border:1px solid #dadada; text-align: center;}
 .movieListNum ul li a:hover{background: #e05032; color: #fff; border:1px solid #d33b1b;}
 .movieListNum ul li i{position:absolute; top: -5px; right:-5px; display: block; background:red; border-radius: 15px; width: 15px; height: 15px; color: #fff; text-align: center; line-height: 15px;}
 

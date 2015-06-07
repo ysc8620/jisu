@@ -76,7 +76,7 @@
             <ul>
                 <volist name="vod_playlist" id="pay" key="i">
                     <if condition="$i lt 6">
-              <li data-value="{$i}"> <a href="javascript:;" class="<if condition='$i lt 2'>plHv</if> cp_{$i}_name" title="{$pay['playername']}"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']}</a> </li>
+                  <li data-value="{$i}"> <a href="javascript:;" class="<if condition='$i lt 2'>plHv</if> cp_{$i}_name" title="{$pay['playername']}"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
                     </if>
                 </volist>
                 </ul>
@@ -93,12 +93,12 @@
                   </if>
           </div>
             <volist name="vod_playlist" id="pay" key="i">
-          <div class="movieListCon cp_{$i}_content" style="<if condition='$i gt 1'>display: none</if>"> <span class="triangle"> <b></b> </span>
+          <div class="movieListCon cp_{$i}_content" style="<if condition='$i gt 1'>display: none</if>">
             <!-- 数字列表 正序-->
             <div class="movieListNum clearfix list_zhengxu" style="display:block">
               <ul class="pages_1">
                   <volist name="pay['son']" id="ppvodson" key="j">
-                <li> <a href="{$siteurl}?s=vod-play-id-{$vod_id}&url={:urlencode($ppvodson['playpath'])}" rel="nofollow" target="_blank">{$ppvodson.playname}</a> </li>
+                <li> <a href="{$siteurl}?s=vod-play-id-{$vod_id}&url={:urlencode($ppvodson['playpath'])}" rel="nofollow" title="{$ppvodson.playname}" target="_blank">{$ppvodson.playname}</a> </li>
             </volist>     </ul>
             </div>
           </div>
@@ -109,6 +109,7 @@
           <!-- 广告位：详情页导量 -->
          BAIDU_CLB_fillSlot("918168");
         </div>
+            </div>
 
         <!-- 相关影评 -->
 
@@ -144,10 +145,7 @@
                 <li> <a href="{$siteurl}dianshi/151658.html" title="艾米加油 DVD版" target="_blank"> <img src="{$siteurl}img/2013/12/25/youku/tvs/8/51eQ21e13Y0.jpg" alt="艾米加油 DVD版" title="艾米加油 DVD版"> <b>艾米加油 DVD版</b> </a> <span>都市,偶像,言情,时装</span> </li>
               </ul>
             </div>
-            <div class="youLikeItem ">
-              <ul>
-              </ul>
-            </div>
+
           </div>
         </div>
         <div id="pagead">
@@ -259,9 +257,10 @@
           $('.playItem li a').removeClass('plHv');
           $(this).find('a').addClass('plHv');
           $('div.movieListCon').hide();
-          //triangle
+          $('.playItem .triangle').hide();
           $('div.cp_'+$(this).attr('data-value')+'_content').show();
-          $('div.cp_'+$(this).attr('data-value')+'_content .triangle').css('left',$(this).css('left'));
+
+          $(this).find('.triangle').show();
       });
   </script>
 </body>
