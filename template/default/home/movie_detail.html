@@ -8,6 +8,7 @@
 <meta name="description" content="{$vod_content|strip_tags}">
 <link href="{$tpl}css/style.css?v2013" rel="stylesheet"/>
 <link href="{$tpl}css/details.css" rel="stylesheet"/>
+<link href="{$root}public/css/ico.css" rel="stylesheet"/>
 </head>
 <body channel="movie">
 <include file="home:pp_header" /> <include file="home:pp_nav" />
@@ -38,7 +39,7 @@
           </div>
         </div>
         <div class="movieDeCenterCon">
-          <p><span>导演：</span><notempty name="vod_director">{$vod_director|js_search_url}<else />未录入</notempty><</p>
+          <p><span>导演：</span><notempty name="vod_director">{$vod_director|js_search_url}<else />未录入</notempty></p>
           <p><span>主演：</span><span class="v_dirRow_Wrap"><notempty name="vod_actor">{$vod_actor|js_search_url}<else />未录入</notempty></span></p>
           <p> <span>类型：</span><em class="textRight">{$vod_class_name}</em> <span>地区：</span><em>{$vod_area_name|default='未知'}</em></p>
           <p> <span>片长：</span><em>124分钟</em> </p>
