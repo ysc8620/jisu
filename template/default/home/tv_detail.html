@@ -8,7 +8,7 @@
 <meta name="description" content="牙医周东风，离异多年，经营着一家口腔诊所，并独自抚养女儿黛黛。黛黛体谅父亲艰辛，不想让父亲孤身一人，希望撮合杂志社女编辑苏简和父亲组成家庭。这时，周东风的前妻、黛黛的亲妈程春红从海外归国创业，使周东风和苏简的生活掀起波澜。同时，苏简的前男友黄凯迪虽然对苏简旧情难舍，却不得不面对家庭的安排与艾莉小姐交往。女艺人文雅偶遇周东风后，也一见倾心，奋力追求。世事难料，在一次突发事故中程春红舍身挽救了女儿黛黛，自己病重入院，苏简、文雅纷纷伸出援助之手，情意温暖人间。程春红、苏简、文雅三个女人以各自不同的面孔出现在周东风的生活之中，使他的人生异彩纷呈，而周黛黛也幸福的拥有了一个老爸和亲妈、后妈、干妈这三个妈的全新生活。">
 <link href="{$tpl}/css/style.css?v2013" rel="stylesheet"/>
 <link href="{$tpl}css/details.css" rel="stylesheet"/>
-
+    <link href="{$root}public/css/ico.css" rel="stylesheet"/>
 </head>
 <body channel="movie">
 <include file="home:pp_header" />
@@ -42,7 +42,7 @@
         <div class="movieDeCenterCon">
           <p><span>导演：</span><notempty name="vod_director">{$vod_director|js_search_url}<else />未录入</notempty></p>
           <p><span>主演：</span><span class="v_dirRow_Wrap"><notempty name="vod_actor">{$vod_actor|js_search_url}<else />未录入</notempty></span></p>
-          <p><span>类型：</span><em class="textRight"></em></p>
+          <p><span>类型：</span><em class="textRight">{$vod_class_name}</em></p>
           <p><span>地区：</span><em>{$vod_area|default='未知'}</em></p>
           <p><span>状态：</span><em class="textBd">更新至第22集</em></p>
           <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> {:js_content_url($vod_content,$Tag)}</em>  </p>
@@ -76,7 +76,7 @@
             <ul>
                 <volist name="vod_playlist" id="pay" key="i">
                     <if condition="$i lt 6">
-                  <li data-value="{$i}"> <a href="javascript:;" class="<if condition='$i lt 2'>plHv</if> cp_{$i}_name" title="{$pay['playername']}"> <i><img src="{$siteurl}public/images/i_qy.png" alt="{$pay['playername']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
+                  <li data-value="{$i}"> <a href="javascript:;" class="<if condition='$i lt 2'>plHv</if> cp_{$i}_name" title="{$pay['playername']}"> <i class="gico-site gico-{$pay['playname']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
                     </if>
                 </volist>
                 </ul>
@@ -239,7 +239,7 @@
           </ul>
         </div>
         <div style="width:300px;height:250px;margin-bottom:10px;">
-          <script type="text/javascript">BAIDU_CLB_fillSlot("850365");</script>
+          BAIDU_CLB_fillSlot("850365");
         </div>
       </div>
     </div>
@@ -249,8 +249,6 @@
 <input type="hidden" class="videoClass" value="2">
 <input type="hidden" class="videoUid" value="0">
   <include file="home:pp_footer" />
-<script src="{$tpl}/js/details.js"></script>
-
 
   <script type="text/javascript">
       $('.playItem li').click(function(){
@@ -259,7 +257,6 @@
           $('div.movieListCon').hide();
           $('.playItem .triangle').hide();
           $('div.cp_'+$(this).attr('data-value')+'_content').show();
-
           $(this).find('.triangle').show();
       });
   </script>
