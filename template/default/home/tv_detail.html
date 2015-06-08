@@ -43,8 +43,8 @@
           <p><span>导演：</span><notempty name="vod_director">{$vod_director|js_search_url}<else />未录入</notempty></p>
           <p><span>主演：</span><span class="v_dirRow_Wrap"><notempty name="vod_actor">{$vod_actor|js_search_url}<else />未录入</notempty></span></p>
           <p><span>类型：</span><em class="textRight">{$vod_class_name}</em></p>
-          <p><span>地区：</span><em>{$vod_area|default='未知'}</em></p>
-          <p><span>状态：</span><em class="textBd">更新至第22集</em></p>
+          <p><span>地区：</span><em>{$vod_area_name|default='未知'}</em></p>
+          <p><span>状态：</span><em class="textBd">{$vod_continu}</em></p>
           <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> {:js_content_url($vod_content,$Tag)}</em>  </p>
         </div>
       </div>
