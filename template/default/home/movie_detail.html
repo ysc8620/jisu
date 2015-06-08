@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=7"/>
-<title>《暴走神探》-电影-高清完整版-在线观看-{$sitename}</title>
-<meta name="keywords" content="暴走神探，暴走神探电影，暴走神探高清完整版，暴走神探在线观看，国语版">
-<meta name="description" content="暴走神探电影，暴走神探高清完整版，暴走神探在线观看，暴走神探国语版，预告片、剧情、海报剧照、幕后花絮、上映时间、导演、演员影评等暴走神探完整版信息。">
+<title>{$title}</title>
+<meta name="keywords" content="{$keyword}">
+<meta name="description" content="{$vod_content}">
 <link href="{$tpl}css/style.css?v2013" rel="stylesheet"/>
 <link href="{$tpl}css/details.css" rel="stylesheet"/>
 </head>
@@ -14,17 +14,17 @@
 <div class="wrap clearfix">
   <div class="moiveDetails">
     <div class="detailsTop">
-      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}dianying/">电影</a><i>></i><em>暴走神探</em></p>
+      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}dianying/">电影</a><i>></i><em>{$vod_name}</em></p>
     </div>
     <!-- 影片介绍 -->
     <div class="movieDescription clearfix">
-      <div class="movieDeLeft"> <img src="{$siteurl}img/2015/04/14/qy/dianying/5/o2060x50AmM.jpg" alt="暴走神探" title="暴走神探"  width="180" height="240" />
+      <div class="movieDeLeft"> <img src="{$vod_picurl}" alt="{$vod_name}" title="{$vod_name}"  width="180" height="240" />
         <div class="collection"> <a href="javascript:" class="collect"><i></i><span>收藏</span></a> <a href="javascript:" class="cancel"><i></i><span>取消</span></a> </div>
       </div>
       <div class="movieDeCenter">
         <div class="movieDeCenterTop clearfix">
           <div class="movieTitle">
-            <h1 title="暴走神探"> 暴走神探<span>(2014)</span> </h1>
+            <h1 title="{$vod_name}"> {$vod_name}<span>({$vod_year|default='未录入'})</span> </h1>
           </div>
           <div class="start">
             <dl>
@@ -38,11 +38,11 @@
           </div>
         </div>
         <div class="movieDeCenterCon">
-          <p><span>导演：</span><a class="v_dirRow_link" href="{$siteurl}sech-%E7%BD%97%E5%8D%93%E7%91%B6.html" title="查看罗卓瑶的影视资料" target="_blank">罗卓瑶</a></p>
-          <p><span>主演：</span><span class="v_dirRow_Wrap"><a href="{$siteurl}mingxing-4384.html" title="查看阮经天的影视资料" target="_blank">阮经天</a> <a href="{$siteurl}mingxing-5036.html" title="查看周冬雨的影视资料" target="_blank">周冬雨</a> <a href="{$siteurl}mingxing-915.html" title="查看杨子姗的影视资料" target="_blank">杨子姗</a> <a href="{$siteurl}zongyi/9295.html" title="查看杨洋的影视资料" target="_blank">杨洋</a></span></p>
-          <p> <span>类型：</span><em class="textRight">动作   悬疑</em> <span>地区：</span><em>中国</em></p>
+          <p><span>导演：</span><notempty name="vod_director">{$vod_director|js_search_url}<else />未录入</notempty><</p>
+          <p><span>主演：</span><span class="v_dirRow_Wrap"><notempty name="vod_actor">{$vod_actor|js_search_url}<else />未录入</notempty></span></p>
+          <p> <span>类型：</span><em class="textRight">{$vod_class_name}</em> <span>地区：</span><em>{$vod_area_name|default='未知'}</em></p>
           <p> <span>片长：</span><em>124分钟</em> </p>
-          <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> 　　故事背景发生在民国时期的上海法租界，阮经天饰演的警探范如一接指派，秘密保护富家女宋小乔（杨子姗 饰）随着富家女的离奇失踪，范如一成为案件的最大嫌疑人，并在逃避追捕过程中结识了盲女慧兰（周冬雨 饰）...<a href="javascript:" class="textMore">[更多]</a> </em> <em class="movieFr textAll"> 　　故事背景发生在民国时期的上海法租界，阮经天饰演的警探范如一接指派，秘密保护富家女宋小乔（杨子姗 饰）随着富家女的离奇失踪，范如一成为案件的最大嫌疑人，并在逃避追捕过程中结识了盲女慧兰（周冬雨 饰）。随着剧情的发展，范如一与慧兰、小乔产生了一系列复杂而浪漫情感纠葛，最终真相浮出水面，而范如一则陷入了清白与爱情的艰难抉择。 <a href="javascript:" class="packUp">[收起]</a> </em> </p>
+          <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> {:js_content_url($vod_content,$Tag)}</em> </p>
         </div>
       </div>
       <div class="movieDeRight">
@@ -67,13 +67,14 @@
             <!-- 广告位：详情页320*30 -->
             <span style="margin-right:83px;">
            BAIDU_CLB_fillSlot("875984");
-            </span> <strong><span class="puTitle">《暴走神探》完整</span>播放地址</strong> </h2>
+            </span> <strong><span class="puTitle">《{$vod_name}》完整</span>播放地址</strong> </h2>
           <div class="playItem">
             <ul>
-              <li> <a href="{$siteurl}?ac=play&id=438814&url=http%3A%2F%2Fwww.iqiyi.com%2Fv_19rrnzliqk.html&code=e06631cb519b4c1e29aed4e704e5b637"  rel="nofollow" target="_blank" title="爱奇艺"> <i><img src="{$siteurl}static/images/i_qy.png" alt="爱奇艺"></i>爱奇艺 </a> </li>
-              <li> <a href="{$siteurl}?ac=play&id=438814&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22109597.html&code=ad01ed9044fdd6386943d2bc507b9c80"  rel="nofollow" target="_blank" title="乐视网"> <i><img src="{$siteurl}static/images/i_ls.png" alt="乐视网"></i>乐视网 </a> </li>
-              <li> <a href="{$siteurl}?ac=play&id=438814&url=http%3A%2F%2Fvod.kankan.com%2Fv%2F86%2F86033.shtml%3Fid%3D731040&code=46f4a761bbda80429410d1fd87db80ff"  rel="nofollow" target="_blank" title="迅雷"> <i><img src="{$siteurl}static/images/i_xl.png" alt="迅雷"></i>迅雷 </a> </li>
-              <li> </li>
+              <li><volist name="vod_playlist" id="pay" key="i">
+                  <volist name="pay['son']" id="ppvodson" key="j">
+                        <li data-value="{$i}"> <a href="{$siteurl}?s=vod-play-id-{$vod_id}&url={:urlencode($ppvodson['playpath'])}"  rel="nofollow" target="_blank" title="{$pay['playername']}"> <i class="gico-site gico-{$pay['playname']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
+                    </volist>
+                </volist>
             </ul>
           </div>
         </div>
