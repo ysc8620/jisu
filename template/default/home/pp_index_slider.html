@@ -1,62 +1,24 @@
 <div id="slider">
     <div class="sliCont" id="indexSlide">
         <ul>
-            <li style="background:#d3f3fe url({$siteurl}img/focus_img/201506/143313047138476.jpg) no-repeat center center;"><a href="{$siteurl}zt/dlamdy/index.htm" rel="nofollow" target="_blank" title="哆啦A梦：伴我同行"><img src="{$siteurl}img/focus_img/201506/143313047138476.jpg" alt="哆啦A梦：伴我同行" /></a>
-                <div class="summary"><i><a href="{$siteurl}zt/dlamdy/index.htm" rel="nofollow" target="_blank" title="哆啦A梦：伴我同行"></a></i>
-                    <h3><a href="{$siteurl}zt/dlamdy/index.htm" rel="nofollow" target="_blank" title="哆啦A梦：伴我同行">哆啦A梦：伴我同行</a></h3>
-                    <p>引爆童年回忆泪流</p>
+            <volist name="list_slide" id="slide">
+                <if condition="$slide['slide_cid'] eq 0">
+            <li style="background:rgb(17, 18, 15) url('{$slide.slide_pic}') no-repeat center center;"><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_pic']}" alt="{$slide['slide_url']}" /></a>
+                <div class="summary"><i><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}"></a></i>
+                    <h3><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}">{$slide['slide_name']}</a></h3>
+                    <p>{$slide['slide_content']}</p>
                 </div>
             </li>
-            <li style="background:#f3eed0 url({$siteurl}img/focus_img/201506/143329443550896.jpg) no-repeat center center;"><a href="{$siteurl}dianying/905039.html" target="_blank" title="匆匆那年"><img src="{$siteurl}img/focus_img/201506/143329443550896.jpg" alt="匆匆那年" /></a>
-                <div class="summary"><i><a href="{$siteurl}dianying/905039.html" target="_blank" title="匆匆那年"></a></i>
-                    <h3><a href="{$siteurl}dianying/905039.html" target="_blank" title="匆匆那年">匆匆那年</a></h3>
-                    <p>鲜肉彭于晏痴恋纯情倪妮</p>
-                </div>
-            </li>
-            <li style="background:#d4d3d1 url({$siteurl}img/focus_img/201505/143269022028743.jpg) no-repeat center center;"><a href="{$siteurl}dianshi/895059.html" rel="nofollow" target="_blank" title="抓住彩虹的男人"><img src="{$siteurl}img/focus_img/201505/143269022028743.jpg" alt="抓住彩虹的男人" /></a>
-                <div class="summary"><i><a href="{$siteurl}dianshi/895059.html" rel="nofollow" target="_blank" title="抓住彩虹的男人"></a></i>
-                    <h3><a href="{$siteurl}dianshi/895059.html" rel="nofollow" target="_blank" title="抓住彩虹的男人">抓住彩虹的男人</a></h3>
-                    <p>刘恺威设计陷害李东学</p>
-                </div>
-            </li>
-            <li style="background:#0f0f17 url({$siteurl}img/focus_img/201506/143313073760818.jpg) no-repeat center center;"><a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="《奔跑吧兄弟》跑男团变巨婴"><img src="{$siteurl}img/focus_img/201506/143313073760818.jpg" alt="《奔跑吧兄弟》跑男团变巨婴" /></a>
-                <div class="summary"><i><a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="《奔跑吧兄弟》跑男团变巨婴"></a></i>
-                    <h3><a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="《奔跑吧兄弟》跑男团变巨婴">《奔跑吧兄弟》跑男团变巨婴</a></h3>
-                    <p>刘涛吐槽《跑男》是相亲节目</p>
-                </div>
-            </li>
-            <li style="background:#181818 url({$siteurl}img/focus_img/201506/143313759134889.jpg) no-repeat center center;"><a href="{$siteurl}dianshi/900699.html" target="_blank" title="绝地刀锋"><img src="{$siteurl}img/focus_img/201506/143313759134889.jpg" alt="绝地刀锋" /></a>
-                <div class="summary"><i><a href="{$siteurl}dianshi/900699.html" target="_blank" title="绝地刀锋"></a></i>
-                    <h3><a href="{$siteurl}dianshi/900699.html" target="_blank" title="绝地刀锋">绝地刀锋</a></h3>
-                    <p>张晞临演绎另类友情，生死兄弟殊途同归！</p>
-                </div>
-            </li>
-            <li style="background:#261e26 url({$siteurl}img/focus_img/201506/143329520851225.jpg) no-repeat center center;"><a href="{$siteurl}dianshi/901977.html" target="_blank" title="壮丁也是兵"><img src="{$siteurl}img/focus_img/201506/143329520851225.jpg" alt="壮丁也是兵" /></a>
-                <div class="summary"><i><a href="{$siteurl}dianshi/901977.html" target="_blank" title="壮丁也是兵"></a></i>
-                    <h3><a href="{$siteurl}dianshi/901977.html" target="_blank" title="壮丁也是兵">壮丁也是兵</a></h3>
-                    <p>“乌合之众”也要血战到底！</p>
-                </div>
-            </li>
-            <li style="background:#131313 url({$siteurl}img/focus_img/201505/143269065523929.jpg) no-repeat center center;"><a href="{$siteurl}dianshi/770601.html" target="_blank" title="名侦探狄仁杰"><img src="{$siteurl}img/focus_img/201505/143269065523929.jpg" alt="名侦探狄仁杰" /></a>
-                <div class="summary"><i><a href="{$siteurl}dianshi/770601.html" target="_blank" title="名侦探狄仁杰"></a></i>
-                    <h3><a href="{$siteurl}dianshi/770601.html" target="_blank" title="名侦探狄仁杰">名侦探狄仁杰</a></h3>
-                    <p> 狄白合体 重出江湖！ </p>
-                </div>
-            </li>
-            <li style="background:#291e3e url({$siteurl}img/focus_img/201504/142914853521480.jpg) no-repeat center center;"><a href="{$siteurl}dianshi/825975.html" target="_blank" title="少年四大名捕"><img src="{$siteurl}img/focus_img/201504/142914853521480.jpg" alt="少年四大名捕" /></a>
-                <div class="summary"><i><a href="{$siteurl}dianshi/825975.html" target="_blank" title="少年四大名捕"></a></i>
-                    <h3><a href="{$siteurl}dianshi/825975.html" target="_blank" title="少年四大名捕">少年四大名捕</a></h3>
-                    <p>陈伟霆被张翰承包了</p>
-                </div>
-            </li>
-            <li style="background:#e9e8e6 url({$siteurl}img/focus_img/201505/143148516624907.jpg) no-repeat center center;"><a href="http://v.17173.com/show/rec_getRecommendRoom.action?vid=114_show" rel="nofollow" target="_blank" title="萌妹子来袭"><img src="{$siteurl}img/focus_img/201505/143148516624907.jpg" alt="萌妹子来袭" /></a>
-                <div class="summary"><i><a href="http://v.17173.com/show/rec_getRecommendRoom.action?vid=114_show" rel="nofollow" target="_blank" title="萌妹子来袭"></a></i>
-                    <h3><a href="http://v.17173.com/show/rec_getRecommendRoom.action?vid=114_show" rel="nofollow" target="_blank" title="萌妹子来袭">萌妹子来袭</a></h3>
-                    <p>性感诱惑，大量妹子来袭</p>
-                </div>
-            </li>
+                    </if>
+            </volist>
         </ul>
-        <div class="snum"><a href="{$siteurl}zt/dlamdy/index.htm" rel="nofollow" target="_blank" title="哆啦A梦：伴我同行"><img src="{$siteurl}img/small_img/201506/143313047111619.jpg" width='58' height="38" alt="哆啦A梦：伴我同行" /></a><a href="{$siteurl}dianying/905039.html" target="_blank" title="匆匆那年"><img src="{$siteurl}img/small_img/201506/143329443590396.jpg" width='58' height="38" alt="匆匆那年" /></a><a href="{$siteurl}dianshi/895059.html" rel="nofollow" target="_blank" title="抓住彩虹的男人"><img src="{$siteurl}img/small_img/201505/143253917729745.jpg" width='58' height="38" alt="抓住彩虹的男人" /></a><a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="《奔跑吧兄弟》跑男团变巨婴"><img src="{$siteurl}img/small_img/201505/143288049856452.jpg" width='58' height="38" alt="《奔跑吧兄弟》跑男团变巨婴" /></a><a href="{$siteurl}dianshi/900699.html" target="_blank" title="绝地刀锋"><img src="{$siteurl}img/small_img/201506/143313759118887.jpg" width='58' height="38" alt="绝地刀锋" /></a><a href="{$siteurl}dianshi/901977.html" target="_blank" title="壮丁也是兵"><img src="{$siteurl}img/small_img/201506/143313139745920.jpg" width='58' height="38" alt="壮丁也是兵" /></a><a href="{$siteurl}dianshi/770601.html" target="_blank" title="名侦探狄仁杰"><img src="{$siteurl}img/small_img/201505/143269065530489.jpg" width='58' height="38" alt="名侦探狄仁杰" /></a><a href="{$siteurl}dianshi/825975.html" target="_blank" title="少年四大名捕"><img src="{$siteurl}img/small_img/201504/142847684790994.jpg" width='58' height="38" alt="少年四大名捕" /></a><a href="http://v.17173.com/show/rec_getRecommendRoom.action?vid=114_show" rel="nofollow" target="_blank" title="萌妹子来袭"><img src="{$siteurl}img/small_img/201505/143148516618446.jpg" width='58' height="38" alt="萌妹子来袭" /></a></div>
+        <div class="snum">
+            <volist name="list_slide" id="slide">
+                <if condition="$slide['slide_cid'] eq 0">
+            <a href="{$slide['slide_url']}"  target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_logo']}" width='58' height="38" alt="{$slide['slide_name']}" /></a>
+                </if>
+            </volist>
+        </div>
         <div class="inSlide-mouse"><a href="javascript:;" class="tk-left"></a><a href="javascript:;" class="tk-right"></a></div>
     </div>
 </div>

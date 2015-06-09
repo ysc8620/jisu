@@ -1,68 +1,24 @@
 <div id="slider">
-  <div class="sliCont" id="indexSlide">
-    <ul>
-      <li style="background:#22c8e1 url({$siteurl}img/focus_img/201506/143349825922227.jpg) no-repeat center center;"> <a href="{$siteurl}zt/zmjc4/index.htm" rel="nofollow" target="_blank" title="��ĩ�糡"> <img src="{$siteurl}img/focus_img/201506/143349825922227.jpg" alt="��ĩ�糡" /> </a>
-        <div class="summary"> <i> <a href="{$siteurl}zt/zmjc4/index.htm" rel="nofollow" target="_blank" title="��ĩ�糡"></a> </i>
-          <h3> <a href="{$siteurl}zt/zmjc4/index.htm" rel="nofollow" target="_blank" title="��ĩ�糡"> ��ĩ�糡 </a> </h3>
-          <p> ��������ŵ�����,���Ӿ�,��Ӱ,���� </p>
+    <div class="sliCont" id="indexSlide">
+        <ul>
+            <volist name="list_slide" id="slide">
+                <if condition="$slide['slide_cid'] eq 4">
+                    <li style="background:#d3f3fe url('{$slide.slide_pic}') no-repeat center center;"><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_pic']}" alt="{$slide['slide_url']}" /></a>
+                        <div class="summary"><i><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}"></a></i>
+                            <h3><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}">{$slide['slide_name']}</a></h3>
+                            <p>{$slide['slide_content']}</p>
+                        </div>
+                    </li>
+                </if>
+            </volist>
+        </ul>
+        <div class="snum">
+            <volist name="list_slide" id="slide">
+                <if condition="$slide['slide_cid'] eq 4">
+                    <a href="{$slide['slide_url']}"  target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_logo']}" width='58' height="38" alt="{$slide['slide_name']}" /></a>
+                </if>
+            </volist>
         </div>
-      </li>
-      <li style="background:#0e1118 url({$siteurl}img/focus_img/201506/143348257034111.jpg) no-repeat center center;"> <a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="�����ܰ��ֵܡ���2��"> <img src="{$siteurl}img/focus_img/201506/143348257034111.jpg" alt="�����ܰ��ֵܡ���2��" /> </a>
-        <div class="summary"> <i> <a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="�����ܰ��ֵܡ���2��"></a> </i>
-          <h3> <a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="�����ܰ��ֵܡ���2��"> �����ܰ��ֵܡ���2�� </a> </h3>
-          <p> �˳���������ݵ��е� </p>
-        </div>
-      </li>
-      <li style="background:#937d54 url({$siteurl}img/focus_img/201506/143313101599458.jpg) no-repeat center center;"> <a href="{$siteurl}zt/zy/bbhll2.html" rel="nofollow" target="_blank" title="�ְֻ����˵ڶ���"> <img src="{$siteurl}img/focus_img/201506/143313101599458.jpg" alt="�ְֻ����˵ڶ���" /> </a>
-        <div class="summary"> <i> <a href="{$siteurl}zt/zy/bbhll2.html" rel="nofollow" target="_blank" title="�ְֻ����˵ڶ���"></a> </i>
-          <h3> <a href="{$siteurl}zt/zy/bbhll2.html" rel="nofollow" target="_blank" title="�ְֻ����˵ڶ���"> �ְֻ����˵ڶ��� </a> </h3>
-          <p> ���м��������źߺ�����ְ� </p>
-        </div>
-      </li>
-      <li style="background:#a9ffe6 url({$siteurl}img/focus_img/201505/143177614117214.jpg) no-repeat center center;"> <a href="http://www.hunantv.com/v/1/109297/" rel="nofollow" target="_blank" title="����������"> <img src="{$siteurl}img/focus_img/201505/143177614117214.jpg" alt="����������" /> </a>
-        <div class="summary"> <i> <a href="http://www.hunantv.com/v/1/109297/" rel="nofollow" target="_blank" title="����������"></a> </i>
-          <h3> <a href="http://www.hunantv.com/v/1/109297/" rel="nofollow" target="_blank" title="����������"> ���������� </a> </h3>
-          <p> ���������Ҫ�ؼ� </p>
-        </div>
-      </li>
-      <li style="background:#0f1c22 url({$siteurl}img/focus_img/201505/143177568950291.jpg) no-repeat center center;"> <a href="http://www.hunantv.com/v/1/108863/index.html" rel="nofollow" target="_blank" title="�������Ӻ�"> <img src="{$siteurl}img/focus_img/201505/143177568950291.jpg" alt="�������Ӻ�" /> </a>
-        <div class="summary"> <i> <a href="http://www.hunantv.com/v/1/108863/index.html" rel="nofollow" target="_blank" title="�������Ӻ�"></a> </i>
-          <h3> <a href="http://www.hunantv.com/v/1/108863/index.html" rel="nofollow" target="_blank" title="�������Ӻ�"> �������Ӻ� </a> </h3>
-          <p> ���Ӻ�ʵս��������һ�� </p>
-        </div>
-      </li>
-      <li style="background:#640f1a url({$siteurl}img/focus_img/201505/143252824716991.jpg) no-repeat center center;"> <a href="{$siteurl}zongyi/833225.html"  target="_blank" title="Ϊ���ս"> <img src="{$siteurl}img/focus_img/201505/143252824716991.jpg" alt="Ϊ���ս" /> </a>
-        <div class="summary"> <i> <a href="{$siteurl}zongyi/833225.html"  target="_blank" title="Ϊ���ս"></a> </i>
-          <h3> <a href="{$siteurl}zongyi/833225.html"  target="_blank" title="Ϊ���ս"> Ϊ���ս </a> </h3>
-          <p> ����ʤ�Ž�û���� </p>
-        </div>
-      </li>
-      <li style="background:#ffd7d7 url({$siteurl}img/focus_img/201505/143279533123377.jpg) no-repeat center center;"> <a href="{$siteurl}zongyi/842041.html"  target="_blank" title="�����మ��"> <img src="{$siteurl}img/focus_img/201505/143279533123377.jpg" alt="�����మ��" /> </a>
-        <div class="summary"> <i> <a href="{$siteurl}zongyi/842041.html"  target="_blank" title="�����మ��"></a> </i>
-          <h3> <a href="{$siteurl}zongyi/842041.html"  target="_blank" title="�����మ��"> �����మ�� </a> </h3>
-          <p> �����约���������� </p>
-        </div>
-      </li>
-      <li style="background:#19043d url({$siteurl}img/focus_img/201505/143252447122825.jpg) no-repeat center center;"> <a href="{$siteurl}zongyi/871135.html"  target="_blank" title="�����������"> <img src="{$siteurl}img/focus_img/201505/143252447122825.jpg" alt="�����������" /> </a>
-        <div class="summary"> <i> <a href="{$siteurl}zongyi/871135.html"  target="_blank" title="�����������"></a> </i>
-          <h3> <a href="{$siteurl}zongyi/871135.html"  target="_blank" title="�����������"> ����������� </a> </h3>
-          <p> �Ž��ֳ�쭸��ӦӢ���� </p>
-        </div>
-      </li>
-      <li style="background:#93ddff url({$siteurl}img/focus_img/201506/143331725648550.jpg) no-repeat center center;"> <a href="http://www.landai.com/2015/yuletoutiaotuijian_0603/28483.html" rel="nofollow" target="_blank" title="��������"> <img src="{$siteurl}img/focus_img/201506/143331725648550.jpg" alt="��������" /> </a>
-        <div class="summary"> <i> <a href="http://www.landai.com/2015/yuletoutiaotuijian_0603/28483.html" rel="nofollow" target="_blank" title="��������"></a> </i>
-          <h3> <a href="http://www.landai.com/2015/yuletoutiaotuijian_0603/28483.html" rel="nofollow" target="_blank" title="��������"> �������� </a> </h3>
-          <p> �ŵ����Ů������Դ� </p>
-        </div>
-      </li>
-      <li style="background:#fc5ba1 url({$siteurl}img/focus_img/201505/143157234125950.jpg) no-repeat center center;"> <a href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dd7LgqMdmM8scQipKwQzePDAVflQIoZeppRe%2F8jaAHci5VBFTL4hn2eKkhV%2F9Z6C5xqmPbz6xcieZAqprSgaSf6UMCQ5KlhC6oeZEjNfhWVjEOPQzPbeVwmfr1kHbLUTAcSpj5qSCmbA%3D" rel="nofollow" target="_blank" title="����ŷ����"> <img src="{$siteurl}img/focus_img/201505/143157234125950.jpg" alt="����ŷ����" /> </a>
-        <div class="summary"> <i> <a href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dd7LgqMdmM8scQipKwQzePDAVflQIoZeppRe%2F8jaAHci5VBFTL4hn2eKkhV%2F9Z6C5xqmPbz6xcieZAqprSgaSf6UMCQ5KlhC6oeZEjNfhWVjEOPQzPbeVwmfr1kHbLUTAcSpj5qSCmbA%3D" rel="nofollow" target="_blank" title="����ŷ����"></a> </i>
-          <h3> <a href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dd7LgqMdmM8scQipKwQzePDAVflQIoZeppRe%2F8jaAHci5VBFTL4hn2eKkhV%2F9Z6C5xqmPbz6xcieZAqprSgaSf6UMCQ5KlhC6oeZEjNfhWVjEOPQzPbeVwmfr1kHbLUTAcSpj5qSCmbA%3D" rel="nofollow" target="_blank" title="����ŷ����"> ����ŷ���� </a> </h3>
-          <p> ����ʱ�� ������� ����ר�� </p>
-        </div>
-      </li>
-    </ul>
-    <div class="snum"> <a href="{$siteurl}zt/zmjc4/index.htm" rel="nofollow" target="_blank" title="��ĩ�糡"> <img src="{$siteurl}img/small_img/201506/143349825955688.jpg" width='58' height="38" alt="��ĩ�糡" /> </a> <a href="{$siteurl}zt/zy/pn2.html" rel="nofollow" target="_blank" title="�����ܰ��ֵܡ���2��"> <img src="{$siteurl}img/small_img/201505/143288049856452.jpg" width='58' height="38" alt="�����ܰ��ֵܡ���2��" /> </a> <a href="{$siteurl}zt/zy/bbhll2.html" rel="nofollow" target="_blank" title="�ְֻ����˵ڶ���"> <img src="{$siteurl}img/small_img/201506/143313101569062.jpg" width='58' height="38" alt="�ְֻ����˵ڶ���" /> </a> <a href="http://www.hunantv.com/v/1/109297/" rel="nofollow" target="_blank" title="����������"> <img src="{$siteurl}img/small_img/201505/143177614170746.jpg" width='58' height="38" alt="����������" /> </a> <a href="http://www.hunantv.com/v/1/108863/index.html" rel="nofollow" target="_blank" title="�������Ӻ�"> <img src="{$siteurl}img/small_img/201505/143177568972002.jpg" width='58' height="38" alt="�������Ӻ�" /> </a> <a href="{$siteurl}zongyi/833225.html"  target="_blank" title="Ϊ���ս"> <img src="{$siteurl}img/small_img/201505/143252824717451.jpg" width='58' height="38" alt="Ϊ���ս" /> </a> <a href="{$siteurl}zongyi/842041.html"  target="_blank" title="�����మ��"> <img src="{$siteurl}img/small_img/201505/143279533118842.jpg" width='58' height="38" alt="�����మ��" /> </a> <a href="{$siteurl}zongyi/871135.html"  target="_blank" title="�����������"> <img src="{$siteurl}img/small_img/201505/143252447146004.jpg" width='58' height="38" alt="�����������" /> </a> <a href="http://www.landai.com/2015/yuletoutiaotuijian_0603/28483.html" rel="nofollow" target="_blank" title="��������"> <img src="{$siteurl}img/small_img/201506/143331725675682.jpg" width='58' height="38" alt="��������" /> </a> <a href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dd7LgqMdmM8scQipKwQzePDAVflQIoZeppRe%2F8jaAHci5VBFTL4hn2eKkhV%2F9Z6C5xqmPbz6xcieZAqprSgaSf6UMCQ5KlhC6oeZEjNfhWVjEOPQzPbeVwmfr1kHbLUTAcSpj5qSCmbA%3D" rel="nofollow" target="_blank" title="����ŷ����"> <img src="{$siteurl}img/small_img/201505/143157234177954.jpg" width='58' height="38" alt="����ŷ����" /> </a> </div>
-    <div class="inSlide-mouse"> <a href="javascript:;" class="tk-left"></a> <a href="javascript:;" class="tk-right"></a> </div>
-  </div>
+        <div class="inSlide-mouse"><a href="javascript:;" class="tk-left"></a><a href="javascript:;" class="tk-right"></a></div>
+    </div>
 </div>
