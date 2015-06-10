@@ -14,8 +14,17 @@
 <php>
     $vod_tv_hot = js_mysql_vod('cid:2;limit:5;order:hot_sort desc,vod_addtime desc');
     // 推荐电视剧
+    $vod_tv_re_hot = js_mysql_vod('cid:2;limit:7;order:re_sort desc, hot_sort desc,vod_addtime desc');
+    $vod_tv_re_news = js_mysql_vod('cid:2;limit:8;order:vod_addtime desc');
+    $vod_tv_re_neidi = js_mysql_vod('cid:2;area:1;limit:8;order:re_sort desc,vod_addtime desc');
+    $vod_tv_re_tvb = js_mysql_vod('cid:2;area:3;limit:8;order:re_sort desc,vod_addtime desc');
+    $vod_tv_re_hanju = js_mysql_vod('cid:2;area:5;limit:8;order:re_sort desc,vod_addtime desc');
+    $vod_tv_re_meiju = js_mysql_vod('cid:2;area:8;limit:8;order:re_sort desc,vod_addtime desc');
+    $vod_tv_re_taiju = js_mysql_vod('cid:2;area:4;limit:8;order:re_sort desc,vod_addtime desc');
 
-
+    $vod_tv_top = js_mysql_vod('cid:2;limit:8;order:vod_addtime desc');
+    $vod_tv_top_hanju = js_mysql_vod('cid:2;area:5;limit:8;order:top_sort DESC,vod_addtime desc');
+    $vod_tv_top_meiju = js_mysql_vod('cid:2;area:8;limit:8;order:top_sort DESC,vod_addtime desc');
 </php>
 <include file="home:pp_header" />
 <include file="home:pp_index_slider" />
@@ -59,197 +68,74 @@
 </dl>
 <div class="ingrep-Cont" style="display:block;">
     <div class="clearfix rowleft">
-        <div class="bgsummar fl"><a href="{$siteurl}dianshi/889679.html" title="婚姻时差" target="_blank"><img src="/static/images/loading.gif" data-original="/img/focus_img/201506/143329875933401.jpg" alt="婚姻时差" /><cite><strong>婚姻时差</strong>更新至第30集</cite></a>
-            <p>李海和吴婷是一对令人羡慕的中年夫妇，为了女儿英子的教育，全家移民到了加拿大。但李海放不下国内的 事业，只身留守在成都。长年的分离，让两人渐渐产生陌生感。才华横溢的赵晓菲闯入了...<em></em></p>
+        <volist name="vod_tv_re_hot" id="vod" offset="0" length="1">
+        <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{$vod['vod_continu']|strip_tags}</cite></a>
+            <p>{$vod['vod_content']|strip_tags}...<em></em></p>
         </div>
+            </volist>
         <ul class="sumgroup fr clearfix">
-            <li class=""><a href="{$siteurl}dianshi/893583.html" title="二婶" target="_blank"><img src="/static/images/loading.gif" data-original="/img/focus_img/201505/143260704375999.jpg" alt="二婶" /><cite>二婶</cite><em></em></a>
-                <p>更新至第24集</p>
+            <volist name="vod_tv_re_hot" id="vod" key="i">
+                <if condition="$i gt 1">
+            <li class=""><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <p>{$vod['vod_continu']|strip_tags}</p>
             </li>
-            <li class=""><a href="{$siteurl}dianshi/863643.html" title="爱你一生" target="_blank"><img src="/static/images/loading.gif" data-original="/img/focus_img/201505/143131238221234.jpg" alt="爱你一生" /><cite>爱你一生</cite><em></em></a>
-                <p>44集全</p>
-            </li>
-            <li class=""><a href="{$siteurl}dianshi/839687.html" title="伙伴夫妻" target="_blank"><img src="/static/images/loading.gif" data-original="/img/focus_img/201505/143191989927568.jpg" alt="伙伴夫妻" /><cite>伙伴夫妻</cite><em></em></a>
-                <p>31集全</p>
-            </li>
-            <li class=""><a href="{$siteurl}dianshi/833835.html" title="末代皇帝传奇" target="_blank"><img src="/static/images/loading.gif" data-original="/img/focus_img/201505/143096560971465.jpg" alt="末代皇帝传奇" /><cite>末代皇帝传奇</cite><em></em></a>
-                <p>59集全</p>
-            </li>
-            <li class=""><a href="{$siteurl}dianshi/708689.html" title="何以笙箫默" target="_blank"><img src="/static/images/loading.gif" data-original="/img/focus_img/201502/142286052912167.jpg" alt="何以笙箫默" /><cite>何以笙箫默</cite><em></em></a>
-                <p>36集全</p>
-            </li>
-            <li class=""><a href="{$siteurl}dianshi/875377.html" title="冬暖花会开" target="_blank"><img src="/static/images/loading.gif" data-original="/img/focus_img/201505/143200338349274.jpg" alt="冬暖花会开" /><cite>冬暖花会开</cite><em></em></a>
-                <p>32集全</p>
-            </li>
+                </if>
+            </volist>
         </ul>
     </div>
 </div>
 <div class="ingrep-Cont">
     <ul class="sumgroup entire clearfix">
-        <li><a href="{$siteurl}dianshi/112953.html" title="《热辣百老汇》火热来华" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/11/22/ct/dianying/5/P5NhJ3H6423.jpg" alt="《热辣百老汇》火热来华" /><cite>《热辣百老汇》火热来华</cite><em></em></a>
-            <p>更新至第1集</p>
+        <volist name="vod_tv_re_news" id="vod" key="i">
+        <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+            <p>{$vod['vod_continu']|strip_tags}</p>
         </li>
-        <li><a href="{$siteurl}dianshi/883361.html" title="倾城绝恋 高清版" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/05/18/huashu/tvs/8/3P5130pR00S.jpg" alt="倾城绝恋 高清版" /><cite>倾城绝恋 高清版</cite><em></em></a>
-            <p>41集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/875447.html" title="冬暖花会开预告片合集" target="_blank"><img src="/static/images/loading.gif" data-original="http://img36.pplive.cn/2015/05/11/17084988463_230X306.jpg" alt="冬暖花会开预告片合集" /><cite>冬暖花会开预告片合集</cite><em></em></a>
-            <p>更新至第3集</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/868093.html" title="聊斋新编 TV版" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/05/07/youku/tvs/10/H82K693Sn1r.jpg" alt="聊斋新编 TV版" /><cite>聊斋新编 TV版</cite><em></em></a>
-            <p>更新至第37集</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/866441.html" title="聊斋新编 DVD版" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/05/06/youku/tvs/3/g678rf19407.jpg" alt="聊斋新编 DVD版" /><cite>聊斋新编 DVD版</cite><em></em></a>
-            <p>36集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/847773.html" title="刀和花" target="_blank"><img src="/static/images/loading.gif" data-original="http://img36.pplive.cn/2013/07/04/09333806195_230X306.jpg" alt="刀和花" /><cite>刀和花</cite><em></em></a>
-            <p>20集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/847477.html" title="快乐制造第一季之快乐图书馆" target="_blank"><img src="/static/images/loading.gif" data-original="http://p3.img.cctvpic.com/fmspic/vms/image/2013/06/13/VSET_1371102608923504.jpg" alt="快乐制造第一季之快乐图书馆" /><cite>快乐制造第一季之快乐图书馆</cite><em></em></a>
-            <p>更新至第5集</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/836937.html" title="明成皇后" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/04/16/huashu/tvs/6/1ov618F32U6.jpg" alt="明成皇后" /><cite>明成皇后</cite><em></em></a>
-            <p>124集全</p>
-        </li>
+        </volist>
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="sumgroup entire clearfix">
-        <li><a href="{$siteurl}dianshi/677029.html" title="武媚娘传奇" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/02/03/qy/tvs/3/85a18o8265h.jpg" /><cite>武媚娘传奇</cite><em></em></a>
-            <p>96集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1488.html" title="天天有喜" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/06/pps/tvs/7/r0Zf49794mq.jpg" /><cite>天天有喜</cite><em></em></a>
-            <p>91集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/70707.html" title="我是特种兵之火凤凰" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/11/27/huashu/tvs/8/UFh347d36u8.jpg" /><cite>我是特种兵之火凤凰</cite><em></em></a>
-            <p>62集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1498.html" title="火线三兄弟" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/tvs/6/8FW33q331a4.jpg" /><cite>火线三兄弟</cite><em></em></a>
-            <p>40集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1523.html" title="天龙八部" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/8/7157RI7vXY2.jpg" /><cite>天龙八部</cite><em></em></a>
-            <p>45集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1491.html" title="精忠岳飞" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/8/9D0SD5984oL.jpg" /><cite>精忠岳飞</cite><em></em></a>
-            <p>69集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/25379.html" title="狼牙英雄" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/25/youku/tvs/2/QE8lc97N646.jpg" /><cite>狼牙英雄</cite><em></em></a>
-            <p>37集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1510.html" title="爱情公寓3" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/focus_img/201312/138847956075593.jpg" /><cite>爱情公寓3</cite><em></em></a>
-            <p>24集全</p>
-        </li>
+        <volist name="vod_tv_re_neidi" id="vod" key="i">
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <p>{$vod['vod_continu']|strip_tags}</p>
+            </li>
+        </volist>
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="sumgroup entire clearfix">
-        <li><a href="{$siteurl}dianshi/128034.html" title="鹿鼎记" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/10/49SqbF0a372.jpg" /><cite>鹿鼎记</cite><em></em></a>
-            <p>50集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/151544.html" title="潜行狙击" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/5/083L13381M2.jpg" /><cite>潜行狙击</cite><em></em></a>
-            <p>30集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/65191.html" title="金玉满堂" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/17/funshion/tvs/1/2DO9x940061.jpg" /><cite>金玉满堂</cite><em></em></a>
-            <p>48集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/151589.html" title="爱·回家" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/25/youku/tvs/8/97xR8444pe4.jpg" /><cite>爱·回家</cite><em></em></a>
-            <p>更新至第228集</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/151517.html" title="万凰之王" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/5/g2qT99308rv.jpg" /><cite>万凰之王</cite><em></em></a>
-            <p>31集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/151608.html" title="冲上云霄Ⅱ" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/25/youku/tvs/6/u51X2x3929X.jpg" /><cite>冲上云霄Ⅱ</cite><em></em></a>
-            <p>43集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/148296.html" title="绝地苍狼" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/3/267rc6xwB06.jpg" /><cite>绝地苍狼</cite><em></em></a>
-            <p>38集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/151668.html" title="仁心解码Ⅱ" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/25/youku/tvs/5/89398l530Kc.jpg" /><cite>仁心解码Ⅱ</cite><em></em></a>
-            <p>25集全</p>
-        </li>
+        <volist name="vod_tv_re_tvb" id="vod" key="i">
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <p>{$vod['vod_continu']|strip_tags}</p>
+            </li>
+        </volist>
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="sumgroup entire clearfix">
-        <li><a href="{$siteurl}dianshi/1886.html" title="我的女孩" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/6/p28776QPc7Y.jpg" /><cite>我的女孩</cite><em></em></a>
-            <p>20集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/2060.html" title="恋人" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/10/672Nk3b4k9q.jpg" /><cite>恋人</cite><em></em></a>
-            <p>30集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1524.html" title="百年遗产" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/17/funshion/tvs/10/4Z53P22n72V.jpg" /><cite>百年遗产</cite><em></em></a>
-            <p>49集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1539.html" title="想你" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/01/04/qy/tvs/4/43m85s32m9e.jpg" /><cite>想你</cite><em></em></a>
-            <p>30集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/2457.html" title="钢琴" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/17/funshion/tvs/1/64o7Ojq2q36.jpg" /><cite>钢琴</cite><em></em></a>
-            <p>16集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1962.html" title="灿烂的遗产" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/10/7vC84419E1T.jpg" /><cite>灿烂的遗产</cite><em></em></a>
-            <p>36集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1991.html" title="一枝梅" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/2/3S5277yMz9c.jpg" /><cite>一枝梅</cite><em></em></a>
-            <p>20集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1536.html" title="当男人恋爱时" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2014/08/01/huashu/tvs/5/w58ZU894wr9.jpg" /><cite>当男人恋爱时</cite><em></em></a>
-            <p>20集全</p>
-        </li>
+        <volist name="vod_tv_re_hanju" id="vod" key="i">
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <p>{$vod['vod_continu']|strip_tags}</p>
+            </li>
+        </volist>
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="sumgroup entire clearfix">
-        <li><a href="{$siteurl}dianshi/1570.html" title="吸血鬼日记第4季" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/tvs/3/7f4968S1682.jpg" /><cite>吸血鬼日记第4季</cite><em></em></a>
-            <p>23集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1637.html" title="吸血鬼日记第1季" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/tvs/9/B2h2443X7BP.jpg" /><cite>吸血鬼日记第1季</cite><em></em></a>
-            <p>22集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/699533.html" title="破产姐妹第1季" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/01/04/qy/tvs/3/92ImD309919.jpg" /><cite>破产姐妹第1季</cite><em></em></a>
-            <p>24集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1633.html" title="吸血鬼日记第2季" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/tvs/2/o95249Gq75H.jpg" /><cite>吸血鬼日记第2季</cite><em></em></a>
-            <p>22集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/52839.html" title="神盾局特工第1季" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/05/19/pps/tvs/8/74554gK81TX.jpg" /><cite>神盾局特工第1季</cite><em></em></a>
-            <p>22集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1639.html" title="吸血鬼日记第3季" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/tvs/2/3AE642b8W8C.jpg" /><cite>吸血鬼日记第3季</cite><em></em></a>
-            <p>22集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/295043.html" title="破产姐妹第2季" target="_blank"><img src="/static/images/loading.gif" data-original="http://img36.pplive.cn/2014/09/19/17024438443_230X306.jpg" /><cite>破产姐妹第2季</cite><em></em></a>
-            <p>24集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/16819.html" title="迷失第1季" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/01/04/qy/tvs/10/69679CYkR3e.jpg" /><cite>迷失第1季</cite><em></em></a>
-            <p>25集全</p>
-        </li>
+        <volist name="vod_tv_re_meiju" id="vod" key="i">
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <p>{$vod['vod_continu']|strip_tags}</p>
+            </li>
+        </volist>
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="sumgroup entire clearfix">
-        <li><a href="{$siteurl}dianshi/1521.html" title="路边新娘" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2014/10/31/tudou/tvs/9/2o15689QNtk.jpg" /><cite>路边新娘</cite><em></em></a>
-            <p>25集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1573.html" title="旋转的爱" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/05/19/pps/tvs/4/8Q9upY8f118.jpg" /><cite>旋转的爱</cite><em></em></a>
-            <p>16集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1747.html" title="花环夫人" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/10/17329W545p5.jpg" /><cite>花环夫人</cite><em></em></a>
-            <p>45集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1506.html" title="百变天使" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/tvs/1/Vd691LRO850.jpg" /><cite>百变天使</cite><em></em></a>
-            <p>34集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1812.html" title="明天我依然爱你" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2015/01/04/qy/tvs/5/1z35k3R60uX.jpg" /><cite>明天我依然爱你</cite><em></em></a>
-            <p>30集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1882.html" title="爱的烹饪法" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/tvs/6/x4641M1rY4C.jpg" /><cite>爱的烹饪法</cite><em></em></a>
-            <p>32集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/2002.html" title="落难公主" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/9/2N69218874x.jpg" /><cite>落难公主</cite><em></em></a>
-            <p>26集全</p>
-        </li>
-        <li><a href="{$siteurl}dianshi/1920.html" title="无忧花开" target="_blank"><img src="/static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/6/ZH2730I3hu6.jpg" /><cite>无忧花开</cite><em></em></a>
-            <p>31集全</p>
-        </li>
+        <volist name="vod_tv_re_taiju" id="vod" key="i">
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <p>{$vod['vod_continu']|strip_tags}</p>
+            </li>
+        </volist>
     </ul>
 </div>
 </div>
@@ -266,44 +152,24 @@
     </div>
     <div class="ingrep-Cont" style="display:block;">
         <ul class="foldlist guid-col2list">
-            <li class="hover"><em>1</em><a href="{$siteurl}dianshi/791059.html" target="_blank">平凡的世界</a></li>
-            <li ><em>2</em><a href="{$siteurl}dianshi/802431.html" target="_blank">少年四大名捕</a></li>
-            <li ><em>3</em><a href="{$siteurl}dianshi/120274.html" target="_blank">战旗</a></li>
-            <li ><em>4</em><a href="{$siteurl}dianshi/24690.html" target="_blank">重案六组</a></li>
-            <li ><em>5</em><a href="{$siteurl}dianshi/568059.html" target="_blank">闪电侠</a></li>
-            <li ><em>6</em><a href="{$siteurl}dianshi/23007.html" target="_blank">全民公主</a></li>
-            <li ><em>7</em><a href="{$siteurl}dianshi/25265.html" target="_blank">生死相依</a></li>
-            <li ><em>8</em><a href="{$siteurl}dianshi/203921.html" target="_blank">守业者</a></li>
-            <li ><em>9</em><a href="{$siteurl}dianshi/12587.html" target="_blank">当爱已成往事</a></li>
-            <li ><em>10</em><a href="{$siteurl}dianshi/73631.html" target="_blank">黄金彩虹</a></li>
+            <volist name="vod_tv_top" id="vod" key="i">
+            <li <if condition="$i eq 1"> class="hover"</if>> <em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a></li>
+            </volist>
+
         </ul>
     </div>
     <div class="ingrep-Cont">
         <ul class="foldlist guid-col2list">
-            <li class="hover"><em>1</em><a href="{$siteurl}dianshi/619195.html" target="_blank">匹诺曹</a></li>
-            <li ><em>2</em><a href="{$siteurl}dianshi/604077.html" target="_blank">美女的诞生</a></li>
-            <li ><em>3</em><a href="{$siteurl}dianshi/540873.html" target="_blank">继承者们</a></li>
-            <li ><em>4</em><a href="{$siteurl}dianshi/2189.html" target="_blank">黄金新娘</a></li>
-            <li ><em>5</em><a href="{$siteurl}dianshi/755227.html" target="_blank">秘密花园</a></li>
-            <li ><em>6</em><a href="{$siteurl}dianshi/1577.html" target="_blank">仁显王后的男人</a></li>
-            <li ><em>7</em><a href="{$siteurl}dianshi/151712.html" target="_blank">丑闻</a></li>
-            <li ><em>8</em><a href="{$siteurl}dianshi/2277.html" target="_blank">我是传说</a></li>
-            <li ><em>9</em><a href="{$siteurl}dianshi/27935.html" target="_blank">听见你的声音</a></li>
-            <li ><em>10</em><a href="{$siteurl}dianshi/2385.html" target="_blank">不良家族</a></li>
+            <volist name="vod_tv_top_hanju" id="vod" key="i">
+                <li <if condition="$i eq 1"> class="hover"</if>> <em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a></li>
+            </volist>
         </ul>
     </div>
     <div class="ingrep-Cont">
         <ul class="foldlist guid-col2list">
-            <li class="hover"><em>1</em><a href="{$siteurl}dianshi/568059.html" target="_blank">闪电侠</a></li>
-            <li ><em>2</em><a href="{$siteurl}dianshi/670153.html" target="_blank">破产姐妹</a></li>
-            <li ><em>3</em><a href="{$siteurl}dianshi/569013.html" target="_blank">绿箭侠</a></li>
-            <li ><em>4</em><a href="{$siteurl}dianshi/1810.html" target="_blank">绝命毒师</a></li>
-            <li ><em>5</em><a href="{$siteurl}dianshi/664721.html" target="_blank">摩登家庭</a></li>
-            <li ><em>6</em><a href="{$siteurl}dianshi/549009.html" target="_blank">神盾局特工</a></li>
-            <li ><em>7</em><a href="{$siteurl}dianshi/566465.html" target="_blank">初代吸血鬼</a></li>
-            <li ><em>8</em><a href="{$siteurl}dianshi/562533.html" target="_blank">风中的女王</a></li>
-            <li ><em>9</em><a href="{$siteurl}dianshi/223103.html" target="_blank">汉尼拔</a></li>
-            <li ><em>10</em><a href="{$siteurl}dianshi/169806.html" target="_blank">黑吃黑</a></li>
+            <volist name="vod_tv_top_meiju" id="vod" key="i">
+                <li <if condition="$i eq 1"> class="hover"</if>> <em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a></li>
+            </volist>
         </ul>
     </div>
     <div class="ingrep-adblock">
