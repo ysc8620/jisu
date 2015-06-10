@@ -24,7 +24,7 @@ class vodAction extends homeAction{
 		$List = list_search(F('_ppvod/list'),'list_dir='.$Url['list_dir']);
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
 		$this->assign($channel);
-
+        $this->assign('select_list_dir', $Url['list_dir']);
 		$this->display($channel['list_skin']);
     }
 
@@ -35,7 +35,7 @@ class vodAction extends homeAction{
 		C('jumpurl',UU('home-vod/show',$JumpUrl,false,true));
 		C('currentpage',$Url['page']);
 		$List = list_search(F('_ppvod/list'),'list_dir='.$Url['list_dir']);
-
+        $this->assign('select_list_dir', $Url['list_dir']);
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
 		$this->assign($channel);
 		$this->display($channel['list_skin_type']);
@@ -52,7 +52,7 @@ class vodAction extends homeAction{
     public function read(){
 		$array_detail = $this->get_cache_detail( intval($_GET['id']) );
 		if($array_detail){
-            //print_r($array_detail);
+            $this->assign('select_list_dir', $_GET['list_dir']);
 			$this->assign($array_detail['show']);
 			$this->assign($array_detail['read']);
 			$this->display($array_detail['read']['vod_skin_detail']);
