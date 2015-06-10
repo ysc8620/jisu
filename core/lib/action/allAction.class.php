@@ -35,6 +35,7 @@ class allAction extends Action{
 		}else{
 			$array_list['title'] = $array_list['list_name'].'-'.C('site_name');
 		}
+
 		if (empty($array_list['list_skin'])) {
 			$array_list['list_skin'] = 'home:pp_vodlist';
 		}

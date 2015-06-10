@@ -24,6 +24,7 @@ class vodAction extends homeAction{
 		$List = list_search(F('_ppvod/list'),'list_dir='.$Url['list_dir']);
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
 		$this->assign($channel);
+
 		$this->display($channel['list_skin']);
     }
 
@@ -34,9 +35,10 @@ class vodAction extends homeAction{
 		C('jumpurl',UU('home-vod/show',$JumpUrl,false,true));
 		C('currentpage',$Url['page']);
 		$List = list_search(F('_ppvod/list'),'list_dir='.$Url['list_dir']);
+
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
 		$this->assign($channel);
-		$this->display($channel['type_skin']);
+		$this->display($channel['list_skin_type']);
     }
 
     // 多分类筛选
