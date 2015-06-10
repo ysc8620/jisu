@@ -68,15 +68,31 @@ $(document).ready(function(){
     <dt>影片备注：</dt>
     <dd><input type="text" name="vod_title" id="vod_title" maxlength="255" value="{$vod_title}" class="w300 text"> 年代：<lable><input name="vod_year" id="vod_year" class="text w50" c value="{$vod_year}" Placeholder="年代" title="年代" /></label> 时长：<lable><select name="vod_isfilm" class="w70 select"><option value="1">已上映</option><option value="2" <eq name="vod_isfilm" value="2">selected</eq>>未上映</option><option value="3" <eq name="vod_isfilm" value="3">selected</eq>>热映中</option></select></lable> 节目周期：<label><input type="text" name="vod_weekday" id="vod_weekday" maxlength="7" value="{$vod_weekday}" class="w50 text" title="周1-周日(1-7)/周1+周2(12)"></label></dd>
     <dt>影片主演：</dt>
-    <dd><input type="text" name="vod_actor" id="vod_actor" maxlength="255" value="{$vod_actor}" class="w300 text" title="可使用半角逗号,分隔"> 上映日期：<label><input type="text" name="vod_filmtime" id="vod_filmtime" maxlength="10" value="<notempty name='vod_filmtime'>{$vod_filmtime|date='Y-m-d',###}</notempty>" class="w100 ct" title="如：2013-07-20"></label> 更新日期：<label><input type="text" name="vod_addtime" id="vod_addtime" value="{$vod_addtime|date='Y-m-d H:i:s',###}" class="w120"> <input name="checktime" type="checkbox" class="checkbox" value="1" {$checktime} title="勾选则使用系统当前时间" /></label></dd>
+    <dd><input type="text" name="vod_actor" id="vod_actor" maxlength="255" value="{$vod_actor}" class="w300 text" title="可使用半角逗号,分隔"> 上映日期：<label><input type="text" name="vod_filmtime" id="vod_filmtime" maxlength="10" value="<notempty name='vod_filmtime'>{$vod_filmtime|date='Y-m-d',###}</notempty>" class="w100 text" title="如：2013-07-20"></label> 更新日期：<label><input type="text" name="vod_addtime" id="vod_addtime" value="{$vod_addtime|date='Y-m-d H:i:s',###}" class="w120"> <input name="checktime" type="checkbox" class="checkbox" value="1" {$checktime} title="勾选则使用系统当前时间" /></label></dd>
     <dt>影片导演：</dt>
-    <dd><input type="text" name="vod_director" id="vod_director" maxlength="255" value="{$vod_director}" class="w300 text"> 总共集数：<label><input type="text" name="vod_total" id="vod_total" maxlength="10" value="{$vod_total}" class="w100 ct" title="如：共40集"></label> 连载信息：<label><input type="text" name="vod_continu" id="vod_continu" maxlength="15" value="{$vod_continu}" class="w120 ct" title="留空为完结"></label></dd>
+    <dd><input type="text" name="vod_director" id="vod_director" maxlength="255" value="{$vod_director}" class="w300 text"> 总共集数：<label><input type="text" name="vod_total" id="vod_total" maxlength="10" value="{$vod_total}" class="w100 text" title="如：共40集"></label> 连载信息：<label><input type="text" name="vod_continu" id="vod_continu" maxlength="15" value="{$vod_continu}" class="w120 text" title="留空为完结"></label></dd>
     <dt>海报剧照：</dt>
     <dd><label style="float:left; margin-top:3px; margin-right:5px"><input type="text" name="vod_pic" id="vod_pic" maxlength="255" value="{$vod_pic}" class="w300 text" onMouseOver="if(this.value)showpic(event,this.value,'{&upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=admin-upload-show-sid-vod" scrolling="no" topmargin="0" width="280" height="26" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:3px; float:left"></iframe></span></dd>
-
     <dt>影片TAG：</dt>
     <dd><input type="text" name="vod_keywords" id="vod_keywords"  maxlength="255" value="{$vod_keywords}" class="w300 xy_tag text"> <img src="__PUBLIC__/images/admin/edit.gif" onClick="javascript:showtags(1);" class="navpoint" ></dd>
-
+    <dt>影片排序：</dt>
+      <dd>
+          <label>
+              <input id="sort" class="w50 text" type="text" title="" value="{$sort}" maxlength="10" name="sort">
+          </label>
+          热播排序：
+          <label>
+              <input id="hot_sort" class="w50 text" type="text" title="" value="{$hot_sort}" maxlength="10" name="hot_sort">
+          </label>
+          推荐排序：
+          <label>
+              <input id="re_sort" class="w50 text" type="text" title="" value="{$re_sort}" maxlength="10" name="re_sort">
+          </label>
+          排行榜排序：
+          <label>
+              <input id="top_sort" class="w50 text" type="text" title="" value="{$top_sort}" maxlength="10" name="top_sort">
+          </label>
+      </dd>
   <script language="javascript">
         var listData = {};
       <volist name="listvod" id="ppvod">

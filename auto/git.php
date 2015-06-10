@@ -9,11 +9,11 @@
 if(!file_exists(  './runtime/conf/config.php')){
     die('conf config no exists');
 }
-$config = include_once( './runtime/conf/config.php');
+$config = include_once('./runtime/conf/config.php');
 if(!file_exists( './runtime/data/_ppvod/list.php')){
     die('list config no exists');
 }
-$list = @include_once( './runtime/data/_ppvod/list.php');
+$list = @include_once('./runtime/data/_ppvod/list.php');
 /**----------------------------------------------------------
  * 在数据列表中搜索
 +----------------------------------------------------------

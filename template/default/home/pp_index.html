@@ -3,14 +3,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
-    <title>2015最新-好看的电影-电视剧-动漫-综艺-微电影大全-{$sitename}</title>
+    <title>{$title}</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="keywords" content="2015最新电影，好看的电影，最新电视剧大全，免费在线观看，动漫，综艺，微电影" />
     <meta name="description" content="114la影视导航为您提供2015最新电影，好看的电影，最新电视剧大全，经典动漫推荐，综艺娱乐，好看的微电影大全等免费高清影视在线观看。" />
-    <link href="{$tpl}/css/style.css?v20132" rel="stylesheet" />
+    <link href="{$tpl}/css/style.css" rel="stylesheet" />
 </head>
 <body>
+<php>
+    $vod_tv_hot = js_mysql_vod('cid:2;limit:5;order:hot_sort desc,vod_addtime desc');
+    // 推荐电视剧
+   
+
+</php>
 <include file="home:pp_header" />
 <include file="home:pp_index_slider" />
 <include file="home:pp_nav" />
@@ -21,28 +27,18 @@
     <div class="comTitle inTitle">
         <h2 title="卫视热播"><a href="{$siteurl}live/" target="_blank" title="卫视热播" class="wsrb">卫视热播</a></h2>
     </div>
+
     <div class="newarrive-wrap">
         <ul class="comcaseRow clearfix">
-            <li><a href="{$siteurl}dianshi/895057.html" title="待嫁老爸"><img src="{$siteurl}img/focus_img/201505/143269429827259.jpg" alt="待嫁老爸" /><cite>待嫁老爸</cite><em></em></a>
-                <p>更新至第22集</p>
+            <volist name="vod_tv_hot" id="vod">
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}"><img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <p>{$vod['vod_continu']|strip_tags}</p>
             </li>
-            <li><a href="{$siteurl}dianshi/893581.html" title="空巢姥爷"><img src="{$siteurl}img/focus_img/201505/143260647724469.jpg" alt="空巢姥爷" /><cite>空巢姥爷</cite><em></em></a>
-                <p>更新至第19集</p>
-            </li>
-            <li><a href="{$siteurl}dianshi/888105.html" title="侯天明的梦"><img src="{$siteurl}img/focus_img/201505/143252339131015.jpg" alt="侯天明的梦" /><cite>侯天明的梦</cite><em></em></a>
-                <p>更新至第40集</p>
-            </li>
-            <li><a href="{$siteurl}dianshi/809816.html" title="超级大英雄"><img src="{$siteurl}img/focus_img/201504/142854546235887.jpg" alt="超级大英雄" /><cite>超级大英雄</cite><em></em></a>
-                <p>更新至第54集</p>
-            </li>
-            <li><a href="{$siteurl}dianshi/900701.html" title="离婚协议"><img src="{$siteurl}img/focus_img/201506/143329575242997.jpg" alt="离婚协议" /><cite>离婚协议</cite><em></em></a>
-                <p>更新至第14集</p>
-            </li>
+            </volist>
         </ul>
     </div>
 </div>
-<div>
-    BAIDU_CLB_SLOT_ID = "1089855"</div>
+<div><img src="{$tpl}/images/a/i_ls.png"></div>
 <div class="comwrap clearfix">
 <div class="leftSide fl ingrep">
 <dl class="inTitle">
@@ -54,10 +50,10 @@
             <li class="current"><a href="javascript:;">最热</a></li>
             <li><a href="javascript:;">最新</a></li>
             <li><a href="javascript:;">内地</a></li>
-            <li><a href="javascript:;">港台</a></li>
+            <li><a href="javascript:;">TVB</a></li>
             <li><a href="javascript:;">韩剧</a></li>
             <li><a href="javascript:;">美剧</a></li>
-            <li><a href="javascript:;">泰剧</a></li>
+            <li><a href="javascript:;">台剧</a></li>
         </ul>
         <a href="{$siteurl}dianshi/" class="more" target="_blank">更多>></a></dd>
 </dl>
@@ -311,7 +307,7 @@
         </ul>
     </div>
     <div class="ingrep-adblock">
-        /*影视首页300*250，创建于2013-10-22*/
+        <img src="{$tpl}/images/a/i_ls2.png">
     </div>
 </div>
 </div>
@@ -1291,7 +1287,7 @@
 </div>
 </div>
 <div id="bde">
-    /*首页横幅2*960*90，创建于2013-12-11*/
+    <img src="{$tpl}/images/a/i_ls3.png">
 </div>
 <div class="comwrap clearfix">
 <div class="leftSide fl ingrep">
@@ -1784,7 +1780,7 @@
     </div>
 </div>
 <div class="linead">
-    /*{$sitename}首页980*34 彩色标签，创建于2013-9-11*/
+    <img src="{$tpl}/images/a/i_ls4.png">
 </div>
 <div class="comwrap topare">
     <div class="inTitle">

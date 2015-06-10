@@ -1063,11 +1063,15 @@ function js_mysql_vod($tag){
 	if ($tag['cid']) {
 		$cids = explode(',',trim($tag['cid']));
 		if (count($cids)>1) {
-			$where['vod_cid'] = array('in',getlistarr_tag($cids));
+			$where['vod_cid'] = array('in',$tag['cid']);
 		}else{
-			$where['vod_cid'] = getlistsqlin($tag['cid']);
+			$where['vod_cid'] = $tag['cid'];
 		}
 	}
+
+    if($tag['class_id']){
+        $where['vod_class'] = array('instr',$tag['class_id']);
+    }
 	if ($tag['day']) {
 		$where['vod_addtime'] = array('gt',getxtime($tag['day']));
 	}
