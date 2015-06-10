@@ -940,6 +940,7 @@ function js_play_url_all($vod_url){
 function js_param_url(){
 	$where = array();
     $where['list_dir'] = strval($_REQUEST['list_dir']);
+    $where['class_id'] = strval($_REQUEST['class_id']);
     $where['cid'] = intval($_REQUEST['cid']);
 	$where['sid'] = intval($_REQUEST['sid']);
 	$where['id'] = intval($_REQUEST['id']);
