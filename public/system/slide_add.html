@@ -41,7 +41,7 @@ $(document).ready(function(){
     	<dd><input name="slide_oid" type="text" value="{$slide_oid}" maxlength="3" title="越小越前面" class="text w50"> <span id="slide_oid">*</span></dd>
     </ul>
     <dt>幻灯分类：</dt>
-    	<dd><input name="slide_cid" type="text" value="{$slide_cid|default='1'}" maxlength="3" class="text w50"> 自定义幻灯分类ID，便于前台栏目判断指定的幻灯</dd>
+    	<dd><input name="slide_cid" type="text" value="{$slide_cid}" maxlength="3" class="text w50"> 自定义幻灯分类ID，便于前台栏目判断指定的幻灯</dd>
     </ul>       
     <dt>幻灯状态：</dt>
     	<dd><select name="slide_status" class="select"><option value="1">显示</option><option value="0" <eq name="slide_status" value="0">selected</eq>>隐藏</option></select>&nbsp;</dd>
