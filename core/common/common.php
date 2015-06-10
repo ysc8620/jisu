@@ -667,7 +667,6 @@ function UU($model,$params,$redirect=false,$suffix=false){
 	if(!C('url_html')){
 		return str_replace('index.php','',$reurl);
 	}
-    $reurl = str_replace('//','/',$reurl);
 	return $reurl;
 };
 // 获取广告调用地址
@@ -738,7 +737,7 @@ function js_data_url($sid,$id,$cid,$name,$page,$jumpurl){
 	if($page > 1){
 		$arrurl['p'] = '{!page!}';
 	}
-	return UU('home-'.$sid.'/read',$arrurl,false,true);
+	return str_replace('//','/',UU('home-'.$sid.'/read',$arrurl,false,true));
 }
 /*************************获取详情页目录****************************************
 * 返回的值为buildHtml的文件名
