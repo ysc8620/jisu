@@ -833,7 +833,10 @@ class Db extends Think
                 $this->parseOrder(isset($options['order'])?$options['order']:''),
                 $this->parseLimit(isset($options['limit'])?$options['limit']:'')
             ),$this->selectSql);
-        $sql   .= $this->parseLock(isset($options['lock'])?$options['lock']:false);echo $sql;
+        $sql   .= $this->parseLock(isset($options['lock'])?$options['lock']:false);
+        if($_GET['test'] == 'show_sql'){
+            echo $sql;
+        }
         return $this->query($sql);
     }
 
