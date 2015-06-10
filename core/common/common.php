@@ -1203,9 +1203,9 @@ function js_mysql_vod($tag){
 	foreach($list as $key=>$val){
 		$list[$key]['list_id'] = $list[$key]['vod_cid'];
 		$list[$key]['list_name'] = getlistname($list[$key]['list_id'],'list_name');
-		$list[$key]['list_url'] = getlistname($list[$key]['list_id'],'list_url');
-		$list[$key]['vod_readurl'] = js_data_url('vod',$list[$key]['vod_id'],$list[$key]['vod_cid'],$list[$key]['vod_name'],1,$list[$key]['vod_jumpurl']);
-
+		$list[$key]['list_url'] = getlistname($val['list_id'],'list_url');
+        $list_dir =getlistname($list[$key]['list_id'],'list_dir');
+		$list[$key]['vod_readurl'] = "/{$list_dir}/{$val['vod_id']}.html";#js_data_url('vod',$list[$key]['vod_id'],$list[$key]['vod_cid'],$list[$key]['vod_name'],1,$list[$key]['vod_jumpurl']);
 		$list[$key]['vod_picurl'] = js_img_url($list[$key]['vod_pic'],$list[$key]['vod_content']);
 		$list[$key]['vod_picurl_small'] = js_img_url_small($list[$key]['vod_pic'],$list[$key]['vod_content']);
 	}
