@@ -1098,9 +1098,9 @@ function js_mysql_vod($tag){
 		$where['vod_continu'] = 0;
 	}	
 	if ($tag['year']) {
-		$year = explode(',',$tag['year']);
-		if (count($year) > 1) {
-			$where['vod_year'] = array('between',$year[0].','.$year[1]);
+		$year = $tag['year'];
+		if ($year == 1) {
+			$where['vod_year'] = array('lt',date('Y')-10);
 		}else{
 			$where['vod_year'] = array('eq',$tag['year']);
 		}

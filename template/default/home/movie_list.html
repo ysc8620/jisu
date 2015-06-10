@@ -49,7 +49,7 @@ $list = js_mysql_vod("class_id:$class_id;year:$year;area:$area;page:$page;limit:
             <php>for($i=0; $i<10; $i++){</php>
             <dd> <a <if condition="$year eq (date('Y')-$i)">class="searListHv"</if> href="{$siteurl}dianying/{$class_id}-{$area}-{:date('Y')-$i}.html">{:date("Y")-$i}</a> </dd>
             <php>}</php>
-          <dd> <a href="{$siteurl}dianying/{$class_id}-{$area}-1.html">other</a> </dd>
+          <dd> <a <if condition="$year eq 1">class="searListHv"</if> href="{$siteurl}dianying/{$class_id}-{$area}-1.html">其他</a> </dd>
         </dl>
         <dl>
           <dt> <a href="{$siteurl}dianying/{$class_id}-0-{$year}.html" <if condition="empty($area)">class="searListHv"</if>>全部地区</a></dt>
