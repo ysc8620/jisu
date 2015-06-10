@@ -12,7 +12,7 @@
 <body>
 <php>
 
-$list = js_mysql_vod("class_id:$class_id;year:$year;area:$area;page:$page;limit:24;order:vod_year DESC,vod_addtime desc");
+$list = js_mysql_vod("list_dir:$list_dir;class_id:$class_id;year:$year;area:$area;page:$page;limit:24;order:vod_year DESC,vod_addtime desc");
 
 </php>
 <include file="home:pp_header" /> 

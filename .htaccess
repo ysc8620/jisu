@@ -13,5 +13,5 @@ RewriteBase /
 #RewriteRule ^my-(.*)$ index.php\?s=/home-my-$1 [QSA,PT,L]
 RewriteRule ^(\w+)/?$ index.php\?s=/vod-show-list_dir-$1 [QSA,PT,L]
 RewriteRule ^(\w+)/(\d+).html$ index.php\?s=/vod-detail-list_dir-$1-id-$2 [QSA,PT,L]
-RewriteRule ^(\w+)/(\d+)-(\d+)-(\d+).html$ index.php\?s=/vod-type-list_dir-$1-class_id-$2-area-$3-year-$4 [QSA,PT,L]
+RewriteRule ^(\w+)/(\d+)-(\d+)-(\d+)(-(\d+))?.html$ index.php\?s=/vod-type-list_dir-$1-class_id-$2-area-$3-year-$4-p-$6 [QSA,PT,L]
 RewriteRule ^test/(.*)$ index.php\?s=/home-test-index-page-$1 [QSA,PT,L]
