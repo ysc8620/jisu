@@ -26,8 +26,21 @@ class vodAction extends homeAction{
 		$this->assign($channel);
 		$this->display($channel['list_skin']);
     }
-    // 多分类筛选
+
     public function type(){
+        $Url = js_param_url();
+		$JumpUrl = js_param_jump($Url);
+		$JumpUrl['p'] = '{!page!}';
+		C('jumpurl',UU('home-vod/show',$JumpUrl,false,true));
+		C('currentpage',$Url['page']);
+		$List = list_search(F('_ppvod/list'),'list_dir='.$Url['list_dir']);
+		$channel = $this->Lable_Vod_List($Url,$List[0]);
+		$this->assign($channel);
+		$this->display($channel['type_skin']);
+    }
+
+    // 多分类筛选
+    public function types(){
 		$Url = js_param_url();
 		$Type = $this->Lable_Vod_Type($Url);
 		$this->assign($Type);
