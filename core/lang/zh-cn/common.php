@@ -4,7 +4,7 @@ return array(
 	'ppvod_welcome'=>'欢迎使用极速CMS 2.9.140513版',
 	'ppvod_version'=>'2.9.140513',
 	'ppvod_homeurl'=>'http://www.php369.com',
-	'ppvod_version_js'=>'http://u.hzr.com/jisu/version2.js',
+	'ppvod_version_js'=>'http://u.hzr8.com/jisu/version2.js',
 	'install_error'=>'已经安装过极速影视导航系统,重新安装请先删除Conf/install.lock 文件!',
 	'install_success'=>'恭喜您！极速影视导航系统安装完成，1秒后自动进入后台管理!',	
 	'install_db_connect'=>'数据库连接失败!请检查数据库连接参数!',
