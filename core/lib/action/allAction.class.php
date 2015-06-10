@@ -314,7 +314,7 @@ class allAction extends Action{
 		$array['list_slide'] = $list_slide;
 		$array['list_link'] = F('_ppvod/link');
 		$array['list_menu'] = F('_ppvod/listtree');
-
+        $array['list_area'] = F('_ppvod/areatree');
 		return $array;		
 	}					
 }

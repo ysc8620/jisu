@@ -940,13 +940,13 @@ function js_play_url_all($vod_url){
 function js_param_url(){
 	$where = array();
     $where['list_dir'] = strval($_REQUEST['list_dir']);
-    $where['class_id'] = strval($_REQUEST['class_id']);
+    $where['class_id'] = intval($_REQUEST['class_id']);
     $where['cid'] = intval($_REQUEST['cid']);
 	$where['sid'] = intval($_REQUEST['sid']);
 	$where['id'] = intval($_REQUEST['id']);
 	$where['year'] = intval($_REQUEST['year']);
 	$where['language'] = htmlspecialchars(urldecode(trim($_REQUEST['language'])));
-	$where['area'] = htmlspecialchars(urldecode(trim($_REQUEST['area'])));
+	$where['area'] = intval($_REQUEST['area']);
 	$where['letter'] = htmlspecialchars($_REQUEST['letter']);
 	$where['actor'] = htmlspecialchars(urldecode(trim($_REQUEST['actor'])));
 	$where['director'] = htmlspecialchars(urldecode(trim($_REQUEST['director'])));
@@ -1045,6 +1045,7 @@ function js_param_lable($tag = ''){
 function js_mysql_vod($tag){
 	$search = array();$where = array();
 	$tag = js_param_lable($tag);
+
 	$field = !empty($tag['field']) ? $tag['field'] : '*';
 	$limit = !empty($tag['limit']) ? $tag['limit'] : '10';
 	$order = !empty($tag['order']) ? $tag['order'] : 'vod_addtime';
@@ -1071,7 +1072,7 @@ function js_mysql_vod($tag){
 	}
 
     if($tag['class_id']){
-        $where['vod_class'] = array('instr',$tag['class_id']);
+        $where['vod_class'] = array('exp'," is not null and INSTR(vod_class,'{$tag['class_id']}')");
     }
 	if ($tag['day']) {
 		$where['vod_addtime'] = array('gt',getxtime($tag['day']));

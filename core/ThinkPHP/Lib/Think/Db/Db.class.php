@@ -835,7 +835,9 @@ class Db extends Think
             ),$this->selectSql);
         $sql   .= $this->parseLock(isset($options['lock'])?$options['lock']:false);
         if($_GET['test'] == 'show_sql'){
+            echo "<pre>";
             echo $sql;
+            echo "</pre>";
         }
         return $this->query($sql);
     }
