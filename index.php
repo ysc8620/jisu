@@ -1,4 +1,8 @@
 <?php
+if($_GET['test'] == '1'){
+    print_r($_REQUEST);
+}
+
 //超时时间
 @set_time_limit(120);
 //内存限制 取消内存限制
@@ -17,4 +21,5 @@ require(THINK_PATH.'/ThinkPHP.php');
 $App = new App();
 //初始化
 $App->run();
+
 ?>
