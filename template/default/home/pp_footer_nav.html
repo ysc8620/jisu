@@ -1,0 +1,52 @@
+<div class="comwrap category clearfix">
+    <dl>
+        <dt><span>电影</span></dt>
+        <dd> <volist name="list_menu" id="list">
+            <if condition="$list['list_id'] eq 1">
+                <volist name="list['son']" id="cat">
+                    <a href="{$siteurl}dianying/{$cat['list_id']}-0-0.html">{$cat['list_name']}</a>
+                </volist>
+            </if>
+        </volist> <a href="{$siteurl}dianying/0-11-0.html">美国</a> <a href="{$siteurl}dianying/0-12-0.html">香港</a> </dd>
+    </dl>
+    <dl>
+        <dt><span>电视</span></dt>
+        <dd>  <volist name="list_menu" id="list">
+            <if condition="$list['list_id'] eq 2">
+                <volist name="list['son']" id="cat">
+                    <a href="{$siteurl}dianying/{$cat['list_id']}-0-0.html">{$cat['list_name']}</a>
+                </volist>
+            </if>
+        </volist>  </dd>
+    </dl>
+    <dl>
+        <dt><span>动漫</span></dt>
+        <dd>  <volist name="list_menu" id="list">
+            <if condition="$list['list_id'] eq 3">
+                <volist name="list['son']" id="cat">
+                    <a href="{$siteurl}dianying/{$cat['list_id']}-0-0.html">{$cat['list_name']}</a>
+                </volist>
+            </if>
+        </volist> </dd>
+    </dl>
+    <dl>
+        <dt><span>综艺</span></dt>
+        <dd>  <volist name="list_menu" id="list">
+            <if condition="$list['list_id'] eq 4">
+                <volist name="list['son']" id="cat">
+                    <a href="{$siteurl}dianying/{$cat['list_id']}-0-0.html">{$cat['list_name']}</a>
+                </volist>
+            </if>
+        </volist> </dd>
+    </dl>
+    <dl class="last">
+        <dt><span>微电影</span></dt>
+        <dd>  <volist name="list_menu" id="list">
+            <if condition="$list['list_id'] eq 5">
+                <volist name="list['son']" id="cat">
+                    <a href="{$siteurl}dianying/{$cat['list_id']}-0-0.html">{$cat['list_name']}</a>
+                </volist>
+            </if>
+        </volist>  </dd>
+    </dl>
+</div>

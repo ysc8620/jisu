@@ -1,5 +1,5 @@
 <?php
-if($_GET['test'] == '1'){
+if(isset($_GET['test']) && $_GET['test'] == '1'){
     print_r($_REQUEST);
 }
 

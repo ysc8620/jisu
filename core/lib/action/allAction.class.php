@@ -313,7 +313,8 @@ class allAction extends Action{
         $list_slide = F('_ppvod/slide');
 		$array['list_slide'] = $list_slide;
 		$array['list_link'] = F('_ppvod/link');
-		$array['list_menu'] = F('_ppvod/listtree');		
+		$array['list_menu'] = F('_ppvod/listtree');
+
 		return $array;		
 	}					
 }
