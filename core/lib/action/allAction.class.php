@@ -309,13 +309,7 @@ class allAction extends Action{
 		$array['url_map_baidu'] = js_map_url('baidu');
 		$array['url_map_google'] = js_map_url('google');
 		$array['url_map_soso'] = js_map_url('soso');
-
         $list_slide = F('_ppvod/slide');
-        $sort = array();
-        foreach($list_slide as $slide){
-            $sort[] = $slide['slide_oid'];
-        }
-        array_multisort($sort, SORT_ASC, $list_slide);
 		$array['list_slide'] = $list_slide;
 		$array['list_link'] = F('_ppvod/link');
 		$array['list_menu'] = F('_ppvod/listtree');		

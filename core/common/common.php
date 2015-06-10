@@ -667,6 +667,7 @@ function UU($model,$params,$redirect=false,$suffix=false){
 	if(!C('url_html')){
 		return str_replace('index.php','',$reurl);
 	}
+    $reurl = str_replace('//','/',$reurl);
 	return $reurl;
 };
 // 获取广告调用地址
