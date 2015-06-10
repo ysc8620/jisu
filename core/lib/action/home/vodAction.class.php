@@ -39,7 +39,9 @@ class vodAction extends homeAction{
         $this->assign('select_list_dir', $Url['list_dir']);
         $this->assign($Url);
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
-
+        if($_GET['test'] == 1){
+            print_r($Url);
+        }
 		$this->assign($channel);
 		$this->display($channel['list_skin_type']);
     }
