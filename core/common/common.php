@@ -525,6 +525,7 @@ function getjifen($fen){
 
 //分页样式
 function getpage($currentPage,$totalPages,$halfPer=5,$url,$pagego){
+    $linkPage = '';
     $linkPage .= ( $currentPage > 1 )
         ? '<a href="'.str_replace('{!page!}',1,$url).'" class="pagegbk">首页</a>&nbsp;<a href="'.str_replace('{!page!}',($currentPage-1),$url).'" class="pagegbk">上一页</a>&nbsp;' 
         : '<em>首页</em>&nbsp;<em>上一页</em>&nbsp;';
@@ -1189,7 +1190,7 @@ function js_mysql_vod($tag){
 		//生成分页列表
 		//$pageurl = js_list_url('vod',C('jumpurl'),9999);
 		$pageurl = "/{$tag['list_dir']}/{$tag['class_id']}-{$tag['area']}-{$tag['year']}-{!page!}.html";
-		$pages = '共'.$count.'部影片&nbsp;当前:'.$currentpage.'/'.$totalpages.'页&nbsp;'.getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl,'pagego(\''.$pageurl.'\','.$totalpages.')');
+		$pages = '共'.$count.'部影片&nbsp;当前:'.$currentpage.'/'.$totalpages.'页&nbsp;'.getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl);
 		//数据列表
 		$list = $rs->field($field)->where($where)->order($order)->limit($limit)->page($currentpage)->select();
 		$list[0]['count'] = count($list);
