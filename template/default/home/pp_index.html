@@ -53,7 +53,7 @@
         <ul class="comcaseRow clearfix">
             <volist name="vod_tv_hot" id="vod">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}"><img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags}</p>
+                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
             </li>
             </volist>
         </ul>
@@ -81,7 +81,7 @@
 <div class="ingrep-Cont" style="display:block;">
     <div class="clearfix rowleft">
         <volist name="vod_tv_re_hot" id="vod" offset="0" length="1">
-        <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{$vod['vod_continu']|strip_tags}</cite></a>
+        <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</cite></a>
             <p>{$vod['vod_content']|strip_tags}...<em></em></p>
         </div>
             </volist>
@@ -89,7 +89,7 @@
             <volist name="vod_tv_re_hot" id="vod" key="i">
                 <if condition="$i gt 1">
             <li class=""><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags}</p>
+                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
             </li>
                 </if>
             </volist>
@@ -100,7 +100,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_news" id="vod" key="i">
         <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-            <p>{$vod['vod_continu']|strip_tags}</p>
+            <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
         </li>
         </volist>
     </ul>
@@ -109,7 +109,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_neidi" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags}</p>
+                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
             </li>
         </volist>
     </ul>
@@ -118,7 +118,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_tvb" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags}</p>
+                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
             </li>
         </volist>
     </ul>
@@ -127,7 +127,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_hanju" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags}</p>
+                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
             </li>
         </volist>
     </ul>
@@ -136,7 +136,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_meiju" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags}</p>
+                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
             </li>
         </volist>
     </ul>
@@ -145,7 +145,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_taiju" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags}</p>
+                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
             </li>
         </volist>
     </ul>
