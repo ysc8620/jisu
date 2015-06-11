@@ -173,7 +173,7 @@ ul.caseList li a cite{display:block;width:204px;white-space:nowrap;overflow:hidd
 ul.caseList li a:hover{color:#e05032;}
 ul.caseList li em{width:204px;height:158px;background:#000 url(../images/play.png) no-repeat center center;opacity:0.3;filter:alpha(opacity=30);position:absolute;left:0;top:0px;display:none;}
 ul.caseList li.hover em{display:inline-block;}
-ul.caseList li p{color:#929292;}
+ul.caseList li p{color:#929292; width: 200px; height: 32px; overflow: hidden;}
 
 .newarrive-wrap{width:980px;height:200px;overflow:hidden;}
 .comcaseRow{padding:10px 0 10px 0;width:1100px;}
