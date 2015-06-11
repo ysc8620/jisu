@@ -70,7 +70,7 @@ label sup {color:#990000;font-size:13px;}
     <label class="vod_input_show fl"><input name='ids[]' type='checkbox' value='{$ppvod.vod_id}' class="checkbox" checked></label>
     <label class="fl">{$ppvod.vod_id}</label>
     <label class="fl vod_ids"><if condition="C('url_html') gt 0"><a href="javascript:createhtml('{$ppvod.vod_id}');" id="html_{$ppvod.vod_id}"><font color="green">生成</font></a></if>『<a href="{$ppvod.list_url}">{$ppvod.vod_cid|getlistname}</a>』<a href="{$ppvod.vod_url}" onMouseOver="showpic(event,'{$ppvod.vod_pic}','{&upload_path}/');" onMouseOut="hiddenpic();" target="_blank">{$ppvod.vod_name}</a></label>
-    <label id="ct_{$ppvod.vod_id}" class="fl"><neq name="ppvod['vod_continu']" value="0"><sup onClick="setcontinu({$ppvod.vod_id},'{$ppvod.vod_continu}');" class="navpoint">{$ppvod.vod_continu}</sup><else/><img src="__PUBLIC__/images/admin/ct.gif" style="margin-top:10px" class="navpoint" onClick="setcontinu({$ppvod.vod_id},'{$ppvod.vod_continu}');"></neq></label>
+    <label id="ct_{$ppvod.vod_id}" class="fl"><neq name="ppvod['vod_continu']" value="0"><sup onClick="setcontinu({$ppvod.vod_id},'{$ppvod.vod_continu|strip_tags}');" class="navpoint">{$ppvod.vod_continu|strip_tags}</sup><else/><img src="__PUBLIC__/images/admin/ct.gif" style="margin-top:10px" class="navpoint" onClick="setcontinu({$ppvod.vod_id},'{$ppvod.vod_continu}');"></neq></label>
     <label class="fr vod_play">{$ppvod.vod_play|str_replace='$$$',' ',###}</label>
     </td>
     <td class="l ct">{$ppvod.vod_hits}</td>

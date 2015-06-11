@@ -13,19 +13,20 @@
 <body>
 <php>
     //同步热播
-    $vod_tv_re_news = js_mysql_vod('cid:2;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_re_xiju = js_mysql_vod('cid:2;class_id:8;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_top_xiju = js_mysql_vod('cid:2;class_id:8;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_re_kehuan = js_mysql_vod('cid:2;class_id:12;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_top_kehuan = js_mysql_vod('cid:2;class_id:12;limit:10;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_top_meiguo = js_mysql_vod('cid:2;area:11;limit:6;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_re_aiqing = js_mysql_vod('cid:2;class_id:9;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_top_aiqing = js_mysql_vod('cid:2;class_id:9;limit:10;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_re_kongbu = js_mysql_vod('cid:2;class_id:11;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_top_kongbu = js_mysql_vod('cid:2;class_id:49;limit:10;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_re_rihan = js_mysql_vod('cid:2;area:13;limit:6;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_re_juqing = js_mysql_vod('cid:2;class_id:13;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_top_juqing = js_mysql_vod('cid:2;class_id:13;limit:10;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_news = js_mysql_vod('cid:2;vod_isfilm:3;limit:8;order:,vod_year desc, vod_addtime desc');
+    $vod_tv_re_guonei = js_mysql_vod('cid:2;area:1;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_top_guonei = js_mysql_vod('cid:2;area:1;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_gangju = js_mysql_vod('cid:2;area:3;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_taiju = js_mysql_vod('cid:2;area:4;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_top_taiju = js_mysql_vod('cid:2;area:4;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_meiju = js_mysql_vod('cid:2;area:8;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_top_meiju = js_mysql_vod('cid:2;area:8;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_hanju = js_mysql_vod('cid:2;area:5;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_top_hanju = js_mysql_vod('cid:2;area:5;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_riju = js_mysql_vod('cid:2;area:7;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_top_riju = js_mysql_vod('cid:2;area:7;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_taiguoju = js_mysql_vod('cid:2;area:6;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_top_taiguoju = js_mysql_vod('cid:2;area:6;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
 </php>
 <include file="home:pp_header" />
 <include file="home:pp_tv_slider" />
@@ -37,10 +38,11 @@
         <h2 title="同步跟播"><a href="{$siteurl}dianshi/0-0-0.html" title="同步跟播" target="_blank">同步跟播</a></h2>
       </div>
       <ul class="caseList clearfix">
-        <li> <a href="{$siteurl}dianshi/895057.html" title="待嫁老爸"> <img src="{$siteurl}img/focus_img/201505/143269429827259.jpg" alt="待嫁老爸" /> <cite>待嫁老爸</cite> <em></em> </a>
-          <p>更新至第22集</p>
+          <volist name="vod_tv_re_news" id="vod">
+        <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}"> <img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+          <p>{$vod['vod_continu']|strip_tags}</p>
         </li>
-
+          </volist>
       </ul>
     </div>
     <div class="sideCont fr">
@@ -77,10 +79,11 @@
         <h2 title="国内热播"><a href="{$siteurl}dianshi/0-1-0.html" title="国内热播" target="_blank">国内热播</a></h2>
         <a href="{$siteurl}dianshi/0-1-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-        <li> <a href="{$siteurl}dianshi/862515.html" title="虎妈猫爸" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/focus_img/201506/143330079520938.jpg" alt="虎妈猫爸" /> <cite>虎妈猫爸</cite> <em></em> </a>
-          <p>主演：赵薇,佟大为,...</p>
+          <volist name="vod_tv_re_guonei" id="vod">
+        <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+          <p>主演：{$vod['vod_actor']}</p>
         </li>
-       
+          </volist>
       </ul>
     </div>
     <div class="sideCont fr">
@@ -88,17 +91,18 @@
         <h3 title="国内排行榜"><a href="{$siteurl}top/dianshi/guonei.html" title="国内排行榜" target="_blank">国内排行榜</a></h3>
         <a href="{$siteurl}top/dianshi/guonei.html" class="more" target="_blank">完整榜单>></a> </div>
       <ul class="foldlist">
-        <li class="hover">
-          <div class="hisus"> <a href="{$siteurl}dianshi/677029.html" class="img" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/2015/02/03/qy/tvs/3/85a18o8265h.jpg" alt="武媚娘传奇" /> <b>1</b> </a>
+          <volist name="vod_tv_top_guonei" id="vod" key="i">
+        <li class="<if condition='$i eq 1'>hover</if>">
+          <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>1</b> </a>
             <div class="imr">
-              <h4><a href="{$siteurl}dianshi/677029.html" title="武媚娘传奇" target="_blank">武媚娘传奇</a></h4>
-              <p>类型：爱情|古装...</p>
-              <p>主演：范冰冰,张丰毅,李治廷,张钧甯,张庭</p>
-              <a href="{$siteurl}dianshi/677029.html" class="p" target="_blank">立即播放</a> </div>
+              <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+              <p>类型：{$vod['vod_class_name']}</p>
+              <p>主演：{$vod['vod_actor']}</p>
+              <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
           </div>
-          <p><em>1</em><a href="{$siteurl}dianshi/677029.html" target="_blank">武媚娘传奇</a><span>2147483647</span></p>
+          <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
         </li>
-      
+      </volist>
       </ul>
     </div>
   </div>
@@ -108,10 +112,11 @@
         <h2 title="港剧热播"><a href="{$siteurl}dianshi/0-0-53.html" title="港剧热播" target="_blank">港剧热播</a></h2>
         <a href="{$siteurl}dianshi/0-0-53.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-        <li style="display: "> <a href="{$siteurl}dianshi/688305.html" title="宦海奇官" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/focus_img/201501/142224042888503.jpg" alt="宦海奇官" /> <cite>宦海奇官</cite> <em></em> </a>
-          <p>主演：杨怡,马国明,...</p>
-        </li>
-       
+          <volist name="vod_tv_re_gangju" id="vod">
+              <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+                  <p>主演：{$vod['vod_actor']}</p>
+              </li>
+          </volist>
       </ul>
     </div>
     <!-- 广告位：首页300*250 -->
@@ -121,13 +126,14 @@
   <div class="comwrap clearfix">
     <div class="leftSide fl">
       <div class="inTitle">
-        <h2 title="台剧热播"><a href="{$siteurl}dianshi/0-0-54.html" title="台剧热播" target="_blank">台剧热播</a></h2>
-        <a href="{$siteurl}dianshi/0-0-54.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
+        <h2 title="台剧热播"><a href="{$siteurl}dianshi/0-4-0.html" title="台剧热播" target="_blank">台剧热播</a></h2>
+        <a href="{$siteurl}dianshi/0-4-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-        <li> <a href="{$siteurl}dianshi/8788.html" title="终极一家" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/focus_img/201412/141992220042943.jpg" alt="终极一家" /> <cite>终极一家</cite> <em></em> </a>
-          <p>主演：唐禹哲,汪东城...</p>
-        </li>
-        
+          <volist name="vod_tv_re_taiju" id="vod">
+              <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+                  <p>主演：{$vod['vod_actor']}</p>
+              </li>
+          </volist>
       </ul>
     </div>
     <div class="sideCont fr">
@@ -135,17 +141,18 @@
         <h3 title="台剧排行榜"><a href="{$siteurl}top/dianshi/taiwan.html" title="台剧排行榜" target="_blank">台剧排行榜</a></h3>
         <a href="{$siteurl}top/dianshi/taiwan.html" class="more" target="_blank">完整榜单>></a> </div>
       <ul class="foldlist">
-        <li class="hover">
-          <div class="hisus"> <a href="{$siteurl}dianshi/16673.html" class="img" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/2014/09/11/youku/tvs/10/1x9i81v7R2u.jpg" alt="新白娘子传奇" /> <b>1</b> </a>
-            <div class="imr">
-              <h4><a href="{$siteurl}dianshi/16673.html" title="新白娘子传奇" target="_blank">新白娘子传奇</a></h4>
-              <p>类型：言情剧,古装剧,神...</p>
-              <p>主演：赵雅芝,叶童,陈美琪,乾德门,江明,尹宝莲,夏光莉,石乃文,阮虔芷,徐慧宣,李敏郎</p>
-              <a href="{$siteurl}dianshi/16673.html" class="p" target="_blank">立即播放</a> </div>
-          </div>
-          <p><em>1</em><a href="{$siteurl}dianshi/16673.html" target="_blank">新白娘子传奇</a><span>2426</span></p>
-        </li>
-      
+          <volist name="vod_tv_top_taiju" id="vod" key="i">
+              <li class="<if condition='$i eq 1'>hover</if>">
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+                      <div class="imr">
+                          <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                          <p>类型：{$vod['vod_class_name']}</p>
+                          <p>主演：{$vod['vod_actor']}</p>
+                          <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
+                  </div>
+                  <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+              </li>
+          </volist>
       </ul>
     </div>
   </div>
@@ -156,13 +163,14 @@
   <div class="comwrap clearfix">
     <div class="leftSide fl">
       <div class="inTitle">
-        <h2 title="美剧热播"><a href="{$siteurl}dianshi/0-0-55.html" title="美剧热播" target="_blank">美剧热播</a></h2>
-        <a href="{$siteurl}dianshi/0-0-55.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
+        <h2 title="美剧热播"><a href="{$siteurl}dianshi/0-8-0.html" title="美剧热播" target="_blank">美剧热播</a></h2>
+        <a href="{$siteurl}dianshi/0-8-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-        <li> <a href="{$siteurl}dianshi/569531.html" title="美国恐怖故事第4季" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/focus_img/201502/142491784663786.jpg" alt="美国恐怖故事第4季" /> <cite>美国恐怖故事第4季</cite> <em></em> </a>
-          <p>主演：杰西卡·兰格,...</p>
-        </li>
-
+          <volist name="vod_tv_re_meiju" id="vod">
+              <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+                  <p>主演：{$vod['vod_actor']}</p>
+              </li>
+          </volist>
       </ul>
     </div>
     <div class="sideCont fr">
@@ -170,17 +178,18 @@
         <h3 title="美剧排行榜"><a href="{$siteurl}top/dianshi/meiju.html" title="美剧排行榜" target="_blank">美剧排行榜</a></h3>
         <a href="{$siteurl}top/dianshi/meiju.html" class="more" target="_blank">完整榜单>></a> </div>
       <ul class="foldlist">
-        <li class="hover">
-          <div class="hisus"> <a href="{$siteurl}dianshi/568059.html" class="img" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="http://img36.pplive.cn/2014/10/08/10502986614_230X306.jpg" alt="闪电侠" /> <b>1</b> </a>
-            <div class="imr">
-              <h4><a href="{$siteurl}dianshi/568059.html" title="闪电侠" target="_blank">闪电侠</a></h4>
-              <p>类型：科幻</p>
-              <p>主演：格兰特·古斯汀,埃涅·赫德森,汤姆·卡瓦纳夫</p>
-              <a href="{$siteurl}dianshi/568059.html" class="p" target="_blank">立即播放</a> </div>
-          </div>
-          <p><em>1</em><a href="{$siteurl}dianshi/568059.html" target="_blank">闪电侠</a><span>21726</span></p>
-        </li>
-
+          <volist name="vod_tv_top_meiju" id="vod" key="i">
+              <li class="<if condition='$i eq 1'>hover</if>">
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+                      <div class="imr">
+                          <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                          <p>类型：{$vod['vod_class_name']}</p>
+                          <p>主演：{$vod['vod_actor']}</p>
+                          <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
+                  </div>
+                  <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+              </li>
+          </volist>
       </ul>
     </div>
   </div>
@@ -193,13 +202,14 @@
   <div class="comwrap clearfix">
     <div class="leftSide fl">
       <div class="inTitle">
-        <h2 title="韩剧热播"><a href="{$siteurl}dianshi/0-0-52.html" title="韩剧热播" target="_blank">韩剧热播</a></h2>
-        <a href="{$siteurl}dianshi/0-0-52.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
+        <h2 title="韩剧热播"><a href="{$siteurl}dianshi/0-5-0.html" title="韩剧热播" target="_blank">韩剧热播</a></h2>
+        <a href="{$siteurl}dianshi/0-5-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-        <li> <a href="{$siteurl}dianshi/648487.html" title="有道理的爱情" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/focus_img/201505/143202940420740.jpg" alt="有道理的爱情" /> <cite>有道理的爱情</cite> <em></em> </a>
-          <p>主演：严泰雄,李诗英...</p>
-        </li>
-
+          <volist name="vod_tv_rehanju" id="vod">
+              <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+                  <p>主演：{$vod['vod_actor']}</p>
+              </li>
+          </volist>
       </ul>
     </div>
     <div class="sideCont fr">
@@ -207,30 +217,32 @@
         <h3 title="韩剧排行榜"><a href="{$siteurl}top/dianshi/hanju.html" title="韩剧排行榜" target="_blank">韩剧排行榜</a></h3>
         <a href="{$siteurl}top/dianshi/hanju.html" class="more" target="_blank">完整榜单>></a> </div>
       <ul class="foldlist">
-        <li class="hover">
-          <div class="hisus"> <a href="{$siteurl}dianshi/619195.html" class="img" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/2014/11/13/youku/tvs/9/B58pE1nk707.jpg" alt="匹诺曹" /> <b>1</b> </a>
-            <div class="imr">
-              <h4><a href="{$siteurl}dianshi/619195.html" title="匹诺曹" target="_blank">匹诺曹</a></h4>
-              <p>类型：都市,偶像,言情...</p>
-              <p>主演：李钟硕,朴信惠,金英光,李侑菲,李毕茂,闵成旭,姜信日,秋秀贤,陈京,金光奎,金英勋,边熙峰,申正根,金海淑,尹均尚,郑仁基,卢静宜,南多凛,郑雄仁</p>
-              <a href="{$siteurl}dianshi/619195.html" class="p" target="_blank">立即播放</a> </div>
-          </div>
-          <p><em>1</em><a href="{$siteurl}dianshi/619195.html" target="_blank">匹诺曹</a><span>13447</span></p>
-        </li>
-
+          <volist name="vod_tv_top_hanju" id="vod" key="i">
+              <li class="<if condition='$i eq 1'>hover</if>">
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+                      <div class="imr">
+                          <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                          <p>类型：{$vod['vod_class_name']}</p>
+                          <p>主演：{$vod['vod_actor']}</p>
+                          <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
+                  </div>
+                  <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+              </li>
+          </volist>
       </ul>
     </div>
   </div>
   <div class="comwrap clearfix">
     <div class="leftSide fl">
       <div class="inTitle">
-        <h2 title="日剧热播"><a href="{$siteurl}dianshi/0-0-278.html" title="日剧热播" target="_blank">日剧热播</a></h2>
-        <a href="{$siteurl}dianshi/0-0-278.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
+        <h2 title="日剧热播"><a href="{$siteurl}dianshi/0-7-0.html" title="日剧热播" target="_blank">日剧热播</a></h2>
+        <a href="{$siteurl}dianshi/0-7-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-        <li> <a href="{$siteurl}dianshi/64134.html" title="野猪大改造" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/focus_img/201412/141992229882572.jpg" alt="野猪大改造" /> <cite>野猪大改造</cite> <em></em> </a>
-          <p>主演：堀北真希,龟梨...</p>
-        </li>
-
+          <volist name="vod_tv_re_riju" id="vod">
+              <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+                  <p>主演：{$vod['vod_actor']}</p>
+              </li>
+          </volist>
       </ul>
     </div>
     <div class="sideCont fr">
@@ -238,48 +250,51 @@
         <h3 title="日剧排行榜"><a href="{$siteurl}top/dianshi/riju.html" title="日剧排行榜" target="_blank">日剧排行榜</a></h3>
         <a href="{$siteurl}top/dianshi/riju.html" class="more" target="_blank">完整榜单>></a> </div>
       <ul class="foldlist">
-        <li class="hover">
-          <div class="hisus"> <a href="{$siteurl}dianshi/638399.html" class="img" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/2014/11/25/qy/tvs/9/m078c1d3R08.jpg" alt="一吻定情2" /> <b>1</b> </a>
-            <div class="imr">
-              <h4><a href="{$siteurl}dianshi/638399.html" title="一吻定情2" target="_blank">一吻定情2</a></h4>
-              <p>类型：电视剧,言情剧,偶...</p>
-              <p>主演：古川雄辉,未来穂香,山田裕贵,堀井新太,铃木身来,伊藤梨沙子</p>
-              <a href="{$siteurl}dianshi/638399.html" class="p" target="_blank">立即播放</a> </div>
-          </div>
-          <p><em>1</em><a href="{$siteurl}dianshi/638399.html" target="_blank">一吻定情2</a><span>4950</span></p>
-        </li>
-
+          <volist name="vod_tv_top_riju" id="vod" key="i">
+              <li class="<if condition='$i eq 1'>hover</if>">
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+                      <div class="imr">
+                          <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                          <p>类型：{$vod['vod_class_name']}</p>
+                          <p>主演：{$vod['vod_actor']}</p>
+                          <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
+                  </div>
+                  <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+              </li>
+          </volist>
       </ul>
     </div>
   </div>
   <div class="comwrap clearfix">
     <div class="leftSide fl">
       <div class="inTitle">
-        <h2 title="泰剧热播"><a href="{$siteurl}dianshi/0-0-277.html" title="泰剧热播" target="_blank">泰剧热播</a></h2>
-        <a href="{$siteurl}dianshi/0-0-277.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
+        <h2 title="泰剧热播"><a href="{$siteurl}dianshi/0-6-0.html" title="泰剧热播" target="_blank">泰剧热播</a></h2>
+        <a href="{$siteurl}dianshi/0-6-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-        <li> <a href="{$siteurl}dianshi/827499.html" title="情深不寿" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/focus_img/201504/142908025113400.jpg" alt="情深不寿" /> <cite>情深不寿</cite> <em></em> </a>
-          <p>主演：Tui,Tee...</p>
-        </li>
-
+          <volist name="vod_tv_re_taiju" id="vod">
+              <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+                  <p>主演：{$vod['vod_actor']}</p>
+              </li>
+          </volist>
       </ul>
     </div>
     <div class="sideCont fr">
       <div class="inTitle">
-        <h3 title="泰韩排行榜"><a href="{$siteurl}top/dianshi/taiguo.html" title="泰韩排行榜" target="_blank">泰韩排行榜</a></h3>
+        <h3 title="泰剧排行榜"><a href="{$siteurl}top/dianshi/taiguo.html" title="泰剧排行榜" target="_blank">泰剧排行榜</a></h3>
         <a href="{$siteurl}top/dianshi/taiguo.html" class="more" target="_blank">完整榜单>></a> </div>
       <ul class="foldlist">
-        <li class="hover">
-          <div class="hisus"> <a href="{$siteurl}dianshi/1747.html" class="img" target="_blank"> <img src="{$siteurl}static/images/loading.gif" data-original="{$siteurl}img/2013/12/24/youku/tvs/10/17329W545p5.jpg" alt="花环夫人" /> <b>1</b> </a>
-            <div class="imr">
-              <h4><a href="{$siteurl}dianshi/1747.html" title="花环夫人" target="_blank">花环夫人</a></h4>
-              <p>类型：传记剧,言情剧,年...</p>
-              <p>主演：Aom,Son,Captain,Vill</p>
-              <a href="{$siteurl}dianshi/1747.html" class="p" target="_blank">立即播放</a> </div>
-          </div>
-          <p><em>1</em><a href="{$siteurl}dianshi/1747.html" target="_blank">花环夫人</a><span>532</span></p>
-        </li>
-     
+          <volist name="vod_tv_top_taiju" id="vod" key="i">
+              <li class="<if condition='$i eq 1'>hover</if>">
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+                      <div class="imr">
+                          <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                          <p>类型：{$vod['vod_class_name']}</p>
+                          <p>主演：{$vod['vod_actor']}</p>
+                          <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
+                  </div>
+                  <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+              </li>
+          </volist>
       </ul>
     </div>
   </div>
