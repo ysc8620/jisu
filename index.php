@@ -1,9 +1,5 @@
 <?php
-$num='9999999999999999';
-echo (int)($num);
-echo "<br/>";
-echo (intval($num));
-die();
+
 if(isset($_GET['test']) && $_GET['test'] == '1'){
     print_r($_REQUEST);
 }
