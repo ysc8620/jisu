@@ -1077,6 +1077,10 @@ function js_mysql_vod($tag){
     if($tag['class_id']){
         $where['vod_class'] = array('exp'," is not null and INSTR(vod_class,'{$tag['class_id']}')");
     }
+
+    if($tag['isfilm']){
+        $where['vod_isfilm'] = array('eq',$tag['isfilm']);
+    }
 	if ($tag['day']) {
 		$where['vod_addtime'] = array('gt',getxtime($tag['day']));
 	}
