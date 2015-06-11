@@ -22,7 +22,13 @@ class vodAction extends baseAction{
 		$limit = C('url_num_admin');
 		$order = 'vod_'.$admin["type"].' '.$admin['order'];
 		if ($admin['cid']) {
-			$where['vod_cid']= getlistsqlin($admin['cid']);
+            $tree = list_search(F('_ppvod/listtree'),'list_id='.$admin['cid']);
+			//$where['vod_cid']= getlistsqlin($admin['cid']);
+            if($tree[0]['list_pid'] == 0){
+                $where['vod_cid'] = $admin['cid'];
+            }else{
+                $where['vod_class'] = array('exp'," is not null and INSTR(vod_class,'{$tag['class_id']}')");
+            }
 		}
 		if($admin["continu"] == 1){
 			$where['vod_continu'] = array('neq','0');
