@@ -70,7 +70,7 @@ class vodAction extends baseAction{
 		}else{
 			$rs = D("Vod");
 		}
-        print_r($where);
+       // print_r($where);
 		//组合分页信息
 		$count = $rs->where($where)->count('vod_id');
 		$totalpages = ceil($count/$limit);
