@@ -12,7 +12,7 @@
 </head>
 <body>
 <php>
-    $vod_tv_hot = js_mysql_vod('cid:2;limit:5;order:hot_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_hot = js_mysql_vod('cid:2;isfilm:3;limit:5;order:hot_sort desc,vod_year desc, vod_addtime desc');
     // 推荐电视剧
     $vod_tv_re_hot = js_mysql_vod('cid:2;limit:7;order:re_sort desc, hot_sort desc,vod_year desc, vod_addtime desc');
     $vod_tv_re_news = js_mysql_vod('cid:2;limit:8;order:vod_addtime desc');
