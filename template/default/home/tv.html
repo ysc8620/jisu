@@ -16,7 +16,7 @@
     $vod_tv_re_news = js_mysql_vod('cid:2;vod_isfilm:3;limit:8;order:,vod_year desc, vod_addtime desc');
     $vod_tv_re_guonei = js_mysql_vod('cid:2;area:1;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_tv_top_guonei = js_mysql_vod('cid:2;area:1;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
-    $vod_tv_re_gangju = js_mysql_vod('cid:2;area:3;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_tv_re_gangju = js_mysql_vod('cid:2;area:3;limit:4;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_tv_re_taiju = js_mysql_vod('cid:2;area:4;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_tv_top_taiju = js_mysql_vod('cid:2;area:4;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
     $vod_tv_re_meiju = js_mysql_vod('cid:2;area:8;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
@@ -205,7 +205,7 @@
         <h2 title="韩剧热播"><a href="{$siteurl}dianshi/0-5-0.html" title="韩剧热播" target="_blank">韩剧热播</a></h2>
         <a href="{$siteurl}dianshi/0-5-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-          <volist name="vod_tv_rehanju" id="vod">
+          <volist name="vod_tv_re_hanju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
                   <p>主演：{$vod['vod_actor']}</p>
               </li>
