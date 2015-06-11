@@ -26,7 +26,7 @@
     $vod_mv_top_aiqing = js_mysql_vod('cid:1;class_id:9;limit:10;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_mv_re_kongbu = js_mysql_vod('cid:1;class_id:11;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_mv_top_kongbu = js_mysql_vod('cid:1;class_id:49;limit:10;order:re_sort desc,vod_year desc, vod_addtime desc');
-    $vod_mv_re_rihan = js_mysql_vod('cid:1;area:13;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_mv_re_rihan = js_mysql_vod('cid:1;area:13;limit:6;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_mv_re_juqing = js_mysql_vod('cid:1;class_id:13;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_mv_top_juqing = js_mysql_vod('cid:1;class_id:13;limit:10;order:re_sort desc,vod_year desc, vod_addtime desc');
 </php>
@@ -63,7 +63,7 @@
         </dt>
         <dd> <a href="{$siteurl}dianying/0-0-0.html" class="current">全部</a> <a href="{$siteurl}dianying/0-11-0.html" >美国</a> <a href="{$siteurl}dianying/0-2-0.html" >大陆</a> <a href="{$siteurl}dianying/0-12-0.html" >香港</a> <a href="{$siteurl}dianying/0-13-0.html" >韩国</a> <a href="{$siteurl}dianying/0-15-0.html" >法国</a> <a href="{$siteurl}dianying/0-16-0.html" >英国</a> <a href="{$siteurl}dianying/0-19-0.html" >泰国</a> <a href="{$siteurl}dianying/0-18-0.html" >台湾</a> <a href="{$siteurl}dianying/0-14-0.html" >日本</a> </dd>
       </dl>
-      <if condition="true">
+      <if condition="false">
         <dl class="cateTags">
         <dt>
           <h3 title="按演员">按演员</h3>
@@ -165,7 +165,7 @@
       <a href="{$siteurl}dianying/0-11-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
     <ul class="sumgroup oneRow clearfix">
         <volist name="vod_mv_top_meiguo" id="vod">
-      <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_name']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
+      <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
         <p>主演：{$vod['vod_actor']}</p>
       </li>
         </volist>
@@ -191,7 +191,7 @@
       <ul class="foldlist">
           <volist name="vod_mv_top_aiqing" id="vod" key="i">  
         <li class="<if condition='$i eq 1'>hover</if>">
-          <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$tpl}images/loading.gif" data-original="{$siteurl}img/2015/03/05/m1905/dianying/9/27h39e1X8Ub.jpg" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+          <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$tpl}images/loading.gif" data-original="{$vod['pic_url']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
             <div class="imr">
               <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
               <p>类型：{$vod['vod_class_name']}</p>
@@ -224,7 +224,7 @@
       <ul class="foldlist">
           <volist name="vod_mv_top_kongbu" id="vod" key="i">
               <li class="<if condition='$i eq 1'>hover</if>">
-                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$tpl}images/loading.gif" data-original="{$siteurl}img/2015/03/05/m1905/dianying/9/27h39e1X8Ub.jpg" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$tpl}images/loading.gif" data-original="{$vod['pic_url']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
@@ -273,7 +273,7 @@
       <ul class="foldlist">
           <volist name="vod_mv_top_juqing" id="vod" key="i">
               <li class="<if condition='$i eq 1'>hover</if>">
-                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$tpl}images/loading.gif" data-original="{$siteurl}img/2015/03/05/m1905/dianying/9/27h39e1X8Ub.jpg" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
