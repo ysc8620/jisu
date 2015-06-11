@@ -13,7 +13,7 @@
 <body>
 <php>
     //同步热播
-    $vod_tv_re_news = js_mysql_vod('cid:2;isfilm:3;limit:8;order:,vod_year desc, vod_addtime desc');
+    $vod_tv_re_news = js_mysql_vod('cid:2;isfilm:3;limit:8;order:vod_year desc, vod_addtime desc');
     $vod_tv_re_guonei = js_mysql_vod('cid:2;area:1;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_tv_top_guonei = js_mysql_vod('cid:2;area:1;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
     $vod_tv_re_gangju = js_mysql_vod('cid:2;area:3;limit:4;order:re_sort desc,vod_year desc, vod_addtime desc');
