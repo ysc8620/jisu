@@ -40,7 +40,7 @@
       <ul class="caseList clearfix">
           <volist name="vod_tv_re_news" id="vod">
         <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}"> <img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-          <p>{$vod['vod_continu']|strip_tags}</p>
+          <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
         </li>
           </volist>
       </ul>
@@ -81,7 +81,7 @@
       <ul class="sumgroup entire clearfix">
           <volist name="vod_tv_re_guonei" id="vod">
         <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-          <p>主演：{$vod['vod_actor']}</p>
+          <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
         </li>
           </volist>
       </ul>
@@ -97,7 +97,7 @@
             <div class="imr">
               <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
               <p>类型：{$vod['vod_class_name']}</p>
-              <p>主演：{$vod['vod_actor']}</p>
+              <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
           </div>
           <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
@@ -114,7 +114,7 @@
       <ul class="sumgroup entire clearfix">
           <volist name="vod_tv_re_gangju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-                  <p>主演：{$vod['vod_actor']}</p>
+                  <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               </li>
           </volist>
       </ul>
@@ -131,7 +131,7 @@
       <ul class="sumgroup entire clearfix">
           <volist name="vod_tv_re_taiju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-                  <p>主演：{$vod['vod_actor']}</p>
+                  <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               </li>
           </volist>
       </ul>
@@ -147,7 +147,7 @@
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
-                          <p>主演：{$vod['vod_actor']}</p>
+                          <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
                           <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
                   </div>
                   <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
@@ -168,7 +168,7 @@
       <ul class="sumgroup entire clearfix">
           <volist name="vod_tv_re_meiju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-                  <p>主演：{$vod['vod_actor']}</p>
+                  <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               </li>
           </volist>
       </ul>
@@ -184,7 +184,7 @@
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
-                          <p>主演：{$vod['vod_actor']}</p>
+                          <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
                           <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
                   </div>
                   <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
@@ -207,7 +207,7 @@
       <ul class="sumgroup entire clearfix">
           <volist name="vod_tv_re_hanju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-                  <p>主演：{$vod['vod_actor']}</p>
+                  <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               </li>
           </volist>
       </ul>
@@ -223,7 +223,7 @@
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
-                          <p>主演：{$vod['vod_actor']}</p>
+                          <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
                           <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
                   </div>
                   <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
@@ -240,7 +240,7 @@
       <ul class="sumgroup entire clearfix">
           <volist name="vod_tv_re_riju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-                  <p>主演：{$vod['vod_actor']}</p>
+                  <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               </li>
           </volist>
       </ul>
@@ -256,7 +256,7 @@
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
-                          <p>主演：{$vod['vod_actor']}</p>
+                          <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
                           <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
                   </div>
                   <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
@@ -273,7 +273,7 @@
       <ul class="sumgroup entire clearfix">
           <volist name="vod_tv_re_taiju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
-                  <p>主演：{$vod['vod_actor']}</p>
+                  <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               </li>
           </volist>
       </ul>
@@ -289,7 +289,7 @@
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
-                          <p>主演：{$vod['vod_actor']}</p>
+                          <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
                           <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
                   </div>
                   <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
