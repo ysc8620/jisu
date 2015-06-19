@@ -43,7 +43,7 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-#print_r($config);
+
 $conn = mysql_connect($config['db_host'],$config['db_user'],$config['db_pwd']) or die('mysql connect error');
 mysql_select_db($config['db_name']);
 mysql_query('SET NAMES '.$config['db_charset']);
