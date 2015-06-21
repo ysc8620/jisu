@@ -27,6 +27,7 @@ class DB{
 
     public function query($sql){
         try{
+           // echo $sql ."\r\n";
             $res = mysql_query($sql, $this->conn);
         }catch (Exception $e){
             //
@@ -77,7 +78,7 @@ class DB{
 
     public function update($data, $id){
         $sql = $this->parserField($data);
-        $this->query("UPDATE INTO js_vod SET {$sql} WHERE vod_id={$id}");
+        $this->query("UPDATE js_vod SET {$sql} WHERE vod_id={$id}");
     }
 
     public function __destruct(){

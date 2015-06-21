@@ -57,7 +57,7 @@ $i = 0;
 $j=0;
 $size = 1000;
 do{
-    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE 1 ORDER BY id DESC LIMIT $i, $size");
+    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE cid_ids=3 ORDER BY id DESC LIMIT $i, $size");
 
     if(count($list_data) < 1){break;}
     foreach($list_data as $row){
@@ -97,16 +97,17 @@ do{
         $area_name = explode('/', $row['area']);
         $area_id = '';
         $data = list_search($area,"list_id={$row['cid_ids']}");
+        //print_r($data);
         if($area_name){
             foreach($area_name as $a){
                 $name = trim($a);
                 if($data){
-                    $new_name = list_search($area,"name={$name}");
+                    $new_name = list_search($data,"name={$name}");
                     if($new_name){
                         $area_id = $new_name[0]['id'];
                         break;
                     }else{
-                        $new_name = list_search($area,"alias_name=/{$name}/");
+                        $new_name = list_search($data,"alias_name=/{$name}/");
                         if($new_name){
                             $area_id = $new_name[0]['id'];
                             break;
