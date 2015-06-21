@@ -11,6 +11,23 @@
 <link href="{$tpl}css/style.css?v2013" rel="stylesheet" />
 </head>
 <body>
+<php>
+    //同步热播
+    $vod_dm_re_news = js_mysql_vod('cid:3;isfilm:3;limit:8;order:vod_year desc, vod_addtime desc');
+    $vod_dm_re_guonei = js_mysql_vod('cid:3;area:1;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_top_guonei = js_mysql_vod('cid:3;area:1;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_gangju = js_mysql_vod('cid:3;area:3;limit:4;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_taiju = js_mysql_vod('cid:3;area:4;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_top_taiju = js_mysql_vod('cid:3;area:4;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_meiju = js_mysql_vod('cid:3;area:8;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_top_meiju = js_mysql_vod('cid:3;area:8;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_hanju = js_mysql_vod('cid:3;area:5;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_top_hanju = js_mysql_vod('cid:3;area:5;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_riju = js_mysql_vod('cid:3;area:7;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_top_riju = js_mysql_vod('cid:3;area:7;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_taiguoju = js_mysql_vod('cid:3;area:6;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_top_taiguoju = js_mysql_vod('cid:3;area:6;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
+</php>
 <include file="home:pp_header" />
 <include file="home:pp_dm_slider" />
 <include file="home:pp_nav" />

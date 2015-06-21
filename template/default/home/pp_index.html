@@ -37,6 +37,30 @@
     $vod_mv_top = js_mysql_vod('cid:1;limit:10;order:vod_year desc, vod_addtime desc');
     $vod_mv_top_xiju = js_mysql_vod('cid:1;class_id:8;limit:10;order:top_sort DESC,vod_year desc, vod_addtime desc');
     $vod_mv_top_kehuan = js_mysql_vod('cid:1;class_id:12;limit:10;order:top_sort DESC,vod_year desc, vod_addtime desc');
+
+    // 动漫
+    $vod_dm_re_hot = js_mysql_vod('cid:3;limit:7;order:re_sort desc, hot_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_riben = js_mysql_vod('cid:3;area:22;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_guochan = js_mysql_vod('cid:3;area:24;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_dm_re_meiguo = js_mysql_vod('cid:3;area:23;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+
+    $vod_dm_top = js_mysql_vod('cid:3;limit:10;order:vod_year desc, vod_addtime desc');
+    $vod_dm_top_riben = js_mysql_vod('cid:3;area:22;limit:10;order:top_sort DESC,vod_year desc, vod_addtime desc');
+    $vod_dm_top_guochan = js_mysql_vod('cid:3;area:24;limit:10;order:top_sort DESC,vod_year desc, vod_addtime desc');
+
+    // 综艺
+    $vod_zy_re_hot = js_mysql_vod('cid:4;limit:7;order:re_sort desc, hot_sort desc,vod_year desc, vod_addtime desc');
+    $vod_zy_re_shishang = js_mysql_vod('cid:4;class_id:93;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_zy_re_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_zy_re_qinggan = js_mysql_vod('cid:4;class_id:88;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+    $vod_zy_re_fangtan = js_mysql_vod('cid:4;class_id:87;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
+
+    $vod_zy_top = js_mysql_vod('cid:4;limit:10;order:vod_year desc, vod_addtime desc');
+    $vod_zy_top_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:10;order:top_sort DESC,vod_year desc, vod_addtime desc');
+    $vod_zy_top_fangtan = js_mysql_vod('cid:4;class_id:87;limit:10;order:top_sort DESC,vod_year desc, vod_addtime desc');
+
+    // 专题
+
 </php>
 <include file="home:pp_header" />
 <include file="home:pp_index_slider" />
@@ -53,7 +77,7 @@
         <ul class="comcaseRow clearfix">
             <volist name="vod_tv_hot" id="vod">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}"><img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+                <p>{:strip_tags($vod['vod_continu'])}</p>
             </li>
             </volist>
         </ul>
@@ -81,15 +105,15 @@
 <div class="ingrep-Cont" style="display:block;">
     <div class="clearfix rowleft">
         <volist name="vod_tv_re_hot" id="vod" offset="0" length="1">
-        <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</cite></a>
-            <p>{$vod['vod_content']|strip_tags}...<em></em></p>
+        <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{:strip_tags($vod['vod_golder'])}</cite></a>
+            <p>{:strip_tags($vod['vod_content'])}...<em></em></p>
         </div>
             </volist>
         <ul class="sumgroup fr clearfix">
             <volist name="vod_tv_re_hot" id="vod" key="i">
                 <if condition="$i gt 1">
             <li class=""><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+                <p>{:strip_tags($vod['vod_continu'])}</p>
             </li>
                 </if>
             </volist>
@@ -100,7 +124,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_news" id="vod" key="i">
         <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-            <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+            <p>{:strip_tags($vod['vod_continu'])}</p>
         </li>
         </volist>
     </ul>
@@ -109,7 +133,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_neidi" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+                <p>{:strip_tags($vod['vod_continu'])}</p>
             </li>
         </volist>
     </ul>
@@ -118,7 +142,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_tvb" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+                <p>{:strip_tags($vod['vod_continu'])}</p>
             </li>
         </volist>
     </ul>
@@ -127,7 +151,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_hanju" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+                <p>{:strip_tags($vod['vod_continu'])}</p>
             </li>
         </volist>
     </ul>
@@ -136,7 +160,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_meiju" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+                <p>{:strip_tags($vod['vod_continu'])}</p>
             </li>
         </volist>
     </ul>
@@ -145,7 +169,7 @@
     <ul class="sumgroup entire clearfix">
         <volist name="vod_tv_re_taiju" id="vod" key="i">
             <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
-                <p>{$vod['vod_continu']|strip_tags|msubstr=0,12,'utf-8',true}</p>
+                <p>{:strip_tags($vod['vod_continu'])}</p>
             </li>
         </volist>
     </ul>
@@ -294,7 +318,7 @@
                     <p>主演：{$vod['vod_actor']}</p>
                     <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
             </div>
-            <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+            <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
         </li>
         </volist>
     </ul>
@@ -310,7 +334,7 @@
                     <p>主演：{$vod['vod_actor']}</p>
                     <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
             </div>
-            <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+            <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
         </li>
         </volist>
 
@@ -327,7 +351,7 @@
                     <p>主演：{$vod['vod_actor']}</p>
                     <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
             </div>
-            <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_hits']}</span></p>
+            <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
         </li>
         </volist>
     </ul>
@@ -343,46 +367,57 @@
         <dd class="contabs">
             <ul>
                 <li class="current"><a href="javascript:;">最热</a></li>
-                <li><a href="javascript:;">日韩</a></li>
+                <li><a href="javascript:;">日本</a></li>
                 <li><a href="javascript:;">国产</a></li>
-                <li><a href="javascript:;">欧美</a></li>
+                <li><a href="javascript:;">美国</a></li>
             </ul>
             <a href="{$siteurl}dongman/" class="more" target="_blank">更多>></a></dd>
     </dl>
     <div class="ingrep-Cont" style="display:block;">
         <div class="clearfix rowleft">
-            <div class="bgsummar fl"><a href="{$siteurl}dongman/839181.html" title="我的青春恋爱物语果然有问题 续" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="/img/focus_img/201505/143131458085928.jpg" alt="我的青春恋爱物语果然有问题 续" /><cite><strong>我的青春恋爱物语果然有问题</strong>更新至第10集</cite></a>
-                <p>别扭，没有朋友，没有女朋友，对着那些讴歌青春的同学吐槽着：“他们都是骗子，都在说谎，都爆炸吧”的男主角，将来的梦想则是“不工作”——这样的高中生八幡被生活指导老师的带到了学校...<em></em></p>
-            </div>
+            <volist name="vod_dm_re_hot" id="vod" key="i">
+            <if condition="$i lt 2">
+                <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{:str_replace('/',' ',$vod_continu)}</cite></a>
+                    <p>{$vod['vod_content']|strip_tags}<em></em></p>
+                </div>
+            </if>
+        </volist>
             <ul class="sumgroup fr clearfix">
-                <li class=""><a href="{$siteurl}dongman/828761.html" title="干支魂" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="/img/focus_img/201505/143096730264490.jpg" alt="干支魂" /><cite>干支魂</cite><em></em></a>
-                    <p>更新至第9集</p>
-                </li>
-
+                <volist name="vod_mv_re_hot" id="vod" key="i">
+                    <if condition="$i gt 1">
+                        <li class=""><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                            <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
+                        </li>
+                    </if>
+                </volist>
             </ul>
         </div>
     </div>
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
-            <li><a href="{$siteurl}dongman/878269.html" title="名侦探柯南 国语版" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2015/05/14/qy/comic/9/3gj8V7h653O.jpg" /><cite>名侦探柯南 国语版</cite><em></em></a>
-                <p>更新至第775集</p>
-            </li>
-
+            <volist name="vod_dm_re_riben" id="vod">
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                    <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
+                </li>
+            </volist>
         </ul>
     </div>
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
-            <li><a href="{$siteurl}dongman/741029.html" title="兔小贝儿歌(TV版)" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="http://img.movie.kankan.kanimg.com/100x140/887/71ac4f8d21d8edf0559bbbb011381da4.jpg" /><cite>兔小贝儿歌(TV版)</cite><em></em></a>
-                <p>更新至第276集</p>
-            </li>
-
+            <volist name="vod_dm_re_guochan" id="vod">
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                    <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
+                </li>
+            </volist>
         </ul>
     </div>
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
-            <li><a href="{$siteurl}dongman/36641.html" title="愤怒的小鸟" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2013/11/27/huashu/comic/5/675zEk3f3Z2.jpg" /><cite>愤怒的小鸟</cite><em></em></a>
-                <p>137集全</p>
-            </li>
+            <volist name="vod_dm_re_meiguo" id="vod">
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                    <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
+                </li>
+            </volist>
 
         </ul>
     </div>
@@ -393,84 +428,59 @@
     <div class="contabs">
         <ul>
             <li class="current"><a href="javascript:;">全部</a></li>
-            <li><a href="javascript:;">日韩</a></li>
+            <li><a href="javascript:;">日本</a></li>
             <li><a href="javascript:;">国产</a></li>
         </ul>
         <a href="{$siteurl}top/anime.html" class="more" target="_blank">更多&gt;&gt;</a></div>
 </div>
 <div class="ingrep-Cont" style="display:block;">
     <ul class="foldlist">
-        <li class="hover">
-            <div class="hisus"><a href="{$siteurl}dongman/741031.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="http://img.movie.kankan.kanimg.com/100x140/1170/e943969f037fca02b7b2e77d3131d9c5.jpg" alt="尸兄" /><b>1</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}dongman/741031.html" title="尸兄" target="_blank">尸兄</a></h4>
-                    <p>类型：搞笑,冒险,热血...</p>
-                    <p>两个盗墓贼挖出了个棺木，想卖给老外，结果在途中棺木从车厢里掉出来，进了水库。由此污染了整个中心城区的水厂，凡是喝了水的人都变成了僵尸，并且可以吞噬别人，达到进化。 主人公白小飞原本是H市一个普通的屌丝，却意外地因为病毒污染了自来水遭遇到了前所未有的危机。H市的人们一个又一个变成了僵尸，他们互相吞噬，逐渐进化。面对前所未闻超强僵尸，小飞毅然踏上了寻找女友的道路，故事由此展开&hellip; 身为普通人类的小飞渐渐力不从心。然而小飞在购物网站某宝上看到了出售的价值69999元的药物，可以增强自身实力，在使用药物的时候认识了小惠又遇上了僵尸，在打斗的过程中发现小鹿，为护送小鹿回家于是几人走上</p>
-                    <a href="{$siteurl}dongman/741031.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>1</em><a href="{$siteurl}dongman/741031.html" target="_blank">尸兄</a><span>33578</span></p>
-        </li>
-        <li >
-            <div class="hisus"><a href="{$siteurl}dongman/188651.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2015/01/05/tudou/comic/1/UC22M257yG4.jpg" alt="中国惊奇先生" /><b>2</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}dongman/188651.html" title="中国惊奇先生" target="_blank">中国惊奇先生</a></h4>
-                    <p>类型：神魔|奇幻|惊悚...</p>
-                    <p>著名道人袁天罡集合麻衣派与茅山派道术所创的“神鬼七杀令”在现今时代悄然出世……北京某胡同内，近来常发生下班女子惨遭色狼强暴、碎尸案件。警察牛叔多次调查后断定，此系列案件非人类所为。道法传人王小二为追求警花，将帮助警方侦破各种灵异案件</p>
-                    <a href="{$siteurl}dongman/188651.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>2</em><a href="{$siteurl}dongman/188651.html" target="_blank">中国惊奇先生</a><span>26981</span></p>
-        </li>
+        <volist name="vod_dm_top" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>1</b></a>
+                    <div class="imr">
+                        <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>{:mb_substr ($vod['vod_content'],0,20,'utf-8')}</p>
+                        <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
+            </li>
+        </volist>
 
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="foldlist">
-        <li class="hover">
-            <div class="hisus"><a href="{$siteurl}dongman/32827.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="http://pic5.qiyipic.com/thumb/20121009/a238981.jpg" alt="奥特曼大电影" /><b>1</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}dongman/32827.html" title="奥特曼大电影" target="_blank">奥特曼大电影</a></h4>
-                    <p>类型：动漫,动作,科幻,...</p>
-                    <p>曾被光之国封印在宇宙监狱中的邪恶战士——“贝利亚奥特曼”，利用札拉布星人成功越狱，并发誓要复仇！他夺取了奥特曼战士的生命之源：人工太阳的核心、以及禁止使用的兵器“终极战斗仪”，企图复活并控制怪兽墓场里的怪兽和宇宙人。失去力量的奥特战士们被冰封在沉寂的光之国……与此同时，遥远的K76星上，被誉为最有潜力的年轻奥特战士正在进行严酷的特训。谁？能够最终战胜邪恶，恢复宇宙的和平呢……</p>
-                    <a href="{$siteurl}dongman/32827.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>1</em><a href="{$siteurl}dongman/32827.html" target="_blank">奥特曼大电影</a><span>11306</span></p>
-        </li>
-        <li >
-            <div class="hisus"><a href="{$siteurl}dongman/708829.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="http://img.movie.kankan.kanimg.com/100x140/1253/fef1867dc7a589f12a4f09e4177d7547.jpg" alt="黑子的篮球" /><b>2</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}dongman/708829.html" title="黑子的篮球" target="_blank">黑子的篮球</a></h4>
-                    <p>类型：热血</p>
-                    <p>帝光中学篮球部，在其辉煌的历史当中，曾经有过五位十年一遇的天才同时出现的「奇迹的世代」。即使在升入高中的现在，他们仍然和之前一样继续受到这个称号的赞誉。 正在发挥逐渐逼近这些人的实力的诚凛高中的王牌·火神大我。其天生的才能在多次比赛当中不断增加着强大而火热的光辉，是当之无愧的诚凛之「光」。此外，还有着一股支撑着队伍的毫不动摇的意志，如果火神是「光」的话，就可以被称为「影」的存在——诚凛高中·黑子哲也。 诚凛借着成功出赛冬季杯的气势，先后击破了拥有青峰的桐皇学园和拥有紫原的阳泉，终于向着半决赛迈进……</p>
-                    <a href="{$siteurl}dongman/708829.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>2</em><a href="{$siteurl}dongman/708829.html" target="_blank">黑子的篮球</a><span>9391</span></p>
-        </li>
+        <volist name="vod_dm_top_riben" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>1</b></a>
+                    <div class="imr">
+                        <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>{:mb_substr ($vod['vod_content'],0,20,'utf-8')}</p>
+                        <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
+            </li>
+        </volist>
 
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="foldlist">
-        <li class="hover">
-            <div class="hisus"><a href="{$siteurl}dongman/741031.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="http://img.movie.kankan.kanimg.com/100x140/1170/e943969f037fca02b7b2e77d3131d9c5.jpg" alt="尸兄" /><b>1</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}dongman/741031.html" title="尸兄" target="_blank">尸兄</a></h4>
-                    <p>类型：搞笑,冒险,热血...</p>
-                    <p>两个盗墓贼挖出了个棺木，想卖给老外，结果在途中棺木从车厢里掉出来，进了水库。由此污染了整个中心城区的水厂，凡是喝了水的人都变成了僵尸，并且可以吞噬别人，达到进化。 主人公白小飞原本是H市一个普通的屌丝，却意外地因为病毒污染了自来水遭遇到了前所未有的危机。H市的人们一个又一个变成了僵尸，他们互相吞噬，逐渐进化。面对前所未闻超强僵尸，小飞毅然踏上了寻找女友的道路，故事由此展开&hellip; 身为普通人类的小飞渐渐力不从心。然而小飞在购物网站某宝上看到了出售的价值69999元的药物，可以增强自身实力，在使用药物的时候认识了小惠又遇上了僵尸，在打斗的过程中发现小鹿，为护送小鹿回家于是几人走上</p>
-                    <a href="{$siteurl}dongman/741031.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>1</em><a href="{$siteurl}dongman/741031.html" target="_blank">尸兄</a><span>33578</span></p>
-        </li>
-        <li >
-            <div class="hisus"><a href="{$siteurl}dongman/188651.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2015/01/05/tudou/comic/1/UC22M257yG4.jpg" alt="中国惊奇先生" /><b>2</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}dongman/188651.html" title="中国惊奇先生" target="_blank">中国惊奇先生</a></h4>
-                    <p>类型：神魔|奇幻|惊悚...</p>
-                    <p>著名道人袁天罡集合麻衣派与茅山派道术所创的“神鬼七杀令”在现今时代悄然出世……北京某胡同内，近来常发生下班女子惨遭色狼强暴、碎尸案件。警察牛叔多次调查后断定，此系列案件非人类所为。道法传人王小二为追求警花，将帮助警方侦破各种灵异案件</p>
-                    <a href="{$siteurl}dongman/188651.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>2</em><a href="{$siteurl}dongman/188651.html" target="_blank">中国惊奇先生</a><span>26981</span></p>
-        </li>
-
+        <volist name="vod_dm_top_guochan" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>1</b></a>
+                    <div class="imr">
+                        <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>{:mb_substr ($vod['vod_content'],0,20,'utf-8')}}</p>
+                        <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
+            </li>
+        </volist>
     </ul>
 </div>
 </div>
@@ -489,54 +499,62 @@
                 <li class="current"><a href="javascript:;">最热</a></li>
                 <li><a href="javascript:;">时尚</a></li>
                 <li><a href="javascript:;">选秀</a></li>
-                <li><a href="javascript:;">综艺</a></li>
+                <li><a href="javascript:;">情感</a></li>
                 <li><a href="javascript:;">访谈</a></li>
             </ul>
             <a href="{$siteurl}zongyi/" class="more" target="_blank">更多>></a></dd>
     </dl>
     <div class="ingrep-Cont" style="display:block;">
         <div class="clearfix rowleft">
-            <div class="bgsummar fl"><a href="{$siteurl}zongyi/838233.html" title="世界青年说" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="/img/focus_img/201505/143105722438577.jpg" alt="世界青年说" /><cite><strong>世界青年说</strong>最新20150604期</cite></a>
-                <p>经韩国《非首脑会谈》正版授权，《世界青年说》由江苏卫视和好看传媒联合制作，该栏目是一种谈话类节目，《世界青年说》将于4月16日登陆江苏卫视，每期节目拟邀11国型男代表和一名...<em></em></p>
-            </div>
-            <ul class="sumgroup fr clearfix">
-                <li class=""><a href="{$siteurl}zongyi/253363.html" title="彬彬有理" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="/img/focus_img/201505/143278105257121.jpg" alt="彬彬有理" /><cite>彬彬有理</cite><em></em></a>
-                    <p>最新20150603期</p>
-                </li>
 
-            </ul>
+            <volist name="vod_zy_re_hot" id="vod" key="i">
+                <if condition="$i lt 2">
+            <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>最新20150604期</cite></a>
+                <p>{:mb_substr ($vod['vod_content'],0,20,'utf-8')}}<em></em></p>
+            </div>
+                    </if>
+                </volist>     <ul class="sumgroup fr clearfix">
+            <volist name="vod_zy_re_hot" id="vod" key="i">
+                <if condition="$i gt 1">
+                <li class=""><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a></li>
+                  </if>
+                </volist>     </ul>
         </div>
     </div>
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
-            <li><a href="{$siteurl}zongyi/52866.html" title="China艺术客" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="http://s2.56img.com/images/index/1111/22125_d.jpg" /><cite>China艺术客</cite><em></em></a>
-                <p>最新20140827期</p>
-            </li>
+            <volist name="vod_zy_re_shishang" id="vod">
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
+                </li>
+            </volist>
         </ul>
     </div>
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
-            <li><a href="{$siteurl}zongyi/129158.html" title="中国好声音(音乐真人秀)" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2013/12/03/pps_4/variety/4/A69oN91f5Z3.jpg" /><cite>中国好声音(音乐真人秀)</cite><em></em></a>
-                <p>最新20121025期</p>
-            </li>
+            <volist name="vod_zy_re_xuanxiu" id="vod">
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
+                </li>
+            </volist>
         </ul>
     </div>
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
-            <li><a href="{$siteurl}zongyi/18322.html" title="非诚勿扰" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/variety/10/3165SF00f8W.jpg" /><cite>非诚勿扰</cite><em></em></a>
-                <p>最新20150530期</p>
-            </li>
+            <volist name="vod_zy_re_qinggan" id="vod">
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
+                </li>
+            </volist>
         </ul>
     </div>
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
-            <li><a href="{$siteurl}zongyi/18403.html" title="非常静距离" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2013/07/18/qy/variety/8/4m99OF4G350.jpg" /><cite>非常静距离</cite><em></em></a>
-                <p>最新20150605期</p>
-            </li>
+            <volist name="vod_zy_re_fangtan" id="vod">
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
+                </li>
+            </volist>
         </ul>
     </div>
 </div>
@@ -553,67 +571,50 @@
 </div>
 <div class="ingrep-Cont" style="display:block;">
     <ul class="foldlist">
-        <li class="hover">
-            <div class="hisus"><a href="{$siteurl}zongyi/732423.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2015/02/02/youku_4/variety/2/418zk6E5813.jpg" alt="running man" /><b>1</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}zongyi/732423.html" title="running man" target="_blank">running man</a></h4>
-                    <p>类型：真人秀,娱乐,游戏...</p>
-                    <p>主演：刘在石,池石镇,金钟国,宋智孝,河东勋,Gary,李光洙</p>
-                    <a href="{$siteurl}zongyi/732423.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>1</em><a href="{$siteurl}zongyi/732423.html" target="_blank">running man</a><span>157553</span></p>
-        </li>
-        <li >
-            <div class="hisus"><a href="{$siteurl}zongyi/791083.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2015/03/12/huashu/variety/8/3x6F4Lv6L89.jpg" alt="快乐大本营" /><b>2</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}zongyi/791083.html" title="快乐大本营" target="_blank">快乐大本营</a></h4>
-                    <p>类型：娱乐</p>
-                    <p>主演：WASU</p>
-                    <a href="{$siteurl}zongyi/791083.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>2</em><a href="{$siteurl}zongyi/791083.html" target="_blank">快乐大本营</a><span>145221</span></p>
-        </li>
-        <li >
-            <div class="hisus"><a href="{$siteurl}zongyi/794069.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2015/03/14/huashu/variety/4/3c8iUG3856X.jpg" alt="天天向上" /><b>3</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}zongyi/794069.html" title="天天向上" target="_blank">天天向上</a></h4>
-                    <p>类型：娱乐</p>
-                    <p>主演：WASU</p>
-                    <a href="{$siteurl}zongyi/794069.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>3</em><a href="{$siteurl}zongyi/794069.html" target="_blank">天天向上</a><span>63650</span></p>
-        </li>
-
+        <volist name="vod_zy_top" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>1</b></a>
+                    <div class="imr">
+                        <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>主演：{$vod['vod_actor']}</p>
+                        <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
+            </li>
+        </volist>
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="foldlist">
-        <li class="hover">
-            <div class="hisus"><a href="{$siteurl}zongyi/716237.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="http://s2.56img.com/images/index/1111/24364_d.jpg" alt="中国好歌曲" /><b>1</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}zongyi/716237.html" title="中国好歌曲" target="_blank">中国好歌曲</a></h4>
-                    <p>类型：真人秀,选秀,音乐...</p>
-                    <p>主演：</p>
-                    <a href="{$siteurl}zongyi/716237.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>1</em><a href="{$siteurl}zongyi/716237.html" target="_blank">中国好歌曲</a><span>16881</span></p>
-        </li>
-
+        <volist name="vod_zy_top_xuanxiu" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>1</b></a>
+                    <div class="imr">
+                        <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>主演：{$vod['vod_actor']}</p>
+                        <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
+            </li>
+        </volist>
     </ul>
 </div>
 <div class="ingrep-Cont">
     <ul class="foldlist">
-        <li class="hover">
-            <div class="hisus"><a href="{$siteurl}zongyi/791083.html" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$siteurl}img/2015/03/12/huashu/variety/8/3x6F4Lv6L89.jpg" alt="快乐大本营" /><b>1</b></a>
-                <div class="imr">
-                    <h4><a href="{$siteurl}zongyi/791083.html" title="快乐大本营" target="_blank">快乐大本营</a></h4>
-                    <p>类型：娱乐</p>
-                    <p>主演：WASU</p>
-                    <a href="{$siteurl}zongyi/791083.html" class="p" target="_blank">立即播放</a></div>
-            </div>
-            <p><em>1</em><a href="{$siteurl}zongyi/791083.html" target="_blank">快乐大本营</a><span>145221</span></p>
-        </li>
-
+        <volist name="vod_zy_top_fangtan" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>1</b></a>
+                    <div class="imr">
+                        <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>主演：{$vod['vod_actor']}</p>
+                        <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span>{$vod['vod_golder']}</span></p>
+            </li>
+        </volist>
     </ul>
 </div>
 </div>
@@ -636,10 +637,10 @@
         <a href="{$siteurl}zt/" class="more" target="_blnak">更多专题>></a></div>
     <ul class="comSumList clearfix">
         <li><a href="{$siteurl}zt/zmjc4/index.htm" target="_blnak" rel="nofollow"><img src="{$tpl}images/images/loading.gif" data-original="/img/zt/2015/06/2015060517512977984.jpg" alt="周末剧场—第四期" style="display:inline;max-width:172px;max-height:125px;" /><cite>周末剧场—第四期</cite></a></li>
-            </ul>
+    </ul>
     <ul class="taa clearfix">
         <li><a href="{$siteurl}zt/zmjc3/index.htm" target="_blnak" rel="nofollow">抓住彩虹的男人</a><a href="{$siteurl}zt/zmjc3/index.htm" target="_blnak" rel="nofollow">周末剧场—第二期</a></li>
-            </ul>
+     </ul>
 </div>
 <include file="home:pp_footer_nav" />
 <dl class="flink">

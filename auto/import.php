@@ -124,7 +124,7 @@ do{
             'vod_name'=>$row['title'],
             'vod_actor'=>$row['actor'],
             'vod_director'=>$row['director'],
-            'vod_content'=>$row['update_remark'],
+            'vod_continu'=>$row['update_remark'],
             'vod_watch'=>$row['watch_str'],
             'vod_pic'=>$row['pic'],
             'vod_area'=>$area_id,

@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=7"/>
-<title>可塑性记忆【全集】_高清视频在线观看-动漫大全</title>
-<meta name="keywords" content="可塑性记忆">
-<meta name="description" content="故事发生在一个比现在的科学要进步的世界。18岁的水柿司高考失败，多亏父母找关系得以进入世界大企业SAI社工作。SAI社是制造管理拥有感情的人形智能机器人（通称：Giftia）的企业，司在其中被安排到终端服务部门工作。这个部门其实就是回收即将到期的Giftia，是所谓的“窗边部门（不被重视的部门）”。于是司和打杂的Giftia少女“艾拉”组成搭档，一起开始了工作……">
+<title>{$title}</title>
+<meta name="keywords" content="{$keyword}">
+<meta name="description" content="{$vod_content|strip_tags}">
 <link href="{$tpl}/css/style.css?v2013" rel="stylesheet"/>
 <link href="{$tpl}/css/details.css" rel="stylesheet"/>
 </head>
@@ -14,17 +14,17 @@
 <div class="wrap clearfix">
   <div class="moiveDetails">
     <div class="detailsTop">
-      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}dongman/">动漫</a><i>></i><em>可塑性记忆</em></p>
+      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}dongman/">动漫</a><i>></i><em>{$vod_name}</em></p>
     </div>
     <!-- 影片介绍 -->
     <div class="movieDescription clearfix">
-      <div class="movieDeLeft"> <img src="http://i0.letvimg.com/lc03_isvrs/201504/05/13/15/165804fe-4862-4c5e-9020-264a00adac24.jpg" alt="可塑性记忆" title="可塑性记忆"  width="180" height="240" />
+      <div class="movieDeLeft"> <img src="{$vod_picurl}" alt="{$vod_name}" title="{$vod_name}"  width="180" height="240" />
         <div class="collection"> <a href="javascript:" class="collect"><i></i><span>收藏</span></a> <a href="javascript:" class="cancel"><i></i><span>取消</span></a> </div>
       </div>
       <div class="movieDeCenter">
         <div class="movieDeCenterTop clearfix">
           <div class="movieTitle">
-            <h1 title="可塑性记忆"> 可塑性记忆<span>(2015)</span> </h1>
+            <h1 title="{$vod_name}"> {$vod_name}<span>({$vod_year})</span> </h1>
           </div>
           <div class="start">
             <dl>
@@ -38,11 +38,11 @@
           </div>
         </div>
         <div class="movieDeCenterCon">
-          <p><span>主演：</span><span class="v_dirRow_Wrap"><a href="{$siteurl}sech-%E6%B0%B4%E6%9F%BF%E5%8F%B8.html" title="查看水柿司的影视资料" target="_blank">水柿司</a> <a href="{$siteurl}sech-%E8%89%BE%E6%8B%89.html" title="查看艾拉的影视资料" target="_blank">艾拉</a> <a href="{$siteurl}sech-%E7%BB%A2%E5%B2%9B%E6%BB%A1.html" title="查看绢岛满的影视资料" target="_blank">绢岛满</a> <a href="{$siteurl}sech-%E6%89%8E%E5%85%8B.html" title="查看扎克的影视资料" target="_blank">扎克</a></span></p>
-          <p><span>类型：</span><em class="textRight">治愈 <a class="v_dirRow_link" href="{$siteurl}dongman/86-0-0.html">科幻</a> <a class="v_dirRow_link" href="{$siteurl}dongman/46-0-0.html">搞笑</a></em></p>
-          <p><span>地区：</span><em>日韩</em></p>
-          <p><span>状态：</span><em class="textBd">9集全</em></p>
-          <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> 故事发生在一个比现在的科学要进步的世界。18岁的水柿司高考失败，多亏父母找关系得以进入世界大企业SAI社工作。SAI社是制造管理拥有感情的人形智能机器人（通称：Giftia）的企业，司在其中被安排到终...<a href="javascript:" class="textMore">[更多]</a> </em> <em class="movieFr textAll"> 故事发生在一个比现在的科学要进步的世界。18岁的水柿司高考失败，多亏父母找关系得以进入世界大企业SAI社工作。SAI社是制造管理拥有感情的人形智能机器人（通称：Giftia）的企业，司在其中被安排到终端服务部门工作。这个部门其实就是回收即将到期的Giftia，是所谓的“窗边部门（不被重视的部门）”。于是司和打杂的Giftia少女“艾拉”组成搭档，一起开始了工作…… <a href="javascript:" class="packUp">[收起]</a> </em> </p>
+          <p><span>主演：</span><span class="v_dirRow_Wrap"><notempty name="vod_actor">{$vod_actor|js_search_url}<else />未录入</notempty></span></p>
+          <p><span>类型：</span><em class="textRight">{$vod_class_name}</em></p>
+          <p><span>地区：</span><em>{$vod_year_name}</em></p>
+          <p><span>状态：</span><em class="textBd">{$vod_continu|strip_tags}</em></p>
+          <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> {:js_content_url($vod_content,$Tag)} </em></p>
         </div>
       </div>
       <div class="movieDeRight">
@@ -67,7 +67,7 @@
             <!-- 广告位：详情页320*30 -->
             <span style="margin-right:83px;">
             BAIDU_CLB_fillSlot("875984")
-            </span> <strong><span class="puTitle">《可塑性记忆》完整</span>播放地址</strong> </h2>
+            </span> <strong><span class="puTitle">《{$vod_name}》完整</span>播放地址</strong> </h2>
           <div class="playItem clearfix">
             <ul>
               <li data-value="1"> <a href="javascript:;" class="plHv cp_0_name" title="华数"> <i><img src="{$siteurl}static/images/i_huashu.png" alt="华数"></i>华数 </a> </li>
@@ -89,27 +89,6 @@
                 <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F6052198%3Frefer%3D114la.com&code=2387dbfd30f9e4f746ef6b77b68ca26f" rel="nofollow" target="_blank"> 9 </a> </li>
               </ul>
             </div>
-            <!-- 数字列表 倒序-->
-            <div class="movieListNum clearfix list_daoxu" style="display:none">
-              <ul class="pages_1">
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F6052198%3Frefer%3D114la.com&code=2387dbfd30f9e4f746ef6b77b68ca26f" rel="nofollow" target="_blank"> 9 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F6004239%3Frefer%3D114la.com&code=f0e48f19f69aa9d1b23b722d051552f2" rel="nofollow" target="_blank"> 8 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F5971742%3Frefer%3D114la.com&code=e243832d2670f1525df3f3bc8c270ee6" rel="nofollow" target="_blank"> 7 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F5941841%3Frefer%3D114la.com&code=cdffba942b8342203c30de143d91cc1e" rel="nofollow" target="_blank"> 6 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F5907692%3Frefer%3D114la.com&code=76738e09057d5f6e12f3335c5940d434" rel="nofollow" target="_blank"> 5 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F5883381%3Frefer%3D114la.com&code=babaf0520c1e67e23dabce44ead77e62" rel="nofollow" target="_blank"> 4 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F5861138%3Frefer%3D114la.com&code=e9e1f17e2994b5a47a1a5abb7f4fae95" rel="nofollow" target="_blank"> 3 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F5861137%3Frefer%3D114la.com&code=6ed535da0ec427ac7be968cb5862dacf" rel="nofollow" target="_blank"> 2 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.wasu.cn%2FPlay%2Fshow%2Fid%2F5861136%3Frefer%3D114la.com&code=ab3386c8fa7e0a6bc76af65a0f8abcaf" rel="nofollow" target="_blank"> 1 </a> </li>
-              </ul>
-            </div>
-            <div class="movieListBottom" style="display: ">
-              <div class="mlBottomLeft" data-key="1"> <a href="javascript:" class="radio radioEd radio_sort1">顺序</a> <a href="javascript:" class="radio  radio_sort2">倒序</a> </div>
-              <input type="hidden" class="currentlistcp" value="1">
-              <input type="hidden" class="currentlistpage" value="1">
-              <input type="hidden" class="currentcpmaxpage" value="1">
-              <input type="hidden" class="currentlistmaxpage" value="9">
-            </div>
           </div>
           <div class="movieListCon cp_2_content" style="display: none"> <span class="triangle"> <b></b> </span>
             <!-- 数字列表 正序-->
@@ -126,27 +105,7 @@
                 <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22869884.html&code=1b4f97976e92259cc45df50253269ba8" rel="nofollow" target="_blank"> 9 </a> </li>
               </ul>
             </div>
-            <!-- 数字列表 倒序-->
-            <div class="movieListNum clearfix list_daoxu" style="display:none">
-              <ul class="pages_1">
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22869884.html&code=1b4f97976e92259cc45df50253269ba8" rel="nofollow" target="_blank"> 9 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22821107.html&code=accd7e98d62de0be4b4bd7b7568b4184" rel="nofollow" target="_blank"> 8 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22770760.html&code=923cff9dfd0a80fe635c46f438052ba3" rel="nofollow" target="_blank"> 7 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22723325.html&code=e1fc79c35b5739297ee4deb926c906b4" rel="nofollow" target="_blank"> 6 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22669860.html&code=9c6b6d9d76b85bbd98fe90ba55881935" rel="nofollow" target="_blank"> 5 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22624347.html&code=64e22c18792324ee2f5a0542678f1c11" rel="nofollow" target="_blank"> 4 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22550472.html&code=0a3f5d6fda0103ed87e5a19de0e5e268" rel="nofollow" target="_blank"> 3 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22474965.html&code=8737a9f8da66a25f4b4cadff88a549fe" rel="nofollow" target="_blank"> 2 </a> </li>
-                <li> <a href="{$siteurl}?ac=play&id=847399&url=http%3A%2F%2Fwww.letv.com%2Fptv%2Fvplay%2F22409832.html&code=2c817811a9a4a312c872188b5ada68a6" rel="nofollow" target="_blank"> 1 </a> </li>
-              </ul>
-            </div>
-            <div class="movieListBottom" style="display: ">
-              <div class="mlBottomLeft" data-key="2"> <a href="javascript:" class="radio radioEd radio_sort1">顺序</a> <a href="javascript:" class="radio  radio_sort2">倒序</a> </div>
-              <input type="hidden" class="currentlistcp" value="2">
-              <input type="hidden" class="currentlistpage" value="1">
-              <input type="hidden" class="currentcpmaxpage" value="1">
-              <input type="hidden" class="currentlistmaxpage" value="9">
-            </div>
+
           </div>
         </div>
         <!-- 广告位：详情页640*60*2 -->
@@ -161,15 +120,6 @@
             <div class="youLikeItem disPlay">
               <ul>
                 <li> <a href="{$siteurl}dongman/135032.html" title="玉响OVA" target="_blank"> <img src="http://i2.letvimg.com/vrs/201306/25/b8e9a14db0fd46d7981612ca664d56ea.jpg" alt="玉响OVA" title="玉响OVA"> <b>玉响OVA</b> </a> <span>美少女|生活|治愈|校园</span> </li>
-                <li> <a href="{$siteurl}dongman/33157.html" title="备长炭" target="_blank"> <img src="{$siteurl}img/2013/11/20/xl/comic/1/3l1SC1w1G24.jpg" alt="备长炭" title="备长炭"> <b>备长炭</b> </a> <span>治愈,美少女,轻松,生活</span> </li>
-                <li> <a href="{$siteurl}dongman/35529.html" title="AIR OVA" target="_blank"> <img src="{$siteurl}img/2014/01/03/funshion/comic/5/52742rX87b1.jpg" alt="AIR OVA" title="AIR OVA"> <b>AIR OVA</b> </a> <span>青春,治愈</span> </li>
-                <li> <a href="{$siteurl}dongman/32198.html" title="素描簿" target="_blank"> <img src="http://i2.letvimg.com/vrs/201307/02/fae086a8347e416e8ff2d817aeaec919.jpg" alt="素描簿" title="素描簿"> <b>素描簿</b> </a> <span>治愈,校园,日常</span> </li>
-                <li> <a href="{$siteurl}dongman/166100.html" title="猫拉面 第二部" target="_blank"> <img src="{$siteurl}img/2014/01/14/funshion/comic/9/f8j99X475oV.jpg" alt="猫拉面 第二部" title="猫拉面 第二部"> <b>猫拉面 第二部</b> </a> <span>搞笑,治愈,青春</span> </li>
-                <li> <a href="{$siteurl}dongman/361279.html" title="小马宝莉 第三季" target="_blank"> <img src="http://i2.letvimg.com/vrs/201406/03/f98d94f9-56df-4904-a3c9-8b6bec3c2e39.jpg" alt="小马宝莉 第三季" title="小马宝莉 第三季"> <b>小马宝莉 第三季</b> </a> <span>魔法|治愈|奇幻</span> </li>
-                <li> <a href="{$siteurl}dongman/135033.html" title="玉响 第一季" target="_blank"> <img src="http://i1.letvimg.com/vrs/201308/15/a96745e724b64753a3a9703adcbed318.jpg" alt="玉响 第一季" title="玉响 第一季"> <b>玉响 第一季</b> </a> <span>轻松|美少女|励志|治愈|其他|校园</span> </li>
-                <li> <a href="{$siteurl}dongman/31887.html" title="浮水牛牛" target="_blank"> <img src="http://i2.letvimg.com/vrs/201310/23/bb3ee42fa79a403091014fe245640cfe.jpg" alt="浮水牛牛" title="浮水牛牛"> <b>浮水牛牛</b> </a> <span>冒险,治愈,童话</span> </li>
-                <li> <a href="{$siteurl}dongman/17704.html" title="少年战魂Brave  国语版" target="_blank"> <img src="{$siteurl}img/2013/07/18/qy/comic/5/09P22888P3s.jpg" alt="少年战魂Brave  国语版" title="少年战魂Brave  国语版"> <b>少年战魂Brave </b> </a> <span>动漫,机战,冒险,竞技,科幻,励志</span> </li>
-                <li> <a href="{$siteurl}dongman/410307.html" title="白银的意志 ARGEVOLLEN" target="_blank"> <img src="{$siteurl}img/2014/07/04/qy/comic/1/P7ki1490716.jpg" alt="白银的意志 ARGEVOLLEN" title="白银的意志 ARGEVOLLEN"> <b>白银的意志 ARGE</b> </a> <span>动漫,动作,战争,科幻</span> </li>
               </ul>
             </div>
             <div class="youLikeItem ">
@@ -200,40 +150,19 @@
           <div class="ingrep-Cont" style="display:block;">
             <ul class="foldlist  guid-col2list">
               <li class="hover"> <em>1</em> <a href="{$siteurl}dongman/909389.html" title="霹雳谜城之九轮异谱" target="_blank">霹雳谜城之九轮</a> </li>
-              <li > <em>2</em> <a href="{$siteurl}dongman/909385.html" title="动漫节操SHOW" target="_blank">动漫节操SHO</a> </li>
-              <li > <em>3</em> <a href="{$siteurl}dongman/909067.html" title="土豆侠之筷子英雄" target="_blank">土豆侠之筷子英</a> </li>
-              <li > <em>4</em> <a href="{$siteurl}dongman/909065.html" title="超神学院第3季" target="_blank">超神学院第3季</a> </li>
-              <li > <em>5</em> <a href="{$siteurl}dongman/906723.html" title="托宝兄弟" target="_blank">托宝兄弟</a> </li>
-              <li > <em>6</em> <a href="{$siteurl}dongman/906331.html" title="圣母在上 第一季" target="_blank">圣母在上 第一</a> </li>
-              <li > <em>7</em> <a href="{$siteurl}dongman/904855.html" title="捉鬼天狗帮" target="_blank">捉鬼天狗帮</a> </li>
-              <li > <em>8</em> <a href="{$siteurl}dongman/904827.html" title="阿兹漫画大王" target="_blank">阿兹漫画大王</a> </li>
-              <li > <em>9</em> <a href="{$siteurl}dongman/904823.html" title="变身超人Joe" target="_blank">变身超人Joe</a> </li>
-              <li > <em>10</em> <a href="{$siteurl}dongman/904815.html" title="光速蒙面侠21号" target="_blank">光速蒙面侠21</a> </li>
-            </ul>
+                      </ul>
           </div>
           <div class="ingrep-Cont">
             <ul class="foldlist  guid-col2list">
               <li class="hover"> <em>1</em> <a href="{$siteurl}dongman/878269.html" title="名侦探柯南 国语版" target="_blank">名侦探柯南 国</a> </li>
-              <li > <em>2</em> <a href="{$siteurl}dongman/741029.html" title="兔小贝儿歌(TV版)" target="_blank">兔小贝儿歌(T</a> </li>
-              <li > <em>3</em> <a href="{$siteurl}dongman/741025.html" title="猫和老鼠(TV版)" target="_blank">猫和老鼠(TV</a> </li>
-              <li > <em>4</em> <a href="{$siteurl}dongman/353670.html" title="《尸兄》" target="_blank">《尸兄》</a> </li>
-              <li > <em>5</em> <a href="{$siteurl}dongman/35050.html" title="火影忍者" target="_blank">火影忍者</a> </li>
-              <li > <em>6</em> <a href="{$siteurl}dongman/17485.html" title="熊出没之环球大冒险" target="_blank">熊出没之环球大</a> </li>
-              <li > <em>7</em> <a href="{$siteurl}dongman/9127.html" title="熊出没" target="_blank">熊出没</a> </li>
-              <li > <em>8</em> <a href="{$siteurl}dongman/2676.html" title="蜡笔小新" target="_blank">蜡笔小新</a> </li>
-              <li > <em>9</em> <a href="{$siteurl}dongman/10665.html" title="喜羊羊与灰太狼" target="_blank">喜羊羊与灰太狼</a> </li>
-              <li > <em>10</em> <a href="{$siteurl}dongman/741031.html" title="尸兄(TV版)" target="_blank">尸兄(TV版)</a> </li>
-            </ul>
+                   </ul>
           </div>
         </div>
         <div class="theStart project clearfix">
           <h3><span><a href="{$siteurl}zt/dm/">更多</a></span>精彩专题</h3>
           <ul>
             <li> <a href="/zt/dm/guoyu.html?0" title="动画片国语专区" target="_blank"> <img src="{$siteurl}img/zt/2015/01/2015011916590011648.jpg" alt="动画片国语专区" title="动画片国语专区"> <span>动画片国语专区</span> </a> </li>
-            <li> <a href="/zt/dm/xueba.html?0" title="学霸养成记" target="_blank"> <img src="{$siteurl}img/zt/2015/01/2015011711233815691.jpg" alt="学霸养成记" title="学霸养成记"> <span>学霸养成记</span> </a> </li>
-            <li> <a href="/zt/dm/dashi.html?0" title="大师远去  经典无法复制" target="_blank"> <img src="{$siteurl}img/zt/2015/01/2015011711141163474.jpg" alt="大师远去  经典无法复制" title="大师远去  经典无法复制"> <span>大师远去  经典无法复制</span> </a> </li>
-            <li> <a href="/zt/dm/wuji.html?0" title="无基不成友" target="_blank"> <img src="{$siteurl}img/zt/2015/01/2015011711115135562.jpg" alt="无基不成友" title="无基不成友"> <span>无基不成友</span> </a> </li>
-          </ul>
+                   </ul>
         </div>
         <div style="width:300px;height:250px;">
           <!-- 广告位：详情页通用300*250 -->
@@ -251,269 +180,5 @@
 <input type="hidden" class="videoUid" value="0">
 <include file="home:pp_footer" />
 <script type="text/javascript" src="{$tpl}/js/details.js"></script>
-<script>
-    window._bd_share_config = {
-        common: {
-            bdText: '我正在看动漫《可塑性记忆》,好资源值得推荐（来自@{$sitename}）',
-            bdDesc: '故事发生在一个比现在的科学要进步的世界。18岁的水柿司高考失败，多亏父母找关系得以进入世界大企业SAI社工作。SAI社是制造管理拥有感情的人形智能机器人（通称：Giftia）的企业，司在其中被安排到终端服务部门工作。这个部门其实就是回收即将到期的Giftia，是所谓的“窗边部门（不被重视的部门）”。于是司和打杂的Giftia少女“艾拉”组成搭档，一起开始了工作……',
-            bdUrl: '{$siteurl}dongman/847399.html',
-            bdPic: 'http://i0.letvimg.com/lc03_isvrs/201504/05/13/15/165804fe-4862-4c5e-9020-264a00adac24.jpg'
-        },
-        share: [
-            {
-                "bdSize": 24
-            }
-        ]
-    }
-
-    function saveData(vid,type){
-        if(vid<1)return false;
-        var cookievideo = Cookie.get('video_'+vid);
-        if(cookievideo==vid){
-            //alert('您已经操作过了');
-            return false;
-        }
-        if(vid && type){
-            $.post(
-                    '/?ct=index&ac=video_data_save',
-                    {vid:vid,type:type},
-                    function(data){
-                        if(data.code==100){
-                            Cookie.set('video_'+vid,vid);
-                            return true;
-                        }else{
-                            //alert(data.str);
-                        }
-                    }
-                    ,'json'
-            );
-        }
-    }
-
-    $('.mlBottomRight .par').live('click',function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        var  currentlistpage = $('.cp_'+keycp+'_content .currentlistpage').val();
-        var  currentcpmaxpage = Number($('.cp_'+keycp+'_content .currentcpmaxpage').val());
-        if(currentlistpage<=1)return false;
-        else{
-            currentlistpage = Number(currentlistpage)-1;
-            $('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .pages_' +Number(currentlistpage)).show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(currentlistpage);
-            changePages(keycp,Number($('.cp_'+keycp+'_content .currentcpmaxpage').val()),currentlistpage);
-        }
-    });
-
-    $('.mlBottomRight .next').live('click',function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        var  currentlistpage = $('.cp_'+keycp+'_content .currentlistpage').val();
-        var  currentcpmaxpage = Number($('.cp_'+keycp+'_content .currentcpmaxpage').val());
-        if(currentcpmaxpage<=1 || currentlistpage>=currentcpmaxpage)return false;
-        else{
-            currentlistpage = Number(currentlistpage)+1;
-            $('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .pages_' +Number(currentlistpage)).show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(currentlistpage);
-            changePages(keycp,Number($('.cp_'+keycp+'_content .currentcpmaxpage').val()),currentlistpage);
-        }
-    });
-
-    $('.mlBottomRight .listpagenums').live('click',function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        var  currentlistpage = Number($('.cp_'+keycp+'_content .currentlistpage').val());
-        var  clicklistpage = Number($(this).html());
-        if(currentlistpage==clicklistpage)return false;
-        else{
-            currentlistpage = clicklistpage;
-            $('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .pages_' +Number(currentlistpage)).show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(currentlistpage);
-            changePages(keycp,Number($('.cp_'+keycp+'_content .currentcpmaxpage').val()),currentlistpage);
-
-        }
-    });
-
-    $('.movieListBottom .radio_sort1').click(function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        //cp_5_content
-        if($('.cp_'+keycp+'_content .list_zhengxu').css('display')!='none')return false;
-        else{
-            //$('.movieListNum').toggle();
-            $('.cp_'+keycp+'_content .movieListNum').hide();
-            $('.cp_'+keycp+'_content .list_zhengxu').show();
-            //$('.mlBottomLeft .radio').removeClass('radioEd');
-            $(this).parent().find('.radio').removeClass('radioEd');
-            $(this).addClass('radioEd');
-
-            $('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .pages_1').show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(1);
-
-            if(typeof($('.cp_'+keycp+'_content .mlBottomRight .listpagenums')['0'])!='undefined'){
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').attr('style','');
-                // index(0)
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').eq(0).css('color','#fff').css('background','#e05032').css('border','1px solid #d33c1d');
-            }
-        }
-    });
-
-    $('.movieListBottom .radio_sort2').click(function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        if($('.cp_'+keycp+'_content .list_daoxu').css('display')!='none'){
-            return false;
-        }
-        else{
-            //$('.movieListNum').toggle();
-            $('.cp_'+keycp+'_content .movieListNum').hide();
-            $('.cp_'+keycp+'_content .list_daoxu').show();
-            //$('.mlBottomLeft .radio').removeClass('radioEd');
-            $(this).parent().find('.radio').removeClass('radioEd');
-            $(this).addClass('radioEd');
-
-            $('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .pages_1').show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(1);
-
-            if(typeof($('.cp_'+keycp+'_content .mlBottomRight .listpagenums')['0'])!='undefined'){
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').attr('style','');
-                // index(0)
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').eq(0).css('color','#fff').css('background','#e05032').css('border','1px solid #d33c1d');
-            }
-        }
-    });
-
-    $('.playItem ul li a').click(function(){
-        var intCpSort = Number($(this).parent().attr('data-value'));
-        //alert(intCpSort); movieListCon
-        if($('.cp_'+intCpSort+'_content').css('display')!='none')return false;
-        else{
-            $('.movieListCon').hide();
-            $('.cp_'+intCpSort+'_content').show();
-        }
-    });
-
-   /* function changePages(cpid,totalpage,currentpage){
-        *//*<a href="javascript:;" class="next">&nbsp;</a>
-         <em>...</em>
-         mlBottomRight*//*
-        *//*
-         1-9
-         1 12345...89
-         2 12345...89
-         3 12345...89
-         4 1...345...89
-         5 1...456...89
-
-         6 12...56789
-         7 12...56789
-         8 12...56789
-         9 12...56789
-         *//*
-        var pagestrs= '<a href="javascript:;" class="par">&nbsp;</a>'+"\n";
-        var strSelectedCss = 'color: #fff;background: #e05032;border: 1px solid #d33c1d;';
-        if(totalpage<9){
-            //不用改变
-            return true;
-        }else{
-            if(currentpage>=4 && currentpage<totalpage-3){
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+currentpage+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage+1)+'</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else if(currentpage<4){
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">2</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">3</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">4</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">5</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else{
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">2</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-4)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-3)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-2)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }
-            pagestrs += '<a href="javascript:;" class="next">&nbsp;</a>'+"\n";
-            $('.cp_'+cpid+'_content .mlBottomRight').html(pagestrs);
-        }
-        return true;
-    }*/
-
-    //翻页
-    function changePages(cpid,totalpage,currentpage){
-        var pagestrs= '<a href="javascript:;" class="par">&nbsp;</a>'+"\n";
-        var strSelectedCss = 'color: #fff;background: #e05032;border: 1px solid #d33c1d;';
-        if(totalpage<9){
-            //不用改变
-            //为了变色
-            for(var i=1;i<=totalpage;i++){
-                if(i==currentpage){
-                    pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+i+'</a>'+"\n";
-                }else{
-                    pagestrs += '<a href="javascript:;" class="listpagenums">'+i+'</a>'+"\n";
-                }
-            }
-            pagestrs += '<a href="javascript:;" class="next">&nbsp;</a>'+"\n";
-            $('.cp_'+cpid+'_content .mlBottomRight').html(pagestrs);
-            return true;
-        }else{
-            if(currentpage>=4 && currentpage<totalpage-3){
-
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+currentpage+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage+1)+'</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else if(currentpage<4){
-                for(var j=1;j<=5;j++){
-                    if(j==currentpage){
-                        pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+j+'</a>'+"\n";
-                    }else{
-                        pagestrs += '<a href="javascript:;" class="listpagenums">'+j+'</a>'+"\n";
-                    }
-                }
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else{
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">2</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                for(var j=totalpage-4;j<=totalpage;j++){
-                    if(j==currentpage){
-                        pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+j+'</a>'+"\n";
-                    }else{
-                        pagestrs += '<a href="javascript:;" class="listpagenums">'+j+'</a>'+"\n";
-                    }
-                }
-            }
-            pagestrs += '<a href="javascript:;" class="next">&nbsp;</a>'+"\n";
-            $('.cp_'+cpid+'_content .mlBottomRight').html(pagestrs);
-        }
-        return true;
-    }
-    //end
-
-</script>
-<!-- 广告位：新版详情页对联 -->
-
 </body>
 </html>
