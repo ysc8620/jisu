@@ -12,7 +12,6 @@
 </head>
 <body>
 <php>
-    //同步热播
     $vod_dm_re_riben = js_mysql_vod('cid:3;area:22;limit:8;order:re_sort desc,vod_year desc, vod_addtime desc');
     $vod_dm_top_riben = js_mysql_vod('cid:3;area:22;limit:10;order:top_sort desc,vod_year desc, vod_addtime desc');
 
@@ -38,9 +37,9 @@
     <dt>筛选列表</dt>
     <dd>
       <ul class="clearfix">
-        <li> <a href="{$siteurl}dongman/0-0-0.html" class="current">全部</a> <a href="{$siteurl}dongman/85-0-0.html" >热血</a> <a href="{$siteurl}dongman/288-0-0.html" >恋爱</a> <a href="{$siteurl}dongman/289-0-0.html" >美少女</a> <a href="{$siteurl}dongman/91-0-0.html" >运动</a> <a href="{$siteurl}dongman/88-0-0.html" >搞笑</a> <a href="{$siteurl}dongman/290-0-0.html" >校园</a> <a href="{$siteurl}dongman/291-0-0.html" >幻想</a> <a href="{$siteurl}dongman/244-0-0.html" >冒险</a> <a href="{$siteurl}dongman/90-0-0.html" >魔幻</a> </li>
-        <li> <a href="{$siteurl}dongman/0-0-0.html" class="current">全部</a> <a href="{$siteurl}dongman/0-0-103.html" >美国</a> <a href="{$siteurl}dongman/0-0-98.html" >大陆</a> <a href="{$siteurl}dongman/0-0-99.html" >日本</a> <a href="{$siteurl}dongman/0-0-302.html" >其它</a> </li>
-        <li class="mo"> <a href="{$siteurl}dongman/0-0-0.html" class="current">全部</a> <a href="{$siteurl}dongman/0-331-0.html" >2015</a> <a href="{$siteurl}dongman/0-330-0.html" >2014</a> <a href="{$siteurl}dongman/0-200-0.html" >2013</a> <a href="{$siteurl}dongman/0-118-0.html" >2012</a> <a href="{$siteurl}dongman/0-25-0.html" >2011</a> <a href="{$siteurl}dongman/0-26-0.html" >2010</a> <a href="{$siteurl}dongman/0-27-0.html" >2009</a> <a href="{$siteurl}dongman/0-28-0.html" >2008</a> <a href="{$siteurl}dongman/0-29-0.html" >2007</a> </li>
+        <li> <a href="{$siteurl}dongman/0-0-0.html" class="current">全部</a> <a href="{$siteurl}dongman/51-0-0.html" >热血</a> <a href="{$siteurl}dongman/52-0-0.html" >恋爱</a> <a href="{$siteurl}dongman/53-0-0.html" >美少女</a> <a href="{$siteurl}dongman/54-0-0.html" >运动</a> <a href="{$siteurl}dongman/56-0-0.html" >搞笑</a> <a href="{$siteurl}dongman/55-0-0.html" >校园</a> <a href="{$siteurl}dongman/57-0-0.html" >幻想</a> <a href="{$siteurl}dongman/58-0-0.html" >冒险</a> <a href="{$siteurl}dongman/60-0-0.html" >魔幻</a> </li>
+        <li> <a href="{$siteurl}dongman/0-0-0.html" class="current">全部</a> <a href="{$siteurl}dongman/0-23-0.html" >美国</a> <a href="{$siteurl}dongman/0-24-0.html" >大陆</a> <a href="{$siteurl}dongman/0-22-0.html" >日本</a> <a href="{$siteurl}dongman/0-25-0.html" >其它</a> </li>
+        <li class="mo"> <a href="{$siteurl}dongman/0-0-0.html" class="current">全部</a> <a href="{$siteurl}dongman/0-0-2015.html" >2015</a> <a href="{$siteurl}dongman/0-0-2014.html" >2014</a> <a href="{$siteurl}dongman/0-0-2013.html" >2013</a> <a href="{$siteurl}dongman/0-0-2012.html" >2012</a> <a href="{$siteurl}dongman/0-0-2011.html" >2011</a> <a href="{$siteurl}dongman/0-0-2010.html" >2010</a> <a href="{$siteurl}dongman/0-0-2009.html" >2009</a> <a href="{$siteurl}dongman/0-0-2008.html" >2008</a> <a href="{$siteurl}dongman/0-0-2007.html" >2007</a> </li>
       </ul>
     </dd>
   </dl>
@@ -64,7 +63,7 @@
       <ul class="foldlist">
           <volist name="vod_dm_top_riben" id="vod" key="i">
         <li class="<if condition='$i eq 1'>hover</if>">
-          <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>1</b> </a>
+          <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
             <div class="imr">
               <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
               <p>类型：{$vod['vod_class_name']}</p>
@@ -100,7 +99,7 @@
       <ul class="foldlist">
           <volist name="vod_dm_top_yizhi" id="vod" key="i">
               <li class="<if condition='$i eq 1'>hover</if>">
-                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>1</b> </a>
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
@@ -148,7 +147,7 @@
       <ul class="foldlist">
           <volist name="vod_dm_top_guochan" id="vod" key="i">
               <li class="<if condition='$i eq 1'>hover</if>">
-                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>1</b> </a>
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>
@@ -187,7 +186,7 @@
       <ul class="foldlist">
           <volist name="vod_dm_top_meiguo" id="vod" key="i">
               <li class="<if condition='$i eq 1'>hover</if>">
-                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>1</b> </a>
+                  <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank" title="{$vod['vod_name']}"> <img src="{$siteurl}images/loading.gif" data-original="{$vod['vod_picurl']}" title="{$vod['vod_name']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                       <div class="imr">
                           <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                           <p>类型：{$vod['vod_class_name']}</p>

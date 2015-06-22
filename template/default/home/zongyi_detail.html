@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=7"/>
-<title>麦王争霸_高清视频在线观看-综艺娱乐大全</title>
-<meta name="keywords" content="麦王争霸">
-<meta name="description" content="广东电视台珠江频道与广东电视台音乐之声联合打造的“《麦王争霸》全球粤语歌唱大汇”近日在广州启动，张敬轩和本土歌手东山少爷现身助阵。《麦王争霸》活动分为两个部分，其一是4月至5月进行的“30年粤语金曲评选”，主打粤语金曲怀旧，重温粤语黄金时期的盛景；其二为6月至12月进行的“粤语流行歌唱大汇”，开设广州、深圳、南宁等15个赛区，以挑选原创粤语金曲、新生代粤语歌曲明星为目的，以期再掀粤语流行歌的热潮。">
+<title>{$title}</title>
+<meta name="keywords" content="{$keyword}">
+<meta name="description" content="{$vod_content|strip_tags}">
 <link href="{$tpl}/css/style.css?v2013" rel="stylesheet"/>
 <link href="{$tpl}/css/details.css" rel="stylesheet"/>
 </head>
@@ -14,17 +14,17 @@
 <div class="wrap clearfix">
   <div class="moiveDetails">
     <div class="detailsTop">
-      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}zongyi/">综艺</a><i>></i><em>麦王争霸</em></p>
+      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}zongyi/">综艺</a><i>></i><em>{$vod_name}</em></p>
     </div>
     <!-- 影片介绍 -->
     <div class="movieDescription clearfix">
-      <div class="movieDeLeft"> <img src="{$siteurl}img/2014/11/04/le/variety/3/d09o11d0T39.jpg" alt="麦王争霸" title="麦王争霸"  width="180" height="240" />
+      <div class="movieDeLeft"> <img src="{$vod_picurl}" alt="{$vod_name}" title="{$vod_name}"  width="180" height="240" />
         <div class="collection"> <a href="javascript:" class="collect"><i></i><span>收藏</span></a> <a href="javascript:" class="cancel"><i></i><span>取消</span></a> </div>
       </div>
       <div class="movieDeCenter">
         <div class="movieDeCenterTop clearfix">
           <div class="movieTitle">
-            <h1 title="麦王争霸"> 麦王争霸<span>(2011)</span> </h1>
+            <h1 title="{$vod_name}"> {$vod_name}<span>({$vod_year})</span> </h1>
           </div>
           <div class="start">
             <dl>
@@ -38,11 +38,11 @@
           </div>
         </div>
         <div class="movieDeCenterCon">
-          <p><span>主持人：</span><a class="v_dirRow_link" href="{$siteurl}sech-%E6%AF%9B%E7%90%B3.html" title="查看毛琳的影视资料" target="_blank">毛琳</a> <a class="v_dirRow_link" href="{$siteurl}sech-%E5%AE%8B%E5%98%89%E5%85%B6.html" title="查看宋嘉其的影视资料" target="_blank">宋嘉其</a></p>
-          <p><span>类型：</span><em class="textRight"><a class="v_dirRow_link" href="{$siteurl}zongyi/108-0-0.html">综艺</a> <a class="v_dirRow_link" href="{$siteurl}zongyi/109-0-0.html">选秀</a> <a class="v_dirRow_link" href="{$siteurl}zongyi/239-0-0.html">粤语</a></em></p>
-          <p><span>地区：</span><em>内地</em></p>
-          <p><span>状态：</span><em class="textBd">更新至2014-11-29期</em></p>
-          <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> 广东电视台珠江频道与广东电视台音乐之声联合打造的“《麦王争霸》全球粤语歌唱大汇”近日在广州启动，张敬轩和本土歌手东山少爷现身助阵。《麦王争霸》活动分为两个部分，其一是4月至5月进行的“30年粤语金曲评...<a href="javascript:" class="textMore">[更多]</a> </em> <em class="movieFr textAll"> 广东电视台珠江频道与广东电视台音乐之声联合打造的“《麦王争霸》全球粤语歌唱大汇”近日在广州启动，张敬轩和本土歌手东山少爷现身助阵。《麦王争霸》活动分为两个部分，其一是4月至5月进行的“30年粤语金曲评选”，主打粤语金曲怀旧，重温粤语黄金时期的盛景；其二为6月至12月进行的“粤语流行歌唱大汇”，开设广州、深圳、南宁等15个赛区，以挑选原创粤语金曲、新生代粤语歌曲明星为目的，以期再掀粤语流行歌的热潮。 <a href="javascript:" class="packUp">[收起]</a> </em> </p>
+          <p><span>主持人：</span><notempty name="vod_actor">{$vod_actor|js_search_url}<else />未录入</notempty></p>
+          <p><span>类型：</span><em class="textRight">{$vod_class_name}</em></p>
+          <p><span>地区：</span><em>{$vod_area_name|default='未知'}</em></p>
+          <p><span>状态：</span><em class="textBd">{$vod_continu|strip_tags}</em></p>
+          <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit">{:js_content_url($vod_content,$Tag)}</em> </p>
         </div>
       </div>
       <div class="movieDeRight">
@@ -384,21 +384,12 @@
         <!-- 相关影评 -->
         <!-- 猜你喜欢 -->
         <div class="youLike titleH3">
-          <h2> <a href="javascript:" class="titleHv"><strong>根据《麦王争霸》</strong>猜你喜欢</a><i>|</i> </h2>
+          <h2> <a href="javascript:" class="titleHv"><strong>根据《{$vod_name}》</strong>猜你喜欢</a><i>|</i> </h2>
           <div class="youLikeCon">
             <div class="youLikeItem disPlay">
               <ul>
                 <li> <a href="{$siteurl}zongyi/463185.html" title="央视2014春晚" target="_blank"> <img src="{$siteurl}img/2014/08/07/qy/variety/1/t2939FIb72n.jpg" alt="央视2014春晚" title="央视2014春晚"> <b>央视2014春晚</b> </a> <span>综艺,盛会,歌舞</span> </li>
-                <li> <a href="{$siteurl}zongyi/18354.html" title="娱乐猛回头" target="_blank"> <img src="{$siteurl}img/2015/05/27/pps_4/variety/5/in942a94X6K.jpg" alt="娱乐猛回头" title="娱乐猛回头"> <b>娱乐猛回头</b> </a> <span>综艺,播报</span> </li>
-                <li> <a href="{$siteurl}zongyi/18342.html" title="湖南卫视2012跨年演唱会" target="_blank"> <img src="{$siteurl}img/2013/07/18/qy/variety/9/262h3745W53.jpg" alt="湖南卫视2012跨年演唱会" title="湖南卫视2012跨年演唱会"> <b>湖南卫视2012跨年</b> </a> <span>综艺,盛会</span> </li>
-                <li> <a href="{$siteurl}zongyi/18377.html" title="深圳卫视2013跨年晚会" target="_blank"> <img src="{$siteurl}img/2013/07/18/qy/variety/10/x29T3941jqC.jpg" alt="深圳卫视2013跨年晚会" title="深圳卫视2013跨年晚会"> <b>深圳卫视2013跨年</b> </a> <span>综艺,盛会</span> </li>
-                <li> <a href="{$siteurl}zongyi/781991.html" title="央视2015元宵晚会" target="_blank"> <img src="{$siteurl}img/2015/03/06/qy/variety/2/2GbS5323oT1.jpg" alt="央视2015元宵晚会" title="央视2015元宵晚会"> <b>央视2015元宵晚会</b> </a> <span>综艺,盛会</span> </li>
-                <li> <a href="{$siteurl}zongyi/18324.html" title="百变大咖秀" target="_blank"> <img src="{$siteurl}img/2013/07/18/qy/variety/5/62aW19S5G65.jpg" alt="百变大咖秀" title="百变大咖秀"> <b>百变大咖秀</b> </a> <span>综艺,搞笑,其它,真人秀</span> </li>
-                <li> <a href="{$siteurl}zongyi/460761.html" title="音乐不要停" target="_blank"> <img src="{$siteurl}img/2014/08/06/qy/variety/10/4C604mZ3d09.jpg" alt="音乐不要停" title="音乐不要停"> <b>音乐不要停</b> </a> <span>综艺,播报</span> </li>
-                <li> <a href="{$siteurl}zongyi/24955.html" title="美女来了" target="_blank"> <img src="{$siteurl}img/2013/12/17/funshion_4/variety/7/5I02848U6w4.jpg" alt="美女来了" title="美女来了"> <b>美女来了</b> </a> <span>综艺,访谈</span> </li>
-                <li> <a href="{$siteurl}zongyi/130568.html" title="纵横四海(明星公益挑战)" target="_blank"> <img src="{$siteurl}img/2013/12/03/pps_4/variety/4/UI8UC570J72.jpg" alt="纵横四海(明星公益挑战)" title="纵横四海(明星公益挑战)"> <b>纵横四海(明星公益挑</b> </a> <span>综艺节目,国语</span> </li>
-                <li> <a href="{$siteurl}zongyi/158219.html" title="Radio Star" target="_blank"> <img src="{$siteurl}img/2014/01/11/pps_4/variety/8/J9lG9g62O50.jpg" alt="Radio Star" title="Radio Star"> <b>Radio Star</b> </a> <span>综艺,脱口秀,访谈</span> </li>
-              </ul>
+                 </ul>
             </div>
             <div class="youLikeItem ">
               <ul>
@@ -431,29 +422,13 @@
           <div class="ingrep-Cont" style="display:block;">
             <ul class="foldlist  guid-col2list">
               <li class="hover"> <em>1</em> <a href="{$siteurl}zongyi/895975.html" title="第68届戛纳国际电影节闭幕式全程" target="_blank">第68届戛纳国</a> </li>
-              <li > <em>2</em> <a href="{$siteurl}zongyi/873071.html" title="第22届北京大学生电影节颁奖典礼全程" target="_blank">第22届北京大</a> </li>
-              <li > <em>3</em> <a href="{$siteurl}zongyi/850079.html" title="第五届北京国际电影节闭幕式典礼全程" target="_blank">第五届北京国际</a> </li>
-              <li > <em>4</em> <a href="{$siteurl}zongyi/845735.html" title="第34届香港电影金像奖电视播出版" target="_blank">第34届香港电</a> </li>
-              <li > <em>5</em> <a href="{$siteurl}zongyi/844145.html" title="第六届大学生电影节主持人大赛决赛" target="_blank">第六届大学生电</a> </li>
-              <li > <em>6</em> <a href="{$siteurl}zongyi/844143.html" title="第34届香港电影金像奖红毯全程" target="_blank">第34届香港电</a> </li>
-              <li > <em>7</em> <a href="{$siteurl}zongyi/840651.html" title="第五届北京国际电影节开幕式全程（红毯+典礼）" target="_blank">第五届北京国际</a> </li>
-              <li > <em>8</em> <a href="{$siteurl}zongyi/833579.html" title="校花与学神" target="_blank">校花与学神</a> </li>
-              <li > <em>9</em> <a href="{$siteurl}zongyi/779963.html" title="第87届奥斯卡金像奖全程（红毯+颁奖典礼）" target="_blank">第87届奥斯卡</a> </li>
-              <li > <em>10</em> <a href="{$siteurl}zongyi/833599.html" title="《兔侠之青黎传说》首映庆典" target="_blank">《兔侠之青黎传</a> </li>
+
             </ul>
           </div>
           <div class="ingrep-Cont">
             <ul class="foldlist  guid-col2list">
               <li class="hover"> <em>1</em> <a href="{$siteurl}zongyi/18337.html" title="康熙来了" target="_blank">康熙来了</a> </li>
-              <li > <em>2</em> <a href="{$siteurl}zongyi/18322.html" title="非诚勿扰" target="_blank">非诚勿扰</a> </li>
-              <li > <em>3</em> <a href="{$siteurl}zongyi/159439.html" title="最强大脑" target="_blank">最强大脑</a> </li>
-              <li > <em>4</em> <a href="{$siteurl}zongyi/1558.html" title="篮球火" target="_blank">篮球火</a> </li>
-              <li > <em>5</em> <a href="{$siteurl}zongyi/129158.html" title="中国好声音(音乐真人秀)" target="_blank">中国好声音(音</a> </li>
-              <li > <em>6</em> <a href="{$siteurl}zongyi/33534.html" title="中国好声音第二季" target="_blank">中国好声音第二</a> </li>
-              <li > <em>7</em> <a href="{$siteurl}zongyi/129709.html" title="中国达人秀第二季" target="_blank">中国达人秀第二</a> </li>
-              <li > <em>8</em> <a href="{$siteurl}zongyi/129859.html" title="RunningMan" target="_blank">Running</a> </li>
-              <li > <em>9</em> <a href="{$siteurl}zongyi/697485.html" title="最强大脑 第二季" target="_blank">最强大脑 第二</a> </li>
-              <li > <em>10</em> <a href="{$siteurl}zongyi/18410.html" title="本山快乐营" target="_blank">本山快乐营</a> </li>
+
             </ul>
           </div>
         </div>
@@ -461,10 +436,7 @@
           <h3><span><a href="{$siteurl}zt/zy/">更多</a></span>精彩专题</h3>
           <ul>
             <li> <a href="{$siteurl}zt/zmjc4/index.htm" title="周末剧场—第四期"> <img src="{$siteurl}img/zt/2015/06/2015060517512977984.jpg" alt="周末剧场—第四期" title="周末剧场—第四期"> <span>周末剧场—第四期</span> </a> </li>
-            <li> <a href="{$siteurl}zt/zmjc3/index.htm" title="周末剧场—第三期"> <img src="{$siteurl}img/zt/2015/05/2015052915113831952.jpg" alt="周末剧场—第三期" title="周末剧场—第三期"> <span>周末剧场—第三期</span> </a> </li>
-            <li> <a href="{$siteurl}zt/zmjc2/index.htm" title="周末剧场—第二期"> <img src="{$siteurl}img/zt/2015/05/2015052216343926506.jpg" alt="周末剧场—第二期" title="周末剧场—第二期"> <span>周末剧场—第二期</span> </a> </li>
-            <li> <a href="{$siteurl}zt/hys/zmdfs.htm" title="周末剧场—第一期"> <img src="{$siteurl}img/zt/2015/05/2015052216304875302.jpg" alt="周末剧场—第一期" title="周末剧场—第一期"> <span>周末剧场—第一期</span> </a> </li>
-          </ul>
+         </ul>
         </div>
         <div style="width:300px;height:250px;margin-bottom:10px;"> BAIDU_CLB_fillSlot("850365"); </div>
       </div>
@@ -476,278 +448,7 @@
 <input type="hidden" class="videoUid" value="0">
 <include file="home:pp_footer" />
 <script type="text/javascript" src="{$tpl}/js/details.js"></script>
-<script>
-    window._bd_share_config = {
-        common: {
-            bdText: '我正在看综艺《麦王争霸》,好资源值得推荐（来自@114啦影视）',
-            bdDesc: '广东电视台珠江频道与广东电视台音乐之声联合打造的“《麦王争霸》全球粤语歌唱大汇”近日在广州启动，张敬轩和本土歌手东山少爷现身助阵。《麦王争霸》活动分为两个部分，其一是4月至5月进行的“30年粤语金曲评选”，主打粤语金曲怀旧，重温粤语黄金时期的盛景；其二为6月至12月进行的“粤语流行歌唱大汇”，开设广州、深圳、南宁等15个赛区，以挑选原创粤语金曲、新生代粤语歌曲明星为目的，以期再掀粤语流行歌的热潮。',
-            bdUrl: '{$siteurl}dianshi/18576.html',
-            bdPic: '{$siteurl}img/2014/11/04/le/variety/3/d09o11d0T39.jpg'
-        },
-        share: [
-            {
-                "bdSize": 24
-            }
-        ]
-    }
 
-
-    function saveData(vid,type){
-        if(vid<1)return false;
-        var cookievideo = Cookie.get('video_'+vid);
-        if(cookievideo==vid){
-            //alert('您已经操作过了');
-            return false;
-        }
-        if(vid && type){
-            $.post(
-                    '/?ct=index&ac=video_data_save',
-                    {vid:vid,type:type},
-                    function(data){
-                        if(data.code==100){
-                            Cookie.set('video_'+vid,vid);
-                            return true;
-                        }else{
-                            //alert(data.str);
-                        }
-                    }
-                    ,'json'
-            );
-
-        }
-    }
-
-    $('.mlBottomRight .par').live('click',function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        var  currentlistpage = Number($('.cp_'+keycp+'_content .currentlistpage').val());
-        if(currentlistpage<=1)return false;
-        else{
-            currentlistpage = Number(currentlistpage)-1;
-            //$('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content ul').hide();
-            $('.cp_'+keycp+'_content .pages_' +Number(currentlistpage)).show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(currentlistpage);
-
-            changePages(keycp,Number($('.cp_'+keycp+'_content .currentcpmaxpage').val()),currentlistpage);
-        }
-    });
-
-    $('.mlBottomRight .next').live('click',function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        var  currentlistpage = $('.cp_'+keycp+'_content .currentlistpage').val();
-        var  currentcpmaxpage = Number($('.cp_'+keycp+'_content .currentcpmaxpage').val());
-        if(currentcpmaxpage<=1 || currentlistpage>=currentcpmaxpage)return false;
-        else{
-            currentlistpage = Number(currentlistpage)+1;
-            //$('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content ul').hide();
-            $('.cp_'+keycp+'_content .pages_' +Number(currentlistpage)).show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(currentlistpage)
-
-            changePages(keycp,Number($('.cp_'+keycp+'_content .currentcpmaxpage').val()),currentlistpage);
-        }
-    });
-
-    //处理动态生成的html事件 使用live
-    $('.mlBottomRight .listpagenums').live('click',function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        var  currentlistpage = Number($('.cp_'+keycp+'_content .currentlistpage').val());
-        var  clicklistpage = Number($(this).html());
-        if(currentlistpage==clicklistpage)return false;
-        else{
-            currentlistpage = clicklistpage;
-            //$('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .movielistall ul').hide();
-            $('.cp_'+keycp+'_content .pages_'+Number(currentlistpage)).show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(currentlistpage);
-            changePages(keycp,Number($('.cp_'+keycp+'_content .currentcpmaxpage').val()),currentlistpage);
-        }
-    });
-
-    $('.movieListBottom .radio_sort1').click(function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        //cp_5_content
-        if($('.cp_'+keycp+'_content .list_zhengxu').css('display')!='none')return false;
-        else{
-            //$('.movieListNum').toggle();
-            //$('.cp_'+keycp+'_content .movieListNum').hide();
-            $('.cp_'+keycp+'_content .movielistall').hide();
-            $('.cp_'+keycp+'_content .list_zhengxu').show();
-            //$('.mlBottomLeft .radio').removeClass('radioEd');
-            $(this).parent().find('.radio').removeClass('radioEd');
-            $(this).addClass('radioEd');
-
-            //$('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .movielistall ul').hide();
-            $('.cp_'+keycp+'_content .pages_1').show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(1);
-
-            if(typeof($('.cp_'+keycp+'_content .mlBottomRight .listpagenums')['0'])!='undefined'){
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').attr('style','');
-                // index(0)
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').eq(0).css('color','#fff').css('background','#e05032').css('border','1px solid #d33c1d');
-            }
-        }
-    });
-
-    $('.movieListBottom .radio_sort2').click(function(){
-        var keycp = Number($(this).parent().attr('data-key'));
-        if(keycp<1)return false;
-        if($('.cp_'+keycp+'_content .list_daoxu').css('display')!='none'){
-            return false;
-        }
-        else{
-            //$('.movieListNum').toggle();
-            //$('.cp_'+keycp+'_content .movieListNum').hide();
-            $('.cp_'+keycp+'_content .movielistall').hide();
-            $('.cp_'+keycp+'_content .list_daoxu').show();
-            //$('.mlBottomLeft .radio').removeClass('radioEd');
-            $(this).parent().find('.radio').removeClass('radioEd');
-            $(this).addClass('radioEd');
-
-            //$('.cp_'+keycp+'_content .movieListNum ul').hide();
-            $('.cp_'+keycp+'_content .movielistall ul').hide();
-            $('.cp_'+keycp+'_content .pages_1').show();
-            $('.cp_'+keycp+'_content .currentlistpage').val(1);
-
-            if(typeof($('.cp_'+keycp+'_content .mlBottomRight .listpagenums')['0'])!='undefined'){
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').attr('style','');
-                // index(0)
-                $('.cp_'+keycp+'_content .mlBottomRight .listpagenums').eq(0).css('color','#fff').css('background','#e05032').css('border','1px solid #d33c1d');
-            }
-        }
-    });
-
-    $('.playItem ul li a').click(function(){
-        var intCpSort = Number($(this).parent().attr('data-value'));
-        //alert(intCpSort); movieListCon
-        if($('.cp_'+intCpSort+'_content').css('display')!='none')return false;
-        else{
-            $('.movieListCon').hide();
-            $('.cp_'+intCpSort+'_content').show();
-        }
-    });
-
-    function changePages_old(cpid,totalpage,currentpage){
-        /*<a href="javascript:;" class="next">&nbsp;</a>
-         <em>...</em>
-        mlBottomRight*/
-        /*
-        1-9
-        1 12345...89
-        2 12345...89
-        3 12345...89
-        4 1...345...89
-        5 1...456...89
-
-        6 12...56789
-        7 12...56789
-        8 12...56789
-        9 12...56789
-         */
-        var pagestrs= '<a href="javascript:;" class="par">&nbsp;</a>'+"\n";
-        if(totalpage<9){
-            //不用改变
-            return true;
-        }else{
-            if(currentpage>=4 && currentpage<totalpage-3){
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+currentpage+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage+1)+'</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else if(currentpage<4){
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">2</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">3</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">4</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">5</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else{
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">2</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-4)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-3)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-2)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }
-            pagestrs += '<a href="javascript:;" class="next">&nbsp;</a>'+"\n";
-            $('.cp_'+cpid+'_content .mlBottomRight').html(pagestrs);
-        }
-
-        return true;
-    }
-
-    //翻页
-    function changePages(cpid,totalpage,currentpage){
-        var pagestrs= '<a href="javascript:;" class="par">&nbsp;</a>'+"\n";
-        var strSelectedCss = 'color: #fff;background: #e05032;border: 1px solid #d33c1d;';
-        if(totalpage<9){
-            //不用改变
-            //为了变色
-            for(var i=1;i<=totalpage;i++){
-                if(i==currentpage){
-                    pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+i+'</a>'+"\n";
-                }else{
-                    pagestrs += '<a href="javascript:;" class="listpagenums">'+i+'</a>'+"\n";
-                }
-            }
-            pagestrs += '<a href="javascript:;" class="next">&nbsp;</a>'+"\n";
-            $('.cp_'+cpid+'_content .mlBottomRight').html(pagestrs);
-            return true;
-        }else{
-            if(currentpage>=4 && currentpage<totalpage-3){
-
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+currentpage+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(currentpage+1)+'</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else if(currentpage<4){
-                for(var j=1;j<=5;j++){
-                    if(j==currentpage){
-                        pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+j+'</a>'+"\n";
-                    }else{
-                        pagestrs += '<a href="javascript:;" class="listpagenums">'+j+'</a>'+"\n";
-                    }
-                }
-                pagestrs += '<em>...</em>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+(totalpage-1)+'</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">'+totalpage+'</a>'+"\n";
-            }else{
-                pagestrs += '<a href="javascript:;" class="listpagenums">1</a>'+"\n";
-                pagestrs += '<a href="javascript:;" class="listpagenums">2</a>'+"\n";
-                pagestrs += '<em>...</em>'+"\n";
-                for(var j=totalpage-4;j<=totalpage;j++){
-                    if(j==currentpage){
-                        pagestrs += '<a href="javascript:;" class="listpagenums" style="'+strSelectedCss+'">'+j+'</a>'+"\n";
-                    }else{
-                        pagestrs += '<a href="javascript:;" class="listpagenums">'+j+'</a>'+"\n";
-                    }
-                }
-            }
-            pagestrs += '<a href="javascript:;" class="next">&nbsp;</a>'+"\n";
-            $('.cp_'+cpid+'_content .mlBottomRight').html(pagestrs);
-        }
-        return true;
-    }
-    //end
-
-</script>
 <!-- 广告位：新版详情页对联 -->
 BAIDU_CLB_fillSlot("850088");
 </body>
