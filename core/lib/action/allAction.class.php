@@ -99,10 +99,17 @@ class allAction extends Action{
         $urllist = array();
         $array_url = explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$urlone));
         foreach($array_url as $key=>$val){
+
             if (strpos($val,'$') > 0) {
                 $ji = explode('$',$val);
-                $urllist[$key]['playname'] = trim($ji[0]);
-                $urllist[$key]['playpath'] = trim($ji[1]);
+                if(count($ji) > 2){
+                    $urllist[$key]['playname'] = trim($ji[1]);
+                    $urllist[$key]['playpath'] = trim($ji[2]);
+                }else{
+                    $urllist[$key]['playname'] = trim($ji[0]);
+                    $urllist[$key]['playpath'] = trim($ji[1]);
+                }
+
             }else{
                 $urllist[$key]['playname'] = '第'.($key+1).'集';
                 $urllist[$key]['playpath'] = trim($val);
