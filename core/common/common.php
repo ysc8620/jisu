@@ -899,7 +899,7 @@ function js_search_url($str,$type="actor",$sidname='vod',$action='search'){
     $str = str_replace(array('/','|',',','，'),' ',$str);
 	$arr = explode(' ',$str);
 	foreach($arr as $key=>$val){
-		$array[$key] = '<a href="'.UU('home-'.$sidname.'/'.$action,array($type=>urlencode($val)),false,true).'" target="_blank">'.$val.'</a>';
+		$array[$key] = '<a href="/search.html?'.$type.'='.urlencode($val).'" target="_blank">'.$val.'</a>';
 	}
 	return implode(' ',$array);
 }
@@ -1075,7 +1075,14 @@ function js_mysql_vod($tag){
 	}
 
     if($tag['class_id']){
-        $where['vod_class'] = array('exp'," is not null and INSTR(vod_class,'{$tag['class_id']}')");
+        $class_id = explode(',',trim($tag['class_id']));
+        //print_r($class_id);
+        if (count($class_id)>1) {
+            $where['vod_class'] = array('eq',str_replace(',','/',$tag['class_id']));
+        }else{
+            $where['vod_class'] = array('exp'," is not null and INSTR(vod_class,'{$tag['class_id']}')");
+        }
+
     }
 
     if($tag['isfilm']){

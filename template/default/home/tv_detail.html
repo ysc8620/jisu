@@ -70,7 +70,6 @@
           <h2> <span class="feedBack"> <a href="javascript:" onClick="divcenter()">意见反馈</a> </span>
             <!-- 广告位：详情页320*30 -->
             <span style="margin-right:83px;">
-           BAIDU_CLB_fillSlot("875984");
             </span> <strong><span class="puTitle">《{$vod_name}》完整</span>播放地址</strong> </h2>
           <div class="playItem clearfix">
             <ul>
@@ -108,42 +107,57 @@
         <!-- 相关影评 -->
         <!-- 猜你喜欢 -->
         <div class="youLike titleH3">
-          <h2> <a href="javascript:" class="titleHv"><strong>根据《待嫁老爸》</strong>猜你喜欢</a><i>|</i> <a href="javascript:" class=""><strong>《待嫁老爸》</strong>同主演作品</a><i>|</i> </h2>
+          <h2> <a href="javascript:" class="titleHv"><strong>根据《{$vod_name}》</strong>猜你喜欢</a><i></h2>
           <div class="youLikeCon">
             <div class="youLikeItem disPlay">
-              <ul>
-                <li> <a href="{$siteurl}dianshi/814239.html" title="妻子的谎言未删减版" target="_blank"> <img src="{$siteurl}img/2015/03/30/qy/tvs/9/9kRe1207J15.jpg" alt="妻子的谎言未删减版" title="妻子的谎言未删减版"> <b>妻子的谎言未删减版</b> </a> <span>电视剧,言情剧,都市</span> </li>
-          </ul>
+                <php>
+                    if ($vod_class){
+                    $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
+                    $list  = js_mysql_vod("cid:2;class_id:$cids;limit:11;order:re_sort desc,vod_year desc, vod_addtime desc");
+                    }else{
+                    $list  = js_mysql_vod("cid:2;limit:11;order:re_sort desc,vod_year desc, vod_addtime desc");
+                    }
+                </php>
+                <ul>
+                    <php>$j=0;</php>
+                    <volist name="list" id="vod" >
+                        <if condition="$vod['vod_id'] neq $vod_id">
+                            <php> $j++;
+                                if($j>10){break;}
+                            </php>
+                            <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" title="{$vod['vod_name']}"> <b>{$vod['vod_name']}</b> </a> <span>{$vod['vod_class_name']}</span> </li>
+                        </if>
+                    </volist>
+                </ul>
             </div>
-            <div class="youLikeItem ">
-              <ul>
-                <li> <a href="{$siteurl}dianshi/8702.html" title="东边日出西边雨" target="_blank"> <img src="http://img36.pplive.cn/2011/10/09/14223337289_230X306.jpg" alt="东边日出西边雨" title="东边日出西边雨"> <b>东边日出西边雨</b> </a> <span>爱情</span> </li>
-         </ul>
-            </div>
+
 
           </div>
         </div>
         <div id="pagead">
           <!-- 广告位：详情页搜狗650*90 -->
-          <script type="text/javascript">BAIDU_CLB_fillSlot("850361");</script>
         </div>
       </div>
       <div class="detailsSidebar">
-        <div class="theStart clearfix">
-          <h3>相关明星</h3>
-          <ul>
-            <li> <a href="{$siteurl}mingxing-5411.html" title="王志文" target="_blank">
-              <div style="overflow: hidden; height: 80px;"><img src="{$siteurl}img/2013/11/19/v114la/dianying/4/7z9cA5xt886.jpg" alt="王志文" title="王志文"></div>
-              <span>王志文</span> </a> </li>
 
-          </ul>
-        </div>
         <div style="width:300px;height:250px;">
           <!-- 广告位：详情页通用300*250 -->
-          <script type="text/javascript">BAIDU_CLB_fillSlot("1005147");</script>
+            <img src="{$tpl}images/a/i_ls2.png">
         </div>
         <div class="sideCont fr ingrep clearfix">
           <div class="inTitle">
+              <php>
+                  if ($vod_class){
+                  $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
+                  $class_id = end($cids);
+                  $news  = js_mysql_vod("cid:1;class_id:$class_id;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:1;class_id:$class_id;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  }else{
+
+                  $news  = js_mysql_vod("cid:1;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:1;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  }
+              </php>
             <h3 title="热门排行榜" style="margin-bottom:0px;"><a href="{$siteurl}top/tv.html" title="热门排行榜" target="_blank">热门排行榜</a></h3>
             <div class="contabs">
               <ul>
@@ -154,25 +168,21 @@
           </div>
           <div class="ingrep-Cont" style="display:block;">
             <ul class="foldlist  guid-col2list">
-              <li class="hover"> <em>1</em> <a href="{$siteurl}dianshi/120283.html" title="杜拉拉之似水年华 番外篇" target="_blank">杜拉拉之似水年</a> </li>
-
+                <volist name="news" id="vod" key="i">
+                    <li class="<if condition='$i eq 1'>hover</if>"> <em>{$i}</em> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a> </li>
+                </volist>
             </ul>
           </div>
           <div class="ingrep-Cont">
             <ul class="foldlist  guid-col2list">
-              <li class="hover"> <em>1</em> <a href="{$siteurl}dianshi/677029.html" title="武媚娘传奇" target="_blank">武媚娘传奇</a> </li>
-
+                <volist name="news" id="vod" key="i">
+                    <li class="<if condition='$i eq 1'>hover</if>"> <em>{$i}</em> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a> </li>
+                </volist>
             </ul>
           </div>
         </div>
-        <div class="theStart project clearfix">
-          <h3><span><a href="{$siteurl}zt/dianshi/">更多</a></span>精彩专题</h3>
-          <ul>
-            <li> <a href="{$siteurl}zt/zhuju/index.htm" title="最新电视剧大全"> <img src="{$siteurl}img/zt/2015/06/2015060415004489990.jpg" alt="最新电视剧大全" title="最新电视剧大全"> <span>最新电视剧大全</span> </a> </li>
-                    </ul>
-        </div>
+
         <div style="width:300px;height:250px;margin-bottom:10px;">
-          BAIDU_CLB_fillSlot("850365");
         </div>
       </div>
     </div>
