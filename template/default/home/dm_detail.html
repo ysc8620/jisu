@@ -170,5 +170,15 @@
 </div>
 <include file="home:pp_footer" />
 <script type="text/javascript" src="{$tpl}/js/details.js"></script>
+<script type="text/javascript">
+    $('.playItem li').click(function(){
+        $('.playItem li a').removeClass('plHv');
+        $(this).find('a').addClass('plHv');
+        $('div.movieListCon').hide();
+        $('.playItem .triangle').hide();
+        $('div.cp_'+$(this).attr('data-value')+'_content').show();
+        $(this).find('.triangle').show();
+    });
+</script>
 </body>
 </html>
