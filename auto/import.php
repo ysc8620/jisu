@@ -57,7 +57,7 @@ $i = 0;
 $j=0;
 $size = 1000;
 do{
-    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE cid_ids=3 ORDER BY id DESC LIMIT $i, $size");
+    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE 1 ORDER BY id DESC LIMIT $i, $size");
 
     if(count($list_data) < 1){break;}
     foreach($list_data as $row){
