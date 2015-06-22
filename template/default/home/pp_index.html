@@ -441,7 +441,7 @@
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
-                        <p>{:mb_substr($vod['vod_content'],0,20,'utf-8')}</p>
+                        <p>{:mb_substr(strip_tags($vod['vod_content']),0,20,'utf-8')}</p>
                         <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
                 </div>
                 <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span></span></p>
@@ -458,7 +458,7 @@
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
-                        <p>{:mb_substr ($vod['vod_content'],0,20,'utf-8')}</p>
+                        <p>{:mb_substr (strip_tags($vod['vod_content']),0,20,'utf-8')}</p>
                         <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
                 </div>
                 <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span></span></p>
@@ -475,7 +475,7 @@
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
-                        <p>{:mb_substr ($vod['vod_content'],0,20,'utf-8')}}</p>
+                        <p>{:mb_substr (strip_tags($vod['vod_content']),0,20,'utf-8')}}</p>
                         <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a></div>
                 </div>
                 <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span></span></p>
