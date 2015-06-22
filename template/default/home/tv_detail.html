@@ -150,12 +150,12 @@
                   if ($vod_class){
                   $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
                   $class_id = end($cids);
-                  $news  = js_mysql_vod("cid:1;class_id:$class_id;limit:10;order:vod_year desc, vod_addtime desc");
-                  $top  = js_mysql_vod("cid:1;class_id:$class_id;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  $news  = js_mysql_vod("cid:2;class_id:$class_id;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:2;class_id:$class_id;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
                   }else{
 
-                  $news  = js_mysql_vod("cid:1;limit:10;order:vod_year desc, vod_addtime desc");
-                  $top  = js_mysql_vod("cid:1;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  $news  = js_mysql_vod("cid:2;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:2;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
                   }
               </php>
             <h3 title="热门排行榜" style="margin-bottom:0px;"><a href="{$siteurl}top/tv.html" title="热门排行榜" target="_blank">热门排行榜</a></h3>

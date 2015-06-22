@@ -105,18 +105,27 @@
           <h2> <a href="javascript:" class="titleHv"><strong>根据《{$vod_name}》</strong>猜你喜欢</a><i>|</i> </h2>
           <div class="youLikeCon">
             <div class="youLikeItem disPlay">
-              <ul>
-                <li> <a href="{$siteurl}zongyi/463185.html" title="央视2014春晚" target="_blank"> <img src="{$siteurl}img/2014/08/07/qy/variety/1/t2939FIb72n.jpg" alt="央视2014春晚" title="央视2014春晚"> <b>央视2014春晚</b> </a> <span>综艺,盛会,歌舞</span> </li>
-                 </ul>
+                <php>
+                    if ($vod_class){
+                    $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
+                    $list  = js_mysql_vod("cid:4;class_id:$cids;limit:11;order:re_sort desc,vod_year desc, vod_addtime desc");
+                    }else{
+                    $list  = js_mysql_vod("cid:4;limit:11;order:re_sort desc,vod_year desc, vod_addtime desc");
+                    }
+                </php>
+                <ul>
+                    <php>$j=0;</php>
+                    <volist name="list" id="vod" >
+                        <if condition="$vod['vod_id'] neq $vod_id">
+                            <php> $j++;
+                                if($j>10){break;}
+                            </php>
+                            <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" title="{$vod['vod_name']}"> <b>{$vod['vod_name']}</b> </a> <span>{$vod['vod_class_name']}</span> </li>
+                        </if>
+                    </volist>
+                </ul>
             </div>
-            <div class="youLikeItem ">
-              <ul>
-              </ul>
-            </div>
-            <div class="youLikeItem ">
-              <ul>
-              </ul>
-            </div>
+
           </div>
         </div>
         <div id="pagead">
@@ -126,9 +135,22 @@
       <div class="detailsSidebar">
         <div style="width:300px;height:250px;">
           <!-- 广告位：详情页通用300*250 -->
+            <img src="{$tpl}images/a/i_ls2.png">
          </div>
         <div class="sideCont fr ingrep clearfix">
           <div class="inTitle">
+              <php>
+                  if ($vod_class){
+                  $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
+                  $class_id = end($cids);
+                  $news  = js_mysql_vod("cid:4;class_id:$class_id;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:4;class_id:$class_id;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  }else{
+
+                  $news  = js_mysql_vod("cid:4;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:4;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  }
+              </php>
             <h3 title="热门排行榜" style="margin-bottom:0px;"><a href="{$siteurl}top/zongyi.html" title="热门排行榜" target="_blank">热门排行榜</a></h3>
             <div class="contabs">
               <ul>
@@ -139,24 +161,21 @@
           </div>
           <div class="ingrep-Cont" style="display:block;">
             <ul class="foldlist  guid-col2list">
-              <li class="hover"> <em>1</em> <a href="{$siteurl}zongyi/895975.html" title="第68届戛纳国际电影节闭幕式全程" target="_blank">第68届戛纳国</a> </li>
-
+                <volist name="news" id="vod" key="i">
+                    <li class="<if condition='$i eq 1'>hover</if>"> <em>{$i}</em> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a> </li>
+                </volist>
             </ul>
           </div>
           <div class="ingrep-Cont">
             <ul class="foldlist  guid-col2list">
-              <li class="hover"> <em>1</em> <a href="{$siteurl}zongyi/18337.html" title="康熙来了" target="_blank">康熙来了</a> </li>
-
+                <volist name="news" id="vod" key="i">
+                    <li class="<if condition='$i eq 1'>hover</if>"> <em>{$i}</em> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a> </li>
+                </volist>
             </ul>
           </div>
         </div>
-        <div class="theStart project clearfix">
-          <h3><span><a href="{$siteurl}zt/zy/">更多</a></span>精彩专题</h3>
-          <ul>
-            <li> <a href="{$siteurl}zt/zmjc4/index.htm" title="周末剧场—第四期"> <img src="{$siteurl}img/zt/2015/06/2015060517512977984.jpg" alt="周末剧场—第四期" title="周末剧场—第四期"> <span>周末剧场—第四期</span> </a> </li>
-         </ul>
-        </div>
-        <div style="width:300px;height:250px;margin-bottom:10px;"> BAIDU_CLB_fillSlot("850365"); </div>
+
+        <div style="width:300px;height:250px;margin-bottom:10px;">  </div>
       </div>
     </div>
   </div>

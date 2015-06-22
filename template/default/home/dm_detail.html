@@ -66,7 +66,7 @@
           <h2> <span class="feedBack"> <a href="javascript:" onClick="divcenter()">意见反馈</a> </span>
             <!-- 广告位：详情页320*30 -->
             <span style="margin-right:83px;">
-            BAIDU_CLB_fillSlot("875984")
+
             </span> <strong><span class="puTitle">《{$vod_name}》完整</span>播放地址</strong> </h2>
 
             <div class="playItem clearfix">
@@ -100,9 +100,9 @@
                     </div>
                 </div>
             </volist>
-        </div>
+
         <!-- 广告位：详情页640*60*2 -->
-       BAIDU_CLB_fillSlot("864456")
+
         </div>
         <!-- 图片、片花预告、视频资讯、专题detailsType -->
         <!-- 相关影评 -->
@@ -111,27 +111,54 @@
           <h2> <a href="javascript:" class="titleHv"><strong>根据《{$vod_name}》</strong>猜你喜欢</a><i>|</i> </h2>
           <div class="youLikeCon">
             <div class="youLikeItem disPlay">
-              <ul>
-                <li> <a href="{$siteurl}dongman/135032.html" title="玉响OVA" target="_blank"> <img src="http://i2.letvimg.com/vrs/201306/25/b8e9a14db0fd46d7981612ca664d56ea.jpg" alt="玉响OVA" title="玉响OVA"> <b>玉响OVA</b> </a> <span>美少女|生活|治愈|校园</span> </li>
-              </ul>
+                <php>
+                    if ($vod_class){
+                    $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
+                    $list  = js_mysql_vod("cid:3;class_id:$cids;limit:11;order:re_sort desc,vod_year desc, vod_addtime desc");
+                    }else{
+                    $list  = js_mysql_vod("cid:3;limit:11;order:re_sort desc,vod_year desc, vod_addtime desc");
+                    }
+
+
+                </php>
+                <ul>
+                    <php>$j=0;</php>
+                    <volist name="list" id="vod" >
+                        <if condition="$vod['vod_id'] neq $vod_id">
+                            <php> $j++;
+                                if($j>10){break;}
+                            </php>
+                            <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" title="{$vod['vod_name']}"> <b>{$vod['vod_name']}</b> </a> <span>{$vod['vod_class_name']}</span> </li>
+                        </if>
+                    </volist>
+                </ul>
             </div>
-            <div class="youLikeItem ">
-              <ul>
-              </ul>
-            </div>
-            <div class="youLikeItem ">
-              <ul>
-              </ul>
-            </div>
+
           </div>
         </div>
         <div id="pagead">
-          -- 广告位：详情页搜狗650*90 --
+
         </div>
       </div>
       <div class="detailsSidebar">
+          <div style="width:300px;height:250px;">
+              <!-- 广告位：详情页通用300*250 -->
+              <img src="{$tpl}images/a/i_ls2.png">
+          </div>
         <div class="sideCont fr ingrep clearfix">
           <div class="inTitle">
+              <php>
+                  if ($vod_class){
+                  $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
+                  $class_id = end($cids);
+                  $news  = js_mysql_vod("cid:3;class_id:$class_id;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:3;class_id:$class_id;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  }else{
+
+                  $news  = js_mysql_vod("cid:3;limit:10;order:vod_year desc, vod_addtime desc");
+                  $top  = js_mysql_vod("cid:3;limit:10;order:vod_hits desc, vod_year desc, vod_addtime desc");
+                  }
+              </php>
             <h3 title="热门排行榜" style="margin-bottom:0px;"><a href="{$siteurl}top/anime.html" title="热门排行榜" target="_blank">热门排行榜</a></h3>
             <div class="contabs">
               <ul>
@@ -142,27 +169,24 @@
           </div>
           <div class="ingrep-Cont" style="display:block;">
             <ul class="foldlist  guid-col2list">
-              <li class="hover"> <em>1</em> <a href="{$siteurl}dongman/909389.html" title="霹雳谜城之九轮异谱" target="_blank">霹雳谜城之九轮</a> </li>
-                      </ul>
+                <volist name="news" id="vod" key="i">
+                    <li class="<if condition='$i eq 1'>hover</if>"> <em>{$i}</em> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a> </li>
+                </volist>    </ul>
           </div>
           <div class="ingrep-Cont">
             <ul class="foldlist  guid-col2list">
-              <li class="hover"> <em>1</em> <a href="{$siteurl}dongman/878269.html" title="名侦探柯南 国语版" target="_blank">名侦探柯南 国</a> </li>
-                   </ul>
+                <volist name="news" id="vod" key="i">
+                    <li class="<if condition='$i eq 1'>hover</if>"> <em>{$i}</em> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a> </li>
+                </volist>    </ul>
           </div>
         </div>
-        <div class="theStart project clearfix">
-          <h3><span><a href="{$siteurl}zt/dm/">更多</a></span>精彩专题</h3>
-          <ul>
-            <li> <a href="/zt/dm/guoyu.html?0" title="动画片国语专区" target="_blank"> <img src="{$siteurl}img/zt/2015/01/2015011916590011648.jpg" alt="动画片国语专区" title="动画片国语专区"> <span>动画片国语专区</span> </a> </li>
-                   </ul>
-        </div>
+
         <div style="width:300px;height:250px;">
           <!-- 广告位：详情页通用300*250 -->
-          BAIDU_CLB_fillSlot("1005147")
+
         </div>
         <div style="width:300px;height:250px;margin-bottom:10px;">
-          BAIDU_CLB_fillSlot("850365")
+
         </div>
       </div>
     </div>
