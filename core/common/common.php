@@ -899,6 +899,10 @@ function js_search_url($str,$type="q",$sidname='vod',$action='search'){
     $str = str_replace(array('/','|',',','，'),' ',$str);
 	$arr = explode(' ',$str);
 	foreach($arr as $key=>$val){
+        if(empty(trim($val)))
+        {
+            continue;
+        }
 		$array[$key] = '<a href="/search.html?q='.urlencode($val).'" target="_blank">'.$val.'</a>';
 	}
 	return implode(' ',$array);
