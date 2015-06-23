@@ -48,7 +48,7 @@
             <if condition="!empty($vod_continu)">
             <p> <span>看点：</span><em class="textRight">{:str_replace('/',' ',$vod_continu)}</em></p>
             </if>
-            <p> <span>片长：</span><em>124分钟</em> </p>
+            <p> <span>片长：</span><em>{$vod_filmtime}</em> </p>
           <p class="textAbout"> <span class="movieFl">剧情：</span> <em class="movieFr textOmit"> {:js_content_url($vod_content,$Tag)}</em> </p>
         </div>
       </div>
@@ -78,7 +78,7 @@
             <ul>
               <li><volist name="vod_playlist" id="pay" key="i">
                   <volist name="pay['son']" id="ppvodson" key="j">
-                        <li data-value="{$i}"> <a href="{$siteurl}?s=vod-play-id-{$vod_id}&url={:urlencode($ppvodson['playpath'])}"  rel="nofollow" target="_blank" title="{$pay['playername']}"> <i class="gico-site gico-{$pay['playname']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
+                        <li data-value="{$i}"> <a href="{$siteurl}play.html?id={$vod_id}&url={:urlencode($ppvodson['playpath'])}"  rel="nofollow" target="_blank" title="{$pay['playername']}"> <i class="gico-site gico-{$pay['playname']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
                     </volist>
                 </volist>
             </ul>

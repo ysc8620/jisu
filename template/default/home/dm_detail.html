@@ -95,7 +95,7 @@
                     <div class="movieListNum clearfix list_zhengxu" style="display:block">
                         <ul class="pages_1">
                             <volist name="pay['son']" id="ppvodson" key="j">
-                                <li> <a href="{$siteurl}?s=vod-play-id-{$vod_id}&url={:urlencode($ppvodson['playpath'])}" rel="nofollow" title="{$ppvodson.playname}" target="_blank">{$ppvodson.playname}</a> </li>
+                                <li> <a href="{$siteurl}play.html?id={$vod_id}&url={:urlencode($ppvodson['playpath'])}" rel="nofollow" title="{$ppvodson.playname}" target="_blank">{$ppvodson.playname}</a> </li>
                             </volist>     </ul>
                     </div>
                 </div>
