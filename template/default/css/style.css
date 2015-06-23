@@ -185,7 +185,7 @@ ul.caseList li p{color:#929292; width: 200px; height: 32px; overflow: hidden;}
 .comcaseRow li a:hover{color:#e05032;}
 .comcaseRow li em{width:184px;height:138px;background:#000 url(../images/play.png) no-repeat center center;opacity:0.3;filter:alpha(opacity=30);position:absolute;left:0;top:0px;display:none;}
 .comcaseRow li:hover em{display:inline-block;}
-.comcaseRow li p{color:#929292;}
+.comcaseRow li p{color:#929292; width: 155px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 
 .leftSide{width:670px;background:#fff;}
 .oveaside{width:670px;}

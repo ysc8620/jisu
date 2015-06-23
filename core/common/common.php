@@ -894,12 +894,12 @@ function js_letter_url($file='vod',$str=''){
 	return $str;
 }
 // 获取搜索带链接
-function js_search_url($str,$type="actor",$sidname='vod',$action='search'){
+function js_search_url($str,$type="q",$sidname='vod',$action='search'){
 	$array = array();
     $str = str_replace(array('/','|',',','，'),' ',$str);
 	$arr = explode(' ',$str);
 	foreach($arr as $key=>$val){
-		$array[$key] = '<a href="/search.html?'.$type.'='.urlencode($val).'" target="_blank">'.$val.'</a>';
+		$array[$key] = '<a href="/search.html?q='.urlencode($val).'" target="_blank">'.$val.'</a>';
 	}
 	return implode(' ',$array);
 }
