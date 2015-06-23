@@ -7,22 +7,22 @@
  * QQ: 372613912
  */
 
-if(!file_exists(  '../runtime/conf/config.php')){
+if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');
 }
-$config = include_once('../runtime/conf/config.php');
-if(!file_exists( '../runtime/data/_ppvod/area.php')){
+$config = include_once(dirname(__FILE__) .'/../runtime/conf/config.php');
+if(!file_exists( dirname(__FILE__) .'/../runtime/data/_ppvod/area.php')){
     die('arealist config no exists');
 }
-$area = @include_once('../runtime/data/_ppvod/area.php');
+$area = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/area.php');
 
-if(!file_exists( '../runtime/data/_ppvod/list.php')){
+if(!file_exists( dirname(__FILE__) .'/../runtime/data/_ppvod/list.php')){
     die('list config no exists');
 }
-$list = @include_once('../runtime/data/_ppvod/list.php');
+$list = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/list.php');
 
 
-require_once 'db.php';
+require_once dirname(__FILE__) .'/db.php';
 /**----------------------------------------------------------
  * 在数据列表中搜索
 +----------------------------------------------------------
@@ -132,6 +132,7 @@ do{
             'vod_continu'=>$row['update_remark'],
             'vod_watch'=>$row['watch_str'],
             'vod_pic'=>$row['pic'],
+            'vod_isfilm'=>$row['is_finish']?'3':'1',
             'vod_area'=>$area_id,
             'vod_area_name'=>$row['area'],
             'vod_year'=>$row['year'],
