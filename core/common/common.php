@@ -896,10 +896,11 @@ function js_letter_url($file='vod',$str=''){
 // 获取搜索带链接
 function js_search_url($str,$type="q",$sidname='vod',$action='search'){
 	$array = array();
-    $str = str_replace(array('/','|',',','，'),' ',$str);
+    $str = str_replace(array('/','|',',','，',';'),' ',$str);
 	$arr = explode(' ',$str);
 	foreach($arr as $key=>$val){
-        if(strlen(trim($val))<1)
+        $val = trim($val);
+        if(strlen($val)<1)
         {
             continue;
         }
