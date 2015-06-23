@@ -61,8 +61,8 @@ $i = 0;
 $j=0;
 $size = 1000;
 do{
-    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'2015-06-23  05' ORDER BY id ASC LIMIT $i, $size");
-
+    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, $size");
+    print "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, $size";
     if(count($list_data) < 1){break;}
     foreach($list_data as $row){
         //`vod_id`, `vod_cid`, `vod_class`, `vod_class_name`, `vod_name`, `vod_title`, `vod_keywords`, `vod_color`, `vod_actor`,
