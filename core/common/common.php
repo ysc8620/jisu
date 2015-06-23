@@ -899,7 +899,7 @@ function js_search_url($str,$type="q",$sidname='vod',$action='search'){
     $str = str_replace(array('/','|',',','，'),' ',$str);
 	$arr = explode(' ',$str);
 	foreach($arr as $key=>$val){
-        if(empty(trim($val)))
+        if(strlen(trim($val))<1)
         {
             continue;
         }
