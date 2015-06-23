@@ -895,18 +895,18 @@ function js_letter_url($file='vod',$str=''){
 }
 // 获取搜索带链接
 function js_search_url($str,$type="q",$sidname='vod',$action='search'){
-	$array = array();
+    $array = array();
     $str = str_replace(array('/','|',',','，',';'),' ',$str);
-	$arr = explode(' ',$str);
-	foreach($arr as $key=>$val){
+    $arr = explode(' ',$str);
+    foreach($arr as $key=>$val){
         $val = trim($val);
         if(strlen($val)<1)
         {
             continue;
         }
-		$array[$key] = '<a href="/search.html?q='.urlencode($val).'" target="_blank">'.$val.'</a>';
-	}
-	return implode(' ',$array);
+        $array[$key] = '<a href="/search.html?'.$type.'='.urlencode($val).'" target="_blank">'.$val.'</a>';
+    }
+    return implode(' ',$array);
 }
 // 获取影片最后一集array(sid,pid,jiname,jipath)
 function js_play_url_end($vod_url){
