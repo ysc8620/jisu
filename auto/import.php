@@ -53,11 +53,15 @@ function list_search($list,$condition) {
     return $resultSet;
 }
 
+$time = file_get_contents(dirname(__FILE__).'/last_time.log');
+
+file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
+
 $i = 0;
 $j=0;
 $size = 1000;
 do{
-    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'2015-06-23' ORDER BY id ASC LIMIT $i, $size");
+    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'2015-06-23  05' ORDER BY id ASC LIMIT $i, $size");
 
     if(count($list_data) < 1){break;}
     foreach($list_data as $row){
