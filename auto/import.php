@@ -56,7 +56,9 @@ function list_search($list,$condition) {
 $time = file_get_contents(dirname(__FILE__).'/last_time.log');
 
 file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
-
+if(isset($argv[1])){
+    $time = $argv[1];
+}
 $i = 0;
 $j=0;
 $size = 1000;
