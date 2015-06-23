@@ -18,17 +18,17 @@
     // 推荐电影
     $vod_mv_re_news = js_mysql_vod('cid:1;limit:8;order:re_sort desc, vod_addtime desc');
     $vod_mv_re_xiju = js_mysql_vod('cid:1;class_id:8;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_mv_top_xiju = js_mysql_vod('cid:1;class_id:8;limit:10;order:top_sort desc, vod_addtime desc');
+    $vod_mv_top_xiju = js_mysql_vod('cid:1;class_id:8;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
     $vod_mv_re_kehuan = js_mysql_vod('cid:1;class_id:12;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_mv_top_kehuan = js_mysql_vod('cid:1;class_id:12;limit:10;order:re_sort desc, vod_addtime desc');
-    $vod_mv_top_meiguo = js_mysql_vod('cid:1;area:11;limit:6;order:re_sort desc, vod_addtime desc');
+    $vod_mv_top_kehuan = js_mysql_vod('cid:1;class_id:12;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
+    $vod_mv_top_meiguo = js_mysql_vod('cid:1;area:11;limit:6;order:top_sort desc,vod_hits DESC, vod_addtime desc');
     $vod_mv_re_aiqing = js_mysql_vod('cid:1;class_id:9;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_mv_top_aiqing = js_mysql_vod('cid:1;class_id:9;limit:10;order:re_sort desc, vod_addtime desc');
+    $vod_mv_top_aiqing = js_mysql_vod('cid:1;class_id:9;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
     $vod_mv_re_kongbu = js_mysql_vod('cid:1;class_id:11;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_mv_top_kongbu = js_mysql_vod('cid:1;class_id:49;limit:10;order:re_sort desc, vod_addtime desc');
+    $vod_mv_top_kongbu = js_mysql_vod('cid:1;class_id:49;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
     $vod_mv_re_rihan = js_mysql_vod('cid:1;area:13;limit:6;order:re_sort desc, vod_addtime desc');
     $vod_mv_re_juqing = js_mysql_vod('cid:1;class_id:13;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_mv_top_juqing = js_mysql_vod('cid:1;class_id:13;limit:10;order:re_sort desc, vod_addtime desc');
+    $vod_mv_top_juqing = js_mysql_vod('cid:1;class_id:13;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 </php>
 <div class="wrapper" id="balance">
   <div class="comwrap clearfix">

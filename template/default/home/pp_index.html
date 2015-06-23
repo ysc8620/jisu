@@ -12,7 +12,7 @@
 </head>
 <body>
 <php>
-    $vod_tv_hot = js_mysql_vod('cid:2;isfilm:3;limit:5;order:hot_sort desc, vod_addtime desc');
+    $vod_tv_hot = js_mysql_vod('cid:2;isfilm:3;limit:6;order:hot_sort desc, vod_addtime desc');
     // 推荐电视剧
     $vod_tv_re_hot = js_mysql_vod('cid:2;limit:7;order:re_sort desc, hot_sort desc, vod_addtime desc');
     $vod_tv_re_news = js_mysql_vod('cid:2;limit:8;order:vod_addtime desc');
@@ -22,9 +22,9 @@
     $vod_tv_re_meiju = js_mysql_vod('cid:2;area:8;limit:8;order:re_sort desc, vod_addtime desc');
     $vod_tv_re_taiju = js_mysql_vod('cid:2;area:4;limit:8;order:re_sort desc, vod_addtime desc');
 
-    $vod_tv_top = js_mysql_vod('cid:2;limit:10;order:top_sort DESC,vod_addtime desc');
-    $vod_tv_top_hanju = js_mysql_vod('cid:2;area:5;limit:10;order:top_sort DESC, vod_addtime desc');
-    $vod_tv_top_meiju = js_mysql_vod('cid:2;area:8;limit:10;order:top_sort DESC, vod_addtime desc');
+    $vod_tv_top = js_mysql_vod('cid:2;limit:10;order:top_sort DESC,vod_hits DESC,vod_addtime desc');
+    $vod_tv_top_hanju = js_mysql_vod('cid:2;area:5;limit:10;order:top_sort DESC,vod_hits DESC, vod_addtime desc');
+    $vod_tv_top_meiju = js_mysql_vod('cid:2;area:8;limit:10;order:top_sort DESC,vod_hits DESC, vod_addtime desc');
 
     // 推荐电影
     $vod_mv_re_hot = js_mysql_vod('cid:1;limit:7;order:re_sort desc, hot_sort desc, vod_addtime desc');
@@ -35,8 +35,8 @@
     $vod_mv_re_kongbu = js_mysql_vod('cid:1;class_id:11;limit:8;order:re_sort desc, vod_addtime desc');
 
     $vod_mv_top = js_mysql_vod('cid:1;limit:10;order: vod_addtime desc');
-    $vod_mv_top_xiju = js_mysql_vod('cid:1;class_id:8;limit:10;order:top_sort DESC, vod_addtime desc');
-    $vod_mv_top_kehuan = js_mysql_vod('cid:1;class_id:12;limit:10;order:top_sort DESC, vod_addtime desc');
+    $vod_mv_top_xiju = js_mysql_vod('cid:1;class_id:8;limit:10;order:top_sort DESC,vod_hits DESC, vod_addtime desc');
+    $vod_mv_top_kehuan = js_mysql_vod('cid:1;class_id:12;limit:10;order:top_sort DESC,vod_hits DESC, vod_addtime desc');
 
     // 动漫
     $vod_dm_re_hot = js_mysql_vod('cid:3;limit:7;order:re_sort desc, hot_sort desc, vod_addtime desc');
@@ -44,9 +44,9 @@
     $vod_dm_re_guochan = js_mysql_vod('cid:3;area:24;limit:8;order:re_sort desc, vod_addtime desc');
     $vod_dm_re_meiguo = js_mysql_vod('cid:3;area:23;limit:8;order:re_sort desc, vod_addtime desc');
 
-    $vod_dm_top = js_mysql_vod('cid:3;limit:10;order: vod_addtime desc');
-    $vod_dm_top_riben = js_mysql_vod('cid:3;area:22;limit:10;order:top_sort DESC, vod_addtime desc');
-    $vod_dm_top_guochan = js_mysql_vod('cid:3;area:24;limit:10;order:top_sort DESC, vod_addtime desc');
+    $vod_dm_top = js_mysql_vod('cid:3;limit:10;order: top_sort DESC,vod_addtime desc');
+    $vod_dm_top_riben = js_mysql_vod('cid:3;area:22;limit:10;order:top_sort DESC, vod_hits DESC,vod_addtime desc');
+    $vod_dm_top_guochan = js_mysql_vod('cid:3;area:24;limit:10;order:top_sort DESC,vod_hits DESC, vod_addtime desc');
 
     // 综艺
     $vod_zy_re_hot = js_mysql_vod('cid:4;limit:7;order:re_sort desc, hot_sort desc, vod_addtime desc');
@@ -55,9 +55,9 @@
     $vod_zy_re_qinggan = js_mysql_vod('cid:4;class_id:88;limit:8;order:re_sort desc, vod_addtime desc');
     $vod_zy_re_fangtan = js_mysql_vod('cid:4;class_id:87;limit:8;order:re_sort desc, vod_addtime desc');
 
-    $vod_zy_top = js_mysql_vod('cid:4;limit:10;order: vod_addtime desc');
-    $vod_zy_top_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:10;order:top_sort DESC, vod_addtime desc');
-    $vod_zy_top_fangtan = js_mysql_vod('cid:4;class_id:87;limit:10;order:top_sort DESC, vod_addtime desc');
+    $vod_zy_top = js_mysql_vod('cid:4;limit:10;order:top_sort DESC, vod_addtime desc');
+    $vod_zy_top_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:10;order:top_sort DESC, top_sort DESC, vod_addtime desc');
+    $vod_zy_top_fangtan = js_mysql_vod('cid:4;class_id:87;limit:10;order:top_sort DESC,top_sort DESC,  vod_addtime desc');
 
     // 专题
 

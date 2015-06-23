@@ -13,24 +13,24 @@
 <body>
 <php>
     $vod_zy_re_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_zy_top_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:10;order:top_sort desc, vod_addtime desc');
+    $vod_zy_top_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:10;order:top_sort desc, vod_hits DESC,vod_addtime desc');
 
     $vod_zy_re_fangtan = js_mysql_vod('cid:4;class_id:87;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_zy_top_fangtan = js_mysql_vod('cid:4;class_id:87;limit:10;order:top_sort desc, vod_addtime desc');
+    $vod_zy_top_fangtan = js_mysql_vod('cid:4;class_id:87;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 
     $vod_zy_re_shishang = js_mysql_vod('cid:4;class_id:93;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_zy_top_shishang = js_mysql_vod('cid:4;class_id:93;limit:10;order:top_sort desc, vod_addtime desc');
+    $vod_zy_top_shishang = js_mysql_vod('cid:4;class_id:93;limit:10;order:top_sort desc, vod_hits DESC,vod_addtime desc');
 
     $vod_zy_re_neidi = js_mysql_vod('cid:4;area:26;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_zy_top_neidi = js_mysql_vod('cid:4;area:26;limit:10;order:top_sort desc, vod_addtime desc');
+    $vod_zy_top_neidi = js_mysql_vod('cid:4;area:26;limit:10;order:top_sort desc, vod_hits DESC,vod_addtime desc');
 
     $vod_zy_re_taiwan = js_mysql_vod('cid:4;area:27;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_zy_top_taiwan= js_mysql_vod('cid:4;area:27;limit:10;order:top_sort desc, vod_addtime desc');
+    $vod_zy_top_taiwan= js_mysql_vod('cid:4;area:27;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 
     $vod_zy_re_yinyue = js_mysql_vod('cid:4;class_id:92;limit:6;order:re_sort desc, vod_addtime desc');
 
     $vod_zy_re_qinggan = js_mysql_vod('cid:4;class_id:88;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_zy_top_qinggan = js_mysql_vod('cid:4;class_id:88;limit:10;order:top_sort desc, vod_addtime desc');
+    $vod_zy_top_qinggan = js_mysql_vod('cid:4;class_id:88;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 </php>
 
 <include file="home:pp_header" />
