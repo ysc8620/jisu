@@ -25,7 +25,7 @@ $(function(){
 	//处理左右分栏高度
 	$("#balance .comwrap").find(".sideCont").each(function(){
 		var dimHeight = $(this).height();
-		$(this).parent().find(".leftSide").height(dimHeight);
+		// $(this).parent().find(".leftSide").height(dimHeight);
 	});
 
 	//首页内容切换
