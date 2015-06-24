@@ -98,14 +98,14 @@
       <ul class="foldlist">
           <volist name="vod_tv_top_guonei" id="vod" key="i">
         <li class="<if condition='$i eq 1'>hover</if>">
-          <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>1</b> </a>
+          <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
             <div class="imr">
               <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
               <p>类型：{$vod['vod_class_name']}</p>
               <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               <a href="{$vod['vod_readurl']}" class="p" target="_blank">立即播放</a> </div>
           </div>
-          <p><em>1</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span></span></p>
+          <p><em>{$i}</em><a href="{$vod['vod_readurl']}" target="_blank">{$vod['vod_name']}</a><span></span></p>
         </li>
       </volist>
       </ul>
