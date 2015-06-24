@@ -12,8 +12,9 @@
 </head>
 <body>
 <include file="home:pp_header" />
-<include file="home:pp_movie_slider" />
 <include file="home:pp_nav" />
+<include file="home:pp_movie_slider" />
+
 <php>
     // 推荐电影
     $vod_mv_re_news = js_mysql_vod('cid:1;limit:8;order:re_sort desc, vod_addtime desc');
