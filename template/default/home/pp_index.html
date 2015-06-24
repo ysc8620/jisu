@@ -106,7 +106,7 @@
     <div class="clearfix rowleft">
         <volist name="vod_tv_re_hot" id="vod" offset="0" length="1">
         <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{:strip_tags($vod['vod_golder'])}</cite></a>
-            <p>{:strip_tags($vod['vod_content'])}...<em></em></p>
+            <p>{:mb_substr(strip_tags($vod['vod_content']),0,100,'utf-8')}<em></em></p>
         </div>
             </volist>
         <ul class="sumgroup fr clearfix">
@@ -235,7 +235,7 @@
             <volist name="vod_mv_re_hot" id="vod" key="i">
                 <if condition="$i lt 2">
             <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>{:str_replace('/',' ',$vod_continu)}</cite></a>
-                <p>{$vod['vod_content']|strip_tags}<em></em></p>
+                <p>{:mb_substr(strip_tags($vod['vod_content']),0,100,'utf-8')}<em></em></p>
             </div>
                 </if>
                 </volist>
