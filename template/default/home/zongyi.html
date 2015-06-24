@@ -18,8 +18,7 @@
     $vod_zy_re_fangtan = js_mysql_vod('cid:4;class_id:87;limit:8;order:re_sort desc, vod_addtime desc');
     $vod_zy_top_fangtan = js_mysql_vod('cid:4;class_id:87;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 
-    $vod_zy_re_shishang = js_mysql_vod('cid:4;class_id:93;limit:8;order:re_sort desc, vod_addtime desc');
-    $vod_zy_top_shishang = js_mysql_vod('cid:4;class_id:93;limit:10;order:top_sort desc, vod_hits DESC,vod_addtime desc');
+    $vod_zy_re_shishang = js_mysql_vod('cid:4;class_id:93;limit:6;order:re_sort desc, vod_addtime desc');
 
     $vod_zy_re_neidi = js_mysql_vod('cid:4;area:26;limit:8;order:re_sort desc, vod_addtime desc');
     $vod_zy_top_neidi = js_mysql_vod('cid:4;area:26;limit:10;order:top_sort desc, vod_hits DESC,vod_addtime desc');
@@ -121,7 +120,7 @@
             <h3 title="选秀节目排行榜"><a href="{$siteurl}top/zongyi-xuanxiu.html" title="选秀节目排行榜" target="_blank">选秀节目排行榜</a></h3>
             <a href="{$siteurl}top/zongyi-xuanxiu.html" class="more" target="_blank">完整榜单>></a> </div>
         <ul class="foldlist">
-            <volist name="vod_zy_re_xuanxiu" id="vod" key="i">
+            <volist name="vod_zy_top_xuanxiu" id="vod" key="i">
                 <li class="<if condition='$i eq 1'>hover</if>">
                     <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                         <div class="imr">
@@ -146,7 +145,7 @@
             <h2 title="访谈节目" pos="p02"><a href="{$siteurl}zongyi/87-0-0.html" title="访谈节目" target="_blank">访谈节目</a></h2>
             <a href="{$siteurl}zongyi/87-0-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
         <ul class="sumgroup entire clearfix">
-            <volist name="vod_zy_re_xuanxiu" id="vod">
+            <volist name="vod_zy_re_fangtan" id="vod">
                 <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
                     <p>主演：{$vod['vod_actor']}</p>
                 </li>
@@ -158,7 +157,7 @@
             <h3 title="访谈节目排行榜"><a href="{$siteurl}top/zongyi-fangtan.html" title="访谈节目排行榜" target="_blank">访谈节目排行榜</a></h3>
             <a href="{$siteurl}top/zongyi-fangtan.html" class="more" target="_blank">完整榜单>></a> </div>
         <ul class="foldlist">
-            <volist name="vod_zy_re_qfangtan" id="vod" key="i">
+            <volist name="vod_zy_top_fangtan" id="vod" key="i">
                 <li class="<if condition='$i eq 1'>hover</if>">
                     <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                         <div class="imr">
@@ -184,7 +183,7 @@
         <h2 title="时尚生活专区" pos="p03"><a href="{$siteurl}zongyi/93-0-0.html" title="时尚生活专区" target="_blank">时尚生活专区</a></h2>
         <a href="{$siteurl}zongyi/93-0-0.html" class="more"  target="_blank">更多&gt;&gt;</a> </div>
     <ul class="sumgroup oneRow clearfix">
-        <volist name="vod_zy_re_fangtan" id="vod">
+        <volist name="vod_zy_re_shishang" id="vod">
             <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
                 <p>主演：{$vod['vod_actor']}</p>
             </li>
