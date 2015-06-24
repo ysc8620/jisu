@@ -16,6 +16,7 @@ textarea {overflow:auto;}
 article,aside,dialog,footer,header,section,nav,figure,menu,time,hgroup{display:block}
 table{border-collapse:collapse; border-spacing: 0;}
 .clearfix{zoom:1;}
+.cls{clear: both;}
 .clearfix:after{content:"."; display:block; height:0;clear:both;visibility:hidden;}
 /** html .clearfix{height:1%;}
 *+html .clearfix{height:1%;}*/
