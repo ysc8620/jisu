@@ -276,7 +276,7 @@
         <h2 title="泰剧热播"><a href="{$siteurl}dianshi/0-6-0.html" title="泰剧热播" target="_blank">泰剧热播</a></h2>
         <a href="{$siteurl}dianshi/0-6-0.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
       <ul class="sumgroup entire clearfix">
-          <volist name="vod_tv_re_taiju" id="vod">
+          <volist name="vod_tv_re_taiguoju" id="vod">
               <li> <a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <cite>{$vod['vod_name']}</cite> <em></em> </a>
                   <p>主演：{$vod['vod_actor']|msubstr=0,12,'utf-8',true}</p>
               </li>
@@ -288,7 +288,7 @@
         <h3 title="泰剧排行榜"><a href="{$siteurl}top/dianshi/taiguo.html" title="泰剧排行榜" target="_blank">泰剧排行榜</a></h3>
         <a href="{$siteurl}top/dianshi/taiguo.html" class="more" target="_blank">完整榜单>></a> </div>
       <ul class="foldlist">
-          <volist name="vod_tv_top_taiju" id="vod" key="i">
+          <volist name="vod_tv_top_taiguoju" id="vod" key="i">
               <li class="<if condition='$i eq 1'>hover</if>">
                   <div class="hisus"> <a href="{$vod['vod_readurl']}" class="img" target="_blank"> <img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /> <b>{$i}</b> </a>
                       <div class="imr">
