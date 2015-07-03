@@ -293,7 +293,7 @@ $(function(){
 		$("#searchTxt").val(kw);
 		$("#js-query-data").hide();
 		//searchform();
-		window.location.href='/sech-'+kw+'.html'; 
+		window.location.href='/search.html?q='+kw;
 		//return false;
 	});
 	$("a.goplay").live("click", function(){
