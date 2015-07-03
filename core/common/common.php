@@ -1207,7 +1207,7 @@ function js_mysql_vod($tag){
 		//$pageurl = js_list_url('vod',C('jumpurl'),9999);
 		$pageurl = "/{$tag['list_dir']}/{$tag['class_id']}-{$tag['area']}-{$tag['year']}-{!page!}.html";
 
-        if($tag['wd']){
+        if (isset($tag['wd'])) {
             $pageurl = "/search.html?q={$tag['wd']}&p={!page!}";
         }
 		$pages = '共'.$count.'部影片&nbsp;当前:'.$currentpage.'/'.$totalpages.'页&nbsp;'.getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl);
