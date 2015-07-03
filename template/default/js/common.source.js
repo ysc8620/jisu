@@ -892,9 +892,9 @@ function AutoScroll(obj, height) {
 function searchform(){
 	var q = $('#searchTxt').val(), t = $('input[name=t]').val();
 	if(t){
-		self.location.href='/sech-'+t+'-'+q+'.html';  
+		self.location.href='/search.html?'+t+'='+q;
 	}else{
-		self.location.href='/sech-'+q+'.html';
+		self.location.href='/search.html?q='+q;
 	}
 };
 

@@ -385,7 +385,6 @@ var FF = {
 			}
 		}
 	},
-	//观看历史记录 FF.History.Insert('硝烟背后的战争','',10,1,'','')
 	'History': {
 		'Json': '',
 		'Display': true,
@@ -402,16 +401,16 @@ var FF = {
 		},
 		'Clear': function(){
 			FF.Cookie.Del('FF_Cookie');
-			$('#history_box').html('<li class="hx_clear">已清空观看记录。</li>');
+			$('#hisStatu').html('<li class="hx_clear">已清空观看记录。</li>');
 		},	
 		'Show': function(){
-			$('#history_box').show();
+			$('#hisStatu').show();
 		},
 		'Hide': function(){
-			$('#history_box').hide();
+			$('#hisStatu').hide();
 		},
 		'FlagHide': function(){
-			$('#history_box').hover(function(){
+			$('#hisStatu').hover(function(){
 				FF.History.Display = false;
 				FF.History.Show();
 			}, function(){
@@ -447,12 +446,8 @@ var FF = {
 				html +='<dd class="hide">暂无观看记录。</dd>';
 			}
 			html += '</dl>';
-			$('#'+$id).after(html);
-			
-			var w = $('#'+$id).width();
-			var h = $('#'+$id).height();
-			var position = $('#'+$id).position();
-			$('#history_box').css({'left':position.left,'top':(position.top+h)});
+
+			$('#hisStatu').html(html);
 			//$('#history_box').width(w);
 		},	
 		'Insert': function(vodname,vodlink,limit,days,cidname,vodpic){
@@ -502,9 +497,8 @@ $(document).ready(function(){
 	//系统初始化
 	FF.Home.Js();
 	//延时加载
-	FF.Lazyload.Show();	
+	FF.Lazyload.Show();
 	//搜索联想
 	FF.Suggest.Show('wd',12,Root+'index.php?s=plus-search-vod',Root+'index.php?s=vod-search-wd-');
-	//历史记录
-	FF.History.List('history');
+FF.History.Show()
 });
