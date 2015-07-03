@@ -1206,6 +1206,10 @@ function js_mysql_vod($tag){
 		//生成分页列表
 		//$pageurl = js_list_url('vod',C('jumpurl'),9999);
 		$pageurl = "/{$tag['list_dir']}/{$tag['class_id']}-{$tag['area']}-{$tag['year']}-{!page!}.html";
+
+        if($tag['wd']){
+            $pageurl = "/search.html?q={$tag['wd']}&p={!page!}";
+        }
 		$pages = '共'.$count.'部影片&nbsp;当前:'.$currentpage.'/'.$totalpages.'页&nbsp;'.getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl);
 		//数据列表
 		$list = $rs->field($field)->where($where)->order($order)->limit($limit)->page($currentpage)->select();
