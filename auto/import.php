@@ -21,6 +21,11 @@ if(!file_exists( dirname(__FILE__) .'/../runtime/data/_ppvod/list.php')){
 }
 $list = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/list.php');
 
+if(!file_exists( dirname(__FILE__) .'/../runtime/data/_ppvod/listtree.php')){
+    die('list config no exists');
+}
+$listtree = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/listtree.php');
+
 // 自动更新html
 /*模拟浏览器*/
 $user_agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.1.4322)";
@@ -46,7 +51,8 @@ function load($url){
         return '失败:Errno' . curl_error ( $curl );
     }
     curl_close ( $curl ); // 关闭CURL会话
-    return $res;
+    unset($res);
+    return true;
 }
 
 require_once dirname(__FILE__) .'/db.php';
@@ -79,7 +85,7 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-$url = 'http://www.php369.com/';
+$url = 'http://www.php369.com/index.php?';
 $time = file_get_contents(dirname(__FILE__).'/last_time.log');
 
 file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
@@ -191,7 +197,7 @@ do{
         }
 
         //
-        load ($url."?m=vod&a=read&list_dir={$class[0]['list_dir']}&id={$id}");
+        load ($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id={$id}");
         print $i.'='.$row['id'].'=' .$row['title'].'，'.$row['class_name'].'=' .$vod_class.'，'.$row['area'].'=' .$area_id."\r\n";
     }
 
@@ -204,11 +210,15 @@ do{
 // 自动更新html
 // 首页
 //
-load($url.'?m=index&a=index');
-load($url.'?m=vod&a=show&list_dir=dianying');
-load($url.'?m=vod&a=show&list_dir=dianshi');
-load($url.'?m=vod&a=show&list_dir=dongman');
-load($url.'?m=vod&a=show&list_dir=zongyi');
+load($url.'m=index&a=index');
+
+foreach($listtree as $cate){
+    load( $url.'m=vod&a=show&list_dir='.$cate['list_dir'] );
+    load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'] );
+    foreach($cate['son'] as $son){
+        load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'].'&class_id='.$son['list_id'] );
+    }
+}
 
 /*
 
