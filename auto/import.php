@@ -28,6 +28,7 @@ $header = array ();
 
 
 function load($url){
+    echo $url."\n";
     global $header,$agent;
     $curl = curl_init (); // 启动一个CURL会话
     curl_setopt ( $curl, CURLOPT_URL, $url ); // 要访问的地址
@@ -203,11 +204,11 @@ do{
 // 自动更新html
 // 首页
 //
-//load($url.'?m=index&a=index');
-//load($url.'?m=vod&a=show&list_dir=dianying');
-//load($url.'?m=vod&a=show&list_dir=dianshi');
-//load($url.'?m=vod&a=show&list_dir=dongman');
-//load($url.'?m=vod&a=show&list_dir=zongyi');
+load($url.'?m=index&a=index');
+load($url.'?m=vod&a=show&list_dir=dianying');
+load($url.'?m=vod&a=show&list_dir=dianshi');
+load($url.'?m=vod&a=show&list_dir=dongman');
+load($url.'?m=vod&a=show&list_dir=zongyi');
 
 /*
 
