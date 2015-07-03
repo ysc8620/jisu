@@ -6,7 +6,7 @@
  * Email: ysc8620@163.com
  * QQ: 372613912
  */
-
+set_time_limit(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');
 }
@@ -21,6 +21,32 @@ if(!file_exists( dirname(__FILE__) .'/../runtime/data/_ppvod/list.php')){
 }
 $list = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/list.php');
 
+// 自动更新html
+/*模拟浏览器*/
+$user_agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.1.4322)";
+$header = array ();
+
+
+function load($url){
+    global $header,$agent;
+    $curl = curl_init (); // 启动一个CURL会话
+    curl_setopt ( $curl, CURLOPT_URL, $url ); // 要访问的地址
+    curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, 0 ); // 对认证证书来源的检查
+    curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, 2 ); // 从证书中检查SSL加密算法是否存在
+    curl_setopt ( $curl, CURLOPT_USERAGENT, $agent ); // 模拟用户使用的浏览器
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方
+    @curl_setopt ( $curl, CURLOPT_FOLLOWLOCATION, 1 ); // 使用自动跳转
+    curl_setopt ( $curl, CURLOPT_HTTPGET, 1 ); // 发送一个常规的GET请求
+    curl_setopt ( $curl, CURLOPT_TIMEOUT, 120 ); // 设置超时限制防止死循环
+    curl_setopt ( $curl, CURLOPT_HEADER, 0 ); // 不显示返回的Header区域内容
+    curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, 1 ); // 获取的信息以文件流的形式返回
+    $res = curl_exec ( $curl ); // 执行操作
+    if (curl_errno ( $curl )) {
+        return '失败:Errno' . curl_error ( $curl );
+    }
+    curl_close ( $curl ); // 关闭CURL会话
+    return $res;
+}
 
 require_once dirname(__FILE__) .'/db.php';
 /**----------------------------------------------------------
@@ -52,7 +78,7 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-
+$url = 'http://www.php369.com/';
 $time = file_get_contents(dirname(__FILE__).'/last_time.log');
 
 file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
@@ -150,15 +176,43 @@ do{
         );
         // print_r($row);
         // break;
+
+        $class = list_search($list,"list_id={$row['cid_ids']}");
         $vod = Db::init()->getOne('SELECT vod_id, vod_reurl FROM js_vod WHERE vod_reurl="'.$row['url'].'"');
         if($vod){
+            echo 'update';
+            $id = $vod['vod_id'];
             DB::init()->update($data, $vod['vod_id']);
         }else{
+            echo 'insert';
             DB::init()->insert($data);
+            $id = mysql_insert_id();
         }
+
+        //
+        load ($url."?m=vod&a=read&list_dir={$class[0]['list_dir']}&id={$id}");
         print $i.'='.$row['id'].'=' .$row['title'].'，'.$row['class_name'].'=' .$vod_class.'，'.$row['area'].'=' .$area_id."\r\n";
     }
 
     $i = $i + $size;
 
 }while(true);
+
+
+
+// 自动更新html
+// 首页
+//
+//load($url.'?m=index&a=index');
+//load($url.'?m=vod&a=show&list_dir=dianying');
+//load($url.'?m=vod&a=show&list_dir=dianshi');
+//load($url.'?m=vod&a=show&list_dir=dongman');
+//load($url.'?m=vod&a=show&list_dir=zongyi');
+
+/*
+
+rewrite ^/(dianying|dianshi|dongman|zongyi)/(\d+)-(\d+)-(\d+)(-(\d+))?.html /index.php?m=vod&a=type&list_dir=$1&class_id=$2&area=$3&year=$4&p=$6 last;
+rewrite ^/(dianying|dianshi|dongman|zongyi)/(\d+).html$ /index.php?m=vod&a=read&list_dir=$1&id=$2 last;
+rewrite ^/(dianying|dianshi|dongman|zongyi)/?$ /index.php?m=vod&a=show&list_dir=$1 last;
+rewrite ^/test/(.*)$ /index.php?s=home-test-index-page-$1 last;
+*/
