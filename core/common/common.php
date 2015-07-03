@@ -1210,9 +1210,7 @@ function js_mysql_vod($tag){
         if (isset($tag['wd'])) {
             $pageurl = "/search.html?q={$tag['wd']}&p={!page!}";
         }
-        print $pageurl;
-        print_r($tag);
-        die();
+
 		$pages = '共'.$count.'部影片&nbsp;当前:'.$currentpage.'/'.$totalpages.'页&nbsp;'.getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl);
 		//数据列表
 		$list = $rs->field($field)->where($where)->order($order)->limit($limit)->page($currentpage)->select();
