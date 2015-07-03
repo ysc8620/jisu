@@ -26,8 +26,12 @@ class vodAction extends homeAction{
 		$this->assign($channel);
         $this->assign('select_list_dir', $Url['list_dir']);
         $data = $this->fetch($channel['list_skin']);
+        $path = ROOT_PATH . $Url['list_dir'];
+        if(file_exists($path)){
+            mkdir($path, 0777, true);
+        }
         if(true){
-            mkdir(ROOT_PATH . $Url['list_dir'], 0777, true);
+
             file_put_contents(ROOT_PATH . $Url['list_dir'].'/index.html', $data);
         }
         echo $data;
@@ -45,9 +49,7 @@ class vodAction extends homeAction{
         $this->assign('select_list_dir', $Url['list_dir']);
         $this->assign($Url);
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
-        if($_GET['test'] == 1){
-            print_r($Url);
-        }
+
 
 		$this->assign($channel);
 		$data = $this->fetch($channel['list_skin_type']);
@@ -56,8 +58,12 @@ class vodAction extends homeAction{
        if($page > 1){
            $name = "{$Url['class_id']}-{$Url['area']}-{$Url['year']}-{$page}.html";
        }
+        $path = ROOT_PATH . $Url['list_dir'];
+        if(file_exists($path)){
+            mkdir($path, 0777, true);
+        }
         if(true){
-           mkdir(ROOT_PATH . $Url['list_dir'], 0777, true);
+
            file_put_contents(ROOT_PATH . $Url['list_dir'].'/'.$name, $data);
         }
         echo $data;
@@ -73,11 +79,23 @@ class vodAction extends homeAction{
 	// 影片内容页
     public function read(){
 		$array_detail = $this->get_cache_detail( intval($_GET['id']) );
+        $list_dir = $_GET['list_dir'];
+
 		if($array_detail){
-            $this->assign('select_list_dir', $_GET['list_dir']);
+            $this->assign('select_list_dir', $list_dir);
 			$this->assign($array_detail['show']);
 			$this->assign($array_detail['read']);
-			$this->display($array_detail['read']['vod_skin_detail']);
+			$data = $this->read($array_detail['read']['vod_skin_detail']);
+            $path = ROOT_PATH . $list_dir;
+            if(file_exists($path)){
+                mkdir($path, 0777, true);
+            }
+            if(true){
+
+
+                file_put_contents(ROOT_PATH .$list_dir.'/'.intval($_GET['id']) .".html", $data);
+            }
+            echo $data;
 		}else{
 			$this->assign("jumpUrl",C('site_path'));
 			$this->error('此影片已经删除，请选择观看其它节目！');
@@ -112,6 +130,7 @@ class vodAction extends homeAction{
 		return false;
 	}
 
+    // 播放
     function play(){
         $id = intval($_GET['id']);
         $url = urldecode(trim($_GET['url']));
