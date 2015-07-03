@@ -181,8 +181,6 @@ do{
             'vod_golder'=>strip_tags($row['golder']),
             'vod_filmtime'=>$row['film_time']
         );
-        // print_r($row);
-        // break;
 
         $class = list_search($list,"list_id={$row['cid_ids']}");
         $vod = Db::init()->getOne('SELECT vod_id, vod_reurl FROM js_vod WHERE vod_reurl="'.$row['url'].'"');
