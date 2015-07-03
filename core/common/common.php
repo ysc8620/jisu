@@ -958,7 +958,7 @@ function js_param_url(){
 	$where['letter'] = htmlspecialchars($_REQUEST['letter']);
 	$where['actor'] = htmlspecialchars(urldecode(trim($_REQUEST['actor'])));
 	$where['director'] = htmlspecialchars(urldecode(trim($_REQUEST['director'])));
-	$where['wd'] = htmlspecialchars(urldecode(trim($_REQUEST['wd'])));
+	$where['wd'] = htmlspecialchars(urldecode(trim($_REQUEST['q'])));
 	//
 	$where['limit'] = !empty($_GET['limit']) ? intval($_GET['limit']) : 10;
 	$where['page'] = !empty($_GET['p']) ? intval($_GET['p']) : 1;

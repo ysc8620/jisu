@@ -22,7 +22,8 @@
           <h3><a href="{$root}">首页</a></label> > {$search_wd}</h3>
       </div>
       <php>$vod_list = js_mysql_vod('wd:'.$search_wd.';actor:'.$search_actor.';year:'.$search_year.';language:'.$search_language.';area:'.$search_area.';letter:'.$search_letter.';limit:8;page:true;order:vod_addtime desc');$page = $vod_list[0]['page'];</php>
-      <gt name="vod_list.0.count" value="0"><volist name="vod_list" id="ppvod">
+      <gt name="vod_list.0.count" value="0">
+          <volist name="vod_list" id="ppvod">
         <ul><a href="{$ppvod.vod_readurl}"><img src="{$ppvod.vod_picurl}" alt="点击播放《{$ppvod.vod_name}》" /></a>
         <h2><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a><em>{$ppvod.vod_gold}</em><notempty name="ppvod.vod_title"><span>{$ppvod.vod_title}</span></notempty></h2>
         <p>主演∶{$ppvod.vod_actor|js_search_url}</p>

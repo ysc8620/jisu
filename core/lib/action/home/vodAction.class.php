@@ -4,6 +4,7 @@ class vodAction extends homeAction{
     public function search(){
 		//获取地址栏参数
 		$Url = js_param_url();
+
 		//$JumpUrl传递分页及跳转参数
 		$JumpUrl = js_param_jump($Url);
 		$JumpUrl['p'] = '{!page!}';
@@ -11,6 +12,8 @@ class vodAction extends homeAction{
 		C('currentpage',$Url['page']);
 		//变量赋值
 		$search = $this->Lable_Search($Url,'vod');
+
+
 		$this->assign($search);
 		$this->display($search['search_skin']);
     }			
@@ -91,8 +94,6 @@ class vodAction extends homeAction{
                 mkdir($path, 0777, true);
             }
             if(true){
-
-
                 file_put_contents(ROOT_PATH .$list_dir.'/'.intval($_GET['id']) .".html", $data);
             }
             echo $data;
