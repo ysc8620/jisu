@@ -26,6 +26,34 @@ if(!file_exists( dirname(__FILE__) .'/../runtime/data/_ppvod/listtree.php')){
 }
 $listtree = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/listtree.php');
 
+$user_agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.1.4322)";
+$header = array ();
+
+
+function load($url){
+    echo $url."\n";
+    global $header,$agent;
+    $curl = curl_init (); // 启动一个CURL会话
+    curl_setopt ( $curl, CURLOPT_URL, $url ); // 要访问的地址
+    curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, 0 ); // 对认证证书来源的检查
+    curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, 2 ); // 从证书中检查SSL加密算法是否存在
+    curl_setopt ( $curl, CURLOPT_USERAGENT, $agent ); // 模拟用户使用的浏览器
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方
+    @curl_setopt ( $curl, CURLOPT_FOLLOWLOCATION, 1 ); // 使用自动跳转
+    curl_setopt ( $curl, CURLOPT_HTTPGET, 1 ); // 发送一个常规的GET请求
+    curl_setopt ( $curl, CURLOPT_TIMEOUT, 120 ); // 设置超时限制防止死循环
+    curl_setopt ( $curl, CURLOPT_HEADER, 0 ); // 不显示返回的Header区域内容
+    curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, 1 ); // 获取的信息以文件流的形式返回
+    $res = curl_exec ( $curl ); // 执行操作
+    if (curl_errno ( $curl )) {
+        return '失败:Errno' . curl_error ( $curl );
+    }
+    curl_close ( $curl ); // 关闭CURL会话
+    unset($res);
+    return true;
+}
+
+
 require_once dirname(__FILE__) .'/db.php';
 /**----------------------------------------------------------
  * 在数据列表中搜索
