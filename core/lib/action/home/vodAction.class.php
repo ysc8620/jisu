@@ -85,7 +85,7 @@ class vodAction extends homeAction{
             $this->assign('select_list_dir', $list_dir);
 			$this->assign($array_detail['show']);
 			$this->assign($array_detail['read']);
-			$data = $this->read($array_detail['read']['vod_skin_detail']);
+			$data = $this->fetch($array_detail['read']['vod_skin_detail']);
             $path = ROOT_PATH . $list_dir;
             if(file_exists($path)){
                 mkdir($path, 0777, true);
