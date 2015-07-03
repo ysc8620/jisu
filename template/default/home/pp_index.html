@@ -99,7 +99,7 @@
             <li><a href="javascript:;">TVB</a></li>
             <li><a href="javascript:;">韩剧</a></li>
             <li><a href="javascript:;">美剧</a></li>
-            <li><a href="javascript:;">台剧    {:getadsurl('play960')}</a></li>
+            <li><a href="javascript:;">台剧</a></li>
         </ul>
         <a href="{$siteurl}dianshi/" class="more" target="_blank">更多>></a></dd>
 </dl>
@@ -179,14 +179,14 @@
 </div>
 <div class="sideCont fr ingrep">
     <div class="inTitle">
-        <h3 title="电视剧排行榜"><a href="{$siteurl}top/tv.html" title="电视剧排行榜" target="_blank">电视剧排行榜</a></h3>
+        <h3 title="电视剧排行榜"><a href="{$siteurl}top/dianshi.html" title="电视剧排行榜" target="_blank">电视剧排行榜</a></h3>
         <div class="contabs">
             <ul>
                 <li class="current"><a href="javascript:;">全部</a></li>
                 <li><a href="javascript:;">韩剧</a></li>
                 <li><a href="javascript:;">美剧</a></li>
             </ul>
-            <a href="{$siteurl}top/tv.html" class="more" target="_blank">更多&gt;&gt;</a></div>
+            <a href="{$siteurl}top/dianshi.html" class="more" target="_blank">更多&gt;&gt;</a></div>
     </div>
     <div class="ingrep-Cont" style="display:block;">
         <ul class="foldlist guid-col2list">
@@ -255,7 +255,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_mv_re_meiju" id="vod">
-            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                 <p>主演：{$vod['vod_actor']}</p>
             </li>
             </volist>
@@ -264,7 +264,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_mv_re_dongzuo" id="vod">
-            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                 <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
             </li>
             </volist>
@@ -273,7 +273,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_mv_re_xiju" id="vod">
-            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                 <p>主演：{$vod['vod_actor']}</p>
             </li>
             </volist>
@@ -282,7 +282,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_mv_re_zhanzheng" id="vod">
-            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                 <p>主演：{$vod['vod_actor']}</p>
             </li>
             </volist>
@@ -291,7 +291,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_mv_re_kongbu" id="vod">
-            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+            <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                 <p>主演：{$vod['vod_actor']}</p>
             </li>
             </volist>
@@ -300,20 +300,20 @@
 </div>
 <div class="sideCont fr ingrep">
 <div class="inTitle">
-    <h3 title="电影排行榜"><a href="{$siteurl}top/movie.html" title="电影排行榜" target="_blank">电影排行榜</a></h3>
+    <h3 title="电影排行榜"><a href="{$siteurl}top/dianying.html" title="电影排行榜" target="_blank">电影排行榜</a></h3>
     <div class="contabs">
         <ul>
             <li class="current"><a href="javascript:;">全部</a></li>
             <li><a href="javascript:;">喜剧</a></li>
             <li><a href="javascript:;">科幻</a></li>
         </ul>
-        <a href="{$siteurl}top/movie.html" class="more" target="_blank">更多&gt;&gt;</a></div>
+        <a href="{$siteurl}top/dianying.html" class="more" target="_blank">更多&gt;&gt;</a></div>
 </div>
 <div class="ingrep-Cont" style="display:block;">
     <ul class="foldlist">
         <volist name="vod_mv_top" id="vod" key="i">
         <li class="<if condition='$i eq 1'>hover</if>">
-            <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+            <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                 <div class="imr">
                     <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                     <p>类型：{$vod['vod_class_name']}</p>
@@ -329,7 +329,7 @@
     <ul class="foldlist">
         <volist name="vod_mv_top_xiju" id="vod" key="i">
         <li class="<if condition='$i eq 1'>hover</if>">
-            <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+            <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                 <div class="imr">
                     <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                     <p>类型：{$vod['vod_class_name']}</p>
@@ -346,7 +346,7 @@
     <ul class="foldlist">
         <volist name="vod_mv_top_kehuan" id="vod" key="i">
         <li class="<if condition='$i eq 1'>hover</if>">
-            <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+            <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                 <div class="imr">
                     <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                     <p>类型：{$vod['vod_class_name']}</p>
@@ -398,7 +398,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_dm_re_riben" id="vod">
-                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                     <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
                 </li>
             </volist>
@@ -407,7 +407,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_dm_re_guochan" id="vod">
-                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                     <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
                 </li>
             </volist>
@@ -416,7 +416,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_dm_re_meiguo" id="vod">
-                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
                     <p>{:str_replace('/',' ',$vod['vod_continu'])}</p>
                 </li>
             </volist>
@@ -426,20 +426,20 @@
 </div>
 <div class="sideCont fr ingrep">
 <div class="inTitle">
-    <h3 title="动漫排行榜"><a href="{$siteurl}top/anime.html" title="动漫排行榜" target="_blank">动漫排行榜</a></h3>
+    <h3 title="动漫排行榜"><a href="{$siteurl}top/dongman.html" title="动漫排行榜" target="_blank">动漫排行榜</a></h3>
     <div class="contabs">
         <ul>
             <li class="current"><a href="javascript:;">全部</a></li>
             <li><a href="javascript:;">日本</a></li>
             <li><a href="javascript:;">国产</a></li>
         </ul>
-        <a href="{$siteurl}top/anime.html" class="more" target="_blank">更多&gt;&gt;</a></div>
+        <a href="{$siteurl}top/dongman.html" class="more" target="_blank">更多&gt;&gt;</a></div>
 </div>
 <div class="ingrep-Cont" style="display:block;">
     <ul class="foldlist">
         <volist name="vod_dm_top" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
-                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
@@ -456,7 +456,7 @@
     <ul class="foldlist">
         <volist name="vod_dm_top_riben" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
-                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
@@ -473,7 +473,7 @@
     <ul class="foldlist">
         <volist name="vod_dm_top_guochan" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
-                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
@@ -511,14 +511,14 @@
 
             <volist name="vod_zy_re_hot" id="vod" key="i">
                 <if condition="$i lt 2">
-            <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>最新20150604期</cite></a>
+            <div class="bgsummar fl"><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite><strong>{$vod['vod_name']}</strong>最新20150604期</cite></a>
                 <p>{:mb_substr($vod['vod_content'],0,20,'utf-8')}<em></em></p>
             </div>
                     </if>
                 </volist>     <ul class="sumgroup fr clearfix">
             <volist name="vod_zy_re_hot" id="vod" key="i">
                 <if condition="$i gt 1">
-                <li class=""><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a></li>
+                <li class=""><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><cite>{$vod['vod_name']}</cite><em></em></a></li>
                   </if>
                 </volist>     </ul>
         </div>
@@ -526,7 +526,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_zy_re_shishang" id="vod">
-                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
                 </li>
             </volist>
@@ -535,7 +535,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_zy_re_xuanxiu" id="vod">
-                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
                 </li>
             </volist>
@@ -544,7 +544,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_zy_re_qinggan" id="vod">
-                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
                 </li>
             </volist>
@@ -553,7 +553,7 @@
     <div class="ingrep-Cont">
         <ul class="sumgroup entire clearfix">
             <volist name="vod_zy_re_fangtan" id="vod">
-                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
+                <li><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" /><cite>{$vod['vod_name']}</cite><em></em></a>
 
                 </li>
             </volist>
@@ -575,7 +575,7 @@
     <ul class="foldlist">
         <volist name="vod_zy_top" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
-                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
@@ -591,7 +591,7 @@
     <ul class="foldlist">
         <volist name="vod_zy_top_xuanxiu" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
-                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
@@ -607,7 +607,7 @@
     <ul class="foldlist">
         <volist name="vod_zy_top_fangtan" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
-                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
+                <div class="hisus"><a href="{$vod['vod_readurl']}" class="img" target="_blank"><img src="{$tpl}images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}" /><b>{$i}</b></a>
                     <div class="imr">
                         <h4><a href="{$vod['vod_readurl']}" title="{$vod['vod_name']}" target="_blank">{$vod['vod_name']}</a></h4>
                         <p>类型：{$vod['vod_class_name']}</p>
