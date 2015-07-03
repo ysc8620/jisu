@@ -1,6 +1,8 @@
-//var _feedBackUrl = "freedBackIframe.html";   
-if(!cid){
-		cid = 20;
+//var _feedBackUrl = "freedBackIframe.html";
+
+//if(!cid)
+{
+    cid = 20;
 }
 
 var _feedBackUrl = "/gather.php?cid=" + cid + "&page=" + encodeURIComponent(window.location.href);

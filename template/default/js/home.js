@@ -28,6 +28,8 @@
 		.Insert(vodname,vodlink,limit,days,cidname,vodpic);
 		.List(id);	
  */
+Sid = 1;
+Root = '/';
 var FF = {
 	//初始化前端js
 	'Home': {
@@ -505,12 +507,4 @@ $(document).ready(function(){
 	FF.Suggest.Show('wd',12,Root+'index.php?s=plus-search-vod',Root+'index.php?s=vod-search-wd-');
 	//历史记录
 	FF.History.List('history');
-	//影视顶踩初始化
-	FF.UpDown.Vod(Root+'index.php?s=updown-'+FF.Home.Channel+'-id-'+Id);
-	//新闻顶踩初始化
-	FF.UpDown.News(Root+'index.php?s=updown-'+FF.Home.Channel+'-id-'+Id);
-	//评论初始化
-	FF.Comment.Show(Root+"index.php?s=cm-show-sid-"+Sid+"-id-"+Id+"-p-1");
-	//积分初始化
-	FF.Gold.Default(Root+'index.php?s=gold-'+FF.Home.Channel+'-id-'+Id);
 });
