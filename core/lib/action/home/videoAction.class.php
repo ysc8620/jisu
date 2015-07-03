@@ -1,6 +1,7 @@
 <?php
 class videoAction extends homeAction{
     function channel(){
+        echo '--';
         $Url = js_param_url();
         $JumpUrl = js_param_jump($Url);
         $JumpUrl['p'] = '{!page!}';

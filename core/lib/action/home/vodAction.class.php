@@ -25,13 +25,19 @@ class vodAction extends homeAction{
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
 		$this->assign($channel);
         $this->assign('select_list_dir', $Url['list_dir']);
-		$this->display($channel['list_skin']);
+        $data = $this->fetch($channel['list_skin']);
+        if(true){
+            mkdir(ROOT_PATH . $Url['list_dir'], 0777, true);
+            file_put_contents(ROOT_PATH . $Url['list_dir'].'/index.html', $data);
+        }
+        echo $data;
     }
 
     public function type(){
         $Url = js_param_url();
 		$JumpUrl = js_param_jump($Url);
 		$JumpUrl['p'] = '{!page!}';
+        $page = intval($_GET['page']);
 		C('jumpurl',UU('home-vod/show',$JumpUrl,false,true));
 		C('currentpage',$Url['page']);
 
@@ -42,8 +48,19 @@ class vodAction extends homeAction{
         if($_GET['test'] == 1){
             print_r($Url);
         }
+
 		$this->assign($channel);
-		$this->display($channel['list_skin_type']);
+		$data = $this->fetch($channel['list_skin_type']);
+        $name =  "{$Url['class_id']}-{$Url['area']}-{$Url['year']}.html";
+
+       if($page > 1){
+           $name = "{$Url['class_id']}-{$Url['area']}-{$Url['year']}-{$page}.html";
+       }
+        if(true){
+           mkdir(ROOT_PATH . $Url['list_dir'], 0777, true);
+           file_put_contents(ROOT_PATH . $Url['list_dir'].'/'.$name, $data);
+        }
+        echo $data;
     }
 
     // 多分类筛选

@@ -9,7 +9,11 @@ class indexAction extends homeAction{
 			redirect('index'.C('url_html_suffix'));
 		}
 		$this->assign($this->Lable_Index());
-	    $this->display('pp_index');
+	    $data = $this->fetch('pp_index');
+        if(true){
+            file_put_contents(ROOT_PATH . 'index.html', $data);
+        }
+        echo $data;
     }
 }
 ?>

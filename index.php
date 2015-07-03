@@ -8,6 +8,7 @@ if(isset($_GET['test']) && $_GET['test'] == '1'){
 @set_time_limit(120);
 //内存限制 取消内存限制
 @ini_set("memory_limit",'-1');
+define('ROOT_PATH',dirname(__FILE__).'/');
 //ThinkPHP路径
 define('THINK_PATH','./core/ThinkPHP');
 //缓存路径
@@ -16,6 +17,7 @@ define('RUNTIME_PATH','./runtime/');
 define('APP_NAME','jisucms-ppvod');
 //项目路径
 define('APP_PATH','./core/');
+
 //加载入口文件
 require(THINK_PATH.'/ThinkPHP.php');
 //实例化项目
