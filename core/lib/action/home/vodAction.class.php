@@ -30,7 +30,7 @@ class vodAction extends homeAction{
         $this->assign('select_list_dir', $Url['list_dir']);
         $data = $this->fetch($channel['list_skin']);
         $path = ROOT_PATH . $Url['list_dir'];
-        if(file_exists($path)){
+        if(!file_exists($path)){
             mkdir($path, 0777, true);
         }
         if(true){
@@ -62,7 +62,7 @@ class vodAction extends homeAction{
            $name = "{$Url['class_id']}-{$Url['area']}-{$Url['year']}-{$page}.html";
        }
         $path = ROOT_PATH . $Url['list_dir'];
-        if(file_exists($path)){
+        if(!file_exists($path)){
             mkdir($path, 0777, true);
         }
         if(true){
@@ -90,7 +90,7 @@ class vodAction extends homeAction{
 			$this->assign($array_detail['read']);
 			$data = $this->fetch($array_detail['read']['vod_skin_detail']);
             $path = ROOT_PATH . $list_dir;
-            if(file_exists($path)){
+            if(!file_exists($path)){
                 mkdir($path, 0777, true);
             }
             if(true){
