@@ -28,14 +28,19 @@ class updownAction extends homeAction{
 			}elseif( 'down' == $type){
 				$rs->setInc($model.'_down',$model.'_id = '.$id);
 				setcookie($cookie, 'true', time()+intval(C('user_second')));
-			}
+			}elseif( 'general' == $type){
+                $rs->setInc($model.'_general',$model.'_id = '.$id);
+                setcookie($cookie, 'true', time()+intval(C('user_second')));
+            }
 		}
-		$array = $rs->field(''.$model.'_up,'.$model.'_down')->find($id);
+		$array = $rs->field(''.$model.'_up,'.$model.'_general,'.$model.'_down')->find($id);
 		if (!$array) {
 			$array[$model.'_up'] = 0;
+            $array[$model.'_general'] = 0;
+
 			$array[$model.'_down'] = 0;
 		}
-		$this->ajaxReturn($array[$model.'_up'].':'.$array[$model.'_down'],"感谢您的参与，操作成功！",1);
+		$this->ajaxReturn($array[$model.'_up'].':'.$array[$model.'_general'].':'.$array[$model.'_down'],"感谢您的参与，操作成功！",1);
 		//echo($array[$model.'_up'].':'.$array[$model.'_down']);			
 	}	
 }

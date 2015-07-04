@@ -1,7 +1,6 @@
 <span >{$tongji}</span>
-<script type="text/javascript">
-    var vod_id="{$vod_id}";
-</script>
+<script type="text/javascript">   var vod_id="{$vod_id}";var Root='{$root}';var Sid='{$sid}';var Cid='{$list_id}';<if condition="$sid eq 1">var Id='{$vod_id}';<else />var Id='{$news_id}';</if></script>
+
 <div id="feedBack"><a href="javascript:;" onClick="divcenter()" title="意见反馈">意见反馈</a></div>
 <script type="text/javascript" src="{$tpl}js/feedBack.js"></script>
 <script src="/public/jquery/jquery-1.7.2.min.js"></script>

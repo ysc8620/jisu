@@ -97,6 +97,10 @@ var FF = {
 			$('.Down').click(function(){
 				FF.UpDown.Ajax($ajaxurl,'vod','down');
 			})
+
+            $('.General').click(function(){
+                FF.UpDown.Ajax($ajaxurl,'vod','general');
+            })
 		},
 		'News': function($ajaxurl) {
 			if($("#Digup").length || $("#Digdown").length){
@@ -129,8 +133,9 @@ var FF = {
 		},
 		'Show': function ($html,$model){
 			if($model == 'vod'){
-				$(".Up>span").html($html.split(':')[0]);
-				$(".Down>span").html($html.split(':')[1]);
+				$(".Up>b").html($html.split(':')[0]);
+				$(".General>b").html($html.split(':')[1]);
+                $(".Down>b").html($html.split(':')[2]);
 			}else if($model = 'news'){
 				var Digs = $html.split(':');
 				var sUp = parseInt(Digs[0]);
@@ -494,11 +499,20 @@ var pagego = function($url,$total){
 }
 //
 $(document).ready(function(){
-	//系统初始化
-	FF.Home.Js();
-	//延时加载
-	FF.Lazyload.Show();
-	//搜索联想
-	FF.Suggest.Show('wd',12,Root+'index.php?s=plus-search-vod',Root+'index.php?s=vod-search-wd-');
-FF.History.Show()
+    //系统初始化
+    FF.Home.Js();
+    //延时加载
+    FF.Lazyload.Show();
+    //搜索联想
+    FF.Suggest.Show('wd',12,Root+'index.php?s=plus-search-vod',Root+'index.php?s=vod-search-wd-');
+    //历史记录
+    FF.History.List('history');
+    //影视顶踩初始化
+    FF.UpDown.Vod(Root+'index.php?s=Updown-'+FF.Home.Channel+'-id-'+Id);
+    //新闻顶踩初始化
+    FF.UpDown.News(Root+'index.php?s=Updown-'+FF.Home.Channel+'-id-'+Id);
+    //评论初始化
+    FF.Comment.Show(Root+"index.php?s=Cm-Show-sid-"+Sid+"-id-"+Id+"-p-1");
+    //积分初始化
+    FF.Gold.Default(Root+'index.php?s=Gold-'+FF.Home.Channel+'-id-'+Id);
 });
