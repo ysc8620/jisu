@@ -15,9 +15,9 @@ class indexAction extends homeAction{
         }
         echo $data;
     }
-    function test()
+    function music()
     {
-        $this->display('test');
+        $this->display('music');
     }
 }
 ?>
