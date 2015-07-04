@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户反馈</title>
+    <style>
+        html,body,*{ margin:0px;padding:0px; }
+
+        body{ font: 12px/1.125 Arial,Helvetica,sans-serif;background:#fff; }
+        .head{ height:40px;line-height:40px;font-size:16px;color:#3a85c1;text-align:center;background:#cfe8ff;position:relative; }
+        .closeBtn{ position:absolute;top:13px;right:19px;background:url( "{$tpl}/images/close2.gif" ) no-repeat;width:13px;height:13px;cursor:pointer; }
+        .text1{ font-size:14px;color:#666666;line-height:24px;margin:20px 20px 20px 30px; }
+        .textarea{ display:block;width:100%;border:0px solid #fff;line-height:1.5;height:80px;outline:none;resize:none; }
+        .textareaWrap2{padding:10px;}
+        .textareaWrap{ display:block;margin:0px 30px;border:1px solid #c1c1c1; }
+        .row3{ margin:15px 0px 0px 30px; }
+        .input{ height:28px;line-height:28px;padding-left:10px;width:300px; vertical-align:middle;}
+        .ps{ color:#999999;font-size:12px; }
+        .blueBtn{ height:30px;line-height:30px;display:inline-block;width:100px;text-align:center;font-size:14px;background:#63aae9;border:none;color:#fff;cursor:pointer;vertical-align:middle; }
+        .row4{ margin:15px 0px 0px 30px;}
+        .errprTxt{ font-size:12px;color:#ff0000;background:#ffdcdc;border:1px solid #fca6a6; height:23px;line-height:23px;display:inline-block;padding:0px 10px;margin-left:10px;vertical-align:middle; }
+        .grayTxt{ color:#999; }
+    </style>
+</head>
+<body>
+
+<form action="/index.php?s=gb-insert.html" method="POST" onsubmit="javascript:return formCheck()">
+    <div class="head">
+        {$sitename}用户反馈<span class="closeBtn" onclick="closeWin()"></span>
+    </div>
+    <div class="text1">
+        虚心聆听您的反馈，帮助我们做得更好。<br />
+        {$sitename}欢迎您报告问题、提供建设性意见或发表使用感受。
+    </div>
+    <div class="textareaWrap">
+        <div class="textareaWrap2">
+            <textarea class="textarea grayTxt" id="textarea" name='gb_content'></textarea><!-- 请输入您的宝贵意见… -->
+        </div>
+    </div>
+    <div class="row3"><input type="text"  class="input grayTxt" id="input" name='gb_intro' value="邮箱、电话、QQ"/><span class="ps">（可选）</span></div>
+    <div class="row4">
+        <input type="submit" value="发  送" id="inp" class="blueBtn" /><span class="errprTxt" id="error1" style="display:none;">内容不能为空，请修改。</span><span class="errprTxt" id="error2" style="display:none;">邮箱不正确，请修改。</span>
+    </div>
+    <input type="hidden" name="gb_cid" value="{$vod_id}"/>
+    <input type="hidden" name="gb_page" value="{$page}"/>
+</form>
+<script type="text/javascript" src="/public/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+
+function hasClass(obj, cls) {
+    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+}
+
+function addClass(obj, cls) {
+    if (!this.hasClass(obj, cls)) obj.className += " " + cls;
+}
+
+function removeClass(obj, cls) {
+    if (hasClass(obj, cls)) {
+        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        obj.className = obj.className.replace(reg, ' ');
+    }
+}
+String.prototype.trim = function(){
+    return this.replace(/(^\s*)|(\s*$)/g, "");
+};
+
+
+function extend() {
+    var options, name, src, copy, copyIsArray, clone,
+            target = arguments[0] || {},
+            i = 1,
+            length = arguments.length,
+            deep = false;
+
+    // Handle a deep copy situation
+    if ( typeof target === "boolean" ) {
+        deep = target;
+        target = arguments[1] || {};
+        // skip the boolean and the target
+        i = 2;
+    }
+
+    // Handle case when target is a string or something (possible in deep copy)
+    if ( typeof target !== "object" && !jQuery.isFunction(target) ) {
+        target = {};
+    }
+
+    // extend jQuery itself if only one argument is passed
+    if ( length === i ) {
+        target = this;
+        --i;
+    }
+
+    for ( ; i < length; i++ ) {
+        // Only deal with non-null/undefined values
+        if ( (options = arguments[ i ]) != null ) {
+            // Extend the base object
+            for ( name in options ) {
+                src = target[ name ];
+                copy = options[ name ];
+
+                // Prevent never-ending loop
+                if ( target === copy ) {
+                    continue;
+                }
+
+                // Recurse if we're merging plain objects or arrays
+                if ( deep && copy && ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) {
+                    if ( copyIsArray ) {
+                        copyIsArray = false;
+                        clone = src && jQuery.isArray(src) ? src : [];
+
+                    } else {
+                        clone = src && jQuery.isPlainObject(src) ? src : {};
+                    }
+
+                    // Never move original objects, clone them
+                    target[ name ] = jQuery.extend( deep, clone, copy );
+
+                    // Don't bring in undefined values
+                } else if ( copy !== undefined ) {
+                    target[ name ] = copy;
+                }
+            }
+        }
+    }
+
+    // Return the modified object
+    return target;
+};
+
+
+
+(function() {
+    var util = {
+        mix: extend
+    }; // 基础的一些方法
+    var usePM = ( typeof window.postMessage !== 'undefined'); // 是否支持 postMessage
+    var PM = function( win ) {
+        this._win = win;
+        this._event = function(){};
+        this._initialize();
+    };
+    util.mix( PM.prototype, {
+        _initialize: function() { // 初始化
+            var me = this;
+            if ( usePM ) {
+                if( window.addEventListener ) {
+                    window.addEventListener('message', function(e){
+                        me._event( e.data);
+                    });
+                } else {
+                    window.attachEvent('onmessage', function(e){
+                        me._event(e.data);
+                    });
+                }
+            } else {
+                var lastName = window.name;
+                setInterval( function() {
+                    if( window.name != lastName && window.name != '' ) {
+                        lastName = window.name;
+                        me._event(lastName);
+                    }
+                }, 50);
+            }
+        },
+        onmessage: function(callback) { // 添加 onmessage 方法
+            this._event = callback;
+        },
+        send: function( data, origin ) { // send 方法
+            var wl = window.location;
+            var sendOrigin = wl.href.substr( 0, wl.href.indexOf( wl.pathname ) + 1 );
+            var sendData = {
+                data: data,
+                ts: (+(new Date)).toString(10),
+                origin: sendOrigin
+            }
+
+            if( usePM ) {
+                this._win.postMessage( data, origin || '*' );
+            } else {
+                this._win.name = data;
+            }
+        }
+    });
+    window.XPM = PM;
+})();
+
+
+var f = window.parent;
+var PM = new XPM(f);
+
+function test(){
+    var text = "350";
+    PM.send(text);
+}
+
+var _textarea = document.getElementById("textarea");
+_textarea.onfocus = function(){
+    if(this.value == "请输入您的宝贵意见…"){
+        this.value = "";
+    }
+    removeClass(this,"grayTxt");
+}
+_textarea.onblur = function(){
+    if(this.value == "" ){
+        this.value = "请输入您的宝贵意见…";
+        addClass(this,"grayTxt");
+    }
+}
+
+var _input = document.getElementById("input");
+_input.onfocus = function(){
+    if(this.value == "邮箱、电话、QQ"){
+        this.value = "";
+    }
+    removeClass(this,"grayTxt");
+}
+_input.onblur = function(){
+    if(this.value == "" ){
+        this.value = "邮箱、电话、QQ";
+        addClass(this,"grayTxt");
+    }
+}
+
+
+function formCheck(){
+    var flag = true;
+    if(_textarea.value.trim() == "请输入您的宝贵意见…" || _textarea.value.trim() == ""){
+        document.getElementById("error1").style.display="inline-block";
+        flag = false;
+    }else{
+        document.getElementById("error1").style.display="none";
+    }
+
+    if(_input.value.indexOf("@") != -1){
+        var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        if(reg.test(_input.value)){
+
+            document.getElementById("error2").style.display="none";
+
+        }else{
+            flag = false;
+            document.getElementById("error2").style.display="inline-block";
+        }
+    }else{
+        document.getElementById("error2").style.display="none";
+    }
+    return flag;
+}
+
+function closeWin(){
+    var text = "close";
+    PM.send(text);
+}
+PM.send("nothing");
+</script>
+</body>
+</html>
