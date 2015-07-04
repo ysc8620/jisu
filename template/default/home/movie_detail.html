@@ -94,9 +94,9 @@
                 <php>
                     if ($vod_class){
                         $cids = str_replace('/',',',$vod_class);//explode('/', $vod_class);
-                        $list  = js_mysql_vod("cid:1;class_id:$cids;limit:11;order:re_sort desc, vod_addtime desc");
+                        $list  = js_mysql_vod("cid:1;class_id:$cids;limit:11;order:vod_addtime desc");
                     }else{
-                        $list  = js_mysql_vod("cid:1;limit:11;order:re_sort desc, vod_addtime desc");
+                        $list  = js_mysql_vod("cid:1;limit:11;order:order:vod_hits desc,vod_addtime desc");
                     }
                 </php>
               <ul>
