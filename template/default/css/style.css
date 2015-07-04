@@ -323,7 +323,7 @@ ul.foldlist li.hover .hisus p{display:block;}
 .comSumList li a:hover{color:#e05032;}
 
 .category{clear:both;border:1px solid #d9d9d9;padding:5px 0 10px 10px;}
-.category dl{width:188px;height:170px;background:#fff;display:inline;float:left;overflow:hidden;margin-right:5px;}
+.category dl{width:236px;height:170px;background:#fff;display:inline;float:left;overflow:hidden;margin-right:5px;}
 .category dl.last{margin-right:0;}
 .category dl dt{width:170px;margin:0 auto;padding:5px 0;border-bottom:1px solid #ddd;}
 .category dl dt span{height:14px;font-size:14px;font-weight:bold;color:#343434;position:relative;left:-10px;border-left:3px solid #e05032;padding-left:5px;}

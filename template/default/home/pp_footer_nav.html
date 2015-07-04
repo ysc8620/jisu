@@ -39,14 +39,4 @@
             </if>
         </volist> </dd>
     </dl>
-    <dl class="last">
-        <dt><span>微电影</span></dt>
-        <dd>  <volist name="list_menu" id="list">
-            <if condition="$list['list_id'] eq 5">
-                <volist name="list['son']" id="cat">
-                    <a href="{$siteurl}weidianying/{$cat['list_id']}-0-0.html">{$cat['list_name']}</a>
-                </volist>
-            </if>
-        </volist>  </dd>
-    </dl>
 </div>
