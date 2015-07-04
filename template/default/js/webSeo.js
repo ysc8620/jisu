@@ -1,6 +1,6 @@
 // 头部
 /*<div id="top"><div id="top"><div class="wrapper"><div class="fl"><a href="/" class="home" target="_blnak">首页</a><i class="sq">|</i><a href="/youxi/" target="_blnak">游戏</a><a href="/yinyue/" target="_blnak">音乐</a><a href="/meishi/" target="_blnak">美食</a><a href="/book/" target="_blnak">小说</a><a href="http://tuan.114la.com/" target="_blnak">团购</a><a href="http://app.114la.com/" target="_blank">实用工具</a></div>*/
-var topMd = '<div id="top"><div id="top"><div class="wrapper"><div class="fl"><a href="/" class="home" target="_blnak">首页</a></div><div class="fr"><a href="http://www.114la.com/feedback" target="_blnak">意见反馈</a><i class="sq">|</i><a href="javascript:;" title="收藏影视" id="collet">收藏本页</a></div></div></div></div>';
+var topMd = '<div id="top"><div id="top"><div class="wrapper"><div class="fl"><a href="/" class="home" target="_blnak">首页</a></div><div class="fr"><a href="/feedback" target="_blnak">意见反馈</a><i class="sq">|</i><a href="javascript:;" title="收藏影视" id="collet">收藏本页</a></div></div></div></div>';
 $("body").prepend(topMd);
 
 
