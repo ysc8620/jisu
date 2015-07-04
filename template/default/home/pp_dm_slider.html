@@ -3,7 +3,7 @@
         <ul>
             <volist name="list_slide" id="slide">
                 <if condition="$slide['slide_cid'] eq 3">
-                    <li style="background:#d3f3fe url('{$slide.slide_pic}') no-repeat center center;"><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_pic']}" alt="{$slide['slide_url']}" /></a>
+                    <li style="background:#d3f3fe url('{$slide.slide_pic}') no-repeat center center;"><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_pic']|js_img_url}" alt="{$slide['slide_url']}" /></a>
                         <div class="summary"><i><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}"></a></i>
                             <h3><a href="{$slide['slide_url']}" rel="nofollow" target="_blank" title="{$slide['slide_name']}">{$slide['slide_name']}</a></h3>
                             <p>{$slide['slide_content']}</p>
@@ -15,7 +15,7 @@
         <div class="snum">
             <volist name="list_slide" id="slide">
                 <if condition="$slide['slide_cid'] eq 3">
-                    <a href="{$slide['slide_url']}"  target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_logo']}" width='58' height="38" alt="{$slide['slide_name']}" /></a>
+                    <a href="{$slide['slide_url']}"  target="_blank" title="{$slide['slide_name']}"><img src="{$slide['slide_logo']|js_img_url}" width='58' height="38" alt="{$slide['slide_name']}" /></a>
                 </if>
             </volist>
         </div>
