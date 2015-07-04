@@ -238,33 +238,6 @@ $(function(){
 
 	}
 
-
-	//图片、片花、视频资讯、专题
-	videoInfor = $('.videoInfor .bxslider').bxSlider({
-		controls:false,
-		pager:false,
-		speed:800,
-		onSlideBefore:function($slideElement, oldIndex, newIndex){ // your code here 
-		 	$(".pageNum i").text(newIndex+1);
-			
-		 }
-	});
-	
-	$(".videoInfor .page .par").click(function(){
-		
-		videoInfor.goToPrevSlide();
-
-
-	})
-
-	$(".videoInfor .page .next").click(function(){
-		
-		videoInfor.goToNextSlide();
-	
-	})
-
-
-
 	$(".detailsType h2>a").click(function(){
 		var deInd =$(".detailsType h2>a").index(this);
 		$(".deTypeUl>li").hide().eq(deInd).show();
