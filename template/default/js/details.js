@@ -305,14 +305,6 @@ $(".youLike h2 a").click(function(){
 	})
 
 
-	$(".movieLine").fishSelect({
-		wd:'78px',
-		iniText:'更多选择',
-		bd:'none',
-		spanMvBd:'none',
-		liBgHv:"#fff"
-	});
-
 	//点击线路
 	$(".playItem ul li a").click(function(){
 		$(".playItem ul li a").removeClass('plHv');
