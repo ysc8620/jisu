@@ -45,7 +45,7 @@ $(function(){
 		threshold : 500
 	});
 	$("a#collet").click(function(){
-		AddFavorite('http://v.php369.com/','php369影视，最多、最全的影视导航'); return false;
+		AddFavorite('http://www.kuaikan123.com/','快看影视，最多、最全的影视导航'); return false;
 	});
 
 	//播放记录

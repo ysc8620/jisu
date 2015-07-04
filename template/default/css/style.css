@@ -953,3 +953,5 @@ ul.taa li { border-top: 1px dotted #DDDDDD;display: inline-block;float: left;mar
 /*热词a标签临时*/
 a.rword{color:#1e6dc5}
 a.rword:hover{color:#e05032}
+
+.eb-foot{text-align:center;font-size:12px;padding-bottom:20px;padding-top:20px}.eb-foot a{padding:0 9px}.eb-foot a:hover{color:#fd8d4e}.eb-foot p{padding-top:12px;color:#666}.eb-foot p a{margin-left:10px;color:#666}.eb-foot span{color:#666}.eb-foot div a{color:#666;cursor:pointer}.eb-foot-index{padding-bottom:70px;padding-top:60px}
