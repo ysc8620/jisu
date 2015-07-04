@@ -1,11 +1,11 @@
 //var _feedBackUrl = "freedBackIframe.html";
 
-//if(!cid)
+if(typeof(vod_id) == 'undefined')
 {
-    cid = 20;
+    vod_id = 0;
 }
 
-var _feedBackUrl = "/gather.php?cid=" + cid + "&page=" + encodeURIComponent(window.location.href);
+var _feedBackUrl = "/index.php?m=gb&a=show&vod_id=" + vod_id + "&page=" + encodeURIComponent(window.location.href);
 function extend() {
 				 var options, name, src, copy, copyIsArray, clone,
 					target = arguments[0] || {},

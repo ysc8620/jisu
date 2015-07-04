@@ -84,6 +84,7 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
+
 $url = 'http://www.kuaikan123.com/index.php?';
 $time = @file_get_contents(dirname(__FILE__).'/update_time.log');
 $time = intval($time);

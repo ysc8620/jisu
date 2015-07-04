@@ -31,7 +31,6 @@ $listtree = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/listtree.p
 $user_agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.1.4322)";
 $header = array ();
 
-
 function load($url){
     echo $url."\n";
     global $header,$agent;
