@@ -31,14 +31,12 @@
             <h1 title="{$vod_name}"> {$vod_name}<span>({$vod_year|default='未录入'})</span> </h1>
           </div>
           <div class="start">
-            <dl>
-              <dd class="fullStart"></dd>
-              <dd></dd>
-              <dd></dd>
-              <dd></dd>
-              <dd></dd>
-              <dt> <b>{$vod_gold}</b> </dt>
-            </dl>
+              <span class="Goldtitle">=</span>
+              <if condition="c(url_html) eq 1">
+                  <span class="Gold" id="Gold">{$vod_gold}</span> <span class="Goldnum">{$vod_gold}</span>分 (<span class="Golder">{$vod_golder}</span>人评)
+                  <else />
+                  <span class="Gold">{$vod_gold}</span> <span class="Goldnum">{$vod_gold}</span>分 (<span class="Golder">{$vod_golder}</span>人评)
+              </if>
           </div>
         </div>
         <div class="movieDeCenterCon">
