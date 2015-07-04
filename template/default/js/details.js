@@ -266,29 +266,6 @@ $(function(){
 	})
 
 
-	picture = $('.picture>.bxslider').bxSlider({
-		controls:false,
-		pager:false,
-		speed:800,
-		minSlides: 6,
-	 	maxSlides: 6,
-	 	slideWidth: 665
-		
-	});
-		
-	$(".picture .bxslider li").width(100);
-
-	$(".picture .picLeft a").click(function(){
-
-		picture.goToPrevSlide();
-
-	})
-
-	$(".picture .picRight a").click(function(){
-		
-		picture.goToNextSlide();
-	})
-
 	//文字省略
 	function textMore(className){
 		$(".textAll").hide();
@@ -308,16 +285,6 @@ $(function(){
 	}
 
 	textMore();
-
-
-	//猜你喜欢
-	// $(".youLike h3 a").click(function(){
-	// 	var ylInd = $(".youLike h3 a").index(this);
-	// 	$(".youLike .youLikeItem").hide();
-	// 	$(".youLike .youLikeItem").eq(ylInd).show();
-	// 	$(".youLike h3 a").removeClass('titleHv').eq(ylInd).addClass('titleHv');
-
-	// })
 
 $(".youLike h2 a").click(function(){
 		var ylInd = $(".youLike h2 a").index(this);
