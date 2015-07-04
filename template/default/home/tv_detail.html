@@ -28,14 +28,9 @@
           <div class="movieTitle">
             <h1 title="{$vod_name}">{$vod_name}<span>({$vod_year|default='未录入'})</span> </h1>
           </div>
-          <div class="start">
-              <span class="Goldtitle">=</span>
-              <if condition="c(url_html) eq 1">
-                  <span class="Gold" id="Gold">{$vod_gold}</span> <span class="Goldnum">{$vod_gold}</span>分 (<span class="Golder">{$vod_golder}</span>人评)
-                  <else />
-                  <span class="Gold">{$vod_gold}</span> <span class="Goldnum">{$vod_gold}</span>分 (<span class="Golder">{$vod_golder}</span>人评)
-              </if>
-          </div>
+            <div class="start">
+                <include file="home:home_vod_gold" />
+            </div>
         </div>
         <div class="movieDeCenterCon">
           <p><span>导演：</span><notempty name="vod_director">{$vod_director|js_search_url}<else />未录入</notempty></p>
@@ -50,9 +45,7 @@
 
         <div class="evaluation clearfix">
             <ul class="">
-                <li class="good Up"><a href="javascript:"></a><b>{$vod_up}</b></li>
-                <li class="general General"><a href="javascript:"></a><b>{$vod_general}</b></li>
-                <li class="poor Down"><a href="javascript:"></a><b>{$vod_down}</b></li>
+                <include file="home:home_vod_updown" />
             </ul>
           <span class="link1">+1</span> </div>
         <div class="shard">
