@@ -303,3 +303,16 @@
 .dePlayBottom a:hover{color: #e05032; }
 .dePlayBottom .playTag a{background: #e9e9e9; display: inline-block; padding:3px 4px; border-radius:2px;}
 .dePlayBottom .playTag a:hover{background: #e05032; color: #fff;}
+
+/*pp_comment.html*/
+.Comment{ text-align:center;border-right: 1px solid #e9e9e9; border-left: 1px solid #e9e9e9; border-bottom:1px solid #e9e9e9; padding:10px 0 10px 2px; overflow:hidden; width:616px; color:#6e6e6e;}
+.Comment .list{clear:both; text-align:left}
+.Comment .list li{clear:both;padding:6px 10px 10px;border-bottom:1px dashed #c4dcf8;line-height:18px;}
+.Comment .list li .time{float:right;color:#6e6e6e;}
+.Comment .pages{ text-align:right; height:25px; line-height:25px; padding-right:5px; margin-top:5px}
+.Comment .pages em,.cm .pages span,.cm .pages a{font-style:normal;color:#6e6e6e;}
+.Comment .pages span{color:#666666;}
+.Comment .form{ margin:10px auto; }
+.Comment .form textarea{ width:95%; padding:5px; height:100px; border:1px solid #d0d0d0; color:#696969; font-size: 12px; margin-bottom:10px;}
+.Comment .form p{clear:both; text-align:right; padding-right:10px}
+.Comment .form p .cm_button {cursor:pointer;padding-left:3px;padding-right:2px;padding-top:2px;border:1px solid #bdbcbd;background:#FFF url(../../public/images/home/button.gif) left center repeat-x;font-size:12px;height:24px;}
