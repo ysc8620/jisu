@@ -30,9 +30,7 @@
         </dl>
         <div class="recommond">
             <php>
-                print('==========================');
-                $list  = js_mysql_vod("limit:6;order:order:vod_hits desc,vod_addtime desc");
-                var_dump($list);
+                $list  = js_mysql_vod("cid:1;limit:6;order:vod_hits desc,vod_addtime desc");
             </php>
             <h6 class="getCom">大家都在看</h6>
             <ul class="sumgroup clearfix">
