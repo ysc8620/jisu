@@ -17,8 +17,11 @@ class indexAction extends homeAction{
     }
 
     function p404(){
-
-        $this->display('404');
+        $data = $this->fetch('404');
+        if(true){
+            file_put_contents(ROOT_PATH . '404.html', $data);
+        }
+        echo $data;
     }
     function music()
     {
