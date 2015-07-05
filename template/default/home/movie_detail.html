@@ -69,7 +69,7 @@
             <ul>
               <li><volist name="vod_playlist" id="pay" key="i">
                   <volist name="pay['son']" id="ppvodson" key="j">
-                        <li data-value="{$i}"> <a href="{$siteurl}play.html?id={$vod_id}&url={:urlencode($ppvodson['playpath'])}"  rel="nofollow" target="_blank" title="{$pay['playername']}"> <i class="gico-site gico-{$pay['playname']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
+                        <li data-value="{$i}"> <a href="{$siteurl}play.html?id={$vod_id}&url={:urlencode($ppvodson['playpath'])}"  rel="nofollow" target="_blank" title="{$pay['playername']}"> <i class="gico-site gico-{:trim($pay['playname'])}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
                     </volist>
                 </volist>
             </ul>

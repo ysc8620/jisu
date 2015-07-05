@@ -66,7 +66,7 @@
             <ul>
                 <volist name="vod_playlist" id="pay" key="i">
                     <if condition="$i lt 6">
-                  <li data-value="{$i}"> <a href="javascript:;" class="<if condition='$i lt 2'>plHv</if> cp_{$i}_name" title="{$pay['playername']}"> <i class="gico-site gico-{$pay['playname']}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
+                  <li data-value="{$i}"> <a href="javascript:;" class="<if condition='$i lt 2'>plHv</if> cp_{$i}_name" title="{$pay['playername']}"> <i class="gico-site gico-{:trim($pay['playname'])}"></i>{$pay['playername']}</a>  <span class="triangle" style=' <if condition="$i eq 1">display:block</if>'> <b></b> </span></li>
                     </if>
                 </volist>
                 </ul>
