@@ -3,35 +3,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
-<title>2015最新电视剧排行榜,电视剧大全,好看的电视剧网-{$sitename}</title>
+<title>2015电视剧大全-最新-好看的电视剧-电视剧排行榜-{$sitename}</title>
 <link rel="icon" href="{$siteurl}favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="{$siteurl}favicon.ico" type="image/x-icon" />
-<meta name="keywords" content="2015最新电视剧排行榜,电视剧大全,好看的电视剧网,电视剧排行榜" />
-<meta name="description" content="快看影视导航为您提供2015电视剧大全，最新电视剧，好看的电视剧全集，电视剧排行榜，经典电视剧，热播电视剧等高清免费在线观看。" />
-<link href="{$tpl}/css/style.css" rel="stylesheet" />
+<meta name="keywords" content="电视剧大全，最新电视剧，好看的电视剧，电视剧排行榜" />
+<meta name="description" content="114la影视导航为您提供2015电视剧大全，最新电视剧，好看的电视剧全集，电视剧排行榜，经典电视剧，热播电视剧等高清免费在线观看。" />
+<link href="{$tpl}/css/style.css?v2013" rel="stylesheet" />
 </head>
 <body>
 <php>
     //同步热播
     $vod_tv_re_news = js_mysql_vod('cid:2;isfilm:3;limit:8;order: vod_addtime desc');
-    $vod_tv_re_guonei = js_mysql_vod('cid:2;area:1;limit:8;order:vod_year desc, vod_addtime desc');
-    $vod_tv_top_guonei = js_mysql_vod('cid:2;area:1;limit:10;order:vod_hits DESC, vod_addtime desc');
+    $vod_tv_re_guonei = js_mysql_vod('cid:2;area:1;limit:8;order:re_sort desc, vod_addtime desc');
+    $vod_tv_top_guonei = js_mysql_vod('cid:2;area:1;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 
-    $vod_tv_re_gangju = js_mysql_vod('cid:2;area:3;limit:4;order:vod_year desc, vod_addtime desc');
-    $vod_tv_re_taiju = js_mysql_vod('cid:2;area:4;limit:8;order:vod_year desc,vod_addtime desc');
-    $vod_tv_top_taiju = js_mysql_vod('cid:2;area:4;limit:10;order:vod_hits DESC, vod_addtime desc');
+    $vod_tv_re_gangju = js_mysql_vod('cid:2;area:3;limit:4;order:re_sort desc, vod_addtime desc');
+    $vod_tv_re_taiju = js_mysql_vod('cid:2;area:4;limit:8;order:re_sort desc, vod_addtime desc');
+    $vod_tv_top_taiju = js_mysql_vod('cid:2;area:4;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 
-    $vod_tv_re_meiju = js_mysql_vod('cid:2;area:8;limit:8;order:vod_year desc, vod_addtime desc');
-    $vod_tv_top_meiju = js_mysql_vod('cid:2;area:8;limit:10;order:vod_hits DESC, vod_addtime desc');
+    $vod_tv_re_meiju = js_mysql_vod('cid:2;area:8;limit:8;order:re_sort desc, vod_addtime desc');
+    $vod_tv_top_meiju = js_mysql_vod('cid:2;area:8;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 
-    $vod_tv_re_hanju = js_mysql_vod('cid:2;area:5;limit:8;order:vod_year desc,vod_addtime desc');
-    $vod_tv_top_hanju = js_mysql_vod('cid:2;area:5;limit:10;order: vod_hits DESC,vod_addtime desc');
+    $vod_tv_re_hanju = js_mysql_vod('cid:2;area:5;limit:8;order:re_sort desc, vod_addtime desc');
+    $vod_tv_top_hanju = js_mysql_vod('cid:2;area:5;limit:10;order:top_sort desc, vod_hits DESC,vod_addtime desc');
 
-    $vod_tv_re_riju = js_mysql_vod('cid:2;area:7;limit:8;order:vod_year desc,vod_addtime desc');
-    $vod_tv_top_riju = js_mysql_vod('cid:2;area:7;limit:10;order:vod_hits DESC, vod_addtime desc');
+    $vod_tv_re_riju = js_mysql_vod('cid:2;area:7;limit:8;order:re_sort desc, vod_addtime desc');
+    $vod_tv_top_riju = js_mysql_vod('cid:2;area:7;limit:10;order:top_sort desc,vod_hits DESC, vod_addtime desc');
 
-    $vod_tv_re_taiguoju = js_mysql_vod('cid:2;area:6;limit:8;order:vod_year desc,vod_addtime desc');
-    $vod_tv_top_taiguoju = js_mysql_vod('cid:2;area:6;limit:10;order: vod_hits DESC,vod_addtime desc');
+    $vod_tv_re_taiguoju = js_mysql_vod('cid:2;area:6;limit:8;order:re_sort desc, vod_addtime desc');
+    $vod_tv_top_taiguoju = js_mysql_vod('cid:2;area:6;limit:10;order:top_sort desc, vod_hits DESC,vod_addtime desc');
 </php>
 <include file="home:pp_header" />
 <include file="home:pp_nav" />
