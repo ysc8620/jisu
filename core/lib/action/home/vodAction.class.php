@@ -34,7 +34,6 @@ class vodAction extends homeAction{
             mkdir($path, 0777, true);
         }
         if(true){
-
             file_put_contents(ROOT_PATH . $Url['list_dir'].'/index.html', $data);
         }
         echo $data;
@@ -44,7 +43,7 @@ class vodAction extends homeAction{
         $Url = js_param_url();
 		$JumpUrl = js_param_jump($Url);
 		$JumpUrl['p'] = '{!page!}';
-        $page = intval($_GET['p']);
+        $page = intval($Url['page']);
 		C('jumpurl',UU('home-vod/show',$JumpUrl,false,true));
 		C('currentpage',$Url['page']);
 
