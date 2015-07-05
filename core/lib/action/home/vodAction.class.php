@@ -44,7 +44,7 @@ class vodAction extends homeAction{
         $Url = js_param_url();
 		$JumpUrl = js_param_jump($Url);
 		$JumpUrl['p'] = '{!page!}';
-        $page = intval($_GET['page']);
+        $page = intval($_GET['p']);
 		C('jumpurl',UU('home-vod/show',$JumpUrl,false,true));
 		C('currentpage',$Url['page']);
 
