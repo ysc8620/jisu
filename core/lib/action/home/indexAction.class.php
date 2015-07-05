@@ -15,6 +15,11 @@ class indexAction extends homeAction{
         }
         echo $data;
     }
+
+    function p404(){
+
+        $this->display('404');
+    }
     function music()
     {
         $this->display('music');

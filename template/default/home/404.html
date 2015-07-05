@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>2015最新日本动漫-好看的动漫大全-动漫排行榜-动画片大全-{$sitename}</title>
+    <link rel="icon" href="{$siteurl}favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="{$siteurl}favicon.ico" type="image/x-icon" />
+    <meta name="keywords" content="最新日本动漫，好看的动漫大全，动漫排行榜，动画片大全" />
+    <meta name="description" content="影视导航为您提供2015最新日本动漫，好看的动漫，动漫大全，动漫排行榜，动画片大全等免费动漫、动画片高清在线观看。" />
+    <link href="{$tpl}css/style.css?v2013" rel="stylesheet" />
+</head>
+<body>
+
+<include file="home:pp_header" />
+<include file="home:pp_nav" />
+<div class="wrapper">
+    <div class="comwrap searResu">
+        <div class="seraBox">
+
+            &nbsp;  </div>
+        <dl class="nosear">
+            <dt></dt>
+            <dd>
+                <h6>对不起，您浏览的网页可能已被删除、重命名或暂时不可用。</h6>
+                <p>您可以：</p>
+                <p>1、检查网址是否正确 </p>
+                <p>2、<a href="/">返回首页</a>   <a href="/movie/">电影</a>   <a href="/tv/">电视剧</a>   <a href="/anime/">动漫</a>   <a href="/zongyi/">综艺</a>   <a href="/top/">排行榜</a>   <a href="/website/">影视网址</a></p>
+            </dd>
+        </dl>
+        <div class="recommond">
+            <php>
+                print('==========================');
+                $list  = js_mysql_vod("limit:6;order:order:vod_hits desc,vod_addtime desc");
+                var_dump($list);
+            </php>
+            <h6 class="getCom">大家都在看</h6>
+            <ul class="sumgroup clearfix">
+                <volist name="$list" id="vod">
+                <li>
+                    <a title="{$vod['vod_name']}" href="{$vod['vod_readurl']}">
+                        <img alt="{$vod['vod_name']}" src="{$vod['vod_picurl']}">
+                        <cite>{$vod['vod_name']}</cite>
+                        <em></em>
+                    </a>
+                    <p>主演：{$vod['vod_actor']}</p>
+                </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+<include file="home:pp_footer_nav" />
+</div>
+
+<include file="home:pp_footer" />
+</body>
+</html>
