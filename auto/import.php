@@ -120,7 +120,7 @@ do{
     echo <<<DOV
 <script type="text/javascript">
 
-setTimeout(function(){window.location.href="?i=$i"}, 500);
+setTimeout(function(){window.location.href="?i=$i"}, 10);
 </script>
 load  $i ...
 DOV;
