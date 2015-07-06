@@ -90,8 +90,8 @@ function list_search($list,$condition) {
 }
 $url = 'http://www.kuaikan123.com/index.php?';
 $time = file_get_contents(dirname(__FILE__).'/last_time.log');
-if(isset($argv[1])){
-    $time = $argv[1];
+if(isset($_GET['time'])){
+    $time = $_GET['time'];
 }
 
 $i = intval($_GET['i']);
@@ -100,7 +100,7 @@ $size = 20;
 do{
 // 入库
     $data =array();
-    $data['time'] = 0;
+    $data['time'] = strtotime($time);
     $data['page'] = $i;
     $data['size'] = $size;
     asort($data);
@@ -116,22 +116,13 @@ do{
     $html = load($url2);
     $list = (array)json_decode($html);
 
-    $i++;
-    echo <<<DOV
-<script type="text/javascript">
 
-setTimeout(function(){window.location.href="?i=$i"}, 10);
-</script>
-load  $i ...
-DOV;
-
-    die();
     if($list['error'] != 200){
         break;
     }
 
     foreach($list['list'] as $row){
-        continue;
+
         $row = (array)$row;
 
         //`vod_id`, `vod_cid`, `vod_class`, `vod_class_name`, `vod_name`, `vod_title`, `vod_keywords`, `vod_color`, `vod_actor`,
@@ -234,33 +225,15 @@ DOV;
     }
     unset($list);
     unset($html);
+
     $i++;
+    echo <<<DOV
+<script type="text/javascript">
 
-}while(true);
+setTimeout(function(){window.location.href="?i=$i"}, 10);
+</script>
+load  $i ...
+DOV;
 
 
-file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
-
-
-
-
-// 自动更新html
-// 首页
-//
-load($url.'m=index&a=index');
-
-foreach($listtree as $cate){
-    load( $url.'m=vod&a=show&list_dir='.$cate['list_dir'] );
-    load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'] );
-    foreach($cate['son'] as $son){
-        load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'].'&class_id='.$son['list_id'] );
-    }
-}
-
-/*
-
-rewrite ^/(dianying|dianshi|dongman|zongyi)/(\d+)-(\d+)-(\d+)(-(\d+))?.html /index.php?m=vod&a=type&list_dir=$1&class_id=$2&area=$3&year=$4&p=$6 last;
-rewrite ^/(dianying|dianshi|dongman|zongyi)/(\d+).html$ /index.php?m=vod&a=read&list_dir=$1&id=$2 last;
-rewrite ^/(dianying|dianshi|dongman|zongyi)/?$ /index.php?m=vod&a=show&list_dir=$1 last;
-rewrite ^/test/(.*)$ /index.php?s=home-test-index-page-$1 last;
-*/
+}while(false);
