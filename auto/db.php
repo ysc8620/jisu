@@ -72,7 +72,9 @@ class DB{
 
     public function insert($data){
         $sql = $this->parserField($data);
-        return $this->query("INSERT INTO js_vod SET ".$sql);
+       echo  "INSERT INTO js_vod SET ".$sql;
+         $this->query("INSERT INTO js_vod SET ".$sql);die();
+
 
     }
 

@@ -116,7 +116,7 @@ do{
 
     $data['md5'] = md5($str);
     $url2 = "http://www.php369.com/php.php?".http_build_query($data);
-  
+
     $html = load($url2);
     $list_data = (array)json_decode($html);
 
