@@ -84,7 +84,7 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-
+$root = dirname(dirname(__FILE__));
 $url = 'http://www.kuaikan123.com/index.php?';
 $time = @file_get_contents(dirname(__FILE__).'/update_time.log');
 $time = intval($time);
@@ -102,10 +102,10 @@ do{
     foreach($list_data as $row){
         $id = $row['vod_id'];
         $class = list_search($list,"list_id={$row['vod_cid']}");
+        if(!file_exists($root . '/'. $class[0]['list_dir'].'/'.$id.'.html')){
+            load ($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id={$id}")."\n";
+        }
 
-
-        //
-        load ($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id={$id}")."\n";
     }
 
     $i = $i + $size;
