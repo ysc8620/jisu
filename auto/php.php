@@ -22,6 +22,7 @@ $str = '';
 foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
+$str .= 'day='.date("Y-m-d H:i").'&'.$keyword;
 
 if(md5($str) != $md5){
     die(json_encode(array()));

@@ -7,6 +7,21 @@
  * QQ: 372613912
  */
 $keyword = '2015!@#!';
+$data['time'] = 0;
+$data['page'] = 1;
+$data['size'] = 10;
+asort($data);
+$str = '';
+foreach($data as $key=>$val){
+    $str .= $key.'='.$val.'&';
+}
+$str .= 'day='.date("Y-m-d H:i").'&'.$keyword;
+
+$data['md5'] = md5($str);
+
+$url = "http://www.php369.com/php?".http_build_query($data);
+echo $url;
+die();
 set_time_limit(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');
