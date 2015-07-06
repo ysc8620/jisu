@@ -6,6 +6,7 @@
  * Email: ysc8620@163.com
  * QQ: 372613912
  */
+$keyword = '2015!@#!';
 set_time_limit(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');
@@ -87,13 +88,15 @@ function list_search($list,$condition) {
 $url = 'http://www.kuaikan123.com/index.php?';
 $time = file_get_contents(dirname(__FILE__).'/last_time.log');
 
+
+
 file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
 if(isset($argv[1])){
     $time = $argv[1];
 }
 $i = 0;
 $j=0;
-$size = 1000;
+$size = 10;
 do{
     $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, $size");
     print "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, $size";
