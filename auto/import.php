@@ -231,7 +231,7 @@ do{
         break;
 
     }
-    unset($list);
+    unset($list_data);
     unset($html);
 
     $i++;
