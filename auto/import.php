@@ -71,8 +71,10 @@ $str = '';
 foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
+
 $str .= $keyword;
 
+    print_r($str);
 $data['md5'] = md5($str);
 $url = "http://www.php369.com/php.php?".http_build_query($data);
 $html = load($url);

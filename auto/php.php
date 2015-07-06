@@ -27,10 +27,11 @@ $str = '';
 foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
-$i = ($data['page'] -1 ) * $data['size'];
+
 $str .= $keyword;
+$i = ($data['page'] -1 ) * $data['size'];
 if($_GET['test'] == 'test'){
-    print_r($_GET);
+    print_r($str);
     print_r(md5($str));
     echo "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}";
 }
