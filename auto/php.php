@@ -27,15 +27,17 @@ $str = '';
 foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
+$i = ($page -1 ) * $data['size'];
 $str .= $keyword;
 if($_GET['test'] == 'test'){
     print_r($_GET);
     print_r(md5($str));
+    echo "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}";
 }
 if(md5($str) != $md5){
     die(json_encode(array()));
 }
 $time = date("Y-m-d H:i:s", $data['time']);
-$i = ($page -1 ) * $data['size'];
+
 $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}");
 echo json_encode($list_data);
