@@ -8,8 +8,6 @@
  */
 $keyword = '2015!@#!';
 
-
-
 set_time_limit(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');
@@ -59,39 +57,8 @@ function load($url){
 }
 
 require_once dirname(__FILE__) .'/db.php';
-$i = 1;
-$size = 20;
-do{
-// 入库
-$data['time'] = 0;
-$data['page'] = $i;
-$data['size'] = $size;
-asort($data);
-$str = '';
-foreach($data as $key=>$val){
-    $str .= $key.'='.$val.'&';
-}
 
-$str .= $keyword;
 
-    print_r($str);
-$data['md5'] = md5($str);
-$url = "http://www.php369.com/php.php?".http_build_query($data);
-$html = load($url);
-$list = json_decode($html);
-    if(!$list){
-        break;
-    }
-    print_r($list);
-
-//    if(count($list) < $size){
-//        break;
-//    }echo count($list);
-$i++;
-
-}while(true);
-
-return;
 /**----------------------------------------------------------
  * 在数据列表中搜索
 +----------------------------------------------------------
@@ -123,21 +90,50 @@ function list_search($list,$condition) {
 }
 $url = 'http://www.kuaikan123.com/index.php?';
 $time = file_get_contents(dirname(__FILE__).'/last_time.log');
-
-
-
-file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
 if(isset($argv[1])){
     $time = $argv[1];
 }
-$i = 0;
-$j=0;
-$size = 10;
+
+$i = intval($_GET['i']);
+$i = $i<1?1:$i;
+$size = 20;
 do{
-    $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, $size");
-    print "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, $size";
-    if(count($list_data) < 1){break;}
-    foreach($list_data as $row){
+// 入库
+    $data =array();
+    $data['time'] = 0;
+    $data['page'] = $i;
+    $data['size'] = $size;
+    asort($data);
+    $str = '';
+    foreach($data as $key=>$val){
+        $str .= $key.'='.$val.'&';
+    }
+
+    $str .= $keyword;
+
+    $data['md5'] = md5($str);
+    $url2 = "http://www.php369.com/php.php?".http_build_query($data);
+    $html = load($url2);
+    $list = (array)json_decode($html);
+
+    $i++;
+    echo <<<DOV
+<script type="text/javascript">
+
+setTimeout(function(){window.location.href="?i=$i"}, 500);
+</script>
+load  $i ...
+DOV;
+
+    die();
+    if($list['error'] != 200){
+        break;
+    }
+
+    foreach($list['list'] as $row){
+        continue;
+        $row = (array)$row;
+
         //`vod_id`, `vod_cid`, `vod_class`, `vod_class_name`, `vod_name`, `vod_title`, `vod_keywords`, `vod_color`, `vod_actor`,
         //`vod_director`, `vod_content`, `vod_watch`, `vod_pic`, `vod_area`, `vod_area_name`, `vod_language`, `vod_year`,
         //`vod_continu`, `vod_total`, `vod_isend`, `vod_addtime`, `vod_hits`, `vod_hits_day`, `vod_hits_week`, `vod_hits_month`,
@@ -174,7 +170,7 @@ do{
         $area_name = explode('/', $row['area']);
         $area_id = '';
         $data = list_search($area,"list_id={$row['cid_ids']}");
-        //print_r($data);
+
         if($area_name){
             foreach($area_name as $a){
                 $name = trim($a);
@@ -223,23 +219,28 @@ do{
         $class = list_search($list,"list_id={$row['cid_ids']}");
         $vod = Db::init()->getOne('SELECT vod_id, vod_reurl FROM js_vod WHERE vod_reurl="'.$row['url'].'"');
         if($vod){
-            echo 'update';
+            echo "update\n";
             $id = $vod['vod_id'];
             DB::init()->update($data, $vod['vod_id']);
         }else{
-            echo 'insert';
+            echo "insert\n";
             DB::init()->insert($data);
             $id = mysql_insert_id();
         }
-
-        //
-        load ($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id={$id}");
-        print $i.'='.$row['id'].'=' .$row['title'].'，'.$row['class_name'].'=' .$vod_class.'，'.$row['area'].'=' .$area_id."\r\n";
     }
 
-    $i = $i + $size;
+    if(count($list['list']) < $size){
+        break;
+    }
+    unset($list);
+    unset($html);
+    $i++;
 
 }while(true);
+
+
+file_put_contents(dirname(__FILE__).'/last_time.log', date("Y-m-d H:i:s"));
+
 
 
 
