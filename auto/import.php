@@ -97,7 +97,7 @@ if(isset($_GET['time']) ){
 
 }
 
-$i = intval($_GET['i']);
+$i = isset($_GET['i'])?intval($_GET['i']):1;
 $i = $i<1?1:$i;
 $size = 20;
 do{
