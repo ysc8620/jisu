@@ -22,7 +22,7 @@ $str = '';
 foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
-$str .= 'day='.date("Y-m-d H:i").'&'.$keyword;
+$str .= $keyword;
 if($_GET['test'] == 'test'){
     print_r($_GET);
     print_r(md5($str));

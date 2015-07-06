@@ -15,7 +15,7 @@ $str = '';
 foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
-$str .= 'day='.date("Y-m-d H:i").'&'.$keyword;
+$str .= $keyword;
 
 $data['md5'] = md5($str);
 
