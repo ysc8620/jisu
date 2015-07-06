@@ -54,21 +54,22 @@ class vodAction extends homeAction{
 
 
 		$this->assign($channel);
-		$data = $this->fetch($channel['list_skin_type']);
-        $name =  "{$Url['class_id']}-{$Url['area']}-{$Url['year']}.html";
-
-       if($page > 1){
-           $name = "{$Url['class_id']}-{$Url['area']}-{$Url['year']}-{$page}.html";
-       }
-        $path = ROOT_PATH . $Url['list_dir'];
-        if(!file_exists($path)){
-            mkdir($path, 0777, true);
-        }
-        if(true){
-
-           file_put_contents(ROOT_PATH . $Url['list_dir'].'/'.$name, $data);
-        }
-        echo $data;
+		//$data =
+            $this->display($channel['list_skin_type']);
+//        $name =  "{$Url['class_id']}-{$Url['area']}-{$Url['year']}.html";
+//
+//       if($page > 1){
+//           $name = "{$Url['class_id']}-{$Url['area']}-{$Url['year']}-{$page}.html";
+//       }
+//        $path = ROOT_PATH . $Url['list_dir'];
+//        if(!file_exists($path)){
+//            mkdir($path, 0777, true);
+//        }
+//        if(true){
+//
+//           file_put_contents(ROOT_PATH . $Url['list_dir'].'/'.$name, $data);
+//        }
+//        echo $data;
     }
 
     // 多分类筛选

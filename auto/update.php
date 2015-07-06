@@ -92,6 +92,47 @@ file_put_contents(dirname(__FILE__).'/update_time.log', time());
 if(isset($argv[1])){
     $time = $argv[1];
 }
+// 首页
+if(!file_exists($root . '/index.html')){
+    load ($url."m=index&a=index");
+}
+
+// 频道页
+if(!file_exists($root . '/index.html')){
+    load ($url."m=index&a=index");
+}
+// 分类页
+foreach($listtree as $cate){
+   load( $url.'m=vod&a=show&list_dir='.$cate['list_dir'] );
+   load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'] );
+    foreach($cate['son'] as $son){
+        load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'].'&class_id='.$son['list_id'] );
+
+//        // 分类
+//        $count = DB::init()->getOne('SELECT count(*) t from js_vod WHERE vod_cid="'.$cate['list_id'].'" and INSTR(vod_class,"'.$son['list_id'].'") ');
+//        $total = (intval($count['t'])/36) + 1;
+//        for($i=1; $i<$total; $i++){
+//            load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'].'&class_id='.$son['list_id'].'&p='.$i );
+//        }
+
+    }
+
+//    // 地区页
+//    foreach($area as $a){
+//
+//    }
+//    // 年代页
+//    for($i=0; $i<10; $i++){
+//
+//    }
+
+}
+
+
+
+// 综合页
+
+// 详细页
 $i = 0;
 $j=0;
 $size = 1000;
