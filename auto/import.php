@@ -121,6 +121,7 @@ do{
 
 
     if($list['error'] != 200){
+        header("Location: /auto/create.php");
         break;
     }
 
@@ -224,7 +225,9 @@ do{
     }
 
     if(count($list['list']) < $size){
+        return header("Location: /auto/create.php");
         break;
+
     }
     unset($list);
     unset($html);
