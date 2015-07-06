@@ -6,6 +6,8 @@
  * Email: ysc8620@163.com
  * QQ: 372613912
  */
+
+header("Content-type: application/json");
 set_time_limit(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');

@@ -99,7 +99,7 @@ if(isset($_GET['time']) ){
 
 $i = isset($_GET['i'])?intval($_GET['i']):1;
 $i = $i<1?1:$i;
-$size = 20;
+$size = 5;
 do{
 // 入库
     $data =array();
@@ -116,6 +116,10 @@ do{
 
     $data['md5'] = md5($str);
     $url2 = "http://www.php369.com/php.php?".http_build_query($data);
+    $i++;
+    if($i>10)break;
+    echo $url2."\n";
+    continue;
     $html = load($url2);
     $list_data = (array)json_decode($html);
 
@@ -243,4 +247,4 @@ load  $i ...
 DOV;
 
 
-}while(false);
+}while(true);
