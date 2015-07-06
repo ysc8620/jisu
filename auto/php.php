@@ -42,5 +42,5 @@ if(md5($str) != $md5){
 }
 $time = date("Y-m-d H:i:s", $data['time']);
 
-$list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}");
+$list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id DESC LIMIT $i, {$data['size']}");
 echo json_encode(array('error'=>200,'list'=>$list_data));
