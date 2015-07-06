@@ -222,6 +222,8 @@ do{
             DB::init()->insert($data);
             $id = mysql_insert_id();
         }
+
+        load($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id=$id");
     }
 
     if(count($list['list']) < $size){
