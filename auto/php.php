@@ -6,6 +6,11 @@
  * Email: ysc8620@163.com
  * QQ: 372613912
  */
+set_time_limit(0);
+if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
+    die('conf config no exists');
+}
+$config = include_once(dirname(__FILE__) .'/../runtime/conf/config.php');
 
 require_once dirname(__FILE__) .'/db.php';
 $data['time'] = intval($_GET['time']);
