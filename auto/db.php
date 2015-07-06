@@ -72,15 +72,16 @@ class DB{
 
     public function insert($data){
         $sql = $this->parserField($data);
-       echo  "INSERT INTO js_vod SET ".$sql;
-         $this->query("INSERT INTO js_vod SET ".$sql);die();
+
+         return $this->query("INSERT INTO js_vod SET ".$sql);
 
 
     }
 
     public function update($data, $id){
         $sql = $this->parserField($data);
-        $this->query("UPDATE js_vod SET {$sql} WHERE vod_id={$id}");
+       // echo "UPDATE js_vod SET {$sql} WHERE vod_id={$id}";
+        return $this->query("UPDATE js_vod SET {$sql} WHERE vod_id={$id}");
     }
 
     public function __destruct(){
