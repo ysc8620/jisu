@@ -7,21 +7,9 @@
  * QQ: 372613912
  */
 $keyword = '2015!@#!';
-$data['time'] = 0;
-$data['page'] = 1;
-$data['size'] = 10;
-asort($data);
-$str = '';
-foreach($data as $key=>$val){
-    $str .= $key.'='.$val.'&';
-}
-$str .= $keyword;
 
-$data['md5'] = md5($str);
 
-$url = "http://www.php369.com/php?".http_build_query($data);
-echo $url;
-die();
+
 set_time_limit(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');
@@ -66,11 +54,42 @@ function load($url){
         return '失败:Errno' . curl_error ( $curl );
     }
     curl_close ( $curl ); // 关闭CURL会话
-    unset($res);
-    return true;
+    #unset($res);
+    return $res;
 }
 
 require_once dirname(__FILE__) .'/db.php';
+$i = 1;
+$size = 20;
+do{
+// 入库
+$data['time'] = 0;
+$data['page'] = $i;
+$data['size'] = $size;
+asort($data);
+$str = '';
+foreach($data as $key=>$val){
+    $str .= $key.'='.$val.'&';
+}
+$str .= $keyword;
+
+$data['md5'] = md5($str);
+$url = "http://www.php369.com/php.php?".http_build_query($data);
+$html = load($url);
+$list = json_decode($html);
+    if(!$list){
+        break;
+    }
+    print_r($list);
+
+//    if(count($list) < $size){
+//        break;
+//    }echo count($list);
+$i++;
+
+}while(true);
+
+return;
 /**----------------------------------------------------------
  * 在数据列表中搜索
 +----------------------------------------------------------

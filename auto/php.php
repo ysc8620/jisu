@@ -35,9 +35,9 @@ if($_GET['test'] == 'test'){
     echo "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}";
 }
 if(md5($str) != $md5){
-    die(json_encode(array()));
+    die(json_encode(array('error'=>100)));
 }
 $time = date("Y-m-d H:i:s", $data['time']);
 
 $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}");
-echo json_encode($list_data);
+echo json_encode(array('error'=>200,'list'=>$list_data));
