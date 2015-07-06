@@ -89,9 +89,12 @@ function list_search($list,$condition) {
     return $resultSet;
 }
 $url = 'http://www.kuaikan123.com/index.php?';
-$time = file_get_contents(dirname(__FILE__).'/last_time.log');
-if(isset($_GET['time'])){
-    $time = $_GET['time'];
+$time = date("Y-m-d");
+if(isset($_GET['time']) ){
+    if($_GET['time']){
+        $time = $_GET['time'];
+    }
+
 }
 
 $i = intval($_GET['i']);
@@ -229,8 +232,7 @@ do{
     $i++;
     echo <<<DOV
 <script type="text/javascript">
-
-setTimeout(function(){window.location.href="?i=$i"}, 10);
+setTimeout(function(){window.location.href="?i=$i&time=$time"}, 10);
 </script>
 load  $i ...
 DOV;
