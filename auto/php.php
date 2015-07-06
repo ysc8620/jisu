@@ -17,7 +17,7 @@ $data['time'] = intval($_GET['time']);
 $data['size'] = intval($_GET['size']);
 $data['page'] = intval($_GET['page']);
 
-$data['page'] = $data['page']?$data['page']:1;
+$data['page'] = $data['page']<1?1:$data['page'];
 $data['size'] = $data['size']<5?5:$data['size'];
 $data['size'] = $data['size']>100 ? 100:$data['size'];
 $md5 = trim($_GET['md5']);
@@ -27,7 +27,7 @@ $str = '';
 foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
-$i = ($page -1 ) * $data['size'];
+$i = ($data['page'] -1 ) * $data['size'];
 $str .= $keyword;
 if($_GET['test'] == 'test'){
     print_r($_GET);
