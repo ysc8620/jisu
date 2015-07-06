@@ -117,15 +117,15 @@ do{
     $data['md5'] = md5($str);
     $url2 = "http://www.php369.com/php.php?".http_build_query($data);
     $html = load($url2);
-    $list = (array)json_decode($html);
+    $list_data = (array)json_decode($html);
 
 
-    if($list['error'] != 200){
+    if($list_data['error'] != 200){
         header("Location: /auto/create.php");
         break;
     }
 
-    foreach($list['list'] as $row){
+    foreach($list_data['list'] as $row){
 
         $row = (array)$row;
 
@@ -226,7 +226,7 @@ do{
         load($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id=$id");
     }
 
-    if(count($list['list']) < $size){
+    if(count($list_data['list']) < $size){
         return header("Location: /auto/create.php");
         break;
 
