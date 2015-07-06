@@ -23,7 +23,10 @@ foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
 $str .= 'day='.date("Y-m-d H:i").'&'.$keyword;
-
+if($_GET['test'] == 'test'){
+    print_r($_GET);
+    print_r(md5($str));
+}
 if(md5($str) != $md5){
     die(json_encode(array()));
 }
