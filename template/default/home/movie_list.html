@@ -43,19 +43,19 @@ $list = js_mysql_vod("list_dir:$list_dir;cid:$list_id;class_id:$class_id;year:$y
                 </volist>
         </dl>
         <dl>
-          <dt> <a href="{$siteurl}dianying/{$class_id}-{$area}-0.html" <if condition="empty($year)">class="searListHv"</if>>全部年份</a></dt>
+          <dt> <a href="{$siteurl}{$list_dir}/{$class_id}-{$area}-0.html" <if condition="empty($year)">class="searListHv"</if>>全部年份</a></dt>
             <php>for($i=0; $i<10; $i++){</php>
-            <dd> <a <if condition="$year eq (date('Y')-$i)">class="searListHv"</if> href="{$siteurl}dianying/{$class_id}-{$area}-{:date('Y')-$i}.html">{:date("Y")-$i}</a> </dd>
+            <dd> <a <if condition="$year eq (date('Y')-$i)">class="searListHv"</if> href="{$siteurl}{$list_dir}/{$class_id}-{$area}-{:date('Y')-$i}.html">{:date("Y")-$i}</a> </dd>
             <php>}</php>
-          <dd> <a <if condition="$year eq 1">class="searListHv"</if> href="{$siteurl}dianying/{$class_id}-{$area}-1.html">其他</a> </dd>
+          <dd> <a <if condition="$year eq 1">class="searListHv"</if> href="{$siteurl}{$list_dir}/{$class_id}-{$area}-1.html">其他</a> </dd>
         </dl>
         <dl>
-          <dt> <a href="{$siteurl}dianying/{$class_id}-0-{$year}.html" <if condition="empty($area)">class="searListHv"</if>>全部地区</a></dt>
+          <dt> <a href="{$siteurl}{$list_dir}/{$class_id}-0-{$year}.html" <if condition="empty($area)">class="searListHv"</if>>全部地区</a></dt>
 
             <volist name="list_area" id="arealist">
                 <if condition="$list_id eq $arealist['list_id']">
                     <volist name="arealist['son']" id="var">
-            <dd><a <if condition="$area eq $var['id']">class="searListHv"</if> href="{$siteurl}dianying/{$class_id}-{$var['id']}-{$year}.html">{$var['name']}</a></dd>
+            <dd><a <if condition="$area eq $var['id']">class="searListHv"</if> href="{$siteurl}{$list_dir}/{$class_id}-{$var['id']}-{$year}.html">{$var['name']}</a></dd>
                     </volist>
                 </if>
             </volist>

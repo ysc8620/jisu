@@ -96,11 +96,6 @@ if(isset($argv[1])){
 if(!file_exists($root . '/index.html')){
     load ($url."m=index&a=index");
 }
-
-// 频道页
-if(!file_exists($root . '/index.html')){
-    load ($url."m=index&a=index");
-}
 // 分类页
 foreach($listtree as $cate){
    load( $url.'m=vod&a=show&list_dir='.$cate['list_dir'] );
