@@ -27,7 +27,7 @@ class DB{
 
     public function query($sql){
         try{
-            echo $sql ."\r\n";
+          //  echo $sql ."\r\n";
             $res = mysql_query($sql, $this->conn);
         }catch (Exception $e){
             //
