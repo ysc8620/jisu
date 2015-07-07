@@ -232,7 +232,7 @@ do{
         if($vod){
             echo "update\n";
             $id = $vod['vod_id'];
-            DB::init()->update($data, $vod['vod_id']);
+            DB::init()->update($data, $vod['vod_id'],true);
         }else{
             echo "insert-{$row['id']}\n";
             DB::init()->insert($data,true);

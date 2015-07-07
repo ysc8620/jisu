@@ -83,8 +83,11 @@ class DB{
 
     }
 
-    public function update($data, $id){
+    public function update($data, $id,$bool= false){
         $sql = $this->parserField($data);
+        if($bool){
+            echo "INSERT INTO js_vod SET ".$sql."\r\n";
+        }
        // echo "UPDATE js_vod SET {$sql} WHERE vod_id={$id}"."<br/><br/>";;
         return $this->query("UPDATE js_vod SET {$sql} WHERE vod_id={$id}");
     }
