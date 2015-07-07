@@ -137,7 +137,7 @@ do{
     $html = load($url2);
     $list_data = (array)json_decode($html);
     if($list_data['error'] != 200){
-        header("Location: /auto/create.php");
+       // header("Location: /auto/create.php");
         break;
     }
 
@@ -243,7 +243,7 @@ do{
     }
 
     if(count($list_data['list']) < $size){
-        return header("Location: /auto/create.php");
+      //  return header("Location: /auto/create.php");
         break;
 
     }
@@ -252,3 +252,15 @@ do{
 
     $i++;
 }while(true);
+
+$url = 'http://www.kuaikan123.com/index.php?';
+// 首页
+//   if(!file_exists($root . '/index.html')){
+load ($url."m=index&a=index");
+//    }
+// 分类页
+foreach($listtree as $cate){
+    load( $url.'m=vod&a=show&list_dir='.$cate['list_dir'] );
+
+}
+
