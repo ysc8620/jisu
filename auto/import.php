@@ -6,6 +6,7 @@
  * Email: ysc8620@163.com
  * QQ: 372613912
  */
+date_default_timezone_set('asia/shanghai');
 $keyword = '2015!@#!';
 header("Content-type: text/html; charset=utf-8");
 
