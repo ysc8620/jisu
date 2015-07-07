@@ -7,6 +7,7 @@
  * QQ: 372613912
  */
 $keyword = '2015!@#!';
+header("Content-type: text/html; charset=utf-8");
 
 set_time_limit(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
