@@ -234,7 +234,7 @@ do{
             $id = $vod['vod_id'];
             DB::init()->update($data, $vod['vod_id']);
         }else{
-            echo "insert\n";
+            echo "insert-{$row['id']}\n";
             DB::init()->insert($data);
             $id = mysql_insert_id();
         }
