@@ -121,7 +121,8 @@ do{
     $html = load($url2);
     $list_data = (array)json_decode($html);
 
-
+    PRINT_R($list_data);
+    DIE();
     if($list_data['error'] != 200){
         header("Location: /auto/create.php");
         break;
