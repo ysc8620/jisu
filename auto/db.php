@@ -72,8 +72,11 @@ class DB{
         return trim($sql,',');
     }
 
-    public function insert($data){
+    public function insert($data,$bool=false){
         $sql = $this->parserField($data);
+        if($bool){
+            echo "INSERT INTO js_vod SET ".$sql."\r\n";
+        }
 //echo "INSERT INTO js_vod SET ".$sql."<br/><br/>";
          return $this->query("INSERT INTO js_vod SET ".$sql);
 
