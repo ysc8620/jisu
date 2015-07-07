@@ -30,6 +30,7 @@ foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
 
+$time = date("Y-m-d H:i:s", $data['time']);
 $str .= $keyword;
 $i = ($data['page'] -1 ) * $data['size'];
 if($_GET['test'] == 'test'){
@@ -40,7 +41,7 @@ if($_GET['test'] == 'test'){
 if(md5($str) != $md5){
     die(json_encode(array('error'=>100)));
 }
-$time = date("Y-m-d H:i:s", $data['time']);
+
 
 $list_data = DB::init()->getList("SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id DESC LIMIT $i, {$data['size']}");
 echo json_encode(array('error'=>200,'list'=>$list_data));
