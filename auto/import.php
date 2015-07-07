@@ -37,6 +37,7 @@ $header = array ();
 
 function load($url){
     echo $url."\n";
+
     global $header,$agent;
     $curl = curl_init (); // 启动一个CURL会话
     curl_setopt ( $curl, CURLOPT_URL, $url ); // 要访问的地址
@@ -99,6 +100,20 @@ if(isset($_GET['time']) ){
 
 }
 
+function logs($file, $data){
+
+    $fp = fopen($file, "a+");
+
+    if (flock($fp, LOCK_EX)) { // 进行排它型锁定
+        fwrite($fp, $data."\r\n");
+        flock($fp, LOCK_UN); // 释放锁定
+    } else {
+        die( "Couldn't lock the file !");
+    }
+
+    fclose($fp);
+}
+
 $i = isset($_GET['i'])?intval($_GET['i']):1;
 $i = $i<1?1:$i;
 $size = 5;
@@ -118,11 +133,9 @@ do{
 
     $data['md5'] = md5($str);
     $url2 = "http://www.php369.com/php.php?".http_build_query($data);
-
+    logs(dirname(__FILE__).'/import.log',$url2);
     $html = load($url2);
     $list_data = (array)json_decode($html);
-
-
     if($list_data['error'] != 200){
         header("Location: /auto/create.php");
         break;
@@ -238,12 +251,4 @@ do{
     unset($html);
 
     $i++;
-    echo <<<DOV
-<script type="text/javascript">
-setTimeout(function(){window.location.href="?i=$i&time=$time"}, 10);
-</script>
-load  $i ...
-DOV;
-
-
 }while(true);
