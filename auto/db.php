@@ -27,7 +27,7 @@ class DB{
 
     public function query($sql){
         try{
-            //echo $sql ."\r\n";
+           // echo $sql ."\r\n";
             $res = mysql_query($sql, $this->conn);
         }catch (Exception $e){
             //
@@ -72,16 +72,16 @@ class DB{
 
     public function insert($data){
         $sql = $this->parserField($data);
-
-         return $this->query("INSERT INTO js_vod SET ".$sql);
+echo "INSERT INTO js_vod SET ".$sql."<br/><br/>";
+       //  return $this->query("INSERT INTO js_vod SET ".$sql);
 
 
     }
 
     public function update($data, $id){
         $sql = $this->parserField($data);
-       // echo "UPDATE js_vod SET {$sql} WHERE vod_id={$id}";
-        return $this->query("UPDATE js_vod SET {$sql} WHERE vod_id={$id}");
+        echo "UPDATE js_vod SET {$sql} WHERE vod_id={$id}"."<br/><br/>";;
+       // return $this->query("UPDATE js_vod SET {$sql} WHERE vod_id={$id}");
     }
 
     public function __destruct(){

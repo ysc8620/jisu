@@ -221,10 +221,10 @@ do{
         }else{
             echo "insert\n";
             DB::init()->insert($data);
-            $id = mysql_insert_id();
+           // $id = mysql_insert_id();
         }
 
-        load($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id=$id");
+        //load($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id=$id");
     }
 
     if(count($list_data['list']) < $size){
@@ -238,7 +238,7 @@ do{
     $i++;
     echo <<<DOV
 <script type="text/javascript">
-setTimeout(function(){window.location.href="?i=$i&time=$time"}, 10);
+//setTimeout(function(){window.location.href="?i=$i&time=$time"}, 10);
 </script>
 load  $i ...
 DOV;
