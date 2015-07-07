@@ -100,19 +100,6 @@ if(isset($_GET['time']) ){
 
 }
 
-function logs($file, $data){
-
-    $fp = fopen($file, "a+");
-
-    if (flock($fp, LOCK_EX)) { // 进行排它型锁定
-        fwrite($fp, $data."\r\n");
-        flock($fp, LOCK_UN); // 释放锁定
-    } else {
-        die( "Couldn't lock the file !");
-    }
-
-    fclose($fp);
-}
 
 $i = isset($_GET['i'])?intval($_GET['i']):1;
 $i = $i<1?1:$i;

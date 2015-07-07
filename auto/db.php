@@ -7,6 +7,19 @@
  * QQ: 372613912
  */
 
+function logs($file, $data){
+
+    $fp = fopen($file, "a+");
+
+    if (flock($fp, LOCK_EX)) { // 进行排它型锁定
+        fwrite($fp, $data."\r\n");
+        flock($fp, LOCK_UN); // 释放锁定
+    } else {
+        die( "Couldn't lock the file !");
+    }
+
+    fclose($fp);
+}
 class DB{
     private  $conn = null;
     static private $ob = null;
@@ -75,7 +88,8 @@ class DB{
     public function insert($data,$bool=false){
         $sql = $this->parserField($data);
         if($bool){
-            echo "INSERT INTO js_vod SET ".$sql."\r\n";
+           // echo ;
+            logs(dirname(__FILE__).'/db.sql', "INSERT INTO js_vod SET ".$sql."\r\n");
         }
 //echo "INSERT INTO js_vod SET ".$sql."<br/><br/>";
          return $this->query("INSERT INTO js_vod SET ".$sql);
@@ -86,7 +100,8 @@ class DB{
     public function update($data, $id,$bool= false){
         $sql = $this->parserField($data);
         if($bool){
-            echo "INSERT INTO js_vod SET ".$sql."\r\n";
+            // echo ;
+            logs(dirname(__FILE__).'/db.sql', "UPDATE js_vod SET {$sql} WHERE vod_id={$id}"."\r\n");
         }
        // echo "UPDATE js_vod SET {$sql} WHERE vod_id={$id}"."<br/><br/>";;
         return $this->query("UPDATE js_vod SET {$sql} WHERE vod_id={$id}");
