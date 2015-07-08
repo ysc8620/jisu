@@ -16,7 +16,7 @@
     $vod_tv_hot = js_mysql_vod('cid:2;isfilm:3;limit:6;order:vod_uptime DESC, sort DESC');
     // 推荐电视剧
     $vod_tv_re_hot = js_mysql_vod('cid:2;limit:7;order:vod_uptime DESC, sort DESC');
-    $vod_tv_re_news = js_mysql_vod('cid:2;limit:8;order:vod_addtime desc');
+    $vod_tv_re_news = js_mysql_vod('cid:2;limit:8;order:vod_uptime DESC,vod_addtime desc');
     $vod_tv_re_neidi = js_mysql_vod('cid:2;area:1;limit:8;order:vod_uptime DESC, sort DESC');
     $vod_tv_re_tvb = js_mysql_vod('cid:2;area:3;limit:8;order:vod_uptime DESC, sort DESC');
     $vod_tv_re_hanju = js_mysql_vod('cid:2;area:5;limit:8;order:vod_uptime DESC, sort DESC');
