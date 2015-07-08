@@ -132,7 +132,7 @@ $i = 0;
 $j=0;
 $size = 1000;
 do{
-    $list_data = DB::init()->getList("SELECT * FROM js_vod WHERE update_time>'$time' ORDER BY vod_id ASC LIMIT $i, $size");
+    $list_data = DB::init()->getList("SELECT * FROM js_vod WHERE update_time>'$time' ORDER BY vod_id DESC LIMIT $i, $size");
     print "SELECT * FROM js_vod WHERE update_time>'$time' ORDER BY vod_id ASC LIMIT $i, $size \n";
     if(count($list_data) < 1){break;}
     foreach($list_data as $row){
