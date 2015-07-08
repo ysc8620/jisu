@@ -93,15 +93,15 @@ if(isset($argv[1])){
     $time = $argv[1];
 }
 // 首页
-if(!file_exists($root . '/index.html')){
-    load ($url."m=index&a=index");
-}
+//if(!file_exists($root . '/index.html')){
+//    load ($url."m=index&a=index");
+//}
 // 分类页
-foreach($listtree as $cate){
-   load( $url.'m=vod&a=show&list_dir='.$cate['list_dir'] );
-   load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'] );
-    foreach($cate['son'] as $son){
-        load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'].'&class_id='.$son['list_id'] );
+//foreach($listtree as $cate){
+//   load( $url.'m=vod&a=show&list_dir='.$cate['list_dir'] );
+//   load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'] );
+//    foreach($cate['son'] as $son){
+        #load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'].'&class_id='.$son['list_id'] );
 
 //        // 分类
 //        $count = DB::init()->getOne('SELECT count(*) t from js_vod WHERE vod_cid="'.$cate['list_id'].'" and INSTR(vod_class,"'.$son['list_id'].'") ');
@@ -110,7 +110,7 @@ foreach($listtree as $cate){
 //            load ($url.'m=vod&a=type&list_dir='.$cate['list_dir'].'&class_id='.$son['list_id'].'&p='.$i );
 //        }
 
-    }
+//    }
 
 //    // 地区页
 //    foreach($area as $a){
@@ -121,7 +121,7 @@ foreach($listtree as $cate){
 //
 //    }
 
-}
+//}
 
 
 
