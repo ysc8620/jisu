@@ -198,7 +198,7 @@ do{
             'vod_director'=>strip_tags($row['director']),
             'vod_continu'=>strip_tags($row['update_remark']),
             'vod_watch'=>strip_tags($row['watch_str']),
-            'vod_pic'=>$row['pic'],
+            'vod_pic'=>$row['pic']?$row['pic']:$row['old_pic'],
             'vod_isfilm'=>$row['is_finish']?'3':'1',
             'vod_area'=>$area_id,
             'vod_area_name'=>strip_tags($row['area']),

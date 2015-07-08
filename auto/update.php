@@ -87,7 +87,7 @@ function list_search($list,$condition) {
 $root = dirname(dirname(__FILE__));
 $url = 'http://www.kuaikan123.com/index.php?';
 $time = @file_get_contents(dirname(__FILE__).'/update_time.log');
-$time = intval($time);
+$time = ($time);
 file_put_contents(dirname(__FILE__).'/update_time.log', date("Y-m-d H:i:s"));
 if(isset($argv[1])){
     $time = $argv[1];
