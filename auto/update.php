@@ -133,14 +133,14 @@ $j=0;
 $size = 1000;
 do{
     $list_data = DB::init()->getList("SELECT * FROM js_vod WHERE update_time>'$time' ORDER BY vod_id ASC LIMIT $i, $size");
-    print "SELECT * FROM js_vod WHERE vod_addtime>'$time' ORDER BY vod_id ASC LIMIT $i, $size \n";
+    print "SELECT * FROM js_vod WHERE update_time>'$time' ORDER BY vod_id ASC LIMIT $i, $size \n";
     if(count($list_data) < 1){break;}
     foreach($list_data as $row){
         $id = $row['vod_id'];
         $class = list_search($list,"list_id={$row['vod_cid']}");
-        if(!file_exists($root . '/'. $class[0]['list_dir'].'/'.$id.'.html')){
+        //if(!file_exists($root . '/'. $class[0]['list_dir'].'/'.$id.'.html')){
             load ($url."m=vod&a=read&list_dir={$class[0]['list_dir']}&id={$id}")."\n";
-        }
+       // }
 
     }
 
