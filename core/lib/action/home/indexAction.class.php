@@ -6,7 +6,7 @@ class indexAction extends homeAction{
 			$this->error('您还没安装本程序，请运行 install.php 进入安装!');
 		}
 		if(C('url_html')){
-			redirect('index'.C('url_html_suffix'));
+			//redirect('index'.C('url_html_suffix'));
 		}
 		$this->assign($this->Lable_Index());
 	    $data = $this->fetch('pp_index');
