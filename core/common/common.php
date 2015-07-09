@@ -379,6 +379,7 @@ function getlistid($str){
 //通过栏目ID获取对应的栏目名称/别名等
 function getlistname($cid,$type='list_name'){
     $arr=list_search(F('_ppvod/list'),'list_id='.$cid);
+    //print_r(F('_ppvod/list'));
 	if(is_array($arr)){
 		return $arr[0][$type];
 	}else{
@@ -1224,7 +1225,7 @@ function js_mysql_vod($tag){
 	foreach($list as $key=>$val){
 		$list[$key]['list_id'] = $list[$key]['vod_cid'];
 		$list[$key]['list_name'] = getlistname($list[$key]['list_id'],'list_name');
-		$list[$key]['list_url'] = getlistname($val['list_id'],'list_url');
+		$list[$key]['list_url'] = getlistname($list[$key]['list_id'],'list_dir');
         $list_dir =getlistname($list[$key]['list_id'],'list_dir');
 		$list[$key]['vod_readurl'] = "/{$list_dir}/{$val['vod_id']}.html";#js_data_url('vod',$list[$key]['vod_id'],$list[$key]['vod_cid'],$list[$key]['vod_name'],1,$list[$key]['vod_jumpurl']);
 		$list[$key]['vod_picurl'] = js_img_url($list[$key]['vod_pic'],$list[$key]['vod_content']);

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7"/>
+    <title>今日更新(电影、电视剧、动漫、综艺) - 2015好看的电影排行榜_最新电视剧大全_免费在线观看电影电视剧 - {$sitename}</title>
+    <meta name="keywords" content="电影排行榜,最新电视剧,快看影视,2015最新电影,好看的电影,最新电视剧大全,免费在线观看">
+    <meta name="description" content="快看影视为您提供2015最新电影排行榜，最新电视剧大全，好看的电影，经典动漫推荐，综艺娱乐，好看的微电影大全等免费高清影视在线观看。我们第一时间每天更新上百部最新电影电视剧，致力打造最全的影视资源网站!">
+    <link href="{$tpl}css/style.css" rel="stylesheet"/>
+    <link href="{$tpl}css/map.css" rel="stylesheet"/>
+</head>
+<php>
+
+</php>
+<body channel="movie">
+<include file="home:pp_header" /> <include file="home:pp_nav" />
+<div class="wrap clearfix">
+<div id="content" class="layout">
+<div class="bread-crumb-nav"><a href="/">首页</a><em>&gt;</em><span>今日更新</span> </div>
+<div class="ui-box ui-qire cf" id="qire-lasted">
+<div class="ui-title cf">
+    <h2 class="lasted-tit">今日更新</h2>
+    <div class="lasted-type fn-left">类型</div>
+    <div class="lasted-tags fn-left">标签</div>
+    <div class="lasted-time fn-right">更新时间</div>
+</div>
+<div class="ui-cnt">
+<ul class="lasted-list cf">
+    <php> $list= js_mysql_vod("limit:20;order: vod_addtime desc"); </php>
+    <volist name="list" id="vod">
+<li>
+    <div class="lasted-num fn-left"></div>
+    <div class="lasted-tit fn-left">
+        <h5 class="show-tipinfo"><a target="_blank" href="{$vod['vod_readurl']}">{$vod['vod_name']}</a></h5>
+        <div class="tipInfo" style="display: none;">
+            <div class="play-img"><img src="{$vod['vod_picurl']}" alt="{$vod['vod_name']}"></div>
+            <dl>
+                <dt>{$vod['vod_name']}</dt>
+                <dd>
+                    <label>主演：</label>
+                    {$vod['vod_actor']}</dd>
+                <dd class="jq">
+                    <label>剧情：</label>
+                    {$vod['vod_continu']}</dd>
+                <dd class="bg">
+                    <label>更新时间：</label>
+                    {:date("Y-m-d",$vod['vod_addtime'])}</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="lasted-type fn-left"><a href="/{$vod['list_url']}/" target="_blank">{$vod['list_name']}</a></div>
+    <div class="lasted-tags fn-left">{$vod['vod_class_name']}</div>
+    <div class="lasted-time fn-right">{:date("Y-m-d",$vod['vod_addtime'])}</div>
+</li>
+    </volist>
+</ul>
+</div>
+</div>
+</div>
+
+<include file="home:pp_footer" />
+</div>
+<script type="text/javascript">
+    $('.show-tipinfo').hover(function(){
+        $(this).parent().find('.tipInfo').show();
+    }, function(){
+        $(this).parent().find('.tipInfo').hide();
+    });
+</script>
+</body>
+</html>

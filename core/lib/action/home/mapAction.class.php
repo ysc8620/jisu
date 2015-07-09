@@ -1,5 +1,22 @@
 <?php
 class mapAction extends homeAction{
+    public function index(){
+        $data = $this->fetch('map','utf-8','text/html');
+        if(true){
+            file_put_contents(ROOT_PATH . 'sitemap.html', $data);
+        }
+        echo $data;
+
+    }
+
+    public function news(){
+
+        $data = $this->fetch('news','utf-8','text/html');
+        if(true){
+            file_put_contents(ROOT_PATH . 'new.html', $data);
+        }
+        echo $data;
+    }
     public function show(){
 		$mapname = !empty($_GET['id']) ? trim($_GET['id']):'rss';
 		$limit = !empty($_GET['limit']) ? intval($_GET['limit']):30;
