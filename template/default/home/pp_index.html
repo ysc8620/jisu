@@ -60,6 +60,8 @@
     $vod_zy_top_xuanxiu = js_mysql_vod('cid:4;class_id:85;limit:10;order:vod_uptime DESC, vod_hits DESC');
     $vod_zy_top_fangtan = js_mysql_vod('cid:4;class_id:87;limit:10;order:vod_uptime DESC,vod_hits DESC');
 
+
+
     // 专题
 
 </php>
@@ -90,7 +92,7 @@
 <div class="leftSide fl ingrep">
 <dl class="inTitle">
     <dt>
-    <h2 title="推荐电视剧"><a href="{$siteurl}dianshi/" target="_blank" title="推荐电视剧" target="_blank">推荐电视剧</a></h2>
+    <h2 title="推荐电视剧"><a href="{$siteurl}{$tv_list['list_dir']}/" target="_blank" title="推荐电视剧" target="_blank">推荐电视剧</a></h2>
     </dt>
     <dd class="contabs">
         <ul>
@@ -102,7 +104,7 @@
             <li><a href="javascript:;">美剧</a></li>
             <li><a href="javascript:;">台剧</a></li>
         </ul>
-        <a href="{$siteurl}dianshi/" class="more" target="_blank">更多>></a></dd>
+        <a href="{$siteurl}{$tv_list['list_dir']}/" class="more" target="_blank">更多>></a></dd>
 </dl>
 <div class="ingrep-Cont" style="display:block;">
     <div class="clearfix rowleft">
@@ -180,14 +182,14 @@
 </div>
 <div class="sideCont fr ingrep">
     <div class="inTitle">
-        <h3 title="电视剧排行榜"><a href="{$siteurl}top/dianshi.html" title="电视剧排行榜" target="_blank">电视剧排行榜</a></h3>
+        <h3 title="电视剧排行榜"><a href="{$siteurl}top/{$tv_list['list_dir']}.html" title="电视剧排行榜" target="_blank">电视剧排行榜</a></h3>
         <div class="contabs">
             <ul>
                 <li class="current"><a href="javascript:;">全部</a></li>
                 <li><a href="javascript:;">韩剧</a></li>
                 <li><a href="javascript:;">美剧</a></li>
             </ul>
-            <a href="{$siteurl}top/dianshi.html" class="more" target="_blank">更多&gt;&gt;</a></div>
+            <a href="{$siteurl}top/{$tv_list['list_dir']}.html" class="more" target="_blank">更多&gt;&gt;</a></div>
     </div>
     <div class="ingrep-Cont" style="display:block;">
         <ul class="foldlist guid-col2list">
@@ -220,7 +222,7 @@
 <div class="leftSide fl ingrep">
     <dl class="inTitle">
         <dt>
-        <h2 title="推荐电影"><a href="{$siteurl}dianying/" target="_blank" title="推荐电影">推荐电影</a></h2>
+        <h2 title="推荐电影"><a href="{$siteurl}{$dy_list['list_dir']}/" target="_blank" title="推荐电影">推荐电影</a></h2>
         </dt>
         <dd class="contabs">
             <ul>
@@ -231,7 +233,7 @@
                 <li><a href="javascript:;">战争</a></li>
                 <li><a href="javascript:;">恐怖</a></li>
             </ul>
-            <a href="{$siteurl}dianying/" class="more" target="_blank">更多>></a></dd>
+            <a href="{$siteurl}{$dy_list['list_dir']}/" class="more" target="_blank">更多>></a></dd>
     </dl>
     <div class="ingrep-Cont" style="display:block;">
         <div class="clearfix rowleft">
@@ -301,14 +303,14 @@
 </div>
 <div class="sideCont fr ingrep">
 <div class="inTitle">
-    <h3 title="电影排行榜"><a href="{$siteurl}top/dianying.html" title="电影排行榜" target="_blank">电影排行榜</a></h3>
+    <h3 title="电影排行榜"><a href="{$siteurl}top/{$dy_list['list_dir']}.html" title="电影排行榜" target="_blank">电影排行榜</a></h3>
     <div class="contabs">
         <ul>
             <li class="current"><a href="javascript:;">全部</a></li>
             <li><a href="javascript:;">喜剧</a></li>
             <li><a href="javascript:;">科幻</a></li>
         </ul>
-        <a href="{$siteurl}top/dianying.html" class="more" target="_blank">更多&gt;&gt;</a></div>
+        <a href="{$siteurl}top/{$dy_list['list_dir']}.html" class="more" target="_blank">更多&gt;&gt;</a></div>
 </div>
 <div class="ingrep-Cont" style="display:block;">
     <ul class="foldlist">
@@ -365,7 +367,7 @@
 <div class="leftSide fl ingrep">
     <dl class="inTitle">
         <dt>
-        <h2 title="热播动漫"><a href="{$siteurl}dongman/" target="_blank" title="热播动漫">热播动漫</a></h2>
+        <h2 title="热播动漫"><a href="{$siteurl}{$dm_list['list_dir']}/" target="_blank" title="热播动漫">热播动漫</a></h2>
         </dt>
         <dd class="contabs">
             <ul>
@@ -374,7 +376,7 @@
                 <li><a href="javascript:;">国产</a></li>
                 <li><a href="javascript:;">美国</a></li>
             </ul>
-            <a href="{$siteurl}dongman/" class="more" target="_blank">更多>></a></dd>
+            <a href="{$siteurl}{$dm_list['list_dir']}/" class="more" target="_blank">更多>></a></dd>
     </dl>
     <div class="ingrep-Cont" style="display:block;">
         <div class="clearfix rowleft">
@@ -427,14 +429,14 @@
 </div>
 <div class="sideCont fr ingrep">
 <div class="inTitle">
-    <h3 title="动漫排行榜"><a href="{$siteurl}top/dongman.html" title="动漫排行榜" target="_blank">动漫排行榜</a></h3>
+    <h3 title="动漫排行榜"><a href="{$siteurl}top/{$dm_list['list_dir']}.html" title="动漫排行榜" target="_blank">动漫排行榜</a></h3>
     <div class="contabs">
         <ul>
             <li class="current"><a href="javascript:;">全部</a></li>
             <li><a href="javascript:;">日本</a></li>
             <li><a href="javascript:;">国产</a></li>
         </ul>
-        <a href="{$siteurl}top/dongman.html" class="more" target="_blank">更多&gt;&gt;</a></div>
+        <a href="{$siteurl}top/{$dm_list['list_dir']}.html" class="more" target="_blank">更多&gt;&gt;</a></div>
 </div>
 <div class="ingrep-Cont" style="display:block;">
     <ul class="foldlist">
@@ -495,7 +497,7 @@
 <div class="leftSide fl ingrep">
     <dl class="inTitle">
         <dt>
-        <h2 title="综艺节目"><a href="{$siteurl}zongyi/" target="_blank" title="综艺节目">综艺节目</a></h2>
+        <h2 title="综艺节目"><a href="{$siteurl}{$zy_list['list_dir']}/" target="_blank" title="综艺节目">综艺节目</a></h2>
         </dt>
         <dd class="contabs">
             <ul>
@@ -505,7 +507,7 @@
                 <li><a href="javascript:;">情感</a></li>
                 <li><a href="javascript:;">访谈</a></li>
             </ul>
-            <a href="{$siteurl}zongyi/" class="more" target="_blank">更多>></a></dd>
+            <a href="{$siteurl}{$zy_list['list_dir']}/" class="more" target="_blank">更多>></a></dd>
     </dl>
     <div class="ingrep-Cont" style="display:block;">
         <div class="clearfix rowleft">
@@ -563,14 +565,14 @@
 </div>
 <div class="sideCont fr ingrep">
 <div class="inTitle">
-    <h3 title="综艺排行榜"><a href="{$siteurl}top/zongyi.html" title="综艺排行榜" target="_blank">综艺排行榜</a></h3>
+    <h3 title="综艺排行榜"><a href="{$siteurl}top/{$zy_list['list_dir']}.html" title="综艺排行榜" target="_blank">综艺排行榜</a></h3>
     <div class="contabs">
         <ul>
             <li class="current"><a href="javascript:;">全部</a></li>
             <li><a href="javascript:;">选秀</a></li>
             <li><a href="javascript:;">访谈</a></li>
         </ul>
-        <a href="{$siteurl}top/zongyi.html" class="more" target="_blank">更多&gt;&gt;</a></div>
+        <a href="{$siteurl}top/{$zy_list['list_dir']}.html" class="more" target="_blank">更多&gt;&gt;</a></div>
 </div>
 <div class="ingrep-Cont" style="display:block;">
     <ul class="foldlist">
@@ -624,7 +626,7 @@
 </div>
 
 <div class="linead">
-    <img src="{$tpl}/images/a/i_ls4.png">
+    {:getadsurl('index_4')}
 </div>
 
 <include file="home:pp_footer_nav" />

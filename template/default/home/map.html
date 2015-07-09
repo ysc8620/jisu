@@ -18,7 +18,7 @@
 <div id="content" class="layout">
 <div class="bread-crumb-nav"><a href="/">首页</a><em>&gt;</em><span>网站地图</span> </div>
 <div class="ui-box sitemap-item">
-    <h2><a href="/dianshi">电视剧</a></h2>
+    <h2><a href="/{$tv_list['list_dir']}">电视剧</a></h2>
     <dl class="sitemap-list cf">
         <dt>地区</dt>
         <dd>
@@ -26,7 +26,7 @@
              <volist name="list_area" id="arealist">
                         <if condition="$arealist['list_id'] eq 2">
                             <volist name="arealist['son']" id="area">
-                                <li><a title="{$area['name']}" href="/dianshi/0-{$area['id']}-0.html">{$area['name']}电视剧</a></li>
+                                <li><a title="{$area['name']}" href="/{$tv_list['list_dir']}/0-{$area['id']}-0.html">{$area['name']}电视剧</a></li>
                             </volist>
                         </if>
                 </volist>
@@ -51,7 +51,7 @@
     </dl>
 </div>
 <div class="ui-box sitemap-item">
-    <h2><a href="/dianying">电影</a></h2>
+    <h2><a href="/{$dy_list['list_dir']}">电影</a></h2>
     <dl class="sitemap-list cf">
         <dt>地区</dt>
         <dd>
@@ -59,7 +59,7 @@
                 <volist name="list_area" id="arealist">
                     <if condition="$arealist['list_id'] eq 1">
                         <volist name="arealist['son']" id="area">
-                            <li><a title="{$area['name']}" href="/dianying/0-{$area['id']}-0.html">{$area['name']}</a></li>
+                            <li><a title="{$area['name']}" href="/{$dy_list['list_dir']}/0-{$area['id']}-0.html">{$area['name']}</a></li>
                         </volist>
                     </if>
                 </volist>
@@ -88,14 +88,14 @@
             <ul>
 
                 <php>for($i=0; $i<10; $i++){</php>
-                <li><a  <if condition="$year eq (date('Y')-$i)">class="searListHv"</if> href="/dianying/0-0-{:date('Y')-$i}.html">{:date("Y")-$i}</a> </li>
+                <li><a  <if condition="$year eq (date('Y')-$i)">class="searListHv"</if> href="/{$dy_list['list_dir']}/0-0-{:date('Y')-$i}.html">{:date("Y")-$i}</a> </li>
                 <php>}</php>
             </ul>
         </dd>
     </dl>
 </div>
 <div class="ui-box sitemap-item">
-    <h2><a href="/dongman">经典动漫</a></h2>
+    <h2><a href="/{$dm_list['list_dir']}">经典动漫</a></h2>
     <dl class="sitemap-list cf">
         <dt>类型</dt>
         <dd>
@@ -114,7 +114,7 @@
     </dl>
 </div>
 <div class="ui-box sitemap-item">
-    <h2><a href="/zongyi">综艺娱乐</a></h2>
+    <h2><a href="/{$zy_list['list_dir']}">综艺娱乐</a></h2>
     <dl class="sitemap-list cf">
         <dt>类型</dt>
         <dd>
