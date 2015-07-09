@@ -2,7 +2,7 @@
     <ul>
         <li <if condition="empty($select_list_dir)">class="active"</if>><a href="/" title="首页">首页<i></i></a></li>
         <volist name="list_menu" id="list">
-        <li <if condition="$select_list_dir eq $list.list_dir'">class="active"</if>><a href="/{$list.list_dir}/" title="{$list.list_name}">{$list.list_name}<i></i></a></li>
+        <li <if condition="$select_list_dir eq $list.list_dir">class="active"</if>><a href="/{$list.list_dir}/" title="{$list.list_name}">{$list.list_name}<i></i></a></li>
         </volist>
             <if condition="false"> <li <if condition="$select_list_dir eq 'live'">class="active"</if>><a href="http://v.114la.com/live/bjws.html" title="直播">直播</a></li>
             <li <if condition="$select_list_dir eq 'news'">class="active"</if>><a href="/news/" title="资讯">资讯</a></li>
