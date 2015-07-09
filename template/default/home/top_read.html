@@ -18,13 +18,13 @@
 <div class="comwrap clearfix">
 <div class="leftSide fl">
     <div class="inTitle">
-        <h6>喜剧电影排行榜</h6>
+        <h6>{$cat['list_name']}{$cate['list_name']}排行榜</h6>
         <a class="more" href="http://v.114la.com/top/">更多榜单&gt;&gt;</a>
     </div>
     <ul class="tdlistDetail">
-            <php>$list=js_mysql_vod("cid:$cate.list_id;class_id:$id; limit:50;order:vod_hits DESC");</php>
+            <php>$list=js_mysql_vod("cid:$cate.list_id;class_id:$cat.list_id; limit:50;order:vod_hits DESC");</php>
         <volist name="list" id="vod" key="i">
-            <if condtion="$i gt 3">
+            <if condition="$i gt 3">
         <li>
             <p class="tdlistShow"><em class="t0{$i}">{$i}</em><a title="{$vod['vod_name']}" href="{$vod['vod_readurl']}">{$vod['vod_name']}</a><span></span></p>
             <div class="tdlistSumm">
