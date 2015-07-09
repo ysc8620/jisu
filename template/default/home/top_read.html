@@ -22,7 +22,10 @@
         <a class="more" href="http://v.114la.com/top/">更多榜单&gt;&gt;</a>
     </div>
     <ul class="tdlistDetail">
-            <php>$list=js_mysql_vod("cid:$cate.list_id;class_id:$cat.list_id; limit:50;order:vod_hits DESC");</php>
+            <php>
+                $cid = $cate['list_id'];
+                $class_id = $cat['list_id'];
+                $list=js_mysql_vod("cid:$cid;class_id:$class_id; limit:50;order:vod_hits DESC");</php>
         <volist name="list" id="vod" key="i">
             <if condition="$i gt 3">
         <li>
