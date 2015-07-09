@@ -29,7 +29,7 @@
         <a title="电影排行榜" class="more" href="/top/dianying.html">更多榜单&gt;&gt;</a>
     </div>
     <ul class="foldlist">
-        <php>$list=js_mysql_vod(cid:1; limit:10;order:vod_hits DESC);</php>
+        <php>$list=js_mysql_vod('cid:1; limit:10;order:vod_hits DESC');</php>
         <volist name="list" id="vod" key="i">
         <li class="<if condition='$i eq 1'>hover</if>">
             <div class="hisus">
@@ -55,7 +55,7 @@
         <a title="电视剧排行榜" class="more" href="/top/tv.html">更多榜单&gt;&gt;</a>
     </div>
     <ul class="foldlist">
-        <php>$list=js_mysql_vod(cid:2; limit:10;order:vod_hits DESC);</php>
+        <php>$list=js_mysql_vod('cid:2; limit:10;order:vod_hits DESC');</php>
         <volist name="list" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
                 <div class="hisus">
@@ -82,7 +82,7 @@
         <a title="动漫排行榜" class="more" href="/top/anime.html">更多榜单&gt;&gt;</a>
     </div>
     <ul class="foldlist">
-        <php>$list=js_mysql_vod(cid:3; limit:10;order:vod_hits DESC);</php>
+        <php>$list=js_mysql_vod('cid:3; limit:10;order:vod_hits DESC');</php>
         <volist name="list" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
                 <div class="hisus">
@@ -109,7 +109,7 @@
         <a title="综艺排行榜" class="more" href="/top/zongyi.html">更多榜单&gt;&gt;</a>
     </div>
     <ul class="foldlist">
-        <php>$list=js_mysql_vod(cid:4; limit:10;order:vod_hits DESC);</php>
+        <php>$list=js_mysql_vod('cid:4; limit:10;order:vod_hits DESC');</php>
         <volist name="list" id="vod" key="i">
             <li class="<if condition='$i eq 1'>hover</if>">
                 <div class="hisus">
