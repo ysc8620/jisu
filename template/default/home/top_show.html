@@ -26,8 +26,8 @@
                 <if condition="$j gt 6"><php>break;</php></if>
 <div class="sideCont">
     <div class="inTitle">
-        <h6> &nbsp;<a title="{$cat['list_name']}{$cate['list_name']}排行榜" href="/top/dianying.html"> {$cat['list_name']}{$cate['list_name']}排行榜</a></h6>
-        <a title="{$cat['list_name']}{$cate['list_name']}排行榜" class="more" href="/top/dianying-{$cat['list_dir']}.html">更多榜单&gt;&gt;</a>
+        <h6> &nbsp;<a title="{$cat['list_name']}{$cate['list_name']}排行榜" href="/top/{$cate.list_dir}-{$cat['list_dir']}.html"> {$cat['list_name']}{$cate['list_name']}排行榜</a></h6>
+        <a title="{$cat['list_name']}{$cate['list_name']}排行榜" class="more" href="/top/{$cate.list_dir}-{$cat['list_dir']}.html">更多榜单&gt;&gt;</a>
     </div>
     <ul class="foldlist">
         <php>
@@ -57,62 +57,20 @@
 </div>
 <ul class="trendNavi fr">
     <li ><a title="全部榜单" href="/top/">影视排行榜</a></li>
-    <li <if condition="$list_dir eq 'dianying'">class="active"</if>>
-        <a title="电影榜单" href="/top/dianying.html">电影排行榜<em></em></a>
+    <volist name="list_menu" id="list">
+        <li <if condition="$list_dir eq $list.list_dir">class="active"</if>>
+        <a title="{$list.list_name}榜单" href="/top/{$list.list_dir}.html">{$list.list_name}排行榜<em></em></a>
         <ol>
-            <volist name="list_menu" id="list">
-                <if condition="$list['list_id'] eq 1">
-                    <volist name="list['son']" id="cat" key="i">
-                        <if condition="$i gt 6"><php>break;</php></if>
-                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
-                    </volist>
-                </if>
+            <volist name="list['son']" id="cat" key="i">
+                <if condition="$i gt 6"><php>break;</php></if>
+                <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
             </volist>
 
         </ol>
-    </li>
-    <li  <if condition="$list_dir eq 'dianshi'">class="active"</if>>
-        <a title="电视剧榜单" href="/top/dianshi.html">电视剧排行榜<em></em></a>
-        <ol>
-            <volist name="list_menu" id="list">
-                <if condition="$list['list_id'] eq 2">
-                    <volist name="list['son']" id="cat" key="i">
-                        <if condition="$i gt 6"><php>break;</php></if>
-                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
-                    </volist>
-                </if>
-            </volist>
+        </li>
 
-        </ol>
-    </li>
-    <li  <if condition="$list_dir eq 'dongman'">class="active"</if>>
-        <a title="动漫榜单" href="/top/dongman.html">动漫排行榜<em></em></a>
-        <ol>
-            <volist name="list_menu" id="list">
-                <if condition="$list['list_id'] eq 3">
-                    <volist name="list['son']" id="cat" key="i">
-                        <if condition="$i gt 6"><php>break;</php></if>
-                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
-                    </volist>
-                </if>
-            </volist>
+    </volist>
 
-        </ol>
-    </li>
-    <li <if condition="$list_dir eq 'zongyi'">class="active"</if>>
-        <a title="综艺榜单" href="/top/zongyi.html">综艺排行榜<em></em></a>
-        <ol>
-            <volist name="list_menu" id="list">
-                <if condition="$list['list_id'] eq 4">
-                    <volist name="list['son']" id="cat" key="i">
-                        <if condition="$i gt 6"><php>break;</php></if>
-                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
-                    </volist>
-                </if>
-            </volist>
-
-        </ol>
-    </li>
 
 </ul>
 </div>

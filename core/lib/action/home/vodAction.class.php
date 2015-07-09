@@ -26,6 +26,7 @@ class vodAction extends homeAction{
 		C('currentpage',$Url['page']);
 		$List = list_search(F('_ppvod/list'),'list_dir='.$Url['list_dir']);
 		$channel = $this->Lable_Vod_List($Url,$List[0]);
+
 		$this->assign($channel);
         $this->assign('select_list_dir', $Url['list_dir']);
         $data = $this->fetch($channel['list_skin']);

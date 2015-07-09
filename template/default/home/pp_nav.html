@@ -1,18 +1,17 @@
 <div id="navis">
     <ul>
-        <li <if condition="empty($select_list_dir)">class="active"</if>><a href="{$siteurl}" title="首页">首页<i></i></a></li>
-        <li <if condition="$select_list_dir eq 'dianying'">class="active"</if>><a href="{$siteurl}dianying/" title="电影">电影<i></i></a></li>
-        <li <if condition="$select_list_dir eq 'dianshi'">class="active"</if>><a href="{$siteurl}dianshi/" title="电视剧">电视剧<i></i></a></li>
-        <li <if condition="$select_list_dir eq 'dongman'">class="active"</if>><a href="{$siteurl}dongman/" title="动漫">动漫<i></i></a></li>
-        <li <if condition="$select_list_dir eq 'zongyi'">class="active"</if>><a href="{$siteurl}zongyi/" title="综艺">综艺<i></i></a></li>
-        <if condition="false"> <li <if condition="$select_list_dir eq 'live'">class="active"</if>><a href="http://v.114la.com/live/bjws.html" title="直播">直播</a></li>
-            <li <if condition="$select_list_dir eq 'news'">class="active"</if>><a href="{$siteurl}news/" title="资讯">资讯</a></li>
-        <li <if condition="$select_list_dir eq 'zt'">class="active"</if>><a href="{$siteurl}zt/" title="专题">专题</a></li>
+        <li <if condition="empty($select_list_dir)">class="active"</if>><a href="/" title="首页">首页<i></i></a></li>
+        <volist name="list_menu" id="list">
+        <li <if condition="$select_list_dir eq $list.list_dir'">class="active"</if>><a href="/{$list.list_dir}/" title="{$list.list_name}">{$list.list_name}<i></i></a></li>
+        </volist>
+            <if condition="false"> <li <if condition="$select_list_dir eq 'live'">class="active"</if>><a href="http://v.114la.com/live/bjws.html" title="直播">直播</a></li>
+            <li <if condition="$select_list_dir eq 'news'">class="active"</if>><a href="/news/" title="资讯">资讯</a></li>
+        <li <if condition="$select_list_dir eq 'zt'">class="active"</if>><a href="/zt/" title="专题">专题</a></li>
 
         </if>
-        <li class="more" style="margin-right: 0px"> <if condition="false"><span><a href="{$siteurl}game/" title="游戏"><em style="top:-10px">游戏</em></a></span><span><a target="_blank" href="/mm/" title="美女" >美女</a></span><span><a target="_blank" href="{$siteurl}show/" title="秀场" >秀场</a></span><span><a href="{$siteurl}yule/" title="娱乐" >娱乐</a></span>
+        <li class="more" style="margin-right: 0px"> <if condition="false"><span><a href="/game/" title="游戏"><em style="top:-10px">游戏</em></a></span><span><a target="_blank" href="/mm/" title="美女" >美女</a></span><span><a target="_blank" href="/show/" title="秀场" >秀场</a></span><span><a href="/yule/" title="娱乐" >娱乐</a></span>
         </if>
            <span><a href="/music.html" target="_blank">音乐</a></span>
-        <span><a href="{$siteurl}top/" title="排行榜" >排行榜</a></span><span><a href="/sitemap.html" title="网站地图" >网站地图</a></span><span><a href="/new.html" title="今日更新" >今日更新</a></span></li>
+        <span><a href="/top/" title="排行榜" >排行榜</a></span><span><a href="/sitemap.html" title="网站地图" >网站地图</a></span><span><a href="/new.html" title="今日更新" >今日更新</a></span></li>
     </ul>
 </div>

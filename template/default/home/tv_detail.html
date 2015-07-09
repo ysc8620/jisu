@@ -16,7 +16,7 @@
 <div class="wrap clearfix">
   <div class="moiveDetails">
     <div class="detailsTop">
-      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}dianshi/">电视剧</a><i>></i><em>{$vod_name}</em></p>
+      <p>您的当前位置：<a href="{$siteurl}">影视频道</a><i>></i><a href="{$siteurl}{$select_list_dir}/">电视剧</a><i>></i><em>{$vod_name}</em></p>
     </div>
     <!-- 影片介绍 -->
     <div class="movieDescription clearfix">
@@ -158,13 +158,13 @@
                   $top  = js_mysql_vod("cid:2;limit:10;order:vod_hits desc,  vod_addtime desc");
                   }
               </php>
-            <h3 title="热门排行榜" style="margin-bottom:0px;"><a href="{$siteurl}top/dianshi.html" title="热门排行榜" target="_blank">热门排行榜</a></h3>
+            <h3 title="热门排行榜" style="margin-bottom:0px;"><a href="{$siteurl}top/{$select_list_dir}.html" title="热门排行榜" target="_blank">热门排行榜</a></h3>
             <div class="contabs">
               <ul>
                 <li class="current"><a href="javascript:;">最新</a></li>
                 <li><a href="javascript:;">最热</a></li>
               </ul>
-              <a href="{$siteurl}top/dianshi.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
+              <a href="{$siteurl}top/{$select_list_dir}.html" class="more" target="_blank">更多&gt;&gt;</a> </div>
           </div>
           <div class="ingrep-Cont" style="display:block;">
             <ul class="foldlist  guid-col2list">
