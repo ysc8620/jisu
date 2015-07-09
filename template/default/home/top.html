@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>2015电视剧大全-最新-好看的电视剧-电视剧排行榜-{$sitename}</title>
+    <link rel="icon" href="{$siteurl}favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="{$siteurl}favicon.ico" type="image/x-icon" />
+    <meta name="keywords" content="电视剧大全，最新电视剧，好看的电视剧，电视剧排行榜" />
+    <meta name="description" content="114la影视导航为您提供2015电视剧大全，最新电视剧，好看的电视剧全集，电视剧排行榜，经典电视剧，热播电视剧等高清免费在线观看。" />
+    <link href="{$tpl}/css/style.css" rel="stylesheet" />
+</head>
+<body>
+<include file="home:pp_header" />
+<include file="home:pp_nav" />
+<div class="wrapper">
+<div class="brecam">您的当前位置：<a href="/">{$sitename}首页</a><i>&gt;</i><a href="/top/">排行榜</a></div>
+<div class="comwrap clearfix">
+<div class="leftSide fl">
+<div class="inTitle">
+    <h6>影视排行榜</h6>
+    <a class="more" href="/top/">更多榜单&gt;&gt;</a>
+</div>
+<div class="trendList clearfix">
+
+<div class="sideCont">
+    <div class="inTitle">
+        <h6><a title="电影排行榜" href="/top/dianying.html">电影排行榜</a></h6>
+        <a title="电影排行榜" class="more" href="/top/dianying.html">更多榜单&gt;&gt;</a>
+    </div>
+    <ul class="foldlist">
+        <php>$list=js_mysql_vod(cid:1; limit:10;order:vod_hits DESC);</php>
+        <volist name="list" id="vod" key="i">
+        <li class="<if condition='$i eq 1'>hover</if>">
+            <div class="hisus">
+                <a class="img" href="{$vod['vod_readurl']}">
+                    <img alt="{$vod['vod_name']}" src="{$vod['vod_picurl']}">
+                    <b>{$i}</b>
+                </a>
+                <div class="imr">
+                    <h4>{$vod['vod_name']}</h4>
+                    <p>类型：{$vod['vod_class_name']}</p>
+                    <p>主演：{$vod['vod_actor']}</p>
+                    <a class="p" href="{$vod['vod_readurl']}">立即播放</a>
+                </div>
+            </div>
+            <p><em>{$i}</em><a href="{$vod['vod_readurl']}">{$vod['vod_name']}</a><span></span></p>
+        </li>
+        </volist>
+    </ul>
+</div>
+<div class="sideCont">
+    <div class="inTitle">
+        <h6><a title="电视剧排行榜" href="/top/tv.html">电视剧排行榜</a></h6>
+        <a title="电视剧排行榜" class="more" href="/top/tv.html">更多榜单&gt;&gt;</a>
+    </div>
+    <ul class="foldlist">
+        <php>$list=js_mysql_vod(cid:2; limit:10;order:vod_hits DESC);</php>
+        <volist name="list" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus">
+                    <a class="img" href="{$vod['vod_readurl']}">
+                        <img alt="{$vod['vod_name']}" src="{$vod['vod_picurl']}">
+                        <b>{$i}</b>
+                    </a>
+                    <div class="imr">
+                        <h4>{$vod['vod_name']}</h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>主演：{$vod['vod_actor']}</p>
+                        <a class="p" href="{$vod['vod_readurl']}">立即播放</a>
+                    </div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}">{$vod['vod_name']}</a><span></span></p>
+            </li>
+        </volist>
+
+    </ul>
+</div>
+<div class="sideCont">
+    <div class="inTitle">
+        <h6><a title="动漫排行榜" href="/top/anime.html">动漫排行榜</a></h6>
+        <a title="动漫排行榜" class="more" href="/top/anime.html">更多榜单&gt;&gt;</a>
+    </div>
+    <ul class="foldlist">
+        <php>$list=js_mysql_vod(cid:3; limit:10;order:vod_hits DESC);</php>
+        <volist name="list" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus">
+                    <a class="img" href="{$vod['vod_readurl']}">
+                        <img alt="{$vod['vod_name']}" src="{$vod['vod_picurl']}">
+                        <b>{$i}</b>
+                    </a>
+                    <div class="imr">
+                        <h4>{$vod['vod_name']}</h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>主演：{$vod['vod_actor']}</p>
+                        <a class="p" href="{$vod['vod_readurl']}">立即播放</a>
+                    </div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}">{$vod['vod_name']}</a><span></span></p>
+            </li>
+        </volist>
+
+    </ul>
+</div>
+<div class="sideCont">
+    <div class="inTitle">
+        <h6><a title="综艺排行榜" href="/top/zongyi.html">综艺排行榜</a></h6>
+        <a title="综艺排行榜" class="more" href="/top/zongyi.html">更多榜单&gt;&gt;</a>
+    </div>
+    <ul class="foldlist">
+        <php>$list=js_mysql_vod(cid:4; limit:10;order:vod_hits DESC);</php>
+        <volist name="list" id="vod" key="i">
+            <li class="<if condition='$i eq 1'>hover</if>">
+                <div class="hisus">
+                    <a class="img" href="{$vod['vod_readurl']}">
+                        <img alt="{$vod['vod_name']}" src="{$vod['vod_picurl']}">
+                        <b>{$i}</b>
+                    </a>
+                    <div class="imr">
+                        <h4>{$vod['vod_name']}</h4>
+                        <p>类型：{$vod['vod_class_name']}</p>
+                        <p>主演：{$vod['vod_actor']}</p>
+                        <a class="p" href="{$vod['vod_readurl']}">立即播放</a>
+                    </div>
+                </div>
+                <p><em>{$i}</em><a href="{$vod['vod_readurl']}">{$vod['vod_name']}</a><span></span></p>
+            </li>
+        </volist>
+    </ul>
+</div>
+
+</div>
+</div>
+<ul class="trendNavi fr">
+    <li class="active"><a title="全部榜单" href="/top/">影视排行榜</a></li>
+    <li>
+        <a title="电影榜单" href="/top/dianying.html">电影排行榜<em></em></a>
+        <ol>
+            <volist name="list_menu" id="list">
+                <if condition="$list['list_id'] eq 1">
+                    <volist name="list['son']" id="cat" key="i">
+                        <if condition="$i gt 6"><php>break;</php></if>
+                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
+                    </volist>
+                </if>
+            </volist>
+
+        </ol>
+    </li>
+    <li>
+        <a title="电视剧榜单" href="/top/dianshi.html">电视剧排行榜<em></em></a>
+        <ol>
+            <volist name="list_menu" id="list">
+                <if condition="$list['list_id'] eq 2">
+                    <volist name="list['son']" id="cat" key="i">
+                        <if condition="$i gt 6"><php>break;</php></if>
+                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
+                    </volist>
+                </if>
+            </volist>
+
+        </ol>
+    </li>
+    <li>
+        <a title="动漫榜单" href="/top/dongman.html">动漫排行榜<em></em></a>
+        <ol>
+            <volist name="list_menu" id="list">
+                <if condition="$list['list_id'] eq 3">
+                    <volist name="list['son']" id="cat" key="i">
+                        <if condition="$i gt 6"><php>break;</php></if>
+                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
+                    </volist>
+                </if>
+            </volist>
+
+        </ol>
+    </li>
+    <li>
+        <a title="综艺榜单" href="/top/zongyi.html">综艺排行榜<em></em></a>
+        <ol>
+            <volist name="list_menu" id="list">
+                <if condition="$list['list_id'] eq 4">
+                    <volist name="list['son']" id="cat" key="i">
+                        <if condition="$i gt 6"><php>break;</php></if>
+                        <li><a href="/top/{$list['list_dir']}-{$cat['list_dir']}.html" title="{$cat['list_name']}">{$cat['list_name']}</a></li>
+                    </volist>
+                </if>
+            </volist>
+
+        </ol>
+    </li>
+
+</ul>
+</div>
+</div>
+<include file="home:pp_footer" />
+</body>
+</html>
