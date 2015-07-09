@@ -6,8 +6,8 @@
 <meta name="description" content="电影大全为您提供好看的动作片,动作电影在线观看及高清下载，在线看动作电影选择114la电影大全。" />
 <meta name="keywords" content="动作电影,动作片" />
 <title>{$title}</title>
-<link href="{$tpl}/css/style.css?v2013" rel="stylesheet" />
-<link href="{$tpl}/css/typeSear.css?v2013" rel="stylesheet" />
+<link href="{$tpl}/css/style.css" rel="stylesheet" />
+<link href="{$tpl}/css/typeSear.css" rel="stylesheet" />
 </head>
 <body>
 <php>
@@ -15,9 +15,12 @@ $list = js_mysql_vod("list_dir:$list_dir;cid:$list_id;class_id:$class_id;year:$y
 </php>
 <include file="home:pp_header" /> 
 <include file="home:pp_nav" />
+
 <div class="wrap clearfix">
+
   <div class="wrapper typeSear">
     <div class="blank10"></div>
+      {:getadsurl('list_1')}
     <div class="blank10"></div>
     <div class="typeSearBox">
       <div class="typeSearTitle clearfix">
@@ -68,6 +71,7 @@ $list = js_mysql_vod("list_dir:$list_dir;cid:$list_id;class_id:$class_id;year:$y
       </div>
     </div>
     <div class="blank10"></div>
+      {:getadsurl('list_2')}
     <div class="blank10"></div>
     <div class="typeMovieContent">
       <ul>
@@ -82,16 +86,15 @@ $list = js_mysql_vod("list_dir:$list_dir;cid:$list_id;class_id:$class_id;year:$y
     <div class="blank10"></div>
     <div class="blank10"></div>
     <div class="wdTuijuan">
-      <div class="typeSearTitle clearfix">
+        <if condition="false">
+        <div class="typeSearTitle clearfix">
         <dl class="clearfix">
           <dt><a href="javascript:">精彩推荐</a></dt>
         </dl>
       </div>
       <div class="tuijuanLink"> <a target="_blnak" href="{$siteurl}zt/dianying/zhouxingchi.html">周星驰电影全集</a> <a target="_blnak" href="{$siteurl}zt/dianying/sex.html">黄渤电影全集</a> <a target="_blnak" href="{$siteurl}mingxing-4368.html">周润发电影全集</a> <a target="_blnak" href="{$siteurl}zt/dianying/lunli.html">宋丹丹电视剧大全</a> <a target="_blnak" href="{$siteurl}dianshi/274-0-0.html">神话电视剧</a> <a target="_blnak" href="{$siteurl}zt/dianying/lixiaolong.html ">李小龙电影</a> <a target="_blnak" href="{$siteurl}zt/dianying/jiangshi.html">林正英僵尸电影全集</a> <a target="_blnak" href="{$siteurl}mingxing-4358.html">成龙电影全集</a> </div>
+   </if>
     </div>
-    <div class="blank10"></div>
-    <div class="blank10"></div>
-    <div class="blank10"></div>
     <div class="blank10"></div>
   </div>
 </div>
