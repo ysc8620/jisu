@@ -11,7 +11,8 @@
 </head>
 <body>
 <php>
-$list = js_mysql_vod("cid:$list_id;class_id:$class_id;year:$year;area:$area;page:$page;limit:36;order:vod_addtime desc");
+    $list_data = js_mysql_vod("cid:$list_id;class_id:$class_id;year:$year;area:$area;page:$page;limit:36;order:vod_addtime desc");
+
 </php>
 <include file="home:pp_header" /> 
 <include file="home:pp_nav" />
@@ -75,7 +76,8 @@ $list = js_mysql_vod("cid:$list_id;class_id:$class_id;year:$year;area:$area;page
     <div class="blank10"></div>
     <div class="typeMovieContent">
       <ul>
-          <volist name="list" id="vod">
+          <volist name="list_data" id="vod">
+
         <li> <a href="{$vod['vod_readurl']}"> <img src="{$siteurl}/images/loading.gif" data-original="{$vod['vod_picurl']}" alt="{$vod['vod_name']}"> <span title="{$vod['vod_name']}">{$vod['vod_name']}</span> <b title="{$vod['vod_actor']}">{$vod['vod_actor']}</b> </a> </li>
           </volist>
       </ul>
