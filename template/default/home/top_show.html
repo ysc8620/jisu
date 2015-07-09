@@ -58,7 +58,7 @@
 <ul class="trendNavi fr">
     <li ><a title="全部榜单" href="/top/">影视排行榜</a></li>
     <volist name="list_menu" id="list">
-        <li <if condition="$list_dir eq $list.list_dir">class="active"</if>>
+        <li <if condition="$cate.list_dir eq $list.list_dir">class="active"</if>>
         <a title="{$list.list_name}榜单" href="/top/{$list.list_dir}.html">{$list.list_name}排行榜<em></em></a>
         <ol>
             <volist name="list['son']" id="cat" key="i">
