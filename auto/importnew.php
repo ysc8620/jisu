@@ -92,12 +92,11 @@ function list_search($list,$condition) {
     return $resultSet;
 }
 $url = 'http://www.kuaikan123.com/index.php?';
-$time = date("Y-m-d");
+$time = date("Y-m-d H");
 if(isset($_GET['time']) ){
     if($_GET['time']){
         $time = $_GET['time'];
     }
-
 }
 
 
