@@ -125,7 +125,7 @@ do{
     $html = load($url2);
     $list_data = (array)json_decode($html);
     if($list_data['error'] != 200){
-        // header("Location: /auto/create.php");
+       // header("Location: /auto/create.php");
         break;
     }
 
@@ -231,7 +231,7 @@ do{
     }
 
     if(count($list_data['list']) < $size){
-        //  return header("Location: /auto/create.php");
+      //  return header("Location: /auto/create.php");
         break;
 
     }
@@ -248,7 +248,7 @@ do{
 setTimeout(function(){ window.location.href="?i=$i&time=$time"}, 100);</script>
 DOC;
 
-    die();
+die();
 }while(false);
 
 $url = 'http://www.kuaikan123.com/index.php?';
