@@ -105,6 +105,7 @@ $i = isset($_GET['i'])?intval($_GET['i']):1;
 $i = $i<1?1:$i;
 $size = 5;
 do{
+    echo "i=$i; time=$time<br/>";
 // 入库
     $data =array();
     $data['time'] = strtotime($time);
@@ -247,7 +248,8 @@ do{
 setTimeout(function(){ window.location.href="?i=$i&time=$time"}, 100);</script>
 DOC;
 
-}while(true);
+
+}while(false);
 
 $url = 'http://www.kuaikan123.com/index.php?';
 // 首页
