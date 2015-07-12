@@ -247,6 +247,8 @@ do{
 
     $i++;
 
+    if($i>100){break;}
+
     echo <<<DOC
 <script type='text/javascript'>
 
