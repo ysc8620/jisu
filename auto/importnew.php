@@ -248,7 +248,7 @@ do{
 setTimeout(function(){ window.location.href="?i=$i&time=$time"}, 100);</script>
 DOC;
 
-
+die();
 }while(false);
 
 $url = 'http://www.kuaikan123.com/index.php?';
