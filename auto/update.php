@@ -86,7 +86,7 @@ function list_search($list,$condition) {
     return $resultSet;
 }
 $root = dirname(dirname(__FILE__));
-$url = 'http://www.kuaikan123.com/index.php?';
+$url = $config['site_url'] . 'index.php?';
 $time = @file_get_contents(dirname(__FILE__).'/update_time.log');
 $time = ($time);
 file_put_contents(dirname(__FILE__).'/update_time.log', date("Y-m-d H:i:s"));

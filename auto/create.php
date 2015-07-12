@@ -88,7 +88,7 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-$url = 'http://www.kuaikan123.com/index.php?';
+$url = $config['site_url'] . 'index.php?';
 // 首页
  //   if(!file_exists($root . '/index.html')){
         load ($url."m=index&a=index");

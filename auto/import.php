@@ -35,6 +35,9 @@ $listtree = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/listtree.p
 $user_agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.1.4322)";
 $header = array ();
 
+//print_r($config);
+//die();
+
 function load($url){
     echo $url."\n";
 
@@ -91,7 +94,8 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-$url = 'http://www.kuaikan123.com/index.php?';
+$url = $config['site_url'] . 'index.php?';
+
 $time = date("Y-m-d");
 if(isset($_GET['time']) ){
     if($_GET['time']){
@@ -219,6 +223,7 @@ do{
         if($vod){
             echo "update\n";
             $id = $vod['vod_id'];
+
             DB::init()->update($data, $vod['vod_id']);
         }else{
             echo "insert-{$row['id']}\n";
@@ -240,7 +245,7 @@ do{
     $i++;
 }while(true);
 
-$url = 'http://www.kuaikan123.com/index.php?';
+$url = $config['site_url'] . 'index.php?';
 // 首页
 //   if(!file_exists($root . '/index.html')){
 load ($url."m=index&a=index");
