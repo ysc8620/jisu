@@ -39,7 +39,7 @@ if($_GET['test'] == 'test'){
     echo "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}";
 }
 if(md5($str) != $md5){
-    die(json_encode(array('error'=>100)));
+ //   die(json_encode(array('error'=>100)));
 }
 
 
