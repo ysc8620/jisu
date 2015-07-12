@@ -245,7 +245,7 @@ do{
     //break;
 
     $i++;
-
+        if($i>100){braek;}
     echo <<<DOC
 <script type='text/javascript'>
 
