@@ -92,7 +92,12 @@ function list_search($list,$condition) {
     return $resultSet;
 }
 $url = $config['site_url'] . 'index.php?';
-$time = date("Y-m-d H");
+if(date("H") < "07"){
+    $time = date("Y-m-d");
+}else{
+    $time = date("Y-m-d H",strtotime( "-2 Hours"));
+}
+
 if(isset($_GET['time']) ){
     if($_GET['time']){
         $time = $_GET['time'];
