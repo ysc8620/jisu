@@ -97,7 +97,7 @@ if(date("H") < "07"){
 }else{
     $time = date("Y-m-d H",strtotime( "-2 Hours"));
 }
-
+echo $time;die();
 if(isset($_GET['time']) ){
     if($_GET['time']){
         $time = $_GET['time'];
