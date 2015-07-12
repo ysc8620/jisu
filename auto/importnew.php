@@ -224,10 +224,10 @@ do{
             echo "update\n";
             $id = $vod['vod_id'];
 
-            DB::init()->update($data, $vod['vod_id'], true);
+            DB::init()->update($data, $vod['vod_id']);
         }else{
             echo "insert-{$row['id']}\n";
-            DB::init()->insert($data, true);
+            DB::init()->insert($data);
             $id = mysql_insert_id();
         }
 
