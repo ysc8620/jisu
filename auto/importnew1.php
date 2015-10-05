@@ -6,8 +6,6 @@
  * Email: ysc8620@163.com
  * QQ: 372613912
  */
-
-
 date_default_timezone_set('asia/shanghai');
 $keyword = '2015!@#!';
 header("Content-type: text/html; charset=utf-8");
@@ -36,9 +34,6 @@ $listtree = @include_once(dirname(__FILE__) .'/../runtime/data/_ppvod/listtree.p
 /*模拟浏览器*/
 $user_agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.1.4322)";
 $header = array ();
-
-//print_r($config);
-//die();
 
 function load($url){
     echo $url."\n";
@@ -96,8 +91,7 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-$url = $config['site_url'] . 'index.php?';
-
+$url = 'http://www.kuaikan123.com/index.php?';
 $time = date("Y-m-d");
 if(isset($_GET['time']) ){
     if($_GET['time']){
@@ -111,6 +105,7 @@ $i = isset($_GET['i'])?intval($_GET['i']):1;
 $i = $i<1?1:$i;
 $size = 5;
 do{
+    echo "i=$i; time=$time<br/>";
 // 入库
     $data =array();
     $data['time'] = strtotime($time);
@@ -225,13 +220,10 @@ do{
         if($vod){
             echo "update\n";
             $id = $vod['vod_id'];
-
-
-            DB::init()->update($data, $vod['vod_id'], true);
+            DB::init()->update($data, $vod['vod_id'],true);
         }else{
             echo "insert-{$row['id']}\n";
-            DB::init()->insert($data, true);
-
+            DB::init()->insert($data,true);
             $id = mysql_insert_id();
         }
 
@@ -249,9 +241,17 @@ do{
     //break;
 
     $i++;
-}while(true);
 
-$url = $config['site_url'] . 'index.php?';
+    echo <<<DOC
+<script type='text/javascript'>
+
+setTimeout(function(){ window.location.href="?i=$i&time=$time"}, 100);</script>
+DOC;
+
+die();
+}while(false);
+
+$url = 'http://www.kuaikan123.com/index.php?';
 // 首页
 //   if(!file_exists($root . '/index.html')){
 load ($url."m=index&a=index");

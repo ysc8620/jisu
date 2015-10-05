@@ -91,7 +91,9 @@ function list_search($list,$condition) {
     }
     return $resultSet;
 }
-$url = 'http://www.kuaikan123.com/index.php?';
+
+$url = $config['site_url'] . 'index.php?';
+
 if(date("H") < "07"){
     $time = date("Y-m-d");
 }else{
@@ -129,7 +131,9 @@ do{
     $html = load($url2);
     $list_data = (array)json_decode($html);
     if($list_data['error'] != 200){
-       // header("Location: /auto/create.php");
+
+        // header("Location: /auto/create.php");
+
         break;
     }
 
@@ -235,7 +239,9 @@ do{
     }
 
     if(count($list_data['list']) < $size){
-      //  return header("Location: /auto/create.php");
+
+        //  return header("Location: /auto/create.php");
+
         break;
 
     }
@@ -245,14 +251,18 @@ do{
     //break;
 
     $i++;
-        if($i>100){braek;}
+
+
+    if($i>100){break;}
+
+
     echo <<<DOC
 <script type='text/javascript'>
 
 setTimeout(function(){ window.location.href="?i=$i&time=$time"}, 100);</script>
 DOC;
 
-die();
+    die();
 }while(false);
 echo <<<DOC
 <script type='text/javascript'>
@@ -261,4 +271,9 @@ window.opener=null;
 window.open('','_self');
 window.close();
 </script>
+<<<<<<< HEAD
 DOC;
+=======
+DOC
+;
+>>>>>>> tiangua
