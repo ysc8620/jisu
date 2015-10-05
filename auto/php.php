@@ -30,13 +30,13 @@ foreach($data as $key=>$val){
     $str .= $key.'='.$val.'&';
 }
 
-$time = date("Y-m-d H:i:s", $data['time']);
+$time = strtotime(date("Y-m-d H:i:s", $data['time']));
 $str .= $keyword;
 $i = ($data['page'] -1 ) * $data['size'];
 if($_GET['test'] == 'test'){
     print_r($str);
     print_r(md5($str));
-    echo "SELECT * FROM js_vods WHERE update_time>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}";
+    echo "SELECT * FROM js_vods WHERE uptime>'$time' ORDER BY id ASC LIMIT $i, {$data['size']}";
 }
 if(md5($str) != $md5){
     die(json_encode(array('error'=>100)));
