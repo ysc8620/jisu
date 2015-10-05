@@ -25,7 +25,6 @@ class DB{
     static private $ob = null;
     private  function __construct(){
         global $config;
-        echo $config['db_name'].'=====';
         $this->conn = mysql_connect($config['db_host'], $config['db_user'], $config['db_pwd']) OR DIE('ERROR CONNECT');
         mysql_select_db($config['db_name'], $this->conn) OR DIE('ERROR DB');
         mysql_query('SET NAMES '.$config['db_charset']);
