@@ -9,6 +9,7 @@
 date_default_timezone_set('asia/shanghai');
 header("Content-type: application/json");
 set_time_limit(0);
+error_reporting(0);
 if(!file_exists(  dirname(__FILE__) .'/../runtime/conf/config.php')){
     die('conf config no exists');
 }
@@ -43,5 +44,5 @@ if(md5($str) != $md5){
 }
 
 
-$list_data = DB::init()->getList("SELECT * FROM js_vods WHERE uptime>'$time' ORDER BY id DESC LIMIT $i, {$data['size']}");
+$list_data = DB::init()->getList("SELECT * FROM js_vods WHERE uptime>'$time' ORDER BY uptime DESC LIMIT $i, {$data['size']}");
 echo json_encode(array('error'=>200,'sql'=>"SELECT * FROM js_vods WHERE uptime>'$time' ORDER BY id DESC LIMIT $i, {$data['size']}", 'list'=>$list_data));
